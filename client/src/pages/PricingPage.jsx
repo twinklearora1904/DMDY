@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Pricing from '../components/Pricing';
 
 const PricingPage = () => {
+  useEffect(() => {
+    document.title = 'Transparent Growth Plans & Pricing Models — DMDY';
+  }, []);
+
   return (
-    <div className="pt-24 bg-white relative overflow-hidden">
+    <div className="pt-28 sm:pt-36 pb-12 sm:pb-20 bg-slate-50 relative overflow-hidden min-h-screen font-sans">
       {/* Background gradients for premium feel */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(239,246,255,0.8)_0%,rgba(255,255,255,1)_50%)] pointer-events-none"></div>
-      <div className="absolute top-20 right-10 w-96 h-96 bg-cyan-50/50 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[140px] pointer-events-none"></div>
       
       <div className="relative z-10">
         <Pricing />

@@ -9,4 +9,34 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-module.exports = cloudinary;
+const uploadStreamToCloudinary = (fileBuffer, folder = "dmdy_blogs") => {
+    return new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+            {
+                folder,
+                resource_type: "image",
+                allowed_formats: ["jpg", "jpeg", "png", "webp"],
+            },
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result);
+            }
+        );
+        stream.end(fileBuffer);
+    });
+};
+
+const deleteFromCloudinary = async (publicId) => {
+    if (!publicId) return;
+    try {
+        await cloudinary.uploader.destroy(publicId);
+    } catch (err) {
+        console.error("Cloudinary deletion failed:", err.message);
+    }
+};
+
+module.exports = {
+    cloudinary,
+    uploadStreamToCloudinary,
+    deleteFromCloudinary,
+};

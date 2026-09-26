@@ -7,12 +7,14 @@ const {
     deleteLead,
 } = require("../controllers/leadController");
 const { protect, admin } = require("../middleware/authMiddleware");
+const leadLimiter = require("../middleware/leadLimiter");
 
 const { check } = require("express-validator");
 const { validate } = require("../middleware/validateMiddleware");
 
 router.route("/")
     .post(
+        leadLimiter,
         [
             check("name", "Name is required").not().isEmpty(),
             check("email", "Please include a valid email").isEmail(),

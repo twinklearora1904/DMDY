@@ -5,33 +5,46 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
   body {
-    @apply font-sans bg-slate-50 text-slate-900;
+    @apply font-sans bg-slate-50 text-slate-900 selection:bg-pink-500/20 selection:text-pink-900;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 }
 
 @layer components {
   /* Brand-style Buttons */
   .btn-primary {
-    @apply bg-brandPrimary text-white hover:bg-indigo-700 font-semibold py-2.5 px-6 rounded-md transition-all shadow-md;
+    @apply bg-gradient-to-r from-[#00AED6] to-[#E6007A] text-white hover:opacity-95 font-bold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-[0.98];
   }
   
   .btn-secondary {
-    @apply bg-white border border-brandPrimary text-brandPrimary hover:bg-indigo-50 font-semibold py-2.5 px-6 rounded-md transition-all;
+    @apply bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold py-3 px-6 rounded-xl transition-all shadow-sm active:scale-[0.98];
   }
   
   .btn-gradient {
-    @apply bg-gradient-to-r from-brandPrimary to-brandSecondary text-white hover:opacity-90 font-semibold py-2.5 px-6 rounded-md transition-all shadow-md;
+    @apply bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] text-white hover:opacity-95 font-bold py-3 px-6 rounded-xl transition-all shadow-lg active:scale-[0.98];
   }
 
-  /* Keep basic glass effect for cards if needed, but adapt for light mode */
+  /* Executive Glass and Card Utilities */
   .glass {
-    @apply bg-white shadow-sm border border-slate-200;
+    @apply bg-white/80 backdrop-blur-md shadow-sm border border-slate-200/80;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }
 }
 
 @layer utilities {
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brandPrimary to-brandSecondary;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623];
   }
 }

@@ -12,7 +12,8 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({ email });
+        const normalizedEmail = typeof email === "string" ? email.trim().toLowerCase() : "";
+        const user = await User.findOne({ email: normalizedEmail });
 
         if (user && (await bcrypt.compare(password, user.password))) {
             res.json({

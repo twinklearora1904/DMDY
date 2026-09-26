@@ -4,11 +4,11 @@ import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-slate-400 pt-20 pb-10 font-sans">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <footer className="bg-slate-950 text-slate-400 pt-12 sm:pt-20 pb-8 sm:pb-12 font-sans border-t border-slate-800/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Links */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-10 sm:mb-16">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
               <img src={logo} alt="DMDY Logo" className="h-10 w-auto" />
@@ -21,7 +21,7 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">Services</h4>
             <ul className="space-y-3">
-              <li><Link to="/services" className="hover:text-white transition-colors">Search Engine Optimization</Link></li>
+              <li><Link to="/services/seo" className="hover:text-white transition-colors">Search Engine Optimization</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors">Performance Marketing</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors">Web Development</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors">Conversion Optimization</Link></li>
@@ -41,15 +41,15 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">Legal</h4>
             <ul className="space-y-3">
-              <li><Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link to="#" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li><Link to="/admin/login" className="hover:text-white transition-colors">Admin Login</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        <div className="pt-6 sm:pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-center md:text-left">
           <div>
             &copy; {new Date().getFullYear()} DMDY Digital. All rights reserved.
           </div>

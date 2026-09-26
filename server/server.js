@@ -15,13 +15,32 @@ const connectDB = require("./config/db");
 // Connect to MongoDB
 connectDB();
 
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174",
+].filter(Boolean);
+
 const corsOptions = {
-    origin: process.env.CLIENT_URL,
+    origin: (origin, callback) => {
+        // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin) || process.env.NODE_ENV !== "production") {
+            return callback(null, true);
+        }
+        return callback(new Error("CORS policy does not allow access from this origin."));
+    },
     credentials: true,
 };
 
 const app = express();
-app.use(helmet());
+app.use(
+    helmet({
+        crossOriginResourcePolicy: { policy: "cross-origin" },
+    })
+);
 app.use(cors(corsOptions));
 app.use(express.json());
 

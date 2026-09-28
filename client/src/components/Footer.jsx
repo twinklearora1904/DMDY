@@ -13,10 +13,6 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img src={logo} alt="DMDY Logo" className="h-10 w-auto" />
             </Link>
-            <div className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300 mb-5">
-              <span>Powered by</span>
-              <span className="text-white font-bold tracking-wide">Atul Rathaur</span>
-            </div>
             <p className="leading-relaxed mb-8 max-w-sm">
               We are a performance-obsessed digital marketing agency focused on driving real revenue growth for ambitious brands worldwide.
             </p>

@@ -427,7 +427,7 @@ const Home = () => {
           </div>
 
           {/* Footer CTA */}
-          <div className="mt-12 sm:mt-16 max-w-5xl mx-auto p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 bg-slate-50 rounded-3xl border border-slate-100">
+          <div className="mt-12 sm:mt-16 w-full p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 bg-slate-50 rounded-3xl border border-slate-100">
             <div className="text-center md:text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">Not sure where to start?</h3>
               <p className="text-sm sm:text-base text-slate-600 font-normal">That's exactly what we're here for. Let's figure it out together.</p>

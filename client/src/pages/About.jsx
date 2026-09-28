@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Users, Target, Zap, ArrowRight, CheckCircle2, ShieldCheck, Award, Sparkles, Layers, Eye, Compass, Building2, HeartPulse, ShoppingCart, GraduationCap, Store, UtensilsCrossed, Briefcase, Building, Globe } from 'lucide-react';
+import { TrendingUp, Users, Target, Zap, ArrowRight, CheckCircle2, ShieldCheck, Award, Sparkles, Layers, Eye, Compass, Building2, HeartPulse, ShoppingCart, GraduationCap, Store, UtensilsCrossed, Briefcase, Building, Globe, Quote } from 'lucide-react';
 import aboutHeroGrowthImg from '../assets/about_hero_growth.jpg';
 
 const About = () => {
@@ -346,29 +346,29 @@ const About = () => {
       </section>
 
       {/* Section 4: Our Vision & Mission */}
-      <section className="py-16 sm:py-24 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         {/* Subtle Ambient Background Gradients */}
         <div className="absolute top-1/2 left-0 w-80 h-80 bg-cyan-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
         <div className="absolute top-1/2 right-0 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           
           {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
+          <div className="mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3 shadow-xs">
               <Compass className="w-3.5 h-3.5 text-[#00AED6]" />
               <span>Guiding Principles</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
               Our{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
-                Vision & Mission
+                Vision &amp; Mission
               </span>
             </h2>
           </div>
 
           {/* Cards Grid: Vision & Mission */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
             
             {/* Our Vision Card */}
             <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-xl transition-all duration-300 relative flex flex-col justify-between group overflow-hidden">
@@ -426,16 +426,16 @@ const About = () => {
       </section>
 
       {/* Section 5: The Numbers Behind Our Work */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative overflow-hidden">
         {/* Subtle Ambient Background Gradients */}
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan-50/50 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
         <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-pink-50/50 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           
           {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4">
+          <div className="mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
               <Award className="w-3.5 h-3.5 text-[#00AED6]" />
               <span>Proven Track Record</span>
             </div>
@@ -448,7 +448,7 @@ const About = () => {
           </div>
 
           {/* 3 Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full">
             
             {/* Stat 1: 10+ Years of Experience */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden">
@@ -495,32 +495,32 @@ const About = () => {
       </section>
 
       {/* Section 6: Industries We Empower */}
-      <section className="py-16 sm:py-24 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         {/* Subtle Ambient Background Gradients */}
         <div className="absolute top-1/2 left-0 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
         <div className="absolute top-1/2 right-0 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           
           {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
+          <div className="mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3 shadow-xs">
               <Globe className="w-3.5 h-3.5 text-[#00AED6]" />
               <span>Industry Reach</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
               Industries We{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                 Empower
               </span>
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-3xl">
               We create tailored digital strategies for businesses across multiple sectors:
             </p>
           </div>
 
           {/* Industries Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
             
             {/* 1. Real Estate */}
             <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
@@ -617,22 +617,230 @@ const About = () => {
         </div>
       </section>
 
-      {/* Section 7: Why Clients Choose DMDY */}
-      <section className="py-16 sm:py-15 bg-white border-b border-slate-200/80 relative overflow-hidden">
+      {/* Section 7: The Vision Behind DMDY & The People Behind the Vision */}
+      <section className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
+          
+          {/* Main Section Header */}
+          <div className="mb-8">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
+              <Users className="w-3.5 h-3.5 text-[#00AED6]" />
+              <span>Founders &amp; Leadership</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              The Vision Behind{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                DMDY
+              </span>
+            </h2>
+            <p className="text-lg sm:text-xl font-bold text-slate-800 leading-snug">
+              Three founders. One vision. Infinite possibilities for brands.
+            </p>
+          </div>
+
+          {/* Narrative Card */}
+          <div className="w-full mb-12 p-6 sm:p-8 rounded-3xl bg-slate-50/70 border border-slate-200/80 shadow-xs space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed text-left">
+            <p>
+              DMDY — Digi Me Digi You was built on a simple idea: digital marketing should be strategic, transparent, and accessible to every business. What began as a shared vision between three professionals has grown into a 360° digital marketing agency that helps brands build authority, generate leads, and scale with confidence.
+            </p>
+            <p className="font-semibold text-slate-800">
+              We don't believe in selling services—we believe in building long-term growth partnerships. Every strategy we create is tailored to the client's industry, audience, and business goals.
+            </p>
+          </div>
+
+          {/* Subsection: The People Behind the Vision */}
+          <div className="mb-8">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              The People Behind the{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                Vision
+              </span>
+            </h3>
+          </div>
+
+          {/* 3 Founders Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full">
+            
+            {/* 1. Twinkle Arora */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00AED6] to-[#007799] text-white flex items-center justify-center font-black text-xl shadow-md shadow-cyan-500/20 mb-5 group-hover:scale-105 transition-transform">
+                  TA
+                </div>
+                <h4 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1 group-hover:text-[#00AED6] transition-colors">
+                  Twinkle Arora
+                </h4>
+                <div className="inline-block px-3 py-1 rounded-full bg-cyan-50 text-[#00AED6] text-xs font-bold border border-cyan-200/80 mb-3">
+                  Founder &amp; Director
+                </div>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                  Vision • Brand Growth • Client Leadership
+                </p>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  As the Founder &amp; Director of DMDY, Twinkle leads the agency with a passion for helping businesses grow through meaningful digital experiences. Her approach combines strategic thinking with creative execution, ensuring every client receives marketing solutions that are personalized, practical, and performance-driven. She believes that every brand has a unique story—and the right digital strategy can turn that story into lasting success.
+                </p>
+              </div>
+            </div>
+
+            {/* 2. Rahul Arora */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E6007A] to-[#B3005F] text-white flex items-center justify-center font-black text-xl shadow-md shadow-pink-500/20 mb-5 group-hover:scale-105 transition-transform">
+                  RA
+                </div>
+                <h4 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1 group-hover:text-[#E6007A] transition-colors">
+                  Rahul Arora
+                </h4>
+                <div className="inline-block px-3 py-1 rounded-full bg-pink-50 text-[#E6007A] text-xs font-bold border border-pink-200/80 mb-3">
+                  Co-Founder &amp; COO
+                </div>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                  Operations • Performance • Execution
+                </p>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Rahul oversees the operational excellence that powers DMDY's client success. From execution to management, he ensures that every project is delivered with precision, efficiency, and measurable impact. His focus is simple: transform great ideas into consistent business results through streamlined execution and data-backed decision making.
+                </p>
+              </div>
+            </div>
+
+            {/* 3. Dimple Lamba */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#F5A623] to-[#C9800F] text-white flex items-center justify-center font-black text-xl shadow-md shadow-amber-500/20 mb-5 group-hover:scale-105 transition-transform">
+                  DL
+                </div>
+                <h4 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1 group-hover:text-[#F5A623] transition-colors">
+                  Dimple Lamba
+                </h4>
+                <div className="inline-block px-3 py-1 rounded-full bg-amber-50 text-[#F5A623] text-xs font-bold border border-amber-200/80 mb-3">
+                  Co-Founder &amp; CSO
+                </div>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                  Strategy • Innovation • Business Development
+                </p>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  As Chief Strategy Officer, Dimple brings together market insights, consumer behavior, and innovative thinking to build growth-focused marketing strategies. She works closely with brands to identify opportunities that strengthen their digital presence and long-term positioning. Her strategic mindset helps DMDY deliver solutions that are not only creative—but commercially effective.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 8: Our Shared Vision - What We Stand For */}
+      <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan-50/50 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-pink-50/50 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
+          
+          {/* Section Header */}
+          <div className="mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3 shadow-xs">
+              <Target className="w-3.5 h-3.5 text-[#00AED6]" />
+              <span>What We Stand For</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              Our Shared{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                Vision
+              </span>
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-3xl">
+              We envision a future where businesses of every size can compete confidently in the digital world. By combining creativity, technology, and strategy, we help brands build meaningful customer relationships and achieve sustainable growth. Our mission isn't to become the biggest agency—it's to become the most trusted growth partner for every client we work with.
+            </p>
+          </div>
+
+          {/* 4 Pillars Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+            
+            {/* 1. Client-First Thinking */}
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 text-[#00AED6] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs">
+                  <Target className="w-6 h-6 text-[#00AED6]" />
+                </div>
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors tracking-tight">
+                  Client-First Thinking
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Every decision begins with your business goals.
+                </p>
+              </div>
+            </div>
+
+            {/* 2. 360° Expertise */}
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-pink-50 border border-pink-100 text-[#E6007A] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs">
+                  <Layers className="w-6 h-6 text-[#E6007A]" />
+                </div>
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors tracking-tight">
+                  360° Expertise
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Complete digital solutions under one roof.
+                </p>
+              </div>
+            </div>
+
+            {/* 3. Transparency */}
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#F5A623]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 text-[#F5A623] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs">
+                  <ShieldCheck className="w-6 h-6 text-[#F5A623]" />
+                </div>
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors tracking-tight">
+                  Transparency
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Clear communication and honest partnerships.
+                </p>
+              </div>
+            </div>
+
+            {/* 4. Results That Matter */}
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00C48C]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 text-[#00C48C] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs">
+                  <TrendingUp className="w-6 h-6 text-[#00C48C]" />
+                </div>
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors tracking-tight">
+                  Results That Matter
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Growth measured beyond vanity metrics.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 9: Why Clients Choose DMDY */}
+      <section className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative overflow-hidden">
         {/* Subtle Ambient Background Gradients */}
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
         <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           
-          {/* Premium Highlight Card */}
-          <div className="relative rounded-3xl p-8 sm:p-12 md:p-14 bg-gradient-to-b from-slate-50/90 to-white border border-slate-200/90 shadow-sm relative overflow-hidden">
+          <div className="w-full rounded-3xl p-8 sm:p-12 md:p-14 bg-gradient-to-b from-slate-50/90 to-white border border-slate-200/90 shadow-sm relative overflow-hidden">
             
             {/* Subtle decorative glow accents */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#00AED6]/10 via-[#E6007A]/10 to-transparent rounded-full blur-2xl pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#F5A623]/10 to-transparent rounded-full blur-2xl pointer-events-none"></div>
 
-            <div className="relative z-10 text-center max-w-3xl mx-auto">
+            <div className="relative z-10 max-w-3xl">
               
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6 shadow-xs">
@@ -659,7 +867,7 @@ const About = () => {
               </p>
 
               {/* Brand Tagline Banner */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-pink-50/50 to-amber-50/60 border border-slate-200/80 mb-8 inline-block max-w-xl mx-auto">
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-pink-50/50 to-amber-50/60 border border-slate-200/80 inline-block">
                 <p className="font-extrabold text-slate-900 text-sm sm:text-base tracking-tight mb-0.5">
                   DMDY — Digi Me Digi You
                 </p>
@@ -668,25 +876,67 @@ const About = () => {
                 </p>
               </div>
 
-              {/* CTA Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                <Link 
-                  to="/contact" 
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2"
-                >
-                  <span>Get In Touch</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link 
-                  to="/services" 
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-bold text-sm sm:text-base border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow transition-all duration-200 flex items-center justify-center"
-                >
-                  Explore Our Services
-                </Link>
-              </div>
-
             </div>
 
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 10: A Message From the Founders & Brand Finale */}
+      <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
+          
+          {/* A Message From the Founders */}
+          <div className="w-full p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/80 shadow-xs mb-10 relative overflow-hidden text-center">
+            <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center mx-auto mb-4">
+              <Quote className="w-6 h-6 text-[#00AED6]" />
+            </div>
+            <div className="inline-block text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">
+              A Message From the Founders
+            </div>
+            <blockquote className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 leading-relaxed mb-6 italic max-w-4xl mx-auto">
+              "DMDY isn't just our company—it's our commitment to helping ambitious businesses grow with confidence. Every campaign we build, every website we design, and every strategy we deliver is created with one purpose: creating real value for our clients."
+            </blockquote>
+            <p className="text-sm sm:text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+              — Twinkle Arora, Rahul Arora &amp; Dimple Lamba
+            </p>
+          </div>
+
+          {/* Grand Finale: Your Brand Deserves More Than Marketing */}
+          <div className="w-full p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-white to-slate-50/90 border border-slate-200/90 shadow-sm text-center relative overflow-hidden">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              Your Brand Deserves{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                More Than Marketing
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg font-medium text-slate-700 max-w-2xl mx-auto mb-6">
+              It deserves a team that believes in its vision as much as you do.
+            </p>
+            <div className="inline-block px-5 py-2 rounded-full bg-slate-900 text-white font-extrabold text-sm sm:text-base mb-8 shadow-xs">
+              DMDY — Digi Me Digi You
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <Link 
+                to="/contact" 
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2"
+              >
+                <span>Get In Touch</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link 
+                to="/services" 
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-bold text-sm sm:text-base border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow transition-all duration-200 flex items-center justify-center"
+              >
+                Explore Our Services
+              </Link>
+            </div>
           </div>
 
         </div>

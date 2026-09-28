@@ -717,7 +717,7 @@ const SocialMediaService = () => {
       {/* SECTION 4: WHAT'S INCLUDED IN OUR SOCIAL MEDIA SERVICES */}
       {/* ========================================================= */}
       <section className="py-12 sm:py-16 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
           {/* Section Header - Center Aligned */}
           <div className="mb-10 sm:mb-12 flex flex-col items-center text-center">
@@ -735,7 +735,7 @@ const SocialMediaService = () => {
           </div>
 
           {/* 3-Column Clean, Compact & Centered Layout (3-3 Pair) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-10 w-full">
             
             {/* 1. Instagram Marketing (Row 1 Left) */}
             <div className="flex flex-col items-center text-center group">

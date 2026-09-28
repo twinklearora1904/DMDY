@@ -15,7 +15,7 @@ const Hero = () => {
           
           {/* Left Column (7 cols): Text & Headline - Directly aligned with Header Logo */}
           <div className="lg:col-span-7 text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-wider mb-5 sm:mb-6">
+            <div className="badge-pill mb-5 sm:mb-6">
               <span className="w-2 h-2 rounded-full bg-[#00AED6] animate-pulse"></span>
               Full-Stack Digital Growth Partner
             </div>
@@ -35,13 +35,13 @@ const Hero = () => {
               <button 
                 type="button"
                 onClick={() => openModal('Complete 360° Digital Marketing')}
-                className="w-full sm:w-auto text-white font-bold py-3.5 px-8 rounded-xl transition-all text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 bg-gradient-to-r from-[#00AED6] to-[#E6007A] hover:opacity-95 cursor-pointer"
+                className="w-full sm:w-auto btn-primary"
               >
                 Book Strategy Session <ArrowRight className="w-4 h-4" />
               </button>
               <Link 
                 to="/services" 
-                className="w-full sm:w-auto bg-white border border-slate-300 text-slate-700 hover:border-[#00AED6] hover:text-[#00AED6] font-bold py-3.5 px-8 rounded-xl transition-all text-sm sm:text-base shadow-sm hover:shadow text-center"
+                className="w-full sm:w-auto btn-secondary"
               >
                 Explore Services
               </Link>

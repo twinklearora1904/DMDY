@@ -83,7 +83,7 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row flex-wrap gap-3.5 sm:gap-4 mb-8">
                 <button
                   onClick={scrollToContact}
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto btn-primary"
                 >
                   <span>Start a Conversation</span>
                   <ArrowDown className="w-4 h-4" />
@@ -93,7 +93,7 @@ const Contact = () => {
                   href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20start%20a%20conversation%20about%20our%20digital%20marketing%20growth."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs hover:-translate-y-0.5"
+                  className="w-full sm:w-auto btn-whatsapp"
                 >
                   <MessageSquare className="w-4 h-4 text-emerald-600" />
                   <span>WhatsApp Us</span>
@@ -536,7 +536,7 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
               <button
                 onClick={scrollToContact}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto btn-primary"
               >
                 <span>Talk to Our Team</span>
                 <ArrowRight className="w-4 h-4" />
@@ -546,7 +546,7 @@ const Contact = () => {
                 href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20talk%20to%20your%20team%20about%20our%20digital%20marketing%20growth."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs hover:-translate-y-0.5"
+                className="w-full sm:w-auto btn-whatsapp"
               >
                 <MessageSquare className="w-4 h-4 text-emerald-600" />
                 <span>WhatsApp Us Directly</span>

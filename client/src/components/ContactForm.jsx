@@ -327,7 +327,7 @@ const ContactForm = () => {
               <button 
                 disabled={loading} 
                 type="submit" 
-                className="w-full py-3.5 px-8 rounded-xl text-white font-bold text-sm sm:text-base shadow-xl shadow-pink-500/10 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 disabled:opacity-60 flex justify-center items-center gap-2 cursor-pointer active:scale-[0.99]"
+                className="w-full btn-primary"
               >
                 {loading ? (
                   <span className="flex items-center gap-2">

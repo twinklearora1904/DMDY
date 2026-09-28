@@ -42,16 +42,16 @@ const NotFound = () => {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8">
             <Link 
               to="/" 
-              className="w-full sm:w-auto py-3 px-6 rounded-xl font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto btn-primary"
             >
               <Home className="w-4 h-4" /> Return to Homepage
             </Link>
             <Link 
               to="/blog" 
-              className="w-full sm:w-auto py-3 px-6 rounded-xl font-bold text-slate-700 text-xs sm:text-sm bg-white border border-slate-200/90 hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm"
+              className="w-full sm:w-auto btn-secondary"
             >
               <Search className="w-4 h-4" /> Growth Insights
             </Link>

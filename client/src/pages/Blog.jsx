@@ -442,7 +442,7 @@ const Blog = () => {
               <button
                 type="button"
                 onClick={() => openModal()}
-                className="py-3.5 px-8 rounded-full font-bold text-white text-sm sm:text-base shadow-xl shadow-cyan-500/20 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-center transition-all duration-300 cursor-pointer"
+                className="btn-primary"
               >
                 Claim Free Growth Audit &rarr;
               </button>

@@ -99,7 +99,7 @@ const Login = () => {
 
             <button 
               type="submit" 
-              className="w-full py-3.5 px-6 rounded-xl text-white font-bold text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 mt-6 transition-all duration-300"
+              className="w-full btn-primary mt-6"
             >
               Sign In to Dashboard <ArrowRight className="w-4 h-4" />
             </button>

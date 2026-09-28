@@ -170,11 +170,7 @@ const Pricing = () => {
               <button 
                 type="button"
                 onClick={() => openModal(plan.name === 'Growth Engine' ? 'SEO' : 'Complete 360° Digital Marketing')}
-                className={`w-full flex items-center justify-center py-3.5 px-6 rounded-xl font-bold text-sm sm:text-base transition-all duration-200 cursor-pointer ${
-                  plan.highlighted 
-                    ? 'bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] text-white shadow-lg hover:opacity-95' 
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-200/80'
-                }`}
+                className={`w-full ${plan.highlighted ? 'btn-primary' : 'btn-secondary'}`}
               >
                 {plan.ctaText}
                 <ArrowRight className="w-4 h-4 ml-1.5" />

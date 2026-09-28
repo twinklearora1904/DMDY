@@ -72,13 +72,13 @@ const Portfolio = () => {
                 <button 
                   type="button"
                   onClick={() => openModal()}
-                  className="py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
+                  className="btn-primary w-full sm:w-auto"
                 >
                   Request Custom Case Study <ArrowRight className="w-4 h-4" />
                 </button>
                 <a 
                   href="#case-studies"
-                  className="py-3.5 px-7 rounded-full font-bold text-slate-700 text-xs sm:text-sm bg-white border border-slate-200/90 hover:bg-slate-50 transition-all text-center shadow-sm"
+                  className="btn-secondary w-full sm:w-auto"
                 >
                   Explore Teardowns &darr;
                 </a>
@@ -329,7 +329,7 @@ const Portfolio = () => {
             <button 
               type="button"
               onClick={() => openModal()}
-              className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all cursor-pointer"
+              className="btn-primary"
             >
               Apply for Partnership <ArrowRight className="w-4 h-4 ml-0.5" />
             </button>

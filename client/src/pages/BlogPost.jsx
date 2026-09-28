@@ -342,7 +342,7 @@ const BlogPost = () => {
                 <button 
                   type="button"
                   onClick={() => openModal()}
-                  className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-sm sm:text-base shadow-xl shadow-cyan-500/10 hover:shadow-2xl transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 cursor-pointer"
+                  className="btn-primary"
                 >
                   Request Strategy Session &rarr;
                 </button>
@@ -369,7 +369,7 @@ const BlogPost = () => {
                 <button
                   type="button"
                   onClick={() => openModal()}
-                  className="w-full text-center block py-3.5 px-6 rounded-xl font-bold text-white text-sm sm:text-base shadow-lg bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all cursor-pointer"
+                  className="w-full btn-primary"
                 >
                   Book Free Audit
                 </button>

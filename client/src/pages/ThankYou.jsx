@@ -131,10 +131,10 @@ const ThankYou = () => {
           )}
 
           {/* Primary Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               to="/"
-              className="w-full sm:w-auto px-6 py-3 rounded-full font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 transition-all text-xs sm:text-sm flex items-center justify-center gap-2 border border-slate-200/80"
+              className="w-full sm:w-auto btn-secondary"
             >
               <HomeIcon className="w-4 h-4" />
               <span>Back to Homepage</span>
@@ -142,7 +142,7 @@ const ThankYou = () => {
 
             <Link
               to="/services"
-              className="w-full sm:w-auto px-7 py-3 rounded-full font-bold text-white text-xs sm:text-sm shadow-lg shadow-cyan-500/20 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto btn-primary"
             >
               <span>Explore Growth Services</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

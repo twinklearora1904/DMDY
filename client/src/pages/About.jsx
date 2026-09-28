@@ -55,13 +55,13 @@ const About = () => {
                 <button 
                   type="button"
                   onClick={() => openModal()}
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto btn-primary"
                 >
                   Get In Touch <ArrowRight className="w-4 h-4" />
                 </button>
                 <Link 
                   to="/services" 
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all text-center"
+                  className="w-full sm:w-auto btn-secondary"
                 >
                   Explore Services
                 </Link>
@@ -929,14 +929,14 @@ const About = () => {
               <button 
                 type="button"
                 onClick={() => openModal()}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto btn-primary"
               >
                 <span>Get In Touch</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <Link 
                 to="/services" 
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-bold text-sm sm:text-base border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow transition-all duration-200 flex items-center justify-center"
+                className="w-full sm:w-auto btn-secondary"
               >
                 Explore Our Services
               </Link>

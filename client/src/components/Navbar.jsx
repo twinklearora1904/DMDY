@@ -271,7 +271,7 @@ const Navbar = () => {
             <button 
               type="button"
               onClick={() => openModal()}
-              className="text-sm px-5 py-2.5 font-semibold text-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 bg-gradient-to-r from-[#00AED6] to-[#E6007A] hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="btn-primary-sm"
             >
               Get Free Audit
             </button>
@@ -400,7 +400,7 @@ const Navbar = () => {
                   setIsOpen(false);
                   openModal();
                 }}
-                className="w-full block text-center text-sm font-semibold text-white py-3 rounded-xl shadow-sm bg-gradient-to-r from-[#00AED6] to-[#E6007A] cursor-pointer active:scale-[0.99]"
+                className="w-full btn-primary"
               >
                 Get Free Audit
               </button>

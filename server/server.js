@@ -15,22 +15,32 @@ const connectDB = require("./config/db");
 // Connect to MongoDB
 connectDB();
 
+const clientUrls = (process.env.CLIENT_URL || "")
+    .split(",")
+    .map((url) => url.trim().replace(/\/$/, ""))
+    .filter(Boolean);
+
 const allowedOrigins = [
-    process.env.CLIENT_URL,
+    ...clientUrls,
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
     "http://127.0.0.1:5174",
-].filter(Boolean);
+];
 
 const corsOptions = {
     origin: (origin, callback) => {
-        // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
         if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin) || process.env.NODE_ENV !== "production") {
+        const normalizedOrigin = origin.replace(/\/$/, "");
+        if (
+            process.env.CLIENT_URL === "*" ||
+            allowedOrigins.includes(normalizedOrigin) ||
+            normalizedOrigin.endsWith(".vercel.app") ||
+            process.env.NODE_ENV !== "production"
+        ) {
             return callback(null, true);
         }
-        return callback(new Error("CORS policy does not allow access from this origin."));
+        return callback(new Error(`CORS policy does not allow access from this origin: ${origin}`));
     },
     credentials: true,
 };

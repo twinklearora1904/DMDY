@@ -248,6 +248,17 @@ const Navbar = () => {
               Blog
             </Link>
 
+            <Link 
+              to="/contact" 
+              className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${
+                location.pathname === '/contact' 
+                  ? 'text-brandSecondary font-semibold' 
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+              }`}
+            >
+              Contact Us
+            </Link>
+
           </div>
 
           {/* Desktop CTAs (Right) */}
@@ -362,6 +373,17 @@ const Navbar = () => {
               }`}
             >
               Blog
+            </Link>
+
+            <Link 
+              to="/contact" 
+              className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${
+                location.pathname === '/contact' 
+                  ? 'bg-pink-50 text-brandSecondary font-semibold' 
+                  : 'text-slate-700 hover:bg-slate-50'
+              }`}
+            >
+              Contact Us
             </Link>
 
             <div className="pt-3 border-t border-slate-100">

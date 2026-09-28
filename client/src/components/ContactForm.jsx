@@ -1,25 +1,57 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';
-import { Mail, MapPin, Phone, MessageSquare, Sparkles } from 'lucide-react';
+import { 
+  Mail, 
+  MapPin, 
+  Phone, 
+  Sparkles, 
+  Clock, 
+  ShieldCheck, 
+  Lock, 
+  ArrowRight, 
+  CheckCircle2, 
+  HelpCircle 
+} from 'lucide-react';
+
+const serviceOptions = [
+  'Digital Marketing',
+  'SEO',
+  'Social Media Marketing',
+  'Performance Marketing',
+  'Website Development',
+  'Branding',
+  'Lead Generation',
+  'E-commerce Marketing',
+  'Complete 360° Digital Marketing',
+  'Other'
+];
 
 const ContactForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', company: '', website: '', service: 'SEO', message: ''
+    name: '',
+    company: '',
+    phone: '',
+    email: '',
+    service: 'Digital Marketing',
+    message: '',
+    website: ''
   });
   const [status, setStatus] = useState({ type: '', msg: '' });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setStatus({ type: '', msg: '' });
 
-    // Normalize website URL if user omitted http/https protocol
-    let normalizedWebsite = formData.website.trim();
+    // Normalize website URL if present
+    let normalizedWebsite = (formData.website || '').trim();
     if (normalizedWebsite && !/^https?:\/\//i.test(normalizedWebsite)) {
       normalizedWebsite = `https://${normalizedWebsite}`;
     }
@@ -35,7 +67,17 @@ const ContactForm = () => {
       const submittedEmail = formData.email;
       const submittedService = formData.service;
 
-      setFormData({ name: '', email: '', phone: '', company: '', website: '', service: 'SEO', message: '' });
+      setFormData({
+        name: '',
+        company: '',
+        phone: '',
+        email: '',
+        service: 'Digital Marketing',
+        message: '',
+        website: ''
+      });
+
+      // Redirect smoothly to Thank You page
       navigate('/thank-you', {
         state: {
           name: submittedName,
@@ -44,61 +86,74 @@ const ContactForm = () => {
         },
       });
     } catch (error) {
-      setStatus({ type: 'error', msg: error.response?.data?.errors?.[0]?.msg || error.response?.data?.message || 'Something went wrong. Please try again.' });
+      setStatus({
+        type: 'error',
+        msg: error.response?.data?.errors?.[0]?.msg || 
+             error.response?.data?.message || 
+             'Something went wrong. Please check your details and try again.'
+      });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="py-6 sm:py-8 bg-slate-50 relative overflow-hidden font-sans">
-      {/* Background Shapes */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-slate-50 relative overflow-hidden font-sans border-t border-slate-200/60">
+      
+      {/* Background Glow Highlights */}
+      <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-200/80">
+        {/* Section 2 Header */}
+        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
+            <span>Direct Strategy Inquiry</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.14] mb-4">
+            Tell Us What You’re{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+              Looking For
+            </span>
+          </h2>
+
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
+            Every business has a different challenge. Tell us a little about yours, and our team will get back to you with the right direction.
+          </p>
+        </div>
+
+        {/* 2-Column Contact Card */}
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-200/90">
           
-          {/* Left Column: Contact Info */}
+          {/* Left Column: Contact Channels & Consultation Details */}
           <div className="w-full lg:w-5/12 bg-slate-950 text-white p-6 sm:p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,174,214,0.25)_0%,transparent_70%)] pointer-events-none"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,174,214,0.2)_0%,transparent_70%)] pointer-events-none"></div>
             
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-[#00AED6] mb-6">
-                <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" /> Direct Growth Line
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-[#00AED6] mb-6 border border-white/10">
+                <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
+                <span>Executive Desk</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-[1.12]">
-                Let's scale your <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
-                  revenue.
-                </span>
-              </h1>
+              <h3 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight text-white leading-tight">
+                Let's engineer your next growth phase.
+              </h3>
 
-              <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed mb-8 max-w-md">
-                We're ready to engineer your custom growth roadmap. Submit your project brief, and our senior strategists will analyze your business within 24 hours.
+              <p className="text-sm text-slate-300 font-normal leading-relaxed mb-8">
+                Submit your brief and our senior leadership will evaluate your digital touchpoints to outline where high-converting revenue lies.
               </p>
 
-              <div className="space-y-6">
+              {/* Direct Info List */}
+              <div className="space-y-5">
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10">
-                    <Mail className="w-4 h-4 text-[#E6007A]" />
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#00AED6]">
+                    <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email Inquiries</div>
-                    <a href="mailto:hello@dmdy.in" className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors">
-                      hello@dmdy.in
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10">
-                    <Phone className="w-4 h-4 text-[#00AED6]" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Call / WhatsApp</div>
+                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Phone / WhatsApp</div>
                     <a href="tel:+919876543210" className="text-sm sm:text-base font-bold text-white hover:text-[#00AED6] transition-colors">
                       +91 98765 43210
                     </a>
@@ -106,33 +161,49 @@ const ContactForm = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10">
-                    <MapPin className="w-4 h-4 text-[#F5A623]" />
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#E6007A]">
+                    <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Headquarters</div>
-                    <div className="text-sm sm:text-base font-medium text-slate-200">New Delhi, India</div>
+                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email Support</div>
+                    <a href="mailto:hello@dmdy.in" className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors">
+                      hello@dmdy.in
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#F5A623]">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Agency Location</div>
+                    <div className="text-sm sm:text-base font-medium text-slate-200">New Delhi / NCR, India</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative z-10 mt-10 pt-6 border-t border-white/10">
-              <div className="flex items-center space-x-2 text-slate-400 text-xs sm:text-sm">
-                <MessageSquare className="w-4 h-4 text-emerald-400" />
-                <span className="font-semibold text-slate-300">Average response time: &lt; 2 hours</span>
+            {/* Response Time SLA Guarantee */}
+            <div className="relative z-10 mt-8 pt-6 border-t border-white/10">
+              <div className="flex items-center gap-2 text-xs text-slate-300 font-semibold">
+                <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Average response window: &lt; 2 business hours</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Form */}
-          <div className="w-full lg:w-7/12 p-6 sm:p-10 md:p-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 mb-1.5 tracking-tight">
-              Request a Strategy Session
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mb-8 font-normal">
-              Tell us about your brand and growth goals.
-            </p>
+          {/* Right Column: The Contact Form */}
+          <div className="w-full lg:w-7/12 p-6 sm:p-10 md:p-12 text-left">
+            
+            <div className="mb-6 pb-4 border-b border-slate-100">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+                Contact Form
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500 font-normal mt-1">
+                Fill out the required information below to get connected with our strategy team.
+              </p>
+            </div>
             
             {status.msg && (
               <div className={`p-4 mb-6 rounded-xl text-xs sm:text-sm font-semibold flex items-center ${
@@ -145,6 +216,8 @@ const ContactForm = () => {
             )}
             
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+              
+              {/* Row 1: Full Name & Business / Company Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
@@ -156,26 +229,27 @@ const ContactForm = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="Ananya Sharma"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
+                    placeholder="e.g. Rahul Sharma"
                   />
                 </div>
+
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Work Email *
+                    Business / Company Name
                   </label>
                   <input
-                    required
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                    type="text"
+                    name="company"
+                    value={formData.company}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="ananya@company.com"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
+                    placeholder="e.g. Acme Retail / Your Startup"
                   />
                 </div>
               </div>
               
+              {/* Row 2: Phone Number & Email Address */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
@@ -187,89 +261,98 @@ const ContactForm = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
                     placeholder="+91 98765 43210"
                   />
                 </div>
+
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Primary Goal *
+                    Email Address *
                   </label>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
+                    placeholder="rahul@company.com"
+                  />
+                </div>
+              </div>
+              
+              {/* Row 3: What Do You Need Help With? (Dropdown) */}
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  What Do You Need Help With? *
+                </label>
+                <div className="relative">
                   <select
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all cursor-pointer"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all cursor-pointer appearance-none"
                   >
-                    <option value="SEO">Increase Organic Traffic (SEO)</option>
-                    <option value="Performance Ads">Scale ROAS (Google & Meta Ads)</option>
-                    <option value="Web Development">Full-Stack Web Development</option>
-                    <option value="Conversion Optimization">Conversion Rate Optimization (CRO)</option>
-                    <option value="Full-Funnel">Comprehensive 360° Growth</option>
+                    {serviceOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
                   </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                    <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="Brand / Startup Name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Website URL
-                  </label>
-                  <input
-                    type="text"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleChange}
-                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="yourbrand.com or https://..."
-                  />
-                </div>
-              </div>
-              
+              {/* Row 4: Tell Us About Your Business (Textarea) */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                  Project Scope / Challenge
+                  Tell Us About Your Business
                 </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows="3"
-                  className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                  placeholder="Tell us about your current funnel, ad budget, or revenue targets..."
+                  rows="4"
+                  className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all resize-y"
+                  placeholder="Tell us about your brand, current challenges, and goals..."
                 ></textarea>
               </div>
               
+              {/* Submit Button */}
               <button 
                 disabled={loading} 
                 type="submit" 
-                className="w-full py-3.5 px-6 rounded-xl text-white font-bold text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 disabled:opacity-60 flex justify-center items-center transition-all"
+                className="w-full py-3.5 px-6 rounded-xl text-white font-bold text-sm shadow-xl shadow-pink-500/10 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 disabled:opacity-60 flex justify-center items-center gap-2 cursor-pointer active:scale-[0.99]"
               >
                 {loading ? (
                   <span className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Sending Brief...
+                    <span>Sending Enquiry...</span>
                   </span>
-                ) : 'Submit Strategy Request'}
+                ) : (
+                  <span className="flex items-center gap-2">
+                    <span>Send My Enquiry</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                )}
               </button>
-              <p className="text-center text-xs text-slate-400 mt-2 font-medium">100% confidential. No spam, ever.</p>
+
+              {/* Privacy Confidentiality Assurance */}
+              <div className="flex items-center justify-center gap-2 text-center text-xs text-slate-500 pt-2">
+                <Lock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <span>Your information is kept confidential and will only be used to respond to your enquiry.</span>
+              </div>
+
             </form>
           </div>
 
         </div>
+
       </div>
     </section>
   );

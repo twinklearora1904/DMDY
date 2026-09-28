@@ -37,9 +37,10 @@ const Contact = () => {
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION (2-Column Grid matching About & Services) */}
       {/* ========================================================= */}
-      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 bg-white border-b border-slate-200/80 overflow-hidden">
+      <section className="relative pt-28 sm:pt-36 pb-14 sm:pb-20 bg-white border-b border-slate-200/80 overflow-hidden">
         
-        {/* Subtle Ambient Glow Accents */}
+        {/* Subtle Ambient Radial Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00AED6_0%,#E6007A_30%,transparent_70%)] opacity-5 pointer-events-none"></div>
         <div className="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
         <div className="absolute bottom-10 -left-40 w-96 h-96 bg-pink-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -51,13 +52,13 @@ const Contact = () => {
             <div className="lg:col-span-7">
               
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6 shadow-xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6 shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#00AED6] animate-pulse"></span>
                 <span>Connect With DMDY — Digi Me Digi You</span>
               </div>
 
               {/* Main Heading */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-[1.14]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.12]">
                 Let’s Build Something That{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                   Grows.
@@ -65,18 +66,18 @@ const Contact = () => {
               </h1>
 
               {/* Sub-headline */}
-              <p className="text-base sm:text-lg md:text-xl font-bold text-slate-800 tracking-tight mb-4">
+              <p className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight mb-4">
                 Your next stage of growth could start with a conversation.
               </p>
 
               {/* Description Paragraph */}
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-6 max-w-2xl">
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal mb-8 max-w-2xl">
                 Whether you’re launching a new business, building your brand, looking for more leads, or ready to scale your digital presence, DMDY is here to understand what you need and create a strategy around it.
               </p>
 
               {/* Highlight Callout Box (Matching About & Services) */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/70 via-pink-50/40 to-amber-50/50 border border-slate-200/80 mb-8 max-w-2xl">
-                <p className="font-semibold text-slate-900 text-sm sm:text-base">
+              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/70 via-pink-50/40 to-amber-50/50 border border-slate-200/80 mb-8 max-w-2xl">
+                <p className="font-semibold text-slate-900 text-sm sm:text-base leading-relaxed">
                   No complicated packages. No unnecessary services.{' '}
                   <span className="text-[#00AED6] font-bold">Just the right digital marketing</span> for your business.
                 </p>
@@ -86,7 +87,7 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row flex-wrap gap-3.5 sm:gap-4 mb-8">
                 <button
                   onClick={scrollToContact}
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Start a Conversation</span>
                   <ArrowDown className="w-4 h-4" />
@@ -96,7 +97,7 @@ const Contact = () => {
                   href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20start%20a%20conversation%20about%20our%20digital%20marketing%20growth."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs hover:-translate-y-0.5"
                 >
                   <MessageSquare className="w-4 h-4 text-emerald-600" />
                   <span>WhatsApp Us</span>
@@ -104,16 +105,16 @@ const Contact = () => {
               </div>
 
               {/* Trust Indicators Strip */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-slate-200/80 max-w-2xl">
-                <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-200/80 max-w-2xl">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-600 font-semibold">
                   <Clock className="w-4 h-4 text-[#00AED6] shrink-0" />
                   <span>&lt; 2-Hour Response</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-600 font-semibold">
                   <Target className="w-4 h-4 text-[#E6007A] shrink-0" />
                   <span>Tailored Strategy</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-600 font-semibold">
                   <ShieldCheck className="w-4 h-4 text-[#F5A623] shrink-0" />
                   <span>Founder-Led Focus</span>
                 </div>
@@ -148,45 +149,45 @@ const Contact = () => {
                     <span>Direct Access</span>
                   </div>
 
-                  <h3 className="text-2xl font-extrabold mb-2 tracking-tight text-white">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight text-white leading-tight">
                     Growth Starts With a Free Audit
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-6">
+                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal mb-6">
                     Share your current challenges. We evaluate your SEO, paid search, and social media footprint to deliver high-converting recommendations.
                   </p>
 
                   <div className="space-y-4 pt-4 border-t border-slate-800/80">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-[#00AED6]">
+                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-[#00AED6]">
                         <Phone className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Direct Call / WhatsApp</div>
-                        <a href="tel:+919876543210" className="text-xs sm:text-sm font-bold text-white hover:text-[#00AED6] transition-colors">
+                        <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Direct Call / WhatsApp</div>
+                        <a href="tel:+919876543210" className="text-sm sm:text-base font-bold text-white hover:text-[#00AED6] transition-colors">
                           +91 98765 43210
                         </a>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-[#E6007A]">
+                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-[#E6007A]">
                         <Mail className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Email Inquiries</div>
-                        <a href="mailto:twinklearora1904@gmail.com" className="text-xs sm:text-sm font-bold text-white hover:text-[#E6007A] transition-colors">
+                        <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Email Inquiries</div>
+                        <a href="mailto:twinklearora1904@gmail.com" className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors break-all">
                           twinklearora1904@gmail.com
                         </a>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-[#F5A623]">
+                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-[#F5A623]">
                         <MapPin className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Headquarters</div>
-                        <span className="text-xs sm:text-sm font-bold text-slate-200">
+                        <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Headquarters</div>
+                        <span className="text-sm sm:text-base font-medium text-slate-200">
                           New Delhi / NCR, India
                         </span>
                       </div>
@@ -197,18 +198,18 @@ const Contact = () => {
               </div>
 
               {/* Micro Pillar Badges Underneath Card */}
-              <div className="grid grid-cols-3 gap-2.5 mt-3.5">
-                <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
+              <div className="grid grid-cols-3 gap-3 mt-4">
+                <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
                   <div className="text-xs sm:text-sm font-bold text-[#00AED6]">01. Discovery</div>
-                  <div className="text-[11px] text-slate-500 font-medium">Audit &amp; Baseline</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">Audit &amp; Baseline</div>
                 </div>
-                <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
+                <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
                   <div className="text-xs sm:text-sm font-bold text-[#E6007A]">02. Strategy</div>
-                  <div className="text-[11px] text-slate-500 font-medium">Bespoke Blueprint</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">Bespoke Blueprint</div>
                 </div>
-                <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
+                <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
                   <div className="text-xs sm:text-sm font-bold text-[#F5A623]">03. Scale</div>
-                  <div className="text-[11px] text-slate-500 font-medium">Measurable ROI</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">Measurable ROI</div>
                 </div>
               </div>
 
@@ -249,7 +250,7 @@ const Contact = () => {
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 font-normal leading-relaxed">
               Sometimes, the best way to understand a business is simply to talk.
             </p>
           </div>
@@ -258,13 +259,13 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             
             {/* 1. Call Us */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <div className="w-13 h-13 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
                   <Phone className="w-6 h-6 text-[#00AED6]" />
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-1.5">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-2">
                   Voice Consultation
                 </div>
 
@@ -272,31 +273,31 @@ const Contact = () => {
                   📞 Call Us
                 </h3>
 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-8">
                   Let’s discuss your business, goals, and growth opportunities.
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-slate-200/70">
+              <div className="pt-6 border-t border-slate-100">
                 <a
                   href="tel:+919876543210"
-                  className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#00AED6] transition-colors"
+                  className="inline-flex items-center gap-2 text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00AED6] transition-colors"
                 >
                   <span>+91 98765 43210</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <div className="text-xs text-slate-400 mt-1 font-medium">Mon - Sat • 10:00 AM - 7:00 PM IST</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1.5 font-medium">Mon - Sat • 10:00 AM - 7:00 PM IST</div>
               </div>
             </div>
 
             {/* 2. WhatsApp Us */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-emerald-500/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/80 hover:border-emerald-500/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <div className="w-13 h-13 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
                   <MessageSquare className="w-6 h-6 text-emerald-600" />
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1.5">
+                <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">
                   Instant Messaging
                 </div>
 
@@ -304,33 +305,33 @@ const Contact = () => {
                   💬 WhatsApp Us
                 </h3>
 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-8">
                   Have a quick question or want to discuss your requirement?
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-slate-200/70">
+              <div className="pt-6 border-t border-slate-100">
                 <a
                   href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20discuss%20our%20digital%20marketing%20growth%20requirements."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-slate-900 group-hover:text-emerald-600 transition-colors"
+                  className="inline-flex items-center gap-2 text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition-colors"
                 >
                   <span>Chat on WhatsApp</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <div className="text-xs text-slate-400 mt-1 font-medium">Direct discussion &amp; quick queries</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1.5 font-medium">Direct discussion &amp; quick queries</div>
               </div>
             </div>
 
             {/* 3. Email Us */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <div className="w-13 h-13 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
                   <Mail className="w-6 h-6 text-[#E6007A]" />
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-1.5">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-2">
                   Direct Inquiries
                 </div>
 
@@ -338,20 +339,20 @@ const Contact = () => {
                   ✉️ Email Us
                 </h3>
 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-6">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal mb-8">
                   For detailed requirements, collaborations, or business enquiries.
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-slate-200/70">
+              <div className="pt-6 border-t border-slate-100">
                 <a
                   href="mailto:twinklearora1904@gmail.com"
-                  className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#E6007A] transition-colors break-all"
+                  className="inline-flex items-center gap-2 text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#E6007A] transition-colors break-all"
                 >
                   <span>twinklearora1904@gmail.com</span>
                   <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <div className="text-xs text-slate-400 mt-1 font-medium">Detailed brief &amp; RFP reviews</div>
+                <div className="text-xs sm:text-sm text-slate-500 mt-1.5 font-medium">Detailed brief &amp; RFP reviews</div>
               </div>
             </div>
 
@@ -386,12 +387,12 @@ const Contact = () => {
               </span>
             </h2>
 
-            <p className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight mb-4">
+            <p className="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight mb-4">
               Your Business. Your Goals. Your Strategy.
             </p>
 
-            <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
-              <p className="font-semibold text-slate-800">
+            <div className="space-y-3 text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-2xl">
+              <p className="font-semibold text-slate-900 text-base sm:text-lg">
                 We don’t believe in forcing every business into the same marketing package.
               </p>
               <p>
@@ -404,104 +405,104 @@ const Contact = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             
             {/* 1. 10+ Years of Experience */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <div className="w-13 h-13 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
                   <Award className="w-6 h-6 text-[#00AED6]" />
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-1.5">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-2">
                   Proven Expertise
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-[#00AED6] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#00AED6] transition-colors">
                   10+ Years of Experience
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Industry experience supporting digital growth.
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#00AED6] transition-colors">
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#00AED6] transition-colors">
                 <span>Decade of Authority</span>
                 <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>
             </div>
 
             {/* 2. 360° Digital Marketing */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <div className="w-13 h-13 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
                   <Layers className="w-6 h-6 text-[#7C3AED]" />
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-[#7C3AED] mb-1.5">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#7C3AED] mb-2">
                   Complete Spectrum
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-[#7C3AED] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#7C3AED] transition-colors">
                   360° Digital Marketing
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Multiple digital capabilities under one roof.
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#7C3AED] transition-colors">
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#7C3AED] transition-colors">
                 <span>Unified Ecosystem</span>
                 <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>
             </div>
 
             {/* 3. Customized Strategies */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <div className="w-13 h-13 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
                   <Sliders className="w-6 h-6 text-[#E6007A]" />
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-1.5">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-2">
                   Bespoke Planning
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-[#E6007A] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#E6007A] transition-colors">
                   Customized Strategies
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Solutions built around your business—not generic packages.
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#E6007A] transition-colors">
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#E6007A] transition-colors">
                 <span>Tailored Blueprints</span>
                 <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>
             </div>
 
             {/* 4. Scalable Team */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <div className="w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
                   <Users className="w-6 h-6 text-emerald-600" />
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1.5">
+                <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">
                   Agile Execution
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-emerald-600 transition-colors">
                   Scalable Team
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Access to a flexible team based on your project requirements.
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-emerald-600 transition-colors">
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-emerald-600 transition-colors">
                 <span>Flexible Capacity</span>
                 <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>
@@ -533,7 +534,7 @@ const Contact = () => {
             </div>
 
             {/* Main Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.14] mb-5">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12] mb-5">
               Let’s Talk{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                 Growth.
@@ -541,16 +542,16 @@ const Contact = () => {
             </h2>
 
             {/* Narrative Questions & Punchline */}
-            <p className="text-base sm:text-lg md:text-xl font-medium text-slate-700 max-w-2xl mx-auto mb-3 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl font-medium text-slate-700 max-w-2xl mx-auto mb-4 leading-relaxed">
               Have an idea? A challenge? Or simply wondering what your business could do better online?
             </p>
 
-            <p className="text-lg sm:text-xl font-extrabold text-[#00AED6] mb-8">
+            <p className="text-xl sm:text-2xl font-extrabold text-[#00AED6] mb-8">
               Let’s start there.
             </p>
 
             {/* Brand Signature Card / Pill */}
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-6 py-3 rounded-2xl bg-slate-950 text-white mb-8 shadow-md border border-slate-800">
+            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-6 py-3.5 rounded-full bg-slate-950 text-white mb-8 shadow-md border border-slate-800">
               <span className="font-extrabold text-sm sm:text-base tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                 DMDY — Digi Me Digi You
               </span>
@@ -574,7 +575,7 @@ const Contact = () => {
                 href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20talk%20to%20your%20team%20about%20our%20digital%20marketing%20growth."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs hover:-translate-y-0.5"
               >
                 <MessageSquare className="w-4 h-4 text-emerald-600" />
                 <span>WhatsApp Us Directly</span>

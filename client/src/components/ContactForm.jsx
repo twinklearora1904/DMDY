@@ -98,7 +98,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-slate-50 relative overflow-hidden font-sans border-t border-slate-200/60">
+    <section id="contact" className="py-16 sm:py-20 md:py-24 bg-slate-50 relative overflow-hidden font-sans border-t border-slate-200/80">
       
       {/* Background Glow Highlights */}
       <div className="absolute top-10 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
@@ -107,7 +107,7 @@ const ContactForm = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section 2 Header */}
-        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
             <span>Direct Strategy Inquiry</span>
@@ -120,7 +120,7 @@ const ContactForm = () => {
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
             Every business has a different challenge. Tell us a little about yours, and our team will get back to you with the right direction.
           </p>
         </div>
@@ -129,7 +129,7 @@ const ContactForm = () => {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-200/90">
           
           {/* Left Column: Contact Channels & Consultation Details */}
-          <div className="w-full lg:w-5/12 bg-slate-950 text-white p-6 sm:p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
+          <div className="w-full lg:w-5/12 bg-slate-950 text-white p-7 sm:p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,174,214,0.2)_0%,transparent_70%)] pointer-events-none"></div>
             
             <div className="relative z-10">
@@ -142,18 +142,18 @@ const ContactForm = () => {
                 Let's engineer your next growth phase.
               </h3>
 
-              <p className="text-sm text-slate-300 font-normal leading-relaxed mb-8">
+              <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed mb-8">
                 Submit your brief and our senior leadership will evaluate your digital touchpoints to outline where high-converting revenue lies.
               </p>
 
               {/* Direct Info List */}
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#00AED6]">
+                  <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#00AED6]">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Phone / WhatsApp</div>
+                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Phone / WhatsApp</div>
                     <a href="tel:+919876543210" className="text-sm sm:text-base font-bold text-white hover:text-[#00AED6] transition-colors">
                       +91 98765 43210
                     </a>
@@ -161,23 +161,23 @@ const ContactForm = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#E6007A]">
+                  <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#E6007A]">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email Support</div>
-                    <a href="mailto:hello@dmdy.in" className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors">
-                      hello@dmdy.in
+                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Email Support</div>
+                    <a href="mailto:twinklearora1904@gmail.com" className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors break-all">
+                      twinklearora1904@gmail.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#F5A623]">
+                  <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center shrink-0 mr-4 border border-white/10 text-[#F5A623]">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Agency Location</div>
+                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Agency Location</div>
                     <div className="text-sm sm:text-base font-medium text-slate-200">New Delhi / NCR, India</div>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ const ContactForm = () => {
 
             {/* Response Time SLA Guarantee */}
             <div className="relative z-10 mt-8 pt-6 border-t border-white/10">
-              <div className="flex items-center gap-2 text-xs text-slate-300 font-semibold">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 font-semibold">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>Average response window: &lt; 2 business hours</span>
               </div>
@@ -194,19 +194,19 @@ const ContactForm = () => {
           </div>
 
           {/* Right Column: The Contact Form */}
-          <div className="w-full lg:w-7/12 p-6 sm:p-10 md:p-12 text-left">
+          <div className="w-full lg:w-7/12 p-7 sm:p-10 md:p-12 text-left">
             
             <div className="mb-6 pb-4 border-b border-slate-100">
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                 Contact Form
               </h3>
-              <p className="text-xs sm:text-sm text-slate-500 font-normal mt-1">
+              <p className="text-sm text-slate-500 font-normal mt-1">
                 Fill out the required information below to get connected with our strategy team.
               </p>
             </div>
             
             {status.msg && (
-              <div className={`p-4 mb-6 rounded-xl text-xs sm:text-sm font-semibold flex items-center ${
+              <div className={`p-4 mb-6 rounded-xl text-sm font-semibold flex items-center ${
                 status.type === 'success' 
                   ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' 
                   : 'bg-rose-50 text-rose-800 border border-rose-200'
@@ -220,7 +220,7 @@ const ContactForm = () => {
               {/* Row 1: Full Name & Business / Company Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -229,13 +229,13 @@ const ContactForm = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3.5 text-slate-900 text-sm sm:text-base focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
                     placeholder="e.g. Rahul Sharma"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Business / Company Name
                   </label>
                   <input
@@ -243,7 +243,7 @@ const ContactForm = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3.5 text-slate-900 text-sm sm:text-base focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
                     placeholder="e.g. Acme Retail / Your Startup"
                   />
                 </div>
@@ -252,7 +252,7 @@ const ContactForm = () => {
               {/* Row 2: Phone Number & Email Address */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Phone Number *
                   </label>
                   <input
@@ -261,13 +261,13 @@ const ContactForm = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3.5 text-slate-900 text-sm sm:text-base focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
                     placeholder="+91 98765 43210"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -276,7 +276,7 @@ const ContactForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3.5 text-slate-900 text-sm sm:text-base focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
                     placeholder="rahul@company.com"
                   />
                 </div>
@@ -284,7 +284,7 @@ const ContactForm = () => {
               
               {/* Row 3: What Do You Need Help With? (Dropdown) */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                   What Do You Need Help With? *
                 </label>
                 <div className="relative">
@@ -292,7 +292,7 @@ const ContactForm = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all cursor-pointer appearance-none"
+                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3.5 text-slate-900 text-sm sm:text-base focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all cursor-pointer appearance-none"
                   >
                     {serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -310,7 +310,7 @@ const ContactForm = () => {
               
               {/* Row 4: Tell Us About Your Business (Textarea) */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                   Tell Us About Your Business
                 </label>
                 <textarea
@@ -318,7 +318,7 @@ const ContactForm = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="4"
-                  className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all resize-y"
+                  className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3.5 text-slate-900 text-sm sm:text-base focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all resize-y"
                   placeholder="Tell us about your brand, current challenges, and goals..."
                 ></textarea>
               </div>
@@ -327,7 +327,7 @@ const ContactForm = () => {
               <button 
                 disabled={loading} 
                 type="submit" 
-                className="w-full py-3.5 px-6 rounded-xl text-white font-bold text-sm shadow-xl shadow-pink-500/10 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 disabled:opacity-60 flex justify-center items-center gap-2 cursor-pointer active:scale-[0.99]"
+                className="w-full py-4 px-8 rounded-xl text-white font-bold text-sm sm:text-base shadow-xl shadow-pink-500/10 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 disabled:opacity-60 flex justify-center items-center gap-2 cursor-pointer active:scale-[0.99]"
               >
                 {loading ? (
                   <span className="flex items-center gap-2">
@@ -343,8 +343,8 @@ const ContactForm = () => {
               </button>
 
               {/* Privacy Confidentiality Assurance */}
-              <div className="flex items-center justify-center gap-2 text-center text-xs text-slate-500 pt-2">
-                <Lock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <div className="flex items-center justify-center gap-2 text-center text-xs sm:text-sm text-slate-500 pt-2 font-medium">
+                <Lock className="w-4 h-4 text-slate-400 shrink-0" />
                 <span>Your information is kept confidential and will only be used to respond to your enquiry.</span>
               </div>
 

@@ -10,11 +10,7 @@ import {
   ShieldCheck,
   Phone,
   Mail,
-  MapPin,
-  Award,
-  Layers,
-  Sliders,
-  Users
+  MapPin
 } from 'lucide-react';
 
 const Contact = () => {
@@ -261,9 +257,6 @@ const Contact = () => {
             {/* 1. Call Us */}
             <div className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
-                  <Phone className="w-6 h-6 text-[#00AED6]" />
-                </div>
 
                 <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-2">
                   Voice Consultation
@@ -292,10 +285,7 @@ const Contact = () => {
 
             {/* 2. WhatsApp Us */}
             <div className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/80 hover:border-emerald-500/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div>
-                <div className="w-13 h-13 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
-                  <MessageSquare className="w-6 h-6 text-emerald-600" />
-                </div>
+              <div> 
 
                 <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">
                   Instant Messaging
@@ -327,9 +317,6 @@ const Contact = () => {
             {/* 3. Email Us */}
             <div className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
-                  <Mail className="w-6 h-6 text-[#E6007A]" />
-                </div>
 
                 <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-2">
                   Direct Inquiries
@@ -407,9 +394,7 @@ const Contact = () => {
             {/* 1. 10+ Years of Experience */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
-                  <Award className="w-6 h-6 text-[#00AED6]" />
-                </div>
+                
 
                 <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-2">
                   Proven Expertise
@@ -433,9 +418,6 @@ const Contact = () => {
             {/* 2. 360° Digital Marketing */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
-                  <Layers className="w-6 h-6 text-[#7C3AED]" />
-                </div>
 
                 <div className="text-xs font-bold uppercase tracking-wider text-[#7C3AED] mb-2">
                   Complete Spectrum
@@ -459,9 +441,6 @@ const Contact = () => {
             {/* 3. Customized Strategies */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
-                  <Sliders className="w-6 h-6 text-[#E6007A]" />
-                </div>
 
                 <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-2">
                   Bespoke Planning
@@ -485,9 +464,6 @@ const Contact = () => {
             {/* 4. Scalable Team */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
-                  <Users className="w-6 h-6 text-emerald-600" />
-                </div>
 
                 <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">
                   Agile Execution

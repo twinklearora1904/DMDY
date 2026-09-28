@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
 import { ArrowLeft, Calendar, User, Tag, Sparkles, Share2, Check, Clock } from 'lucide-react';
 
 const BlogPost = () => {
+  const { openModal } = useContactModal();
   const { slug } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -337,12 +339,13 @@ const BlogPost = () => {
                 <p className="text-slate-300 text-sm sm:text-base font-normal max-w-lg mx-auto mb-6 leading-relaxed">
                   Book a confidential 30-minute growth session with our performance marketing leadership team.
                 </p>
-                <Link 
-                  to="/contact" 
-                  className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-sm sm:text-base shadow-xl shadow-cyan-500/10 hover:shadow-2xl transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95"
+                <button 
+                  type="button"
+                  onClick={() => openModal()}
+                  className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-sm sm:text-base shadow-xl shadow-cyan-500/10 hover:shadow-2xl transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 cursor-pointer"
                 >
                   Request Strategy Session &rarr;
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -363,12 +366,13 @@ const BlogPost = () => {
                 <p className="text-slate-400 text-sm sm:text-base font-normal leading-relaxed mb-6">
                   Get a comprehensive forensic audit of your paid ads, SEO, and conversion funnel from DMDY strategists.
                 </p>
-                <Link
-                  to="/contact"
-                  className="w-full text-center block py-3.5 px-6 rounded-xl font-bold text-white text-sm sm:text-base shadow-lg bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all"
+                <button
+                  type="button"
+                  onClick={() => openModal()}
+                  className="w-full text-center block py-3.5 px-6 rounded-xl font-bold text-white text-sm sm:text-base shadow-lg bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all cursor-pointer"
                 >
                   Book Free Audit
-                </Link>
+                </button>
               </div>
             </div>
 

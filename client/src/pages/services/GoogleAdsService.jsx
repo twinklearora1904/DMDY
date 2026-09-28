@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../../context/ContactModalContext';
 import { 
   Target, 
   TrendingUp, 
@@ -113,6 +114,7 @@ const CAMPAIGN_MODES = {
 };
 
 const GoogleAdsService = () => {
+  const { openModal } = useContactModal();
   const [activeTab, setActiveTab] = useState('search');
   const [selectedGoal, setSelectedGoal] = useState('leads');
   const [openFaq, setOpenFaq] = useState(0);
@@ -200,13 +202,14 @@ const GoogleAdsService = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link 
-                  to="/contact" 
-                  className="w-full sm:w-auto px-8 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-bold rounded-full transition-all shadow-md hover:shadow-lg text-center text-sm sm:text-base hover:-translate-y-0.5 justify-center flex items-center gap-2 group"
+                <button 
+                  type="button"
+                  onClick={() => openModal('Performance Marketing')}
+                  className="w-full sm:w-auto px-8 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-bold rounded-full transition-all shadow-md hover:shadow-lg text-center text-sm sm:text-base hover:-translate-y-0.5 justify-center flex items-center gap-2 group cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[#F5A623] group-hover:rotate-12 transition-transform" />
                   Get Free Google Ads Audit
-                </Link>
+                </button>
                 <a 
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Google%20Ads%20%26%20PPC%20Services."
                   target="_blank"
@@ -1735,13 +1738,14 @@ const GoogleAdsService = () => {
 
               {/* Right Column: Compact Action Buttons */}
               <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col xl:flex-row items-stretch sm:items-center gap-3">
-                <Link
-                  to="/contact"
-                  className="px-6 py-3 bg-gradient-to-r from-[#00AED6] via-[#4285F4] to-[#E6007A] hover:opacity-95 text-white font-bold rounded-full transition-all shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-2 group"
+                <button
+                  type="button"
+                  onClick={() => openModal('Performance Marketing')}
+                  className="px-6 py-3 bg-gradient-to-r from-[#00AED6] via-[#4285F4] to-[#E6007A] hover:opacity-95 text-white font-bold rounded-full transition-all shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <span>Get Your Free Google Ads Audit</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </button>
 
                 <a
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20connect%20with%20a%20Google%20Ads%20PPC%20Expert."

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Search, Megaphone } from 'lucide-react';
+import { useContactModal } from '../context/ContactModalContext';
 
 const Hero = () => {
+  const { openModal } = useContactModal();
   return (
     <div className="relative min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center pt-28 sm:pt-36 pb-14 sm:pb-20 overflow-hidden bg-white">
       {/* Vibrant Radial Background Gradient using Logo Colors */}
@@ -30,12 +32,13 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-start gap-3 sm:gap-4">
-              <Link 
-                to="/contact" 
-                className="w-full sm:w-auto text-white font-bold py-3.5 px-8 rounded-xl transition-all text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 bg-gradient-to-r from-[#00AED6] to-[#E6007A] hover:opacity-95"
+              <button 
+                type="button"
+                onClick={() => openModal('Complete 360° Digital Marketing')}
+                className="w-full sm:w-auto text-white font-bold py-3.5 px-8 rounded-xl transition-all text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 bg-gradient-to-r from-[#00AED6] to-[#E6007A] hover:opacity-95 cursor-pointer"
               >
                 Book Strategy Session <ArrowRight className="w-4 h-4" />
-              </Link>
+              </button>
               <Link 
                 to="/services" 
                 className="w-full sm:w-auto bg-white border border-slate-300 text-slate-700 hover:border-[#00AED6] hover:text-[#00AED6] font-bold py-3.5 px-8 rounded-xl transition-all text-sm sm:text-base shadow-sm hover:shadow text-center"

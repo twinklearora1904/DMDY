@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 import { ArrowRight, ArrowUpRight, BarChart3, TrendingUp, Users, Sparkles, Zap } from 'lucide-react';
 
 const caseStudies = [
@@ -33,6 +34,7 @@ const caseStudies = [
 ];
 
 const Portfolio = () => {
+  const { openModal } = useContactModal();
   useEffect(() => {
     document.title = 'Client Case Studies & Growth Teardowns — DMDY';
   }, []);
@@ -67,12 +69,13 @@ const Portfolio = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
-                <Link 
-                  to="/contact" 
-                  className="py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2"
+                <button 
+                  type="button"
+                  onClick={() => openModal()}
+                  className="py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Request Custom Case Study <ArrowRight className="w-4 h-4" />
-                </Link>
+                </button>
                 <a 
                   href="#case-studies"
                   className="py-3.5 px-7 rounded-full font-bold text-slate-700 text-xs sm:text-sm bg-white border border-slate-200/90 hover:bg-slate-50 transition-all text-center shadow-sm"
@@ -293,13 +296,14 @@ const Portfolio = () => {
                 </div>
 
                 <div className="pt-5 border-t border-slate-100">
-                  <Link 
-                    to="/contact" 
-                    className="inline-flex items-center text-sm sm:text-base font-bold text-slate-900 hover:text-[#00AED6] transition-colors group/link"
+                  <button 
+                    type="button"
+                    onClick={() => openModal(study.tags[0] || 'Digital Marketing')}
+                    className="inline-flex items-center text-sm sm:text-base font-bold text-slate-900 hover:text-[#00AED6] transition-colors group/link cursor-pointer"
                   >
                     Request Strategy Teardown 
                     <ArrowUpRight className="w-4 h-4 ml-1.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}
@@ -322,12 +326,13 @@ const Portfolio = () => {
             <p className="text-slate-600 text-sm sm:text-base mb-8 leading-relaxed font-normal max-w-xl mx-auto">
               We partner exclusively with businesses ready for structured, predictable scaling. Book a confidential consultation today.
             </p>
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all"
+            <button 
+              type="button"
+              onClick={() => openModal()}
+              className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all cursor-pointer"
             >
               Apply for Partnership <ArrowRight className="w-4 h-4 ml-0.5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>

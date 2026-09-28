@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
 import { Sparkles, ArrowRight, Calendar, Search, Clock, X } from 'lucide-react';
 
 const Blog = () => {
+  const { openModal } = useContactModal();
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -437,12 +439,13 @@ const Blog = () => {
             </div>
 
             <div className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full md:w-auto">
-              <Link
-                to="/contact"
-                className="py-3.5 px-8 rounded-full font-bold text-white text-sm sm:text-base shadow-xl shadow-cyan-500/20 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-center transition-all duration-300"
+              <button
+                type="button"
+                onClick={() => openModal()}
+                className="py-3.5 px-8 rounded-full font-bold text-white text-sm sm:text-base shadow-xl shadow-cyan-500/20 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-center transition-all duration-300 cursor-pointer"
               >
                 Claim Free Growth Audit &rarr;
-              </Link>
+              </button>
             </div>
           </div>
         </div>

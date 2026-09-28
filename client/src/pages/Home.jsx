@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 import { LineChart, Target, ArrowRight, Search, Share2, PenTool, Monitor, HeartHandshake } from 'lucide-react';
 const industryTabs = [
   {
@@ -150,6 +151,7 @@ const IndustriesSection = () => {
 };
 
 const Home = () => {
+  const { openModal } = useContactModal();
   useEffect(() => {
     document.title = 'DMDY — 360° Digital Growth Partner & Performance Marketing Agency';
   }, []);
@@ -207,9 +209,13 @@ const Home = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3 sm:gap-4 w-full sm:w-auto">
-              <Link to="/contact" className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg text-sm sm:text-base hover:-translate-y-0.5 flex items-center justify-center gap-2 group">
+              <button 
+                type="button"
+                onClick={() => openModal()}
+                className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg text-sm sm:text-base hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer"
+              >
                 Start a Conversation <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </button>
               <a 
                 href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20digital%20marketing%20services%20for%20my%20business."
                 target="_blank"
@@ -432,14 +438,15 @@ const Home = () => {
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">Not sure where to start?</h3>
               <p className="text-sm sm:text-base text-slate-600 font-normal">That's exactly what we're here for. Let's figure it out together.</p>
             </div>
-            <Link
-              to="/contact"
-              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white text-sm sm:text-base shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group text-center"
+            <button
+              type="button"
+              onClick={() => openModal()}
+              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-white text-sm sm:text-base shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group text-center cursor-pointer"
               style={{background: 'linear-gradient(135deg, #00AED6 0%, #E6007A 50%, #F5A623 100%)'}}
             >
               Get a Digital Growth Consultation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -483,9 +490,13 @@ const Home = () => {
               Partner with DMDY for data-backed strategies and transparent reporting. Schedule a consultation with our experts today.
             </p>
             <div className="flex flex-col sm:flex-row justify-start items-center gap-4">
-              <Link to="/contact" className="w-full sm:w-auto bg-gradient-to-r from-[#00AED6] to-[#E6007A] text-white hover:opacity-95 font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:shadow-lg text-sm sm:text-base text-center">
+              <button 
+                type="button"
+                onClick={() => openModal()}
+                className="w-full sm:w-auto bg-gradient-to-r from-[#00AED6] to-[#E6007A] text-white hover:opacity-95 font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:shadow-lg text-sm sm:text-base text-center cursor-pointer"
+              >
                 Request a Consultation
-              </Link>
+              </button>
               <Link to="/portfolio" className="w-full sm:w-auto bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 font-bold py-3.5 px-8 rounded-xl transition-all shadow-sm text-sm sm:text-base text-center">
                 View Our Work
               </Link>

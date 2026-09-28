@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 import logo from '../assets/logo.png';
 
 const Footer = () => {
+  const { openModal } = useContactModal();
   return (
     <footer className="bg-slate-950 text-slate-400 pt-12 sm:pt-20 pb-8 sm:pb-12 font-sans border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +35,7 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/portfolio" className="hover:text-white transition-colors">Case Studies</Link></li>
               <li><Link to="/blog" className="hover:text-white transition-colors">Insights</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><button onClick={() => openModal()} className="hover:text-white transition-colors cursor-pointer text-left">Contact Us</button></li>
             </ul>
           </div>
 

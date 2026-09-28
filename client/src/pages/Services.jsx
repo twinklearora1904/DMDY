@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 import { LineChart, Target, Code2, ArrowRight, CheckCircle2, TrendingUp, Sparkles, Layers, Zap, Share2 } from 'lucide-react';
 
 const process = [
@@ -26,6 +27,7 @@ const process = [
 ];
 
 const Services = () => {
+  const { openModal } = useContactModal();
   useEffect(() => {
     document.title = 'Full-Stack Digital Growth Services & Capabilities — DMDY';
   }, []);
@@ -61,12 +63,13 @@ const Services = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
-                <Link 
-                  to="/contact" 
-                  className="py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2"
+                <button 
+                  type="button"
+                  onClick={() => openModal('Complete 360° Digital Marketing')}
+                  className="py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Get Custom Growth Proposal <ArrowRight className="w-4 h-4" />
-                </Link>
+                </button>
                 <a 
                   href="#capabilities"
                   className="py-3.5 px-7 rounded-full font-bold text-slate-700 text-xs sm:text-sm bg-white border border-slate-200/90 hover:bg-slate-50 transition-all text-center shadow-sm"
@@ -311,9 +314,13 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 border-t border-slate-100">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#F5A623] hover:text-[#00AED6] transition-colors">
+                <button 
+                  type="button"
+                  onClick={() => openModal('Website Development')}
+                  className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#F5A623] hover:text-[#00AED6] transition-colors cursor-pointer"
+                >
                   Explore Web Engineering &rarr;
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -342,9 +349,13 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 border-t border-slate-100">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#00C48C] hover:text-[#00AED6] transition-colors">
+                <button 
+                  type="button"
+                  onClick={() => openModal('Performance Marketing')}
+                  className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#00C48C] hover:text-[#00AED6] transition-colors cursor-pointer"
+                >
                   Explore Conversion Optimization &rarr;
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -432,12 +443,13 @@ const Services = () => {
             <p className="text-sm sm:text-base text-slate-600 mb-8 leading-relaxed font-normal max-w-xl mx-auto">
               Schedule a strategy consultation with our senior team. We will analyze your funnel and present an actionable execution blueprint.
             </p>
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all"
+            <button 
+              type="button"
+              onClick={() => openModal('Complete 360° Digital Marketing')}
+              className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all cursor-pointer"
             >
               Schedule Strategy Call <ArrowRight className="w-4 h-4 ml-0.5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, Search, Target, Code2, TrendingUp, Share2, ArrowRight, Sparkles } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 import logo from '../assets/logo.png';
 
 const servicesList = [
@@ -28,6 +29,7 @@ const servicesList = [
 ];
 
 const Navbar = () => {
+  const { openModal } = useContactModal();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
@@ -192,13 +194,16 @@ const Navbar = () => {
                       <div className="text-xs font-bold text-slate-800">Need a tailored strategy?</div>
                       <div className="text-[11px] text-slate-500">Free 30-min growth consultation</div>
                     </div>
-                    <Link
-                      to="/contact"
-                      onClick={() => setServicesDropdown(false)}
-                      className="text-xs font-bold px-3 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition-colors"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setServicesDropdown(false);
+                        openModal('Complete 360° Digital Marketing');
+                      }}
+                      className="text-xs font-bold px-3 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition-colors cursor-pointer"
                     >
                       Book Call
-                    </Link>
+                    </button>
                   </div>
                 </div>
               )}
@@ -263,12 +268,13 @@ const Navbar = () => {
 
           {/* Desktop CTAs (Right) */}
           <div className="hidden md:flex items-center space-x-3">
-            <Link 
-              to="/contact" 
-              className="text-sm px-5 py-2.5 font-semibold text-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 bg-gradient-to-r from-[#00AED6] to-[#E6007A] hover:opacity-95 hover:scale-[1.02] active:scale-[0.98]"
+            <button 
+              type="button"
+              onClick={() => openModal()}
+              className="text-sm px-5 py-2.5 font-semibold text-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 bg-gradient-to-r from-[#00AED6] to-[#E6007A] hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               Get Free Audit
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -377,6 +383,7 @@ const Navbar = () => {
 
             <Link 
               to="/contact" 
+              onClick={() => setIsOpen(false)}
               className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${
                 location.pathname === '/contact' 
                   ? 'bg-pink-50 text-brandSecondary font-semibold' 
@@ -387,12 +394,16 @@ const Navbar = () => {
             </Link>
 
             <div className="pt-3 border-t border-slate-100">
-              <Link 
-                to="/contact" 
-                className="w-full block text-center text-sm font-semibold text-white py-3 rounded-xl shadow-sm bg-gradient-to-r from-[#00AED6] to-[#E6007A]"
+              <button 
+                type="button"
+                onClick={() => {
+                  setIsOpen(false);
+                  openModal();
+                }}
+                className="w-full block text-center text-sm font-semibold text-white py-3 rounded-xl shadow-sm bg-gradient-to-r from-[#00AED6] to-[#E6007A] cursor-pointer active:scale-[0.99]"
               >
                 Get Free Audit
-              </Link>
+              </button>
             </div>
           </div>
         )}

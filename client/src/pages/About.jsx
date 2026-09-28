@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 import { TrendingUp, Users, Target, Zap, ArrowRight, CheckCircle2, ShieldCheck, Award, Sparkles, Layers, Eye, Compass, Building2, HeartPulse, ShoppingCart, GraduationCap, Store, UtensilsCrossed, Briefcase, Building, Globe, Quote } from 'lucide-react';
 import aboutHeroGrowthImg from '../assets/about_hero_growth.jpg';
 
 const About = () => {
+  const { openModal } = useContactModal();
   useEffect(() => {
     document.title = 'About DMDY — Digital Growth Architects & Performance Specialists';
   }, []);
@@ -50,12 +52,13 @@ const About = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-                <Link 
-                  to="/contact" 
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2"
+                <button 
+                  type="button"
+                  onClick={() => openModal()}
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Get In Touch <ArrowRight className="w-4 h-4" />
-                </Link>
+                </button>
                 <Link 
                   to="/services" 
                   className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all text-center"
@@ -923,13 +926,14 @@ const About = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-              <Link 
-                to="/contact" 
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2"
+              <button 
+                type="button"
+                onClick={() => openModal()}
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Get In Touch</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </button>
               <Link 
                 to="/services" 
                 className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-bold text-sm sm:text-base border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow transition-all duration-200 flex items-center justify-center"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../../context/ContactModalContext';
 import { 
   Search, 
   ArrowRight, 
@@ -29,6 +30,7 @@ import seoProcessGrowthImg from '../../assets/seo_process_growth.jpg';
 import businessGoalsImg from '../../assets/business_goals_seo.jpg';
 
 const SeoService = () => {
+  const { openModal } = useContactModal();
   const [selectedGoal, setSelectedGoal] = React.useState('traffic');
   const [openFaq, setOpenFaq] = React.useState(0);
 
@@ -105,12 +107,13 @@ const SeoService = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link 
-                  to="/contact" 
-                  className="w-full sm:w-auto px-8 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-bold rounded-full transition-all shadow-md hover:shadow-lg text-center text-sm sm:text-base hover:-translate-y-0.5 justify-center flex items-center"
+                <button 
+                  type="button"
+                  onClick={() => openModal('SEO')}
+                  className="w-full sm:w-auto px-8 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-bold rounded-full transition-all shadow-md hover:shadow-lg text-center text-sm sm:text-base hover:-translate-y-0.5 justify-center flex items-center cursor-pointer"
                 >
                   Get Free SEO Audit
-                </Link>
+                </button>
                 <a 
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20SEO%20Services."
                   target="_blank"
@@ -1509,13 +1512,14 @@ const SeoService = () => {
 
               {/* Right Column: Compact Action Buttons */}
               <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col xl:flex-row items-stretch sm:items-center gap-3">
-                <Link
-                  to="/contact"
-                  className="px-6 py-3 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-white font-bold rounded-full transition-all shadow-sm hover:shadow-md text-sm sm:text-base flex items-center justify-center gap-2 group"
+                <button
+                  type="button"
+                  onClick={() => openModal('SEO')}
+                  className="px-6 py-3 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-white font-bold rounded-full transition-all shadow-sm hover:shadow-md text-sm sm:text-base flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <span>Get My Free SEO Audit</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </button>
 
                 <a
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20an%20SEO%20audit."

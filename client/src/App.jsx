@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ContactModalProvider } from './context/ContactModalContext'
+import ContactModal from './components/ContactModal'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -22,10 +24,12 @@ import NotFound from './pages/NotFound'
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
-        <Navbar />
-        <main className="flex-grow">
+    <ContactModalProvider>
+      <Router>
+        <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
+          <Navbar />
+          <ContactModal />
+          <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
@@ -49,6 +53,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+  </ContactModalProvider>
   )
 }
 

@@ -12,32 +12,18 @@ const servicesList = [
     color: '#00AED6'
   },
   {
-    name: 'Performance Marketing & Ads',
-    desc: 'High-ROAS Google, Meta & LinkedIn campaigns',
-    path: '/services#paid-ads',
-    icon: Target,
-    color: '#E6007A'
-  },
-  {
-    name: 'Web Design & Engineering',
-    desc: 'High-converting custom Next.js & React web applications',
-    path: '/services#web-engineering',
-    icon: Code2,
-    color: '#F5A623'
-  },
-  {
-    name: 'Conversion Rate Optimization (CRO)',
-    desc: 'A/B testing, user journey mapping & checkout scale',
-    path: '/services#cro',
-    icon: TrendingUp,
-    color: '#00C48C'
-  },
-  {
-    name: 'Social & Content Marketing',
+    name: 'Social Media Marketing',
     desc: 'Brand storytelling, influencer outreach & viral growth',
-    path: '/services#social-marketing',
+    path: '/services/social-media',
     icon: Share2,
     color: '#7C3AED'
+  },
+  {
+    name: 'Google Ads & PPC Management',
+    desc: 'High-intent search, Performance Max & maximum ROAS',
+    path: '/services/google-ads',
+    icon: Target,
+    color: '#E6007A'
   }
 ];
 
@@ -112,7 +98,7 @@ const Navbar = () => {
               to="/" 
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${
                 location.pathname === '/' 
-                  ? 'text-brandSecondary bg-pink-50/80 font-semibold' 
+                  ? 'text-brandSecondary font-semibold' 
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
               }`}
             >
@@ -130,7 +116,7 @@ const Navbar = () => {
                   to="/services"
                   className={`text-[14.5px] pl-3.5 pr-1.5 py-1.5 rounded-l-lg transition-all font-medium inline-flex items-center gap-1 ${
                     isServicesActive 
-                      ? 'text-brandSecondary bg-pink-50/80 font-semibold' 
+                      ? 'text-brandSecondary font-semibold' 
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                   }`}
                 >
@@ -142,7 +128,7 @@ const Navbar = () => {
                   aria-label="Toggle Services menu"
                   className={`py-1.5 pr-2 pl-0.5 rounded-r-lg transition-all ${
                     isServicesActive
-                      ? 'text-brandSecondary bg-pink-50/80'
+                      ? 'text-brandSecondary'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                   }`}
                 >
@@ -222,7 +208,7 @@ const Navbar = () => {
               to="/about" 
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${
                 location.pathname === '/about' 
-                  ? 'text-brandSecondary bg-pink-50/80 font-semibold' 
+                  ? 'text-brandSecondary font-semibold' 
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
               }`}
             >
@@ -233,7 +219,7 @@ const Navbar = () => {
               to="/portfolio" 
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${
                 location.pathname === '/portfolio' 
-                  ? 'text-brandSecondary bg-pink-50/80 font-semibold' 
+                  ? 'text-brandSecondary font-semibold' 
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
               }`}
             >
@@ -244,7 +230,7 @@ const Navbar = () => {
               to="/pricing" 
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${
                 location.pathname === '/pricing' 
-                  ? 'text-brandSecondary bg-pink-50/80 font-semibold' 
+                  ? 'text-brandSecondary font-semibold' 
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
               }`}
             >
@@ -255,7 +241,7 @@ const Navbar = () => {
               to="/blog" 
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${
                 location.pathname === '/blog' 
-                  ? 'text-brandSecondary bg-pink-50/80 font-semibold' 
+                  ? 'text-brandSecondary font-semibold' 
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
               }`}
             >

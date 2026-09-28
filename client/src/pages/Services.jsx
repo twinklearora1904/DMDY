@@ -280,8 +280,8 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 border-t border-slate-100">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#E6007A] hover:text-[#00AED6] transition-colors">
-                  Explore Paid Media Framework &rarr;
+                <Link to="/services/google-ads" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#E6007A] hover:text-[#00AED6] transition-colors">
+                  Explore Google Ads & PPC Framework &rarr;
                 </Link>
               </div>
             </div>
@@ -375,7 +375,7 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#7C3AED] hover:text-[#00AED6] transition-colors">
+                <Link to="/services/social-media" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#7C3AED] hover:text-[#00AED6] transition-colors">
                   Explore Social Growth Engine &rarr;
                 </Link>
                 <span className="text-xs font-semibold text-slate-400 hidden sm:inline">

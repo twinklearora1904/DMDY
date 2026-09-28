@@ -22,9 +22,8 @@ const Footer = () => {
             <h4 className="text-white font-bold mb-6">Services</h4>
             <ul className="space-y-3">
               <li><Link to="/services/seo" className="hover:text-white transition-colors">Search Engine Optimization</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Performance Marketing</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Web Development</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Conversion Optimization</Link></li>
+              <li><Link to="/services/social-media" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
+              <li><Link to="/services/google-ads" className="hover:text-white transition-colors">Google Ads & PPC</Link></li>
             </ul>
           </div>
 

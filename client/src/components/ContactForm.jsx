@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import { Mail, MapPin, Phone, MessageSquare, Sparkles } from 'lucide-react';
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '', company: '', website: '', service: 'SEO', message: ''
   });
@@ -29,8 +31,18 @@ const ContactForm = () => {
     
     try {
       await api.post('/api/leads', payload);
-      setStatus({ type: 'success', msg: 'Your strategy request has been submitted! Our growth team will reach out within 2 hours.' });
+      const submittedName = formData.name;
+      const submittedEmail = formData.email;
+      const submittedService = formData.service;
+
       setFormData({ name: '', email: '', phone: '', company: '', website: '', service: 'SEO', message: '' });
+      navigate('/thank-you', {
+        state: {
+          name: submittedName,
+          email: submittedEmail,
+          service: submittedService,
+        },
+      });
     } catch (error) {
       setStatus({ type: 'error', msg: error.response?.data?.errors?.[0]?.msg || error.response?.data?.message || 'Something went wrong. Please try again.' });
     } finally {

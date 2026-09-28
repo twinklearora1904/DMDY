@@ -11,6 +11,7 @@ import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import PricingPage from './pages/PricingPage'
 import Contact from './pages/Contact'
+import ThankYou from './pages/ThankYou'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Admin from './pages/Admin'
@@ -35,6 +36,7 @@ function App() {
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/admin" element={<Admin />} />

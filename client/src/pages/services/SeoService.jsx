@@ -334,9 +334,6 @@ const SeoService = () => {
                 {/* AI Overview Answer Preview Box */}
                 <div className="p-4 rounded-2xl bg-slate-900 text-white relative shadow-lg overflow-hidden">
                   
-                  {/* Top Logo Gradient Accent Bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]"></div>
-                  
                   <div className="flex items-center justify-between mb-2 pt-1">
                     <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-200">
                       <Bot className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -538,9 +535,6 @@ const SeoService = () => {
             
             {/* Layer 1 — SEO Foundation */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              {/* Top Accent Gradient Bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-cyan-300 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -584,9 +578,6 @@ const SeoService = () => {
 
             {/* Layer 2 — Answer Engine Optimization (AEO) */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              {/* Top Accent Gradient Bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6007A] to-pink-300 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -629,9 +620,6 @@ const SeoService = () => {
 
             {/* Layer 3 — Generative Engine Optimization (GEO) */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              {/* Top Accent Gradient Bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C48C] via-[#F5A623] to-emerald-400 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -707,7 +695,6 @@ const SeoService = () => {
             
             {/* 1. Technical SEO */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <Cpu className="w-6 h-6 text-[#00AED6]" />
@@ -723,7 +710,6 @@ const SeoService = () => {
 
             {/* 2. Content SEO */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6007A] to-pink-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <FileText className="w-6 h-6 text-[#E6007A]" />
@@ -739,7 +725,6 @@ const SeoService = () => {
 
             {/* 3. Local SEO */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C48C] to-emerald-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <MapPin className="w-6 h-6 text-[#00C48C]" />
@@ -755,7 +740,6 @@ const SeoService = () => {
 
             {/* 4. E-commerce SEO */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5A623] to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#F5A623]/10 text-[#F5A623] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <ShoppingCart className="w-6 h-6 text-[#F5A623]" />
@@ -771,7 +755,6 @@ const SeoService = () => {
 
             {/* 5. AEO Optimization */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00AED6]/10 to-[#E6007A]/10 text-[#00AED6] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <Bot className="w-6 h-6 text-[#00AED6]" />
@@ -787,7 +770,6 @@ const SeoService = () => {
 
             {/* 6. GEO Optimization */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6007A] via-[#F5A623] to-[#00C48C] opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#E6007A]/10 to-[#00C48C]/10 text-[#E6007A] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <Sparkles className="w-6 h-6 text-[#E6007A]" />
@@ -836,7 +818,6 @@ const SeoService = () => {
             
             {/* 1. Real Estate */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <Building2 className="w-6 h-6 text-[#00AED6]" />
@@ -852,7 +833,6 @@ const SeoService = () => {
 
             {/* 2. E-commerce */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5A623] to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#F5A623]/10 text-[#F5A623] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <ShoppingBag className="w-6 h-6 text-[#F5A623]" />
@@ -868,7 +848,6 @@ const SeoService = () => {
 
             {/* 3. Healthcare */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C48C] to-emerald-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <HeartPulse className="w-6 h-6 text-[#00C48C]" />
@@ -884,7 +863,6 @@ const SeoService = () => {
 
             {/* 4. Education */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6007A] to-pink-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <GraduationCap className="w-6 h-6 text-[#E6007A]" />
@@ -900,7 +878,6 @@ const SeoService = () => {
 
             {/* 5. B2B & Professional Services */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00AED6]/10 to-[#E6007A]/10 text-[#00AED6] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <Briefcase className="w-6 h-6 text-[#00AED6]" />
@@ -916,7 +893,6 @@ const SeoService = () => {
 
             {/* 6. Local Businesses */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C48C] via-[#F5A623] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00C48C]/10 to-[#F5A623]/10 text-[#00C48C] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   <Store className="w-6 h-6 text-[#00C48C]" />
@@ -1152,14 +1128,6 @@ const SeoService = () => {
 
               {/* Dynamic Strategy Card according to Selected Tab */}
               <div className="p-6 sm:p-7 rounded-3xl bg-slate-50/70 border border-slate-200/90 shadow-sm transition-all duration-300 relative overflow-hidden">
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${
-                  selectedGoal === 'traffic'
-                    ? 'from-[#00AED6] to-cyan-300'
-                    : selectedGoal === 'leads'
-                    ? 'from-[#E6007A] to-pink-300'
-                    : 'from-[#00C48C] via-[#F5A623] to-[#00AED6]'
-                }`}></div>
-
                 {selectedGoal === 'traffic' && (
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
@@ -1501,9 +1469,6 @@ const SeoService = () => {
           
           <div className="relative rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
             
-            {/* Top Brand Accent Line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]"></div>
-
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
               
               {/* Left Column: Heading & Content */}

@@ -493,10 +493,6 @@ const GoogleAdsService = () => {
 
                 {/* Simulated High-Performing Auction Teardown Box */}
                 <div className="p-4 rounded-2xl bg-slate-900 text-white relative shadow-lg overflow-hidden">
-                  
-                  {/* Top Logo Gradient Accent Bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4285F4] via-[#E6007A] to-[#00AED6]"></div>
-                  
                   <div className="flex items-center justify-between mb-2 pt-1">
                     <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-200">
                       <Zap className="w-3.5 h-3.5 text-[#F5A623]" />
@@ -758,8 +754,6 @@ const GoogleAdsService = () => {
             
             {/* Layer 1 — Intent */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-[#4285F4] opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -785,8 +779,6 @@ const GoogleAdsService = () => {
 
             {/* Layer 2 — Click */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6007A] to-pink-400 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -812,8 +804,6 @@ const GoogleAdsService = () => {
 
             {/* Layer 3 — Convert */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5A623] to-amber-300 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#F5A623]/10 text-[#F5A623] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -839,8 +829,6 @@ const GoogleAdsService = () => {
 
             {/* Layer 4 — Scale */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-300 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -1015,7 +1003,6 @@ const GoogleAdsService = () => {
             
             {/* 1. Real Estate */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -1040,7 +1027,6 @@ const GoogleAdsService = () => {
 
             {/* 2. E-commerce */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5A623] to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -1065,7 +1051,6 @@ const GoogleAdsService = () => {
 
             {/* 3. Healthcare */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C48C] to-emerald-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -1090,7 +1075,6 @@ const GoogleAdsService = () => {
 
             {/* 4. Education */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6007A] to-pink-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -1115,7 +1099,6 @@ const GoogleAdsService = () => {
 
             {/* 5. Local Businesses */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C48C] via-[#F5A623] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -1140,7 +1123,6 @@ const GoogleAdsService = () => {
 
             {/* 6. B2B & Professional Services */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#4285F4]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-[#E6007A] opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -1387,14 +1369,6 @@ const GoogleAdsService = () => {
 
               {/* Dynamic Strategy Card according to Selected Tab */}
               <div className="p-6 sm:p-7 rounded-3xl bg-slate-50/70 border border-slate-200/90 shadow-sm transition-all duration-300 relative overflow-hidden">
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${
-                  selectedGoal === 'leads'
-                    ? 'from-[#00AED6] to-[#4285F4]'
-                    : selectedGoal === 'sales'
-                    ? 'from-[#E6007A] via-[#F5A623] to-[#00C48C]'
-                    : 'from-[#4285F4] to-cyan-300'
-                }`}></div>
-
                 {/* 1. Generate More Leads */}
                 {selectedGoal === 'leads' && (
                   <div className="space-y-4">
@@ -1725,10 +1699,6 @@ const GoogleAdsService = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="relative rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
-            
-            {/* Top Brand Accent Line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] via-[#4285F4] to-[#E6007A]"></div>
-
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
               
               {/* Left Column: Heading & Content */}

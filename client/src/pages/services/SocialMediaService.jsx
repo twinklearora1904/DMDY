@@ -394,10 +394,6 @@ const SocialMediaService = () => {
 
                 {/* Simulated High-Value Reel Strategy Preview Box */}
                 <div className="p-4 rounded-2xl bg-slate-900 text-white relative shadow-lg overflow-hidden">
-                  
-                  {/* Top Logo Gradient Accent Bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#00AED6]"></div>
-                  
                   <div className="flex items-center justify-between mb-2 pt-1">
                     <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-200">
                       <Zap className="w-3.5 h-3.5 text-[#F5A623]" />
@@ -615,8 +611,6 @@ const SocialMediaService = () => {
             
             {/* Layer 1 — Strategy */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-cyan-300 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -639,8 +633,6 @@ const SocialMediaService = () => {
 
             {/* Layer 2 — Content */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7C3AED] to-purple-300 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -663,8 +655,6 @@ const SocialMediaService = () => {
 
             {/* Layer 3 — Community */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6007A] to-pink-300 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -687,8 +677,6 @@ const SocialMediaService = () => {
 
             {/* Layer 4 — Conversion */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C48C] to-emerald-300 opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
@@ -866,7 +854,6 @@ const SocialMediaService = () => {
             
             {/* 1. Real Estate */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00AED6] to-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -891,7 +878,6 @@ const SocialMediaService = () => {
 
             {/* 2. E-commerce */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5A623] to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -916,7 +902,6 @@ const SocialMediaService = () => {
 
             {/* 3. Healthcare */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00C48C] to-emerald-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -941,7 +926,6 @@ const SocialMediaService = () => {
 
             {/* 4. Hospitality */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E6007A] to-pink-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -966,7 +950,6 @@ const SocialMediaService = () => {
 
             {/* 5. Startups */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7C3AED] to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -991,7 +974,6 @@ const SocialMediaService = () => {
 
             {/* 6. Professional Services */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#0A66C2]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0A66C2] to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -1228,14 +1210,6 @@ const SocialMediaService = () => {
 
               {/* Dynamic Strategy Card according to Selected Tab */}
               <div className="p-6 sm:p-7 rounded-3xl bg-slate-50/70 border border-slate-200/90 shadow-sm transition-all duration-300 relative overflow-hidden">
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${
-                  selectedGoal === 'visibility'
-                    ? 'from-[#7C3AED] to-purple-300'
-                    : selectedGoal === 'leads'
-                    ? 'from-[#00AED6] to-cyan-300'
-                    : 'from-[#E6007A] via-[#F5A623] to-[#00C48C]'
-                }`}></div>
-
                 {selectedGoal === 'visibility' && (
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
@@ -1523,10 +1497,6 @@ const SocialMediaService = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="relative rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
-            
-            {/* Top Brand Accent Line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]"></div>
-
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
               
               {/* Left Column: Heading & Content */}

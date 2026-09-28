@@ -512,6 +512,80 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* ========================================================= */}
+      {/* SECTION 5: LET'S TALK GROWTH (FINAL CTA BANNER)          */}
+      {/* ========================================================= */}
+      <section className="py-16 sm:py-20 md:py-24 bg-white border-t border-slate-200/80 relative overflow-hidden">
+        
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 -right-40 w-96 h-96 bg-pink-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        {/* Navbar Aligned Container */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          
+          <div className="w-full max-w-4xl mx-auto p-8 sm:p-12 md:p-16 rounded-3xl bg-gradient-to-b from-white to-slate-50/90 border border-slate-200/90 shadow-sm relative overflow-hidden">
+            
+            {/* Top Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6 shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
+              <span>Start Your Transformation</span>
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.14] mb-5">
+              Let’s Talk{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                Growth.
+              </span>
+            </h2>
+
+            {/* Narrative Questions & Punchline */}
+            <p className="text-base sm:text-lg md:text-xl font-medium text-slate-700 max-w-2xl mx-auto mb-3 leading-relaxed">
+              Have an idea? A challenge? Or simply wondering what your business could do better online?
+            </p>
+
+            <p className="text-lg sm:text-xl font-extrabold text-[#00AED6] mb-8">
+              Let’s start there.
+            </p>
+
+            {/* Brand Signature Card / Pill */}
+            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-6 py-3 rounded-2xl bg-slate-950 text-white mb-8 shadow-md border border-slate-800">
+              <span className="font-extrabold text-sm sm:text-base tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                DMDY — Digi Me Digi You
+              </span>
+              <span className="hidden sm:inline text-slate-500">•</span>
+              <span className="text-xs sm:text-sm font-semibold text-slate-300">
+                360° Digital Marketing. Designed Around You.
+              </span>
+            </div>
+
+            {/* Action CTAs */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
+              <button
+                onClick={scrollToContact}
+                className="w-full sm:w-auto px-8 py-4 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Talk to Our Team</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <a
+                href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20talk%20to%20your%20team%20about%20our%20digital%20marketing%20growth."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xs"
+              >
+                <MessageSquare className="w-4 h-4 text-emerald-600" />
+                <span>WhatsApp Us Directly</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 };

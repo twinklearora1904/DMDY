@@ -10,7 +10,11 @@ import {
   ShieldCheck,
   Phone,
   Mail,
-  MapPin
+  MapPin,
+  Award,
+  Layers,
+  Sliders,
+  Users
 } from 'lucide-react';
 
 const Contact = () => {
@@ -348,6 +352,158 @@ const Contact = () => {
                   <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <div className="text-xs text-slate-400 mt-1 font-medium">Detailed brief &amp; RFP reviews</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* SECTION 4: WHY START WITH DMDY?                          */}
+      {/* ========================================================= */}
+      <section className="py-16 sm:py-20 md:py-24 bg-slate-50 border-t border-slate-200/80 relative overflow-hidden">
+        
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-pink-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        {/* Navbar Aligned Container */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
+          
+          {/* Section Header */}
+          <div className="max-w-3xl mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
+              <span>The DMDY Advantage</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.14] mb-3">
+              Why Start With{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                DMDY?
+              </span>
+            </h2>
+
+            <p className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight mb-4">
+              Your Business. Your Goals. Your Strategy.
+            </p>
+
+            <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
+              <p className="font-semibold text-slate-800">
+                We don’t believe in forcing every business into the same marketing package.
+              </p>
+              <p>
+                At DMDY, we first understand where you are, where you want to go, and what your business actually needs. From there, we create a digital marketing approach designed around your industry, audience, objectives, and budget.
+              </p>
+            </div>
+          </div>
+
+          {/* 4 Value Pillar Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            
+            {/* 1. 10+ Years of Experience */}
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                  <Award className="w-6 h-6 text-[#00AED6]" />
+                </div>
+
+                <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-1.5">
+                  Proven Expertise
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-[#00AED6] transition-colors">
+                  10+ Years of Experience
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Industry experience supporting digital growth.
+                </p>
+              </div>
+
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#00AED6] transition-colors">
+                <span>Decade of Authority</span>
+                <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </div>
+            </div>
+
+            {/* 2. 360° Digital Marketing */}
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                  <Layers className="w-6 h-6 text-[#7C3AED]" />
+                </div>
+
+                <div className="text-xs font-bold uppercase tracking-wider text-[#7C3AED] mb-1.5">
+                  Complete Spectrum
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-[#7C3AED] transition-colors">
+                  360° Digital Marketing
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Multiple digital capabilities under one roof.
+                </p>
+              </div>
+
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#7C3AED] transition-colors">
+                <span>Unified Ecosystem</span>
+                <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </div>
+            </div>
+
+            {/* 3. Customized Strategies */}
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                  <Sliders className="w-6 h-6 text-[#E6007A]" />
+                </div>
+
+                <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-1.5">
+                  Bespoke Planning
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-[#E6007A] transition-colors">
+                  Customized Strategies
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Solutions built around your business—not generic packages.
+                </p>
+              </div>
+
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#E6007A] transition-colors">
+                <span>Tailored Blueprints</span>
+                <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </div>
+            </div>
+
+            {/* 4. Scalable Team */}
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                  <Users className="w-6 h-6 text-emerald-600" />
+                </div>
+
+                <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1.5">
+                  Agile Execution
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-emerald-600 transition-colors">
+                  Scalable Team
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Access to a flexible team based on your project requirements.
+                </p>
+              </div>
+
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-emerald-600 transition-colors">
+                <span>Flexible Capacity</span>
+                <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>
             </div>
 

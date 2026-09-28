@@ -230,7 +230,7 @@ const ContactForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="e.g. Rahul Sharma"
+                    placeholder="e.g. Atul Rathaur"
                   />
                 </div>
 
@@ -277,7 +277,7 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="rahul@company.com"
+                    placeholder="atul@company.com"
                   />
                 </div>
               </div>

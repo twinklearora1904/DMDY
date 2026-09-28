@@ -10,9 +10,13 @@ const Footer = () => {
         {/* Main Footer Links */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-10 sm:mb-16">
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-6">
+            <Link to="/" className="flex items-center gap-2 mb-4">
               <img src={logo} alt="DMDY Logo" className="h-10 w-auto" />
             </Link>
+            <div className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300 mb-5">
+              <span>Powered by</span>
+              <span className="text-white font-bold tracking-wide">Atul Rathaur</span>
+            </div>
             <p className="leading-relaxed mb-8 max-w-sm">
               We are a performance-obsessed digital marketing agency focused on driving real revenue growth for ambitious brands worldwide.
             </p>
@@ -51,6 +55,10 @@ const Footer = () => {
         <div className="pt-6 sm:pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-center md:text-left">
           <div>
             &copy; {new Date().getFullYear()} DMDY Digital. All rights reserved.
+          </div>
+          <div className="flex items-center gap-1.5 text-slate-400">
+            <span>Powered by</span>
+            <span className="font-bold text-white bg-slate-900 px-2.5 py-0.5 rounded-md border border-slate-800">Atul Rathaur</span>
           </div>
           <div>
             Corporate Headquarters &bull; Global Operations

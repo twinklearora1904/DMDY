@@ -522,10 +522,10 @@ const SocialMediaService = () => {
                     <Eye className="w-4 h-4 text-[#00AED6]" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                       Be Seen
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 mt-0.5 leading-relaxed font-normal">
                       Increase brand visibility through organic and paid reach.
                     </p>
                   </div>
@@ -537,10 +537,10 @@ const SocialMediaService = () => {
                     <Bookmark className="w-4 h-4 text-[#7C3AED]" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                       Be Remembered
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 mt-0.5 leading-relaxed font-normal">
                       Build a recognizable and consistent brand identity.
                     </p>
                   </div>
@@ -552,10 +552,10 @@ const SocialMediaService = () => {
                     <Users className="w-4 h-4 text-[#E6007A]" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                       Build Community
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 mt-0.5 leading-relaxed font-normal">
                       Create conversations, engagement, and customer loyalty.
                     </p>
                   </div>
@@ -567,10 +567,10 @@ const SocialMediaService = () => {
                     <Target className="w-4 h-4 text-[#00C48C]" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                       Drive Conversion
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 mt-0.5 leading-relaxed font-normal">
                       Turn attention into enquiries, leads, and sales.
                     </p>
                   </div>
@@ -631,7 +631,7 @@ const SocialMediaService = () => {
                   Strategy
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Every successful social media campaign begins with audience research, competitor analysis, content pillars, and platform selection.
                 </p>
               </div>
@@ -646,7 +646,7 @@ const SocialMediaService = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <Play className="w-6 h-6 text-[#7C3AED]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-50 text-[#7C3AED] border border-purple-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-50 text-[#7C3AED] border border-purple-200/80">
                     Layer 02
                   </span>
                 </div>
@@ -655,7 +655,7 @@ const SocialMediaService = () => {
                   Content
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   We create Reels, carousel posts, static creatives, captions, stories, and platform-native content designed for engagement.
                 </p>
               </div>
@@ -670,7 +670,7 @@ const SocialMediaService = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <Users className="w-6 h-6 text-[#E6007A]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
                     Layer 03
                   </span>
                 </div>
@@ -679,7 +679,7 @@ const SocialMediaService = () => {
                   Community
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Growth happens through conversations. We help brands increase engagement, build trust, and strengthen customer relationships.
                 </p>
               </div>
@@ -694,7 +694,7 @@ const SocialMediaService = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <TrendingUp className="w-6 h-6 text-[#00C48C]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#00C48C] border border-emerald-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#00C48C] border border-emerald-200/80">
                     Layer 04
                   </span>
                 </div>
@@ -703,7 +703,7 @@ const SocialMediaService = () => {
                   Conversion
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Social media should support business objectives through lead generation, website traffic, WhatsApp enquiries, and social commerce.
                 </p>
               </div>
@@ -726,7 +726,7 @@ const SocialMediaService = () => {
               <span>Full-Spectrum Capabilities</span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               What's Included in Our{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
                 Social Media Marketing Services
@@ -746,10 +746,10 @@ const SocialMediaService = () => {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#E1306C] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#E1306C] transition-colors">
                 Instagram Marketing
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Reels, carousel content, stories, engagement &amp; profile growth.
               </p>
             </div>
@@ -761,10 +761,10 @@ const SocialMediaService = () => {
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#1877F2] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#1877F2] transition-colors">
                 Facebook Marketing
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Community management, campaigns &amp; lead generation.
               </p>
             </div>
@@ -776,10 +776,10 @@ const SocialMediaService = () => {
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 0 0 1.66-1.65 1.66 1.66 0 0 0-3.32 0 1.65 1.65 0 0 0 1.66 1.65m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#0A66C2] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#0A66C2] transition-colors">
                 LinkedIn Marketing
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Personal branding, B2B visibility &amp; thought leadership.
               </p>
             </div>
@@ -793,10 +793,10 @@ const SocialMediaService = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#E6007A] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#E6007A] transition-colors">
                 Short-Form Video
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Reels, Shorts &amp; vertical video strategy.
               </p>
             </div>
@@ -812,10 +812,10 @@ const SocialMediaService = () => {
                   <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2z"></path>
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#8A3FFC] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#8A3FFC] transition-colors">
                 Creative Content Design
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Brand visuals, templates &amp; campaign creatives.
               </p>
             </div>
@@ -828,10 +828,10 @@ const SocialMediaService = () => {
                   <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#FF5722] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#FF5722] transition-colors">
                 Social Media Ads
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Meta Ads, audience targeting &amp; conversion campaigns.
               </p>
             </div>
@@ -883,7 +883,7 @@ const SocialMediaService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors">
                   Real Estate
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Property reels, locality storytelling &amp; lead generation.
                 </p>
               </div>
@@ -908,7 +908,7 @@ const SocialMediaService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors">
                   E-commerce
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Product launches, UGC &amp; social commerce.
                 </p>
               </div>
@@ -933,7 +933,7 @@ const SocialMediaService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors">
                   Healthcare
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Educational content &amp; patient trust building.
                 </p>
               </div>
@@ -958,7 +958,7 @@ const SocialMediaService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors">
                   Hospitality
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Food storytelling, experiences &amp; booking campaigns.
                 </p>
               </div>
@@ -983,7 +983,7 @@ const SocialMediaService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#7C3AED] transition-colors">
                   Startups
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Brand awareness &amp; founder-led content.
                 </p>
               </div>
@@ -1008,7 +1008,7 @@ const SocialMediaService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#0A66C2] transition-colors">
                   Professional Services
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Authority building &amp; high-intent lead generation.
                 </p>
               </div>
@@ -1053,10 +1053,10 @@ const SocialMediaService = () => {
                     01
                   </div>
                   <div className="flex-1 pb-3.5 border-b border-slate-200/80">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#7C3AED] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#7C3AED] transition-colors mb-0.5">
                       Research
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                       Brand audit, competitors, audience &amp; platform analysis.
                     </p>
                   </div>
@@ -1068,10 +1068,10 @@ const SocialMediaService = () => {
                     02
                   </div>
                   <div className="flex-1 pb-3.5 border-b border-slate-200/80">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00AED6] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#00AED6] transition-colors mb-0.5">
                       Plan
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                       Monthly content calendar, content pillars &amp; campaign roadmap.
                     </p>
                   </div>
@@ -1083,10 +1083,10 @@ const SocialMediaService = () => {
                     03
                   </div>
                   <div className="flex-1 pb-3.5 border-b border-slate-200/80">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#E6007A] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#E6007A] transition-colors mb-0.5">
                       Create
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                       Reels, creatives, captions, stories &amp; platform-native content.
                     </p>
                   </div>
@@ -1098,10 +1098,10 @@ const SocialMediaService = () => {
                     04
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00C48C] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#00C48C] transition-colors mb-0.5">
                       Optimize
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                       Analytics, engagement insights, ad optimization &amp; continuous improvement.
                     </p>
                   </div>
@@ -1242,11 +1242,11 @@ const SocialMediaService = () => {
                       <div className="w-9 h-9 rounded-xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center shrink-0">
                         <Eye className="w-4.5 h-4.5 text-[#7C3AED]" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                         Brand Visibility
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pl-12">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pl-12">
                       <span className="font-semibold text-slate-900">Recommended Focus:</span> Instagram Reels, Facebook reach campaigns, brand storytelling, content consistency &amp; audience growth.
                     </p>
                   </div>
@@ -1258,11 +1258,11 @@ const SocialMediaService = () => {
                       <div className="w-9 h-9 rounded-xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center shrink-0">
                         <Users className="w-4.5 h-4.5 text-[#00AED6]" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                         More Leads
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pl-12">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pl-12">
                       <span className="font-semibold text-slate-900">Recommended Focus:</span> Meta Lead Ads, WhatsApp campaigns, landing pages, remarketing &amp; conversion creatives.
                     </p>
                   </div>
@@ -1274,11 +1274,11 @@ const SocialMediaService = () => {
                       <div className="w-9 h-9 rounded-xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center shrink-0">
                         <ShoppingBag className="w-4.5 h-4.5 text-[#E6007A]" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                         More Sales
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pl-12">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pl-12">
                       <span className="font-semibold text-slate-900">Recommended Focus:</span> Social commerce, product reels, UGC content, creator collaborations &amp; performance advertising.
                     </p>
                   </div>
@@ -1363,7 +1363,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 0 ? -1 : 0)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     What are Social Media Marketing Services?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1372,7 +1372,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 0 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       Social Media Marketing Services help businesses grow their brand through platforms like Instagram, Facebook, LinkedIn, and other social channels using content creation, community management, paid advertising, Reels, and strategic audience engagement.
                     </p>
                   </div>
@@ -1389,7 +1389,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 1 ? -1 : 1)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     Which social media platform is best for my business?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1398,7 +1398,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 1 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       It depends on your industry, audience, and business goals. Instagram works well for visual brands, LinkedIn supports B2B growth, Facebook remains powerful for community and lead generation, and short-form video performs strongly across multiple platforms.
                     </p>
                   </div>
@@ -1415,7 +1415,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 2 ? -1 : 2)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     How often should my business post on social media?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1424,7 +1424,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 2 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       Consistency matters more than volume. A strategic content calendar with quality Reels, carousel posts, stories, and educational content generally performs better than posting every day without a clear strategy.
                     </p>
                   </div>
@@ -1441,7 +1441,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 3 ? -1 : 3)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     Can Social Media Marketing generate leads and sales?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1450,7 +1450,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 3 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       Yes. When combined with Meta Ads, landing pages, WhatsApp integration, remarketing, and strong content strategy, social media becomes an effective lead generation and customer acquisition channel—not just a branding platform.
                     </p>
                   </div>
@@ -1467,7 +1467,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 4 ? -1 : 4)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     What's included in DMDY's Social Media Management?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1476,7 +1476,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 4 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       Our Social Media Marketing Agency provides strategy, content planning, graphic design, Reels, captions, community management, paid campaigns, monthly reporting, and ongoing optimization based on your business requirements.
                     </p>
                   </div>
@@ -1493,7 +1493,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 5 ? -1 : 5)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     Do I need both organic content and paid ads?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1502,7 +1502,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 5 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       Yes. Organic content builds trust and brand authority, while paid social media advertising accelerates reach, lead generation, and conversions. Together they create a balanced and sustainable social media growth strategy.
                     </p>
                   </div>
@@ -1547,7 +1547,7 @@ const SocialMediaService = () => {
                 </h2>
 
                 {/* Subtitle (Exact User Copy) */}
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                   Build a social media presence that attracts attention, creates conversations, and drives measurable business growth with DMDY's Social Media Marketing Services.
                 </p>
 
@@ -1557,7 +1557,7 @@ const SocialMediaService = () => {
               <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col xl:flex-row items-stretch sm:items-center gap-3">
                 <Link
                   to="/contact"
-                  className="px-6 py-3 bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-white font-bold rounded-full transition-all shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-2 group"
+                  className="px-6 py-3 bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-white font-bold rounded-full transition-all shadow-sm hover:shadow-md text-sm sm:text-base flex items-center justify-center gap-2 group"
                 >
                   <span>Get My Free Social Audit</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -1567,7 +1567,7 @@ const SocialMediaService = () => {
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20a%20social%20media%20audit."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 font-bold rounded-full border border-slate-300 hover:border-slate-400 transition-all text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs"
+                  className="px-6 py-3 bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 font-bold rounded-full border border-slate-300 hover:border-slate-400 transition-all text-sm sm:text-base flex items-center justify-center gap-2 shadow-xs"
                 >
                   <svg className="w-4 h-4 text-[#00C48C]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>

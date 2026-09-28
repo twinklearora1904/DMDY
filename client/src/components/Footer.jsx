@@ -13,14 +13,14 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img src={logo} alt="DMDY Logo" className="h-10 w-auto" />
             </Link>
-            <p className="leading-relaxed mb-8 max-w-sm">
+            <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-normal mb-8 max-w-sm">
               We are a performance-obsessed digital marketing agency focused on driving real revenue growth for ambitious brands worldwide.
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Services</h4>
-            <ul className="space-y-3">
+            <h4 className="text-white font-extrabold text-sm sm:text-base uppercase tracking-wider mb-5">Services</h4>
+            <ul className="space-y-3 text-sm sm:text-base font-normal">
               <li><Link to="/services/seo" className="hover:text-white transition-colors">Search Engine Optimization</Link></li>
               <li><Link to="/services/social-media" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
               <li><Link to="/services/google-ads" className="hover:text-white transition-colors">Google Ads & PPC</Link></li>
@@ -28,8 +28,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="text-white font-extrabold text-sm sm:text-base uppercase tracking-wider mb-5">Company</h4>
+            <ul className="space-y-3 text-sm sm:text-base font-normal">
               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/portfolio" className="hover:text-white transition-colors">Case Studies</Link></li>
               <li><Link to="/blog" className="hover:text-white transition-colors">Insights</Link></li>
@@ -38,8 +38,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">Legal</h4>
-            <ul className="space-y-3">
+            <h4 className="text-white font-extrabold text-sm sm:text-base uppercase tracking-wider mb-5">Legal</h4>
+            <ul className="space-y-3 text-sm sm:text-base font-normal">
               <li><Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li><Link to="/admin/login" className="hover:text-white transition-colors">Admin Login</Link></li>

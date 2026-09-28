@@ -89,15 +89,15 @@ const Blog = () => {
               <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-slate-100 max-w-lg">
                 <div>
                   <div className="text-base sm:text-xl font-extrabold text-slate-900">100%</div>
-                  <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Battle-Tested</div>
+                  <div className="text-xs text-slate-500 font-semibold">Battle-Tested</div>
                 </div>
                 <div>
                   <div className="text-base sm:text-xl font-extrabold text-slate-900">Zero</div>
-                  <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Vanity Metrics</div>
+                  <div className="text-xs text-slate-500 font-semibold">Vanity Metrics</div>
                 </div>
                 <div>
                   <div className="text-base sm:text-xl font-extrabold text-slate-900">Weekly</div>
-                  <div className="text-[11px] sm:text-xs text-slate-500 font-medium">New Playbooks</div>
+                  <div className="text-xs text-slate-500 font-semibold">New Playbooks</div>
                 </div>
               </div>
             </div>
@@ -188,19 +188,19 @@ const Blog = () => {
                         </h2>
 
                         {/* Excerpt */}
-                        <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed mb-6">
+                        <p className="text-sm sm:text-base text-slate-600 line-clamp-2 leading-relaxed mb-6 font-normal">
                           {latestBlog.metaDescription || (latestBlog.content ? latestBlog.content.substring(0, 130) + '...' : '')}
                         </p>
                       </div>
 
                       {/* Footer Link */}
                       <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <span className="text-xs text-slate-500 font-medium">
+                        <span className="text-xs sm:text-sm text-slate-500 font-medium">
                           By <span className="font-bold text-slate-700">{latestBlog.author?.name || 'DMDY Team'}</span>
                         </span>
                         <Link
                           to={`/blog/${latestBlog.slug}`}
-                          className="inline-flex items-center gap-1 text-xs font-bold text-[#00AED6] hover:text-[#E6007A] transition-colors group-hover:translate-x-0.5"
+                          className="inline-flex items-center gap-1 text-sm font-bold text-[#00AED6] hover:text-[#E6007A] transition-colors group-hover:translate-x-0.5"
                         >
                           Read Article <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
@@ -389,20 +389,20 @@ const Blog = () => {
                           </Link>
                         </h3>
 
-                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-3">
+                        <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4 line-clamp-3 font-normal">
                           {summary}
                         </p>
                       </div>
                     </div>
 
                     {/* Card Footer */}
-                    <div className="px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <div className="px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-slate-500">
                       <span className="font-semibold text-slate-700">
                         {blog.author?.name || 'DMDY Strategist'}
                       </span>
                       <Link
                         to={`/blog/${blog.slug}`}
-                        className="text-[#00AED6] font-bold text-xs hover:text-[#E6007A] transition-colors flex items-center gap-1 group-hover:translate-x-0.5"
+                        className="text-[#00AED6] font-bold text-sm hover:text-[#E6007A] transition-colors flex items-center gap-1 group-hover:translate-x-0.5"
                       >
                         Read Article &rarr;
                       </Link>
@@ -431,7 +431,7 @@ const Blog = () => {
               <h3 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">
                 Want these growth frameworks applied to your brand?
               </h3>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-300 text-sm sm:text-base font-normal leading-relaxed">
                 Book a confidential 30-minute forensic audit with our growth leadership team. We analyze your SEO, conversion leaks, and paid channels at zero cost.
               </p>
             </div>
@@ -439,7 +439,7 @@ const Blog = () => {
             <div className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full md:w-auto">
               <Link
                 to="/contact"
-                className="py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl shadow-cyan-500/20 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-center transition-all duration-300"
+                className="py-3.5 px-8 rounded-full font-bold text-white text-sm sm:text-base shadow-xl shadow-cyan-500/20 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-center transition-all duration-300"
               >
                 Claim Free Growth Audit &rarr;
               </Link>

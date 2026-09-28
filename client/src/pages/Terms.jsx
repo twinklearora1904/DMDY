@@ -62,7 +62,7 @@ const Terms = () => {
               <p className="mb-3">
                 Unless explicitly stipulated in a signed institutional addendum:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-xs sm:text-sm text-slate-600 font-medium">
+              <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600 font-normal">
                 <li><strong className="text-slate-800">Agency Retainers:</strong> Remunerate strategic architecture, technical labor, multivariate testing, creative production, and analytics management.</li>
                 <li><strong className="text-slate-800">Advertising Budgets:</strong> Are billed directly by advertising platforms (Google, Meta, LinkedIn) to the client's verified billing profiles. DMDY does not extend credit lines for client ad spend.</li>
               </ul>
@@ -118,12 +118,12 @@ const Terms = () => {
               <h3 className="text-sm sm:text-base font-extrabold text-slate-900 mb-2 flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#00AED6]" /> Legal & Commercial Counsel
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm mb-3 font-normal">
+              <p className="text-slate-600 text-sm sm:text-base mb-3 font-normal">
                 For commercial agreements, legal notices, or terms clarification, contact our compliance counsel:
               </p>
               <a 
                 href="mailto:legal@dmdy.in" 
-                className="text-xs sm:text-sm font-bold text-[#00AED6] hover:text-[#E6007A] transition-colors"
+                className="text-sm sm:text-base font-bold text-[#00AED6] hover:text-[#E6007A] transition-colors"
               >
                 legal@dmdy.in &rarr;
               </a>

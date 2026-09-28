@@ -217,7 +217,7 @@ const Services = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Integrated Capabilities for Predictable ROI
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
+            <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal">
               Each discipline operates in lockstep to compound conversion rates, reduce customer acquisition cost, and accelerate enterprise valuation.
             </p>
           </div>
@@ -236,12 +236,12 @@ const Services = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#00AED6] transition-colors">
                   Search Engine Optimization (SEO)
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6 text-xs sm:text-sm font-normal">
+                <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base font-normal">
                   We engineer your web presence to dominate search engine results. Using advanced technical SEO, content architectures, and authoritative link acquisition, we drive high-intent organic traffic that converts directly into revenue.
                 </p>
                 <div className="space-y-2.5 mb-8">
                   {['Technical SEO Audits & Core Web Vitals Fixes', 'Competitive Keyword & Content Gap Analysis', 'High-Authority Editorial Link Acquisition', 'Local Maps & Google Business Profile Domination'].map((feature, i) => (
-                    <div key={i} className="flex items-center text-slate-700 font-medium text-xs sm:text-sm">
+                    <div key={i} className="flex items-center text-slate-700 font-medium text-sm sm:text-base">
                       <CheckCircle2 className="w-4 h-4 text-[#00AED6] mr-2.5 flex-shrink-0" />
                       <span>{feature}</span>
                     </div>
@@ -249,7 +249,7 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 border-t border-slate-100">
-                <Link to="/services/seo" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#00AED6] hover:text-[#E6007A] transition-colors">
+                <Link to="/services/seo" className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#00AED6] hover:text-[#E6007A] transition-colors">
                   Explore Detailed SEO Framework &rarr;
                 </Link>
               </div>
@@ -267,12 +267,12 @@ const Services = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#E6007A] transition-colors">
                   Performance Marketing & Paid Ads
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6 text-xs sm:text-sm font-normal">
+                <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base font-normal">
                   Precision-targeted paid campaigns across Google, Meta, and LinkedIn. We focus ruthlessly on maximizing your Return on Ad Spend (ROAS) and driving scalable, predictable inbound client acquisition.
                 </p>
                 <div className="space-y-2.5 mb-8">
                   {['Google Search, Performance Max & YouTube Ads', 'Meta (Facebook & Instagram) Creative Funnels', 'LinkedIn B2B Account-Based Marketing', 'Dynamic Multi-Touch Retargeting & Custom Audiences'].map((feature, i) => (
-                    <div key={i} className="flex items-center text-slate-700 font-medium text-xs sm:text-sm">
+                    <div key={i} className="flex items-center text-slate-700 font-medium text-sm sm:text-base">
                       <CheckCircle2 className="w-4 h-4 text-[#E6007A] mr-2.5 flex-shrink-0" />
                       <span>{feature}</span>
                     </div>
@@ -280,7 +280,7 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 border-t border-slate-100">
-                <Link to="/services/google-ads" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#E6007A] hover:text-[#00AED6] transition-colors">
+                <Link to="/services/google-ads" className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#E6007A] hover:text-[#00AED6] transition-colors">
                   Explore Google Ads & PPC Framework &rarr;
                 </Link>
               </div>
@@ -298,12 +298,12 @@ const Services = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#F5A623] transition-colors">
                   Web & Application Engineering
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6 text-xs sm:text-sm font-normal">
+                <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base font-normal">
                   High-performance, secure, and conversion-engineered digital properties. We build modern React and Node.js applications tailored to scale your business operations and reduce checkout drop-offs.
                 </p>
                 <div className="space-y-2.5 mb-8">
                   {['Custom React & Next.js Web Applications', 'Headless E-Commerce Solutions (Shopify & Custom)', 'REST API & Third-Party System Integrations', 'Lightning-Fast Page Speeds (<1.2s Load Times)'].map((feature, i) => (
-                    <div key={i} className="flex items-center text-slate-700 font-medium text-xs sm:text-sm">
+                    <div key={i} className="flex items-center text-slate-700 font-medium text-sm sm:text-base">
                       <CheckCircle2 className="w-4 h-4 text-[#F5A623] mr-2.5 flex-shrink-0" />
                       <span>{feature}</span>
                     </div>
@@ -311,7 +311,7 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 border-t border-slate-100">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#F5A623] hover:text-[#00AED6] transition-colors">
+                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#F5A623] hover:text-[#00AED6] transition-colors">
                   Explore Web Engineering &rarr;
                 </Link>
               </div>
@@ -329,12 +329,12 @@ const Services = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#00C48C] transition-colors">
                   Conversion Rate Optimization (CRO)
                 </h3>
-                <p className="text-slate-600 leading-relaxed mb-6 text-xs sm:text-sm font-normal">
+                <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base font-normal">
                   Data-backed UI/UX optimizations designed to turn more of your existing traffic into paying clients. We employ rigorous multivariate testing and heatmap behavioral analyses.
                 </p>
                 <div className="space-y-2.5 mb-8">
                   {['A/B & Multivariate Hypothesis Testing', 'Heatmapping & Session Recording Analysis', 'Frictionless Checkout & Funnel Redesigns', 'Micro-Copy & Offer Positioning Improvements'].map((feature, i) => (
-                    <div key={i} className="flex items-center text-slate-700 font-medium text-xs sm:text-sm">
+                    <div key={i} className="flex items-center text-slate-700 font-medium text-sm sm:text-base">
                       <CheckCircle2 className="w-4 h-4 text-[#00C48C] mr-2.5 flex-shrink-0" />
                       <span>{feature}</span>
                     </div>
@@ -342,7 +342,7 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 border-t border-slate-100">
-                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#00C48C] hover:text-[#00AED6] transition-colors">
+                <Link to="/contact" className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#00C48C] hover:text-[#00AED6] transition-colors">
                   Explore Conversion Optimization &rarr;
                 </Link>
               </div>
@@ -361,13 +361,13 @@ const Services = () => {
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#7C3AED] transition-colors">
                     Social Media & Content Marketing
                   </h3>
-                  <p className="text-slate-600 leading-relaxed mb-4 text-xs sm:text-sm font-normal">
+                  <p className="text-slate-600 leading-relaxed mb-4 text-sm sm:text-base font-normal">
                     Brand storytelling, organic content engines, influencer outreach, and viral distribution models. We create high-engagement content architectures that build authority, community trust, and organic pipeline.
                   </p>
                 </div>
                 <div className="lg:col-span-5 space-y-2.5">
                   {['Cross-Platform Organic Strategy (Instagram, LinkedIn, YouTube)', 'High-Converting Short-Form Video & Reels Direction', 'Targeted Influencer Partnerships & Creator Collabs', 'Community Management & Real-Time Sentiment Monitoring'].map((feature, i) => (
-                    <div key={i} className="flex items-center text-slate-700 font-medium text-xs sm:text-sm">
+                    <div key={i} className="flex items-center text-slate-700 font-medium text-sm sm:text-base">
                       <CheckCircle2 className="w-4 h-4 text-[#7C3AED] mr-2.5 flex-shrink-0" />
                       <span>{feature}</span>
                     </div>
@@ -400,7 +400,7 @@ const Services = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
               Structured for Predictable Growth
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
+            <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal">
               A battle-tested 4-phase delivery system ensuring immediate impact and compounding long-term returns.
             </p>
           </div>
@@ -409,8 +409,8 @@ const Services = () => {
             {process.map((p, i) => (
               <div key={i} className="relative p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
                 <div className="text-3xl sm:text-4xl font-extrabold text-slate-200 mb-3">{p.step}</div>
-                <h4 className="text-base sm:text-lg font-extrabold mb-2 text-slate-900 tracking-tight">{p.title}</h4>
-                <p className="text-slate-600 leading-relaxed text-xs sm:text-sm font-normal">{p.desc}</p>
+                <h4 className="text-lg sm:text-xl font-extrabold mb-2 text-slate-900 tracking-tight">{p.title}</h4>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base font-normal">{p.desc}</p>
               </div>
             ))}
           </div>

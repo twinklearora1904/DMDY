@@ -460,10 +460,10 @@ const SeoService = () => {
                     <Search className="w-4 h-4 text-[#00AED6]" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                       Be Found
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 mt-0.5 leading-relaxed font-normal">
                       Traditional SEO helps search engines discover and rank your pages.
                     </p>
                   </div>
@@ -475,10 +475,10 @@ const SeoService = () => {
                     <MessageSquare className="w-4 h-4 text-[#E6007A]" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                       Be the Answer
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 mt-0.5 leading-relaxed font-normal">
                       AEO structures your content so AI can confidently quote it.
                     </p>
                   </div>
@@ -490,10 +490,10 @@ const SeoService = () => {
                     <Sparkles className="w-4 h-4 text-[#00C48C]" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                       Be Remembered
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 mt-0.5 leading-relaxed font-normal">
                       GEO builds your brand authority across the web so generative AI cites you consistently.
                     </p>
                   </div>
@@ -555,7 +555,7 @@ const SeoService = () => {
                   Layer 1 — SEO Foundation
                 </h3>
                 
-                <p className="text-xs sm:text-sm font-semibold text-slate-700 italic mb-5">
+                <p className="text-sm sm:text-base font-semibold text-slate-700 italic mb-5">
                   "Everything begins with technical excellence."
                 </p>
 
@@ -568,7 +568,7 @@ const SeoService = () => {
                     'Internal linking',
                     'Content optimization'
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700">
+                    <div key={idx} className="flex items-center gap-2.5 text-sm sm:text-base font-medium text-slate-700">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#00AED6] shrink-0" />
                       <span>{item}</span>
                     </div>
@@ -576,7 +576,7 @@ const SeoService = () => {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center gap-2 text-xs font-semibold text-slate-500">
+              <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-500">
                 <span className="w-2 h-2 rounded-full bg-[#00AED6]"></span>
                 <span>Foundation for Google & Web Crawlers</span>
               </div>
@@ -592,7 +592,7 @@ const SeoService = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <Bot className="w-6 h-6 text-[#E6007A]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
                     Layer 02
                   </span>
                 </div>
@@ -601,7 +601,7 @@ const SeoService = () => {
                   Layer 2 — Answer Engine Optimization (AEO)
                 </h3>
                 
-                <p className="text-xs sm:text-sm font-semibold text-slate-700 italic mb-5">
+                <p className="text-sm sm:text-base font-semibold text-slate-700 italic mb-5">
                   "We structure your knowledge for machines and humans."
                 </p>
 
@@ -613,7 +613,7 @@ const SeoService = () => {
                     'Entity optimization',
                     'AI-readable formatting'
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700">
+                    <div key={idx} className="flex items-center gap-2.5 text-sm sm:text-base font-medium text-slate-700">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#E6007A] shrink-0" />
                       <span>{item}</span>
                     </div>
@@ -621,7 +621,7 @@ const SeoService = () => {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center gap-2 text-xs font-semibold text-slate-500">
+              <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-500">
                 <span className="w-2 h-2 rounded-full bg-[#E6007A]"></span>
                 <span>Optimized for AI Overviews & Direct Answers</span>
               </div>
@@ -637,7 +637,7 @@ const SeoService = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <Sparkles className="w-6 h-6 text-[#00C48C]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#00C48C] border border-emerald-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#00C48C] border border-emerald-200/80">
                     Layer 03
                   </span>
                 </div>
@@ -646,7 +646,7 @@ const SeoService = () => {
                   Layer 3 — Generative Engine Optimization (GEO)
                 </h3>
                 
-                <p className="text-xs sm:text-sm font-semibold text-slate-700 italic mb-5">
+                <p className="text-sm sm:text-base font-semibold text-slate-700 italic mb-5">
                   "This is where brands become references—not just websites."
                 </p>
 
@@ -658,7 +658,7 @@ const SeoService = () => {
                     'Knowledge graph consistency',
                     'AI search visibility'
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-slate-700">
+                    <div key={idx} className="flex items-center gap-2.5 text-sm sm:text-base font-medium text-slate-700">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#00C48C] shrink-0" />
                       <span>{item}</span>
                     </div>
@@ -666,7 +666,7 @@ const SeoService = () => {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center gap-2 text-xs font-semibold text-slate-500">
+              <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-500">
                 <span className="w-2 h-2 rounded-full bg-[#00C48C]"></span>
                 <span>ChatGPT &bull; Claude &bull; Perplexity &bull; Gemini Citations</span>
               </div>
@@ -715,7 +715,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors">
                   Technical SEO
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Site audits, crawlability, indexing, speed, Core Web Vitals.
                 </p>
               </div>
@@ -731,7 +731,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors">
                   Content SEO
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Search intent, keyword mapping, landing pages, blogs & pillar content.
                 </p>
               </div>
@@ -747,7 +747,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors">
                   Local SEO
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Google Business Profile, Maps visibility, Delhi & India targeting.
                 </p>
               </div>
@@ -763,7 +763,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors">
                   E-commerce SEO
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Product pages, category optimization, structured product data.
                 </p>
               </div>
@@ -779,7 +779,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors">
                   AEO Optimization
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   FAQs, schema, AI-ready content architecture.
                 </p>
               </div>
@@ -795,7 +795,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors">
                   GEO Optimization
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   AI visibility, entity authority, citation strategy.
                 </p>
               </div>
@@ -844,7 +844,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors">
                   Real Estate
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Local SEO + lead generation
                 </p>
               </div>
@@ -860,7 +860,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors">
                   E-commerce
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Product & category rankings
                 </p>
               </div>
@@ -876,7 +876,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors">
                   Healthcare
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Trust-building search visibility
                 </p>
               </div>
@@ -892,7 +892,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors">
                   Education
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Student acquisition through organic search
                 </p>
               </div>
@@ -908,7 +908,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors">
                   B2B & Professional Services
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   High-intent lead generation
                 </p>
               </div>
@@ -924,7 +924,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors">
                   Local Businesses
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Google Maps & neighborhood visibility
                 </p>
               </div>
@@ -974,10 +974,10 @@ const SeoService = () => {
                     01
                   </div>
                   <div className="flex-1 pb-3 border-b border-slate-200/80">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00AED6] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#00AED6] transition-colors mb-0.5">
                       Audit & Research
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                       Technical audit, competitors, keyword opportunities.
                     </p>
                   </div>
@@ -989,10 +989,10 @@ const SeoService = () => {
                     02
                   </div>
                   <div className="flex-1 pb-3 border-b border-slate-200/80">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#F5A623] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#F5A623] transition-colors mb-0.5">
                       Strategy
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                       SEO roadmap + AEO + GEO planning.
                     </p>
                   </div>
@@ -1004,10 +1004,10 @@ const SeoService = () => {
                     03
                   </div>
                   <div className="flex-1 pb-3 border-b border-slate-200/80">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#E6007A] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#E6007A] transition-colors mb-0.5">
                       Build
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                       Technical fixes, content, schema & optimization.
                     </p>
                   </div>
@@ -1019,10 +1019,10 @@ const SeoService = () => {
                     04
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00C48C] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#00C48C] transition-colors mb-0.5">
                       Grow
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                       Authority building, reporting & continuous improvement.
                     </p>
                   </div>
@@ -1166,11 +1166,11 @@ const SeoService = () => {
                       <div className="w-9 h-9 rounded-xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center shrink-0">
                         <Search className="w-4.5 h-4.5 text-[#00AED6]" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                         Recommended SEO Focus
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pl-12">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pl-12">
                       Technical SEO, keyword clusters, pillar content, internal linking, Core Web Vitals.
                     </p>
                   </div>
@@ -1182,11 +1182,11 @@ const SeoService = () => {
                       <div className="w-9 h-9 rounded-xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center shrink-0">
                         <Users className="w-4.5 h-4.5 text-[#E6007A]" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                         Recommended Lead Generation SEO
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pl-12">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pl-12">
                       Commercial landing pages, local SEO, conversion optimization, Google Business Profile, service pages.
                     </p>
                   </div>
@@ -1198,11 +1198,11 @@ const SeoService = () => {
                       <div className="w-9 h-9 rounded-xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center shrink-0">
                         <Sparkles className="w-4.5 h-4.5 text-[#00C48C]" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                         Recommended AI Search Strategy
                       </h3>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pl-12">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pl-12">
                       AEO, GEO, schema markup, entity optimization, AI-citable content architecture.
                     </p>
                   </div>
@@ -1287,7 +1287,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 0 ? -1 : 0)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     What is SEO in 2026?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1296,7 +1296,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 0 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       SEO (Search Engine Optimization) in 2026 is the practice of improving your website's visibility across both traditional search engines and AI-powered search experiences. Modern SEO Services combine technical SEO, content optimization, user experience, structured data, and AI Search Optimization to help businesses rank on Google, appear in AI Overviews, and become discoverable through platforms like ChatGPT and Gemini.
                     </p>
                   </div>
@@ -1313,7 +1313,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 1 ? -1 : 1)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     What is the difference between SEO, AEO and GEO?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1322,7 +1322,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 1 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3 mb-4">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3 mb-4">
                       They work together but serve different purposes:
                     </p>
 
@@ -1389,7 +1389,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 2 ? -1 : 2)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     Can ChatGPT recommend my business?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1398,7 +1398,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 2 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       Yes—but not through paid placement. ChatGPT and other AI platforms are more likely to reference businesses that have strong website authority, well-structured content, clear business information, and consistent online credibility. This is where GEO (Generative Engine Optimization) and AEO become valuable additions to traditional SEO Services.
                     </p>
                   </div>
@@ -1415,7 +1415,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 3 ? -1 : 3)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     How long do SEO services take to show results?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1424,7 +1424,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 3 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       SEO is a long-term growth strategy. Most businesses begin seeing measurable improvements within 3–6 months, while competitive industries may take longer depending on competition, website health, content quality, and domain authority. A professional SEO Agency focuses on building sustainable organic growth rather than short-term ranking spikes.
                     </p>
                   </div>
@@ -1441,7 +1441,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 4 ? -1 : 4)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     Is Local SEO different from normal SEO?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1450,7 +1450,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 4 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       Yes. Local SEO focuses on helping your business appear in location-based searches such as “digital marketing agency near me” or “SEO services in Delhi.” It includes Google Business Profile optimization, local citations, Maps visibility, location pages, and geo-targeted keyword strategies, while traditional SEO targets broader national or global search rankings.
                     </p>
                   </div>
@@ -1467,7 +1467,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 5 ? -1 : 5)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-base sm:text-lg font-bold text-slate-900">
                     Do I need AEO if I already rank on Google?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1476,7 +1476,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 5 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
                       Yes. Ranking on Google is only one part of modern search visibility. As more users ask questions in ChatGPT, Gemini, Perplexity, and Google's AI Overviews, Answer Engine Optimization (AEO) helps your content become the answer—not just another search result. Combining SEO, AEO, and GEO gives your business stronger visibility across both search engines and AI-powered discovery.
                     </p>
                   </div>
@@ -1525,18 +1525,18 @@ const SeoService = () => {
 
                 {/* Statements */}
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
-                  <span className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                  <span className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#00AED6]"></span>
                     Not just rankings.
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                  <span className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#E6007A]"></span>
                     Not just traffic.
                   </span>
                 </div>
 
                 {/* Subtitle */}
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                   Build a digital presence that search engines and AI assistants trust.
                 </p>
 
@@ -1546,7 +1546,7 @@ const SeoService = () => {
               <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col xl:flex-row items-stretch sm:items-center gap-3">
                 <Link
                   to="/contact"
-                  className="px-6 py-3 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-white font-bold rounded-full transition-all shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-2 group"
+                  className="px-6 py-3 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-white font-bold rounded-full transition-all shadow-sm hover:shadow-md text-sm sm:text-base flex items-center justify-center gap-2 group"
                 >
                   <span>Get My Free SEO Audit</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -1556,7 +1556,7 @@ const SeoService = () => {
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20an%20SEO%20audit."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 font-bold rounded-full border border-slate-300 hover:border-slate-400 transition-all text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs"
+                  className="px-6 py-3 bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-900 font-bold rounded-full border border-slate-300 hover:border-slate-400 transition-all text-sm sm:text-base flex items-center justify-center gap-2 shadow-xs"
                 >
                   <svg className="w-4 h-4 text-[#00C48C]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>

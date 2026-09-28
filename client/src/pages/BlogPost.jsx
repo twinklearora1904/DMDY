@@ -213,7 +213,7 @@ const BlogPost = () => {
           return (
             <ul key={idx} className="my-4 ml-6 list-disc space-y-2 text-slate-700">
               {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="leading-relaxed text-xs sm:text-sm font-medium">
+                <li key={itemIdx} className="leading-relaxed text-sm sm:text-base font-normal">
                   {formatInline(item)}
                 </li>
               ))}
@@ -223,7 +223,7 @@ const BlogPost = () => {
           return (
             <ol key={idx} className="my-4 ml-6 list-decimal space-y-2 text-slate-700">
               {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="leading-relaxed text-xs sm:text-sm font-medium">
+                <li key={itemIdx} className="leading-relaxed text-sm sm:text-base font-normal">
                   {formatInline(item)}
                 </li>
               ))}
@@ -334,12 +334,12 @@ const BlogPost = () => {
                 <h3 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">
                   Want to deploy this strategy for your brand?
                 </h3>
-                <p className="text-slate-300 text-xs sm:text-sm font-normal max-w-lg mx-auto mb-6 leading-relaxed">
+                <p className="text-slate-300 text-sm sm:text-base font-normal max-w-lg mx-auto mb-6 leading-relaxed">
                   Book a confidential 30-minute growth session with our performance marketing leadership team.
                 </p>
                 <Link 
                   to="/contact" 
-                  className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-xs sm:text-sm shadow-xl shadow-cyan-500/10 hover:shadow-2xl transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95"
+                  className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full font-bold text-white text-sm sm:text-base shadow-xl shadow-cyan-500/10 hover:shadow-2xl transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95"
                 >
                   Request Strategy Session &rarr;
                 </Link>
@@ -360,12 +360,12 @@ const BlogPost = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 tracking-tight">
                   Scale Your Business Faster
                 </h3>
-                <p className="text-slate-400 text-xs sm:text-sm font-normal leading-relaxed mb-6">
+                <p className="text-slate-400 text-sm sm:text-base font-normal leading-relaxed mb-6">
                   Get a comprehensive forensic audit of your paid ads, SEO, and conversion funnel from DMDY strategists.
                 </p>
                 <Link
                   to="/contact"
-                  className="w-full text-center block py-3.5 px-6 rounded-xl font-bold text-white text-xs sm:text-sm shadow-lg bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all"
+                  className="w-full text-center block py-3.5 px-6 rounded-xl font-bold text-white text-sm sm:text-base shadow-lg bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 transition-all"
                 >
                   Book Free Audit
                 </Link>
@@ -377,7 +377,7 @@ const BlogPost = () => {
               <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3.5">
                 Core Capabilities
               </h4>
-              <ul className="space-y-2.5 text-xs sm:text-sm">
+              <ul className="space-y-2.5 text-sm sm:text-base">
                 <li><Link to="/services/seo" className="text-slate-600 hover:text-[#00AED6] transition-colors font-medium flex items-center justify-between py-1">Search Engine Optimization <span>&rarr;</span></Link></li>
                 <li><Link to="/services" className="text-slate-600 hover:text-[#E6007A] transition-colors font-medium flex items-center justify-between py-1">Paid Media & Ads <span>&rarr;</span></Link></li>
                 <li><Link to="/services" className="text-slate-600 hover:text-[#F5A623] transition-colors font-medium flex items-center justify-between py-1">Web Development <span>&rarr;</span></Link></li>

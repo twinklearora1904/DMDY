@@ -98,16 +98,16 @@ const About = () => {
               {/* Micro Pillar Badges Underneath Image */}
               <div className="grid grid-cols-3 gap-2.5 mt-4">
                 <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
-                  <div className="text-[11px] font-bold text-[#00AED6]">Strategic</div>
-                  <div className="text-[10px] text-slate-500 font-medium">Bespoke Plans</div>
+                  <div className="text-xs sm:text-sm font-bold text-[#00AED6]">Strategic</div>
+                  <div className="text-xs text-slate-500 font-medium">Bespoke Plans</div>
                 </div>
                 <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
-                  <div className="text-[11px] font-bold text-[#E6007A]">Affordable</div>
-                  <div className="text-[10px] text-slate-500 font-medium">High Efficiency</div>
+                  <div className="text-xs sm:text-sm font-bold text-[#E6007A]">Affordable</div>
+                  <div className="text-xs text-slate-500 font-medium">High Efficiency</div>
                 </div>
                 <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
-                  <div className="text-[11px] font-bold text-[#F5A623]">Results-Driven</div>
-                  <div className="text-[10px] text-slate-500 font-medium">Measurable ROI</div>
+                  <div className="text-xs sm:text-sm font-bold text-[#F5A623]">Results-Driven</div>
+                  <div className="text-xs text-slate-500 font-medium">Measurable ROI</div>
                 </div>
               </div>
 
@@ -135,13 +135,13 @@ const About = () => {
               <div className="relative rounded-3xl bg-white border border-slate-200/90 shadow-xl p-6 sm:p-8 overflow-hidden group">
 
                 <div className="mb-6">
-                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#00AED6] mb-1">
+                  <div className="text-xs font-extrabold uppercase tracking-wider text-[#00AED6] mb-1.5">
                     Creativity Meets Performance
                   </div>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                     All Under One Roof
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1 font-normal">
+                  <p className="text-sm text-slate-600 mt-2 font-normal">
                     Combining every growth discipline under one unified team.
                   </p>
                 </div>
@@ -159,9 +159,9 @@ const About = () => {
                   ].map((item, idx) => (
                     <div 
                       key={idx}
-                      className={`p-2.5 rounded-xl border flex items-center gap-2 font-bold text-xs ${item.color} ${idx === 6 ? 'col-span-2 justify-center' : ''}`}
+                      className={`p-2.5 rounded-xl border flex items-center gap-2 font-bold text-xs sm:text-sm ${item.color} ${idx === 6 ? 'col-span-2 justify-center' : ''}`}
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 shrink-0" />
                       <span>{item.name}</span>
                     </div>
                   ))}
@@ -169,11 +169,11 @@ const About = () => {
 
                 {/* Bottom Highlight Tag */}
                 <div className="p-4 rounded-2xl bg-slate-900 text-white text-center">
-                  <div className="text-xs font-bold text-white flex items-center justify-center gap-2">
+                  <div className="text-sm font-bold text-white flex items-center justify-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#00C48C] animate-pulse"></span>
                     An Extension of Your Business
                   </div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">
+                  <div className="text-xs text-slate-300 mt-1">
                     Not just another marketing vendor
                   </div>
                 </div>
@@ -259,7 +259,7 @@ const About = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <Target className="w-6 h-6 text-[#00AED6]" />
                   </div>
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-50 text-[#00AED6] border border-cyan-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-50 text-[#00AED6] border border-cyan-200/80">
                     01
                   </span>
                 </div>
@@ -268,7 +268,7 @@ const About = () => {
                   Customized Strategy
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Every campaign is built around your business, niche, and objectives.
                 </p>
               </div>
@@ -281,7 +281,7 @@ const About = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <Layers className="w-6 h-6 text-[#E6007A]" />
                   </div>
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
                     02
                   </span>
                 </div>
@@ -290,7 +290,7 @@ const About = () => {
                   360° Digital Expertise
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   From brand identity to paid advertising, we handle complete digital growth.
                 </p>
               </div>
@@ -303,7 +303,7 @@ const About = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#F5A623]/10 text-[#F5A623] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <Zap className="w-6 h-6 text-[#F5A623]" />
                   </div>
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-[#F5A623] border border-amber-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-[#F5A623] border border-amber-200/80">
                     03
                   </span>
                 </div>
@@ -312,7 +312,7 @@ const About = () => {
                   Pocket-Friendly Solutions
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Premium-quality marketing without unnecessary costs or inflated retainers.
                 </p>
               </div>
@@ -325,7 +325,7 @@ const About = () => {
                   <div className="w-12 h-12 rounded-2xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
                     <TrendingUp className="w-6 h-6 text-[#00C48C]" />
                   </div>
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#00C48C] border border-emerald-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#00C48C] border border-emerald-200/80">
                     04
                   </span>
                 </div>
@@ -334,7 +334,7 @@ const About = () => {
                   Performance-Focused Execution
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   We measure success through leads, visibility, engagement, and business results.
                 </p>
               </div>
@@ -671,16 +671,16 @@ const About = () => {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00AED6] to-[#007799] text-white flex items-center justify-center font-black text-xl shadow-md shadow-cyan-500/20 mb-5 group-hover:scale-105 transition-transform">
                   TA
                 </div>
-                <h4 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1 group-hover:text-[#00AED6] transition-colors">
+                <h4 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-1.5 group-hover:text-[#00AED6] transition-colors">
                   Twinkle Arora
                 </h4>
-                <div className="inline-block px-3 py-1 rounded-full bg-cyan-50 text-[#00AED6] text-xs font-bold border border-cyan-200/80 mb-3">
+                <div className="inline-block px-3 py-1 rounded-full bg-cyan-50 text-[#00AED6] text-xs sm:text-sm font-bold border border-cyan-200/80 mb-3">
                   Founder &amp; Director
                 </div>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                <p className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">
                   Vision • Brand Growth • Client Leadership
                 </p>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   As the Founder &amp; Director of DMDY, Twinkle leads the agency with a passion for helping businesses grow through meaningful digital experiences. Her approach combines strategic thinking with creative execution, ensuring every client receives marketing solutions that are personalized, practical, and performance-driven. She believes that every brand has a unique story—and the right digital strategy can turn that story into lasting success.
                 </p>
               </div>
@@ -692,16 +692,16 @@ const About = () => {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E6007A] to-[#B3005F] text-white flex items-center justify-center font-black text-xl shadow-md shadow-pink-500/20 mb-5 group-hover:scale-105 transition-transform">
                   RA
                 </div>
-                <h4 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1 group-hover:text-[#E6007A] transition-colors">
+                <h4 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-1.5 group-hover:text-[#E6007A] transition-colors">
                   Rahul Arora
                 </h4>
-                <div className="inline-block px-3 py-1 rounded-full bg-pink-50 text-[#E6007A] text-xs font-bold border border-pink-200/80 mb-3">
+                <div className="inline-block px-3 py-1 rounded-full bg-pink-50 text-[#E6007A] text-xs sm:text-sm font-bold border border-pink-200/80 mb-3">
                   Co-Founder &amp; COO
                 </div>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                <p className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">
                   Operations • Performance • Execution
                 </p>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Rahul oversees the operational excellence that powers DMDY's client success. From execution to management, he ensures that every project is delivered with precision, efficiency, and measurable impact. His focus is simple: transform great ideas into consistent business results through streamlined execution and data-backed decision making.
                 </p>
               </div>
@@ -713,16 +713,16 @@ const About = () => {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#F5A623] to-[#C9800F] text-white flex items-center justify-center font-black text-xl shadow-md shadow-amber-500/20 mb-5 group-hover:scale-105 transition-transform">
                   DL
                 </div>
-                <h4 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1 group-hover:text-[#F5A623] transition-colors">
+                <h4 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-1.5 group-hover:text-[#F5A623] transition-colors">
                   Dimple Lamba
                 </h4>
-                <div className="inline-block px-3 py-1 rounded-full bg-amber-50 text-[#F5A623] text-xs font-bold border border-amber-200/80 mb-3">
+                <div className="inline-block px-3 py-1 rounded-full bg-amber-50 text-[#F5A623] text-xs sm:text-sm font-bold border border-amber-200/80 mb-3">
                   Co-Founder &amp; CSO
                 </div>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                <p className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">
                   Strategy • Innovation • Business Development
                 </p>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   As Chief Strategy Officer, Dimple brings together market insights, consumer behavior, and innovative thinking to build growth-focused marketing strategies. She works closely with brands to identify opportunities that strengthen their digital presence and long-term positioning. Her strategic mindset helps DMDY deliver solutions that are not only creative—but commercially effective.
                 </p>
               </div>
@@ -767,10 +767,10 @@ const About = () => {
                 <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-100 text-[#00AED6] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs">
                   <Target className="w-6 h-6 text-[#00AED6]" />
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors tracking-tight">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors tracking-tight">
                   Client-First Thinking
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Every decision begins with your business goals.
                 </p>
               </div>
@@ -782,10 +782,10 @@ const About = () => {
                 <div className="w-12 h-12 rounded-2xl bg-pink-50 border border-pink-100 text-[#E6007A] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs">
                   <Layers className="w-6 h-6 text-[#E6007A]" />
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors tracking-tight">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors tracking-tight">
                   360° Expertise
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Complete digital solutions under one roof.
                 </p>
               </div>
@@ -797,10 +797,10 @@ const About = () => {
                 <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 text-[#F5A623] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs">
                   <ShieldCheck className="w-6 h-6 text-[#F5A623]" />
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors tracking-tight">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors tracking-tight">
                   Transparency
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Clear communication and honest partnerships.
                 </p>
               </div>
@@ -812,10 +812,10 @@ const About = () => {
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 text-[#00C48C] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-xs">
                   <TrendingUp className="w-6 h-6 text-[#00C48C]" />
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors tracking-tight">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors tracking-tight">
                   Results That Matter
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                   Growth measured beyond vanity metrics.
                 </p>
               </div>
@@ -871,7 +871,7 @@ const About = () => {
                 <p className="font-extrabold text-slate-900 text-sm sm:text-base tracking-tight mb-0.5">
                   DMDY — Digi Me Digi You
                 </p>
-                <p className="text-xs sm:text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                <p className="text-sm sm:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                   Your Growth. Our Digital Strategy.
                 </p>
               </div>

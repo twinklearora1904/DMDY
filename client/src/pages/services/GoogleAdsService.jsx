@@ -881,7 +881,7 @@ const GoogleAdsService = () => {
               <span>Full-Spectrum Capabilities</span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               What's Included in Our{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#4285F4] to-[#E6007A]">
                 Google Ads Services
@@ -899,10 +899,10 @@ const GoogleAdsService = () => {
                   <Search className="w-5 h-5 text-[#4285F4]" />
                 </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#4285F4] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#4285F4] transition-colors">
                 Search Ads
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Capture high-intent customers searching on Google.
               </p>
             </div>
@@ -914,10 +914,10 @@ const GoogleAdsService = () => {
                   <Monitor className="w-5 h-5 text-[#00AED6]" />
                 </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#00AED6] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#00AED6] transition-colors">
                 Display Ads
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Build brand awareness across Google's Display Network.
               </p>
             </div>
@@ -929,10 +929,10 @@ const GoogleAdsService = () => {
                   <Play className="w-5 h-5 text-[#EA4335] fill-[#EA4335]" />
                 </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#EA4335] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#EA4335] transition-colors">
                 YouTube Ads
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Reach audiences through engaging video campaigns.
               </p>
             </div>
@@ -944,10 +944,10 @@ const GoogleAdsService = () => {
                   <ShoppingBag className="w-5 h-5 text-[#34A853]" />
                 </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#34A853] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#34A853] transition-colors">
                 Shopping Ads
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Promote products directly in Google Shopping results.
               </p>
             </div>
@@ -959,10 +959,10 @@ const GoogleAdsService = () => {
                   <RefreshCw className="w-5 h-5 text-[#F5A623]" />
                 </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#F5A623] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#F5A623] transition-colors">
                 Remarketing
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Re-engage visitors who didn't convert the first time.
               </p>
             </div>
@@ -974,10 +974,10 @@ const GoogleAdsService = () => {
                   <BarChart3 className="w-5 h-5 text-[#7C3AED]" />
                 </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1 tracking-tight group-hover:text-[#7C3AED] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#7C3AED] transition-colors">
                 Conversion Tracking
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal max-w-xs">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
                 Measure every enquiry, call, WhatsApp lead, and sale accurately.
               </p>
             </div>

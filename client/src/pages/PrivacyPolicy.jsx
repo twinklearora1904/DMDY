@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
               <p className="mb-3">
                 When you visit our website, schedule a performance marketing audit, or contract our services, we may collect the following data:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-xs sm:text-sm text-slate-600 font-medium">
+              <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600 font-normal">
                 <li><strong className="text-slate-800">Contact Information:</strong> Full name, verified corporate email address, and direct phone number.</li>
                 <li><strong className="text-slate-800">Business Information:</strong> Company name, verified domain URL, industry niche, monthly marketing budget, and growth KPIs.</li>
                 <li><strong className="text-slate-800">Technical & Analytical Data:</strong> Anonymized IP addresses, browser specifications, device identifiers, and on-site behavioral metrics collected via privacy-first telemetry.</li>
@@ -67,7 +67,7 @@ const PrivacyPolicy = () => {
               <p className="mb-3">
                 The gathered intelligence is utilized strictly to:
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-xs sm:text-sm text-slate-600 font-medium">
+              <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600 font-normal">
                 <li>Engineer forensic growth roadmaps, SEO audit deliverables, and paid advertising projections.</li>
                 <li>Facilitate direct executive communications regarding strategy sessions and contract milestones.</li>
                 <li>Safeguard digital infrastructure against fraudulent activity, brute force attacks, and automated spam.</li>
@@ -116,12 +116,12 @@ const PrivacyPolicy = () => {
               <h3 className="text-sm sm:text-base font-extrabold text-slate-900 mb-2 flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#00AED6]" /> Privacy & Compliance Officer
               </h3>
-              <p className="text-slate-600 text-xs sm:text-sm mb-3 font-normal">
+              <p className="text-slate-600 text-sm sm:text-base mb-3 font-normal">
                 For legal inquiries, data deletion requests, or compliance documentation, contact our regulatory team:
               </p>
               <a 
                 href="mailto:privacy@dmdy.in" 
-                className="text-xs sm:text-sm font-bold text-[#00AED6] hover:text-[#E6007A] transition-colors"
+                className="text-sm sm:text-base font-bold text-[#00AED6] hover:text-[#E6007A] transition-colors"
               >
                 privacy@dmdy.in &rarr;
               </a>

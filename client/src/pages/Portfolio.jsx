@@ -246,7 +246,7 @@ const Portfolio = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Featured Growth Teardowns
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal max-w-xl">
+            <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal max-w-xl">
               Representative examples of revenue expansion across direct-to-consumer, B2B SaaS, and national enterprise accounts.
             </p>
           </div>
@@ -275,17 +275,17 @@ const Portfolio = () => {
                     {study.metric}
                   </div>
 
-                  <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">
+                  <div className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">
                     {study.metricLabel}
                   </div>
                   
-                  <p className="text-slate-600 leading-relaxed text-xs sm:text-sm font-normal mb-6">
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base font-normal mb-6">
                     {study.description}
                   </p>
 
                   <div className="flex flex-wrap gap-1.5 mb-6">
                     {study.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="text-xs font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600">
+                      <span key={tIdx} className="text-xs sm:text-sm font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600">
                         {tag}
                       </span>
                     ))}
@@ -295,7 +295,7 @@ const Portfolio = () => {
                 <div className="pt-5 border-t border-slate-100">
                   <Link 
                     to="/contact" 
-                    className="inline-flex items-center text-xs sm:text-sm font-bold text-slate-900 hover:text-[#00AED6] transition-colors group/link"
+                    className="inline-flex items-center text-sm sm:text-base font-bold text-slate-900 hover:text-[#00AED6] transition-colors group/link"
                   >
                     Request Strategy Teardown 
                     <ArrowUpRight className="w-4 h-4 ml-1.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />

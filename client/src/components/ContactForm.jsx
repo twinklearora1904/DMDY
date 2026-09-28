@@ -64,7 +64,7 @@ const ContactForm = () => {
                 </span>
               </h1>
 
-              <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed mb-8 max-w-md">
+              <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed mb-8 max-w-md">
                 We're ready to engineer your custom growth roadmap. Submit your project brief, and our senior strategists will analyze your business within 24 hours.
               </p>
 

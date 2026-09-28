@@ -132,10 +132,10 @@ const Pricing = () => {
               
               <div>
                 <div className="mb-6">
-                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 tracking-tight">
                     {plan.name}
                   </h3>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal min-h-[44px]">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal min-h-[48px]">
                     {plan.description}
                   </p>
                 </div>
@@ -157,8 +157,8 @@ const Pricing = () => {
 
                 <div className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
-                    <div key={i} className="flex items-start text-xs sm:text-sm">
-                      <Check className="w-4 h-4 text-[#00AED6] mr-2.5 shrink-0 mt-0.5" />
+                    <div key={i} className="flex items-start text-sm sm:text-base">
+                      <Check className="w-4 h-4 text-[#00AED6] mr-2.5 shrink-0 mt-1" />
                       <span className="text-slate-700 font-medium leading-relaxed">{feature}</span>
                     </div>
                   ))}
@@ -167,7 +167,7 @@ const Pricing = () => {
 
               <Link 
                 to="/contact" 
-                className={`w-full flex items-center justify-center py-3.5 px-6 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 ${
+                className={`w-full flex items-center justify-center py-3.5 px-6 rounded-xl font-bold text-sm sm:text-base transition-all duration-200 ${
                   plan.highlighted 
                     ? 'bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] text-white shadow-lg hover:opacity-95' 
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-200/80'

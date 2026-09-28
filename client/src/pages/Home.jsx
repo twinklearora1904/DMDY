@@ -102,28 +102,28 @@ const IndustriesSection = () => {
             <div className="absolute -inset-2 rounded-3xl blur-2xl opacity-15" style={{ background: active.color }}></div>
             <div className="relative bg-white rounded-3xl border shadow-xl overflow-hidden" style={{ borderColor: active.color + '30' }}>
               <div className="px-7 py-5 border-b" style={{ borderColor: active.color + '20', backgroundColor: active.color + '08' }}>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-1">{active.headline}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{active.desc}</p>
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-1.5">{active.headline}</h3>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{active.desc}</p>
               </div>
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-px" style={{ backgroundColor: active.color + '15' }}>
                 <div className="bg-white px-7 py-5 text-center">
-                  <p className="text-2xl sm:text-3xl font-extrabold" style={{ color: active.color }}>{active.stat1.value}</p>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">{active.stat1.label}</p>
+                  <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold" style={{ color: active.color }}>{active.stat1.value}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider mt-1">{active.stat1.label}</p>
                 </div>
                 <div className="bg-white px-7 py-5 text-center">
-                  <p className="text-2xl sm:text-3xl font-extrabold" style={{ color: active.color }}>{active.stat2.value}</p>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">{active.stat2.label}</p>
+                  <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold" style={{ color: active.color }}>{active.stat2.value}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider mt-1">{active.stat2.label}</p>
                 </div>
               </div>
 
               {/* Points */}
               <div className="px-7 py-6">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">What We Do</p>
+                <p className="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">What We Do</p>
                 <ul className="space-y-3">
                   {active.points.map((pt) => (
-                    <li key={pt} className="flex items-center gap-3 text-xs sm:text-sm text-slate-700 font-medium">
+                    <li key={pt} className="flex items-center gap-3 text-sm sm:text-base text-slate-700 font-medium">
                       <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: active.color + '20' }}>
                         <span className="w-2 h-2 rounded-full" style={{ backgroundColor: active.color }}></span>
                       </span>
@@ -135,7 +135,7 @@ const IndustriesSection = () => {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mt-6 pt-5" style={{ borderTop: `1px solid ${active.color}20` }}>
                   {active.tags.map((tag) => (
-                    <span key={tag} className="text-[11px] font-bold px-3 py-1 rounded-full" style={{ color: active.color, background: active.color + '18' }}>
+                    <span key={tag} className="text-xs font-bold px-3 py-1 rounded-full" style={{ color: active.color, background: active.color + '18' }}>
                       {tag}
                     </span>
                   ))}
@@ -245,92 +245,92 @@ const Home = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Category 1 */}
-              <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#00AED6]/30 hover:border-[#00AED6] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#00AED6]/30 hover:border-[#00AED6] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#00AED6]/10 flex items-center justify-center text-[#00AED6] group-hover:scale-110 transition-transform">
                     <Search className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide">Search</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Search</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#00AED6]" /> SEO</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#00AED6]" /> Local SEO</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#00AED6]" /> Google Ads / PPC</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-4 h-4 text-[#00AED6] shrink-0" /> SEO</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-4 h-4 text-[#00AED6] shrink-0" /> Local SEO</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-4 h-4 text-[#00AED6] shrink-0" /> Google Ads / PPC</li>
                 </ul>
               </div>
 
               {/* Category 2 */}
-              <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#E6007A]/30 hover:border-[#E6007A] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#E6007A]/30 hover:border-[#E6007A] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#E6007A]/10 flex items-center justify-center text-[#E6007A] group-hover:scale-110 transition-transform">
                     <Share2 className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide">Social & Content</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Social & Content</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#E6007A]" /> Social Media Marketing</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#E6007A]" /> Content Marketing</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#E6007A]" /> Influencer Marketing</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-4 h-4 text-[#E6007A] shrink-0" /> Social Media Marketing</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-4 h-4 text-[#E6007A] shrink-0" /> Content Marketing</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-4 h-4 text-[#E6007A] shrink-0" /> Influencer Marketing</li>
                 </ul>
               </div>
 
               {/* Category 3 */}
-              <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#F5A623]/30 hover:border-[#F5A623] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#F5A623]/30 hover:border-[#F5A623] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#F5A623]/10 flex items-center justify-center text-[#F5A623] group-hover:scale-110 transition-transform">
                     <Target className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide">Performance</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Performance</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#F5A623]" /> Performance Marketing</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#F5A623]" /> Lead Generation</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#F5A623]" /> Conversion Optimization</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-4 h-4 text-[#F5A623] shrink-0" /> Performance Marketing</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-4 h-4 text-[#F5A623] shrink-0" /> Lead Generation</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-4 h-4 text-[#F5A623] shrink-0" /> Conversion Optimization</li>
                 </ul>
               </div>
 
               {/* Category 4 */}
-              <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#00C48C]/30 hover:border-[#00C48C] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#00C48C]/30 hover:border-[#00C48C] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#00C48C]/10 flex items-center justify-center text-[#00C48C] group-hover:scale-110 transition-transform">
                     <PenTool className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide">Creative & Brand</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Creative & Brand</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#00C48C]" /> Branding</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#00C48C]" /> Creative Design</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#00C48C]" /> Content Creation</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-4 h-4 text-[#00C48C] shrink-0" /> Branding</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-4 h-4 text-[#00C48C] shrink-0" /> Creative Design</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-4 h-4 text-[#00C48C] shrink-0" /> Content Creation</li>
                 </ul>
               </div>
 
               {/* Category 5 */}
-              <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#7C3AED]/30 hover:border-[#7C3AED] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#7C3AED]/30 hover:border-[#7C3AED] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:scale-110 transition-transform">
                     <Monitor className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide">Digital Experience</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Digital Experience</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#7C3AED]" /> Website Design</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#7C3AED]" /> Web Development</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#7C3AED]" /> E-commerce</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-4 h-4 text-[#7C3AED] shrink-0" /> Website Design</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-4 h-4 text-[#7C3AED] shrink-0" /> Web Development</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-4 h-4 text-[#7C3AED] shrink-0" /> E-commerce</li>
                 </ul>
               </div>
 
               {/* Category 6 */}
-              <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#F43F5E]/30 hover:border-[#F43F5E] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#F43F5E]/30 hover:border-[#F43F5E] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#F43F5E]/10 flex items-center justify-center text-[#F43F5E] group-hover:scale-110 transition-transform">
                     <HeartHandshake className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide">Retention</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Retention</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#F43F5E]" /> Email Marketing</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#F43F5E]" /> CRM</li>
-                  <li className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-3.5 h-3.5 text-[#F43F5E]" /> Marketing Automation</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-4 h-4 text-[#F43F5E] shrink-0" /> Email Marketing</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-4 h-4 text-[#F43F5E] shrink-0" /> CRM</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-4 h-4 text-[#F43F5E] shrink-0" /> Marketing Automation</li>
                 </ul>
               </div>
             </div>

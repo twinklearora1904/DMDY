@@ -18,14 +18,14 @@ const Hero = () => {
               Full-Stack Digital Growth Partner
             </div>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5 sm:mb-6 leading-[1.14] text-slate-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 sm:mb-6 leading-[1.12] text-slate-900">
               We don't just <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                 market businesses.
               </span>
             </h1>
             
-            <p className="text-sm sm:text-base text-slate-600 mb-6 sm:mb-8 max-w-2xl leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 max-w-2xl leading-relaxed font-normal">
               We build your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] font-semibold">digital growth</span> engine—combining data-driven SEO, high-ROAS performance marketing, and modern web engineering to scale revenue.
             </p>
             

@@ -1,37 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Users, Target, Zap, ArrowRight, CheckCircle2, ShieldCheck, Award } from 'lucide-react';
-
-const values = [
-  { 
-    icon: <TrendingUp className="w-6 h-6 text-[#00AED6]" />, 
-    title: 'Data Over Ego', 
-    badge: 'ROI Focused',
-    badgeColor: '#00AED6',
-    desc: 'We rely exclusively on hard data to dictate strategy. If a channel or creative isn\'t driving profitable pipeline, we immediately optimize or pivot based on verified conversion metrics.' 
-  },
-  { 
-    icon: <Users className="w-6 h-6 text-[#E6007A]" />, 
-    title: 'True Growth Partners', 
-    badge: 'Embedded Team',
-    badgeColor: '#E6007A',
-    desc: 'We don\'t operate as a detached external agency. We embed ourselves with your leadership to deeply understand your unit economics, customer lifetime value, and revenue targets.' 
-  },
-  { 
-    icon: <Target className="w-6 h-6 text-[#F5A623]" />, 
-    title: 'Radical Transparency', 
-    badge: 'Zero Jargon',
-    badgeColor: '#F5A623',
-    desc: 'No hidden markups, no vanity metrics. You get real-time dashboard access into where every rupee of ad spend is allocated and the exact revenue it generates.' 
-  },
-  { 
-    icon: <Zap className="w-6 h-6 text-[#00C48C]" />, 
-    title: 'Relentless Execution', 
-    badge: 'Agile & Fast',
-    badgeColor: '#00C48C',
-    desc: 'Agility is our core advantage. We test creatives rapidly, build custom high-converting funnels, and scale winning campaigns with precision.' 
-  }
-];
+import { TrendingUp, Users, Target, Zap, ArrowRight, CheckCircle2, ShieldCheck, Award, Sparkles, Layers, Eye, Compass, Building2, HeartPulse, ShoppingCart, GraduationCap, Store, UtensilsCrossed, Briefcase, Building, Globe } from 'lucide-react';
+import aboutHeroGrowthImg from '../assets/about_hero_growth.jpg';
 
 const About = () => {
   useEffect(() => {
@@ -44,146 +14,683 @@ const About = () => {
       {/* Clean Corporate Hero Section */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-20 border-b border-slate-200/80 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00AED6_0%,#E6007A_30%,transparent_70%)] opacity-5 pointer-events-none"></div>
+        
+        {/* Subtle Ambient Glows */}
+        <div className="absolute top-1/4 -right-40 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-10 -left-40 w-96 h-96 bg-pink-100/40 rounded-full blur-3xl pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#00AED6] animate-pulse"></span>
-              About DMDY — Digi Me Digi You
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.12]">
-              Engineering predictable revenue for <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">ambitious brands.</span>
-            </h1>
-            <p className="text-sm sm:text-base text-slate-600 mb-8 font-normal leading-relaxed max-w-2xl">
-              DMDY is a 360° performance marketing and digital engineering partner. We eliminate vanity metrics in favor of structured, profitable customer acquisition engines.
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <Link 
-                to="/contact" 
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] to-[#E6007A] hover:opacity-95 flex items-center justify-center gap-2"
-              >
-                Meet Our Strategists <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link 
-                to="/portfolio" 
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all text-center"
-              >
-                View Client Case Studies
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Clean Stats Bar */}
-      <section className="py-10 sm:py-14 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-            <div className="text-center p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-100">
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">50+</div>
-              <div className="text-slate-500 font-semibold tracking-wide uppercase text-xs">High-Growth Clients</div>
-            </div>
-            <div className="text-center p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-100">
-              <div className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] to-[#E6007A] mb-1">₹10Cr+</div>
-              <div className="text-slate-500 font-semibold tracking-wide uppercase text-xs">Ad Spend Managed</div>
-            </div>
-            <div className="text-center p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-100">
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">4.2x</div>
-              <div className="text-slate-500 font-semibold tracking-wide uppercase text-xs">Average Client ROAS</div>
-            </div>
-            <div className="text-center p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-100">
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">98%</div>
-              <div className="text-slate-500 font-semibold tracking-wide uppercase text-xs">Client Retention Rate</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-14 sm:py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center max-w-3xl mx-auto">
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full bg-slate-200/70 text-slate-700 mb-4">
-              Core Principles
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3 leading-tight">
-              How We Drive Growth
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Our operating philosophy is built on technical precision, customer psychology, and relentless optimization.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((v, i) => (
-              <div 
-                key={i} 
-                className="p-8 md:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center">
-                      {v.icon}
-                    </div>
-                    <span 
-                      className="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
-                      style={{ backgroundColor: v.badgeColor + '15', color: v.badgeColor }}
-                    >
-                      {v.badge}
-                    </span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2">{v.title}</h3>
-                  <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">{v.desc}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            
+            {/* Left Column (7 cols): Content */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#00AED6] animate-pulse"></span>
+                About DMDY — Digi Me Digi You
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.14]">
+                We Don't Just Market Brands.{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                  We Build Digital Growth.
+                </span>
+              </h1>
+              
+              <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8 max-w-2xl">
+                <p>
+                  DMDY (Digi Me Digi You) is a 360° digital marketing agency created with one belief: every business deserves powerful marketing that is strategic, affordable, and results-driven.
+                </p>
+                <p>
+                  With over 10 years of industry experience, we help startups, local businesses, established brands, and growing enterprises create a strong digital presence through customized marketing solutions. Rather than offering one-size-fits-all packages, we design strategies that match each client's industry, audience, and business goals.
+                </p>
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/70 via-pink-50/40 to-amber-50/50 border border-slate-200/80">
+                  <p className="font-semibold text-slate-900 text-sm sm:text-base">
+                    Our mission is simple—to turn your digital presence into measurable business growth.
+                  </p>
                 </div>
               </div>
-            ))}
+
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                <Link 
+                  to="/contact" 
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2"
+                >
+                  Get In Touch <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link 
+                  to="/services" 
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 font-bold text-sm sm:text-base transition-all text-center"
+                >
+                  Explore Services
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column (5 cols): 3D Visual & Growth Ecosystem Showcase */}
+            <div className="lg:col-span-5 relative mt-6 lg:mt-0">
+              
+              {/* Floating Top Badge */}
+              <div className="absolute -top-4 -left-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-slate-200/80 hidden sm:flex items-center gap-2.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#00C48C] animate-pulse"></span>
+                <span className="text-xs font-bold text-slate-800">10+ Years Experience</span>
+              </div>
+
+              {/* Floating Bottom Badge */}
+              <div className="absolute -bottom-4 -right-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-slate-200/80 hidden sm:flex items-center gap-2">
+                <div className="w-6 h-6 rounded-lg bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center font-bold text-xs">
+                  360°
+                </div>
+                <span className="text-xs font-bold text-slate-800">Customized Solutions</span>
+              </div>
+
+              {/* Main Image Frame */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
+                <img 
+                  src={aboutHeroGrowthImg} 
+                  alt="DMDY 360° Digital Growth Ecosystem" 
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+                
+                {/* Subtle Inner Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none"></div>
+              </div>
+
+              {/* Micro Pillar Badges Underneath Image */}
+              <div className="grid grid-cols-3 gap-2.5 mt-4">
+                <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
+                  <div className="text-[11px] font-bold text-[#00AED6]">Strategic</div>
+                  <div className="text-[10px] text-slate-500 font-medium">Bespoke Plans</div>
+                </div>
+                <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
+                  <div className="text-[11px] font-bold text-[#E6007A]">Affordable</div>
+                  <div className="text-[10px] text-slate-500 font-medium">High Efficiency</div>
+                </div>
+                <div className="p-2.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center">
+                  <div className="text-[11px] font-bold text-[#F5A623]">Results-Driven</div>
+                  <div className="text-[10px] text-slate-500 font-medium">Measurable ROI</div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us 3-Column Section */}
-      <section className="py-20 bg-white border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <Award className="w-7 h-7 text-[#00AED6] mb-4" />
-              <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2">Senior Expertise Only</h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">You work directly with seasoned performance marketers and engineers, never junior account managers.</p>
+      {/* ========================================================= */}
+      {/* SECTION 2: OUR STORY                                      */}
+      {/* ========================================================= */}
+      <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Elements */}
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            
+            {/* Left Column (5 cols): "Under One Roof" Capabilities Visual Card */}
+            <div className="lg:col-span-5 relative mt-6 lg:mt-0">
+              
+              <div className="relative rounded-3xl bg-white border border-slate-200/90 shadow-xl p-6 sm:p-8 overflow-hidden group">
+
+                <div className="mb-6">
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#00AED6] mb-1">
+                    Creativity Meets Performance
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+                    All Under One Roof
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1 font-normal">
+                    Combining every growth discipline under one unified team.
+                  </p>
+                </div>
+
+                {/* 7 Disciplines Grid */}
+                <div className="grid grid-cols-2 gap-2.5 mb-6">
+                  {[
+                    { name: 'Branding', color: 'text-[#E6007A] bg-pink-50 border-pink-100' },
+                    { name: 'Content', color: 'text-[#F5A623] bg-amber-50 border-amber-100' },
+                    { name: 'Advertising', color: 'text-[#4285F4] bg-blue-50 border-blue-100' },
+                    { name: 'SEO', color: 'text-[#00AED6] bg-cyan-50 border-cyan-100' },
+                    { name: 'Social Media', color: 'text-[#7C3AED] bg-purple-50 border-purple-100' },
+                    { name: 'Web Development', color: 'text-emerald-700 bg-emerald-50 border-emerald-100' },
+                    { name: 'Lead Generation', color: 'text-slate-900 bg-slate-100 border-slate-200' }
+                  ].map((item, idx) => (
+                    <div 
+                      key={idx}
+                      className={`p-2.5 rounded-xl border flex items-center gap-2 font-bold text-xs ${item.color} ${idx === 6 ? 'col-span-2 justify-center' : ''}`}
+                    >
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                      <span>{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Highlight Tag */}
+                <div className="p-4 rounded-2xl bg-slate-900 text-white text-center">
+                  <div className="text-xs font-bold text-white flex items-center justify-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#00C48C] animate-pulse"></span>
+                    An Extension of Your Business
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5">
+                    Not just another marketing vendor
+                  </div>
+                </div>
+
+              </div>
+
             </div>
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <ShieldCheck className="w-7 h-7 text-[#E6007A] mb-4" />
-              <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2">100% IP & Asset Ownership</h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">All ad accounts, creative assets, codebases, and tracking setups belong 100% to your company from day one.</p>
+
+            {/* Right Column (7 cols): Narrative Content */}
+            <div className="lg:col-span-7">
+              
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
+                <span>Our Story</span>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                Our{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                  Story
+                </span>
+              </h2>
+
+              {/* Story Narrative Paragraphs */}
+              <div className="space-y-5 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                <p>
+                  Digital marketing has evolved rapidly, but many businesses still struggle with overpriced services, generic strategies, and agencies that don't understand their industry.
+                </p>
+
+                {/* Pivot Callout Card */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-white border-l-4 border-l-[#00AED6] border border-slate-200/80 shadow-xs">
+                  <p className="text-base sm:text-lg font-bold text-slate-900">
+                    DMDY was founded to change that.
+                  </p>
+                </div>
+
+                <p>
+                  We built an agency where creativity meets performance, combining branding, content, advertising, SEO, social media, website development, and lead generation under one roof. Our goal is to become an extension of your business—not just another marketing vendor.
+                </p>
+              </div>
+
             </div>
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <CheckCircle2 className="w-7 h-7 text-[#00C48C] mb-4" />
-              <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2">Results-Driven Retainers</h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">Our agreements are tied to verifiable milestones and revenue scaling, ensuring aligned incentives.</p>
-            </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-24 bg-slate-900 text-white text-center relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 tracking-tight leading-tight">
-              Ready to scale your company with a revenue-focused partner?
+      {/* ========================================================= */}
+      {/* SECTION 3: WHAT MAKES DMDY DIFFERENT?                     */}
+      {/* ========================================================= */}
+      <section className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Elements */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-50/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-pink-50/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
+          
+          {/* Section Header */}
+          <div className="mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
+              <Target className="w-3.5 h-3.5 text-[#00AED6]" />
+              <span>The DMDY Advantage</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              What Makes DMDY{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                Different?
+              </span>
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base mb-8 leading-relaxed max-w-2xl mx-auto">
-              Book a 30-minute growth consultation with our leadership team. We'll analyze your current funnel and present a roadmap to scale.
-            </p>
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00AED6] to-[#E6007A] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-xl hover:shadow-2xl text-sm sm:text-base hover:-translate-y-0.5"
-            >
-              Book Strategy Session <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
+
+          {/* 4 Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            
+            {/* 1. Customized Strategy */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
+                    <Target className="w-6 h-6 text-[#00AED6]" />
+                  </div>
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-50 text-[#00AED6] border border-cyan-200/80">
+                    01
+                  </span>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors tracking-tight">
+                  Customized Strategy
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Every campaign is built around your business, niche, and objectives.
+                </p>
+              </div>
+            </div>
+
+            {/* 2. 360° Digital Expertise */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
+                    <Layers className="w-6 h-6 text-[#E6007A]" />
+                  </div>
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
+                    02
+                  </span>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors tracking-tight">
+                  360° Digital Expertise
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  From brand identity to paid advertising, we handle complete digital growth.
+                </p>
+              </div>
+            </div>
+
+            {/* 3. Pocket-Friendly Solutions */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-[#F5A623]/10 text-[#F5A623] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
+                    <Zap className="w-6 h-6 text-[#F5A623]" />
+                  </div>
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-[#F5A623] border border-amber-200/80">
+                    03
+                  </span>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors tracking-tight">
+                  Pocket-Friendly Solutions
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Premium-quality marketing without unnecessary costs or inflated retainers.
+                </p>
+              </div>
+            </div>
+
+            {/* 4. Performance-Focused Execution */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-[#00C48C]/10 text-[#00C48C] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
+                    <TrendingUp className="w-6 h-6 text-[#00C48C]" />
+                  </div>
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#00C48C] border border-emerald-200/80">
+                    04
+                  </span>
+                </div>
+
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors tracking-tight">
+                  Performance-Focused Execution
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  We measure success through leads, visibility, engagement, and business results.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
+      {/* Section 4: Our Vision & Mission */}
+      <section className="py-16 sm:py-24 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-cyan-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-0 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
+              <Compass className="w-3.5 h-3.5 text-[#00AED6]" />
+              <span>Guiding Principles</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Our{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                Vision & Mission
+              </span>
+            </h2>
+          </div>
+
+          {/* Cards Grid: Vision & Mission */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            
+            {/* Our Vision Card */}
+            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-xl transition-all duration-300 relative flex flex-col justify-between group overflow-hidden">
+              <div className="absolute -top-12 -right-12 w-36 h-36 bg-[#00AED6]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#00AED6]/10 transition-colors"></div>
+              <Eye className="absolute -bottom-6 -right-6 w-32 h-32 text-slate-100/70 pointer-events-none group-hover:text-cyan-50/80 transition-colors" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-cyan-50 border border-cyan-100 text-[#00AED6] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                    <Eye className="w-7 h-7 text-[#00AED6]" />
+                  </div>
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-cyan-50 text-[#00AED6] border border-cyan-200/80">
+                    Vision
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-4 group-hover:text-[#00AED6] transition-colors tracking-tight">
+                  Our Vision
+                </h3>
+
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                  To become one of India's most trusted digital growth partners by delivering innovative, transparent, and result-oriented marketing solutions for businesses of every size.
+                </p>
+              </div>
+            </div>
+
+            {/* Our Mission Card */}
+            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-xs hover:shadow-xl transition-all duration-300 relative flex flex-col justify-between group overflow-hidden">
+              <div className="absolute -top-12 -right-12 w-36 h-36 bg-[#E6007A]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#E6007A]/10 transition-colors"></div>
+              <Target className="absolute -bottom-6 -right-6 w-32 h-32 text-slate-100/70 pointer-events-none group-hover:text-pink-50/80 transition-colors" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-pink-50 border border-pink-100 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                    <Target className="w-7 h-7 text-[#E6007A]" />
+                  </div>
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
+                    Mission
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-4 group-hover:text-[#E6007A] transition-colors tracking-tight">
+                  Our Mission
+                </h3>
+
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                  To provide affordable, customized, and high-impact digital marketing strategies that help brands attract customers, increase revenue, and build lasting online authority.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 5: The Numbers Behind Our Work */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan-50/50 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-pink-50/50 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4">
+              <Award className="w-3.5 h-3.5 text-[#00AED6]" />
+              <span>Proven Track Record</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+              The Numbers Behind{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                Our Work
+              </span>
+            </h2>
+          </div>
+
+          {/* 3 Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            
+            {/* Stat 1: 10+ Years of Experience */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden">
+              <div className="w-14 h-14 rounded-2xl bg-cyan-50 border border-cyan-100 text-[#00AED6] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <Award className="w-7 h-7 text-[#00AED6]" />
+              </div>
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#00AED6] transition-colors">
+                10+
+              </div>
+              <p className="text-base sm:text-lg font-bold text-slate-700">
+                Years of Experience
+              </p>
+            </div>
+
+            {/* Stat 2: 15+ Projects Delivered */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden">
+              <div className="w-14 h-14 rounded-2xl bg-pink-50 border border-pink-100 text-[#E6007A] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <TrendingUp className="w-7 h-7 text-[#E6007A]" />
+              </div>
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#E6007A] transition-colors">
+                15+
+              </div>
+              <p className="text-base sm:text-lg font-bold text-slate-700">
+                Projects Delivered
+              </p>
+            </div>
+
+            {/* Stat 3: 10+ Expert Freelance Team */}
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 hover:border-[#F5A623]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden">
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-[#F5A623] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xs">
+                <Users className="w-7 h-7 text-[#F5A623]" />
+              </div>
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#F5A623] transition-colors">
+                10+
+              </div>
+              <p className="text-base sm:text-lg font-bold text-slate-700">
+                Expert Freelance Team
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 6: Industries We Empower */}
+      <section className="py-16 sm:py-24 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-0 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
+              <Globe className="w-3.5 h-3.5 text-[#00AED6]" />
+              <span>Industry Reach</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              Industries We{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                Empower
+              </span>
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+              We create tailored digital strategies for businesses across multiple sectors:
+            </p>
+          </div>
+
+          {/* Industries Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
+            
+            {/* 1. Real Estate */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-cyan-50 border border-cyan-100 text-[#00AED6] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Building2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00AED6] transition-colors">
+                Real Estate
+              </h3>
+            </div>
+
+            {/* 2. Healthcare */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-pink-50 border border-pink-100 text-[#E6007A] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <HeartPulse className="w-6 h-6" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#E6007A] transition-colors">
+                Healthcare
+              </h3>
+            </div>
+
+            {/* 3. E-commerce */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#F5A623]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-100 text-[#F5A623] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <ShoppingCart className="w-6 h-6" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#F5A623] transition-colors">
+                E-commerce
+              </h3>
+            </div>
+
+            {/* 4. Education */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#00C48C]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 text-[#00C48C] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <GraduationCap className="w-6 h-6" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00C48C] transition-colors">
+                Education
+              </h3>
+            </div>
+
+            {/* 5. Retail */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-cyan-50 border border-cyan-100 text-[#00AED6] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Store className="w-6 h-6" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00AED6] transition-colors">
+                Retail
+              </h3>
+            </div>
+
+            {/* 6. Hospitality */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-pink-50 border border-pink-100 text-[#E6007A] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <UtensilsCrossed className="w-6 h-6" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#E6007A] transition-colors">
+                Hospitality
+              </h3>
+            </div>
+
+            {/* 7. Professional Services */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#F5A623]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-100 text-[#F5A623] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Briefcase className="w-6 h-6" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#F5A623] transition-colors">
+                Professional Services
+              </h3>
+            </div>
+
+            {/* 8. Corporate Brands */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#6366F1]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 text-[#6366F1] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Building className="w-6 h-6" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#6366F1] transition-colors">
+                Corporate Brands
+              </h3>
+            </div>
+
+            {/* 9. And many more */}
+            <div className="bg-gradient-to-r from-slate-50 to-white rounded-2xl p-5 sm:p-6 border border-slate-300 hover:border-slate-400 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#00AED6]/10 via-[#E6007A]/10 to-[#F5A623]/10 border border-slate-200 text-[#E6007A] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Sparkles className="w-6 h-6 text-[#E6007A]" />
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-800 group-hover:text-[#00AED6] transition-colors">
+                And many more
+              </h3>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 7: Why Clients Choose DMDY */}
+      <section className="py-16 sm:py-15 bg-white border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle Ambient Background Gradients */}
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-pink-100/30 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Premium Highlight Card */}
+          <div className="relative rounded-3xl p-8 sm:p-12 md:p-14 bg-gradient-to-b from-slate-50/90 to-white border border-slate-200/90 shadow-sm relative overflow-hidden">
+            
+            {/* Subtle decorative glow accents */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#00AED6]/10 via-[#E6007A]/10 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#F5A623]/10 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+
+            <div className="relative z-10 text-center max-w-3xl mx-auto">
+              
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6 shadow-xs">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#00AED6]" />
+                <span>Why DMDY</span>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
+                Why Clients Choose{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                  DMDY
+                </span>
+              </h2>
+
+              {/* Core statement */}
+              <p className="text-lg sm:text-xl font-bold text-slate-800 leading-snug mb-6">
+                Because successful marketing isn't about spending more—it's about making smarter decisions.
+              </p>
+
+              {/* Paragraph */}
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8">
+                At DMDY, we believe in transparent communication, creative thinking, data-backed strategies, and long-term partnerships. Whether you're launching a new brand or scaling an established business, we work with the same commitment: delivering marketing that creates real business impact.
+              </p>
+
+              {/* Brand Tagline Banner */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-pink-50/50 to-amber-50/60 border border-slate-200/80 mb-8 inline-block max-w-xl mx-auto">
+                <p className="font-extrabold text-slate-900 text-sm sm:text-base tracking-tight mb-0.5">
+                  DMDY — Digi Me Digi You
+                </p>
+                <p className="text-xs sm:text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                  Your Growth. Our Digital Strategy.
+                </p>
+              </div>
+
+              {/* CTA Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <Link 
+                  to="/contact" 
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base shadow-lg shadow-pink-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 flex items-center justify-center gap-2"
+                >
+                  <span>Get In Touch</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link 
+                  to="/services" 
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-bold text-sm sm:text-base border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow transition-all duration-200 flex items-center justify-center"
+                >
+                  Explore Our Services
+                </Link>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
     </div>
   );
 };

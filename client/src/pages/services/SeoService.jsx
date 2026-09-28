@@ -1190,7 +1190,7 @@ const SeoService = () => {
       {/* ========================================================= */}
       {/* SECTION 8: FREQUENTLY ASKED QUESTIONS (SEO + AEO + GEO) */}
       {/* ========================================================= */}
-      <section className="py-14 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -1258,7 +1258,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 0 ? -1 : 0)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     What is SEO in 2026?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1267,7 +1267,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 0 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       SEO (Search Engine Optimization) in 2026 is the practice of improving your website's visibility across both traditional search engines and AI-powered search experiences. Modern SEO Services combine technical SEO, content optimization, user experience, structured data, and AI Search Optimization to help businesses rank on Google, appear in AI Overviews, and become discoverable through platforms like ChatGPT and Gemini.
                     </p>
                   </div>
@@ -1284,7 +1284,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 1 ? -1 : 1)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     What is the difference between SEO, AEO and GEO?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1293,7 +1293,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 1 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3 mb-4">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3 mb-4">
                       They work together but serve different purposes:
                     </p>
 
@@ -1360,7 +1360,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 2 ? -1 : 2)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     Can ChatGPT recommend my business?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1369,7 +1369,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 2 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       Yes—but not through paid placement. ChatGPT and other AI platforms are more likely to reference businesses that have strong website authority, well-structured content, clear business information, and consistent online credibility. This is where GEO (Generative Engine Optimization) and AEO become valuable additions to traditional SEO Services.
                     </p>
                   </div>
@@ -1386,7 +1386,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 3 ? -1 : 3)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     How long do SEO services take to show results?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1395,7 +1395,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 3 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       SEO is a long-term growth strategy. Most businesses begin seeing measurable improvements within 3–6 months, while competitive industries may take longer depending on competition, website health, content quality, and domain authority. A professional SEO Agency focuses on building sustainable organic growth rather than short-term ranking spikes.
                     </p>
                   </div>
@@ -1412,7 +1412,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 4 ? -1 : 4)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     Is Local SEO different from normal SEO?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1421,7 +1421,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 4 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       Yes. Local SEO focuses on helping your business appear in location-based searches such as “digital marketing agency near me” or “SEO services in Delhi.” It includes Google Business Profile optimization, local citations, Maps visibility, location pages, and geo-targeted keyword strategies, while traditional SEO targets broader national or global search rankings.
                     </p>
                   </div>
@@ -1438,7 +1438,7 @@ const SeoService = () => {
                   onClick={() => setOpenFaq(openFaq === 5 ? -1 : 5)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     Do I need AEO if I already rank on Google?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1447,7 +1447,7 @@ const SeoService = () => {
                 </button>
                 {openFaq === 5 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       Yes. Ranking on Google is only one part of modern search visibility. As more users ask questions in ChatGPT, Gemini, Perplexity, and Google's AI Overviews, Answer Engine Optimization (AEO) helps your content become the answer—not just another search result. Combining SEO, AEO, and GEO gives your business stronger visibility across both search engines and AI-powered discovery.
                     </p>
                   </div>

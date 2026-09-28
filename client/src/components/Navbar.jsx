@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, Search, Target, Code2, TrendingUp, Share2, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Target, Code2, Share2, ArrowRight, Sparkles } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import logo from '../assets/logo.png';
@@ -11,6 +11,13 @@ const servicesList = [
     path: '/services/seo',
     icon: Search,
     color: '#00AED6'
+  },
+  {
+    name: 'Website Design & Development',
+    desc: 'High-speed, conversion-engineered modern web platforms',
+    path: '/services/web-development',
+    icon: Code2,
+    color: '#F5A623'
   },
   {
     name: 'Social Media Marketing',

@@ -1272,7 +1272,7 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       {/* SECTION 8: FREQUENTLY ASKED QUESTIONS */}
       {/* ========================================================= */}
-      <section className="py-14 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -1340,7 +1340,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 0 ? -1 : 0)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     What are Social Media Marketing Services?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1349,7 +1349,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 0 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       Social Media Marketing Services help businesses grow their brand through platforms like Instagram, Facebook, LinkedIn, and other social channels using content creation, community management, paid advertising, Reels, and strategic audience engagement.
                     </p>
                   </div>
@@ -1366,7 +1366,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 1 ? -1 : 1)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     Which social media platform is best for my business?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1375,7 +1375,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 1 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       It depends on your industry, audience, and business goals. Instagram works well for visual brands, LinkedIn supports B2B growth, Facebook remains powerful for community and lead generation, and short-form video performs strongly across multiple platforms.
                     </p>
                   </div>
@@ -1392,7 +1392,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 2 ? -1 : 2)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     How often should my business post on social media?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1401,7 +1401,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 2 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       Consistency matters more than volume. A strategic content calendar with quality Reels, carousel posts, stories, and educational content generally performs better than posting every day without a clear strategy.
                     </p>
                   </div>
@@ -1418,7 +1418,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 3 ? -1 : 3)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     Can Social Media Marketing generate leads and sales?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1427,7 +1427,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 3 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       Yes. When combined with Meta Ads, landing pages, WhatsApp integration, remarketing, and strong content strategy, social media becomes an effective lead generation and customer acquisition channel—not just a branding platform.
                     </p>
                   </div>
@@ -1444,7 +1444,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 4 ? -1 : 4)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     What's included in DMDY's Social Media Management?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1453,7 +1453,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 4 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       Our Social Media Marketing Agency provides strategy, content planning, graphic design, Reels, captions, community management, paid campaigns, monthly reporting, and ongoing optimization based on your business requirements.
                     </p>
                   </div>
@@ -1470,7 +1470,7 @@ const SocialMediaService = () => {
                   onClick={() => setOpenFaq(openFaq === 5 ? -1 : 5)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900">
                     Do I need both organic content and paid ads?
                   </span>
                   <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
@@ -1479,7 +1479,7 @@ const SocialMediaService = () => {
                 </button>
                 {openFaq === 5 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal pt-3">
                       Yes. Organic content builds trust and brand authority, while paid social media advertising accelerates reach, lead generation, and conversions. Together they create a balanced and sustainable social media growth strategy.
                     </p>
                   </div>

@@ -10,6 +10,7 @@ import Services from './pages/Services'
 import SeoService from './pages/services/SeoService'
 import SocialMediaService from './pages/services/SocialMediaService'
 import GoogleAdsService from './pages/services/GoogleAdsService'
+import WebDevelopmentService from './pages/services/WebDevelopmentService'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import PricingPage from './pages/PricingPage'
@@ -36,6 +37,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/seo" element={<SeoService />} />
+            <Route path="/services/web-development" element={<WebDevelopmentService />} />
+            <Route path="/services/website-design-development" element={<WebDevelopmentService />} />
             <Route path="/services/social-media" element={<SocialMediaService />} />
             <Route path="/services/google-ads" element={<GoogleAdsService />} />
             <Route path="/about" element={<About />} />

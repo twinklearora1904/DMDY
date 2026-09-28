@@ -314,13 +314,12 @@ const Services = () => {
                 </div>
               </div>
               <div className="pt-4 border-t border-slate-100">
-                <button 
-                  type="button"
-                  onClick={() => openModal('Website Development')}
+                <Link 
+                  to="/services/web-development"
                   className="inline-flex items-center gap-1.5 font-bold text-sm sm:text-base text-[#F5A623] hover:text-[#00AED6] transition-colors cursor-pointer"
                 >
                   Explore Web Engineering &rarr;
-                </button>
+                </Link>
               </div>
             </div>
 

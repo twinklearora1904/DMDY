@@ -7,5 +7,19 @@ export default defineConfig({
   optimizeDeps: {
     include: ['@vercel/analytics/react', '@vercel/speed-insights/react'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('lucide-react')) {
+              return 'icons';
+            }
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
 })
 

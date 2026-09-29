@@ -8,6 +8,25 @@ export default defineConfig({
     include: ['@vercel/analytics/react', '@vercel/speed-insights/react'],
   },
   build: {
+    chunkSizeWarningLimit: 1000,
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              name: 'icons',
+              test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
+              priority: 30,
+            },
+            {
+              name: 'vendor',
+              test: /[\\/]node_modules[\\/]/,
+              priority: 20,
+            },
+          ],
+        },
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {

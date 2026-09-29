@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['@vercel/analytics/react'],
+    include: ['@vercel/analytics/react', '@vercel/speed-insights/react'],
   },
 })
 

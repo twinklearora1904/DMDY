@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
 import { ArrowLeft, Calendar, User, Tag, Sparkles, Share2, Check, Clock } from 'lucide-react';
+import MarkdownRenderer from '../components/MarkdownRenderer';
 
 const BlogPost = () => {
   const { openModal } = useContactModal();
@@ -78,168 +79,6 @@ const BlogPost = () => {
 
   const imageUrl = blog.image?.url || (typeof blog.image === 'string' ? blog.image : null);
 
-  const formatInline = (text) => {
-    if (!text) return null;
-    const regex = /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g;
-    const parts = text.split(regex);
-    return parts.map((part, index) => {
-      if (!part) return null;
-      if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
-        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-        if (match) {
-          return (
-            <a
-              key={index}
-              href={match[2]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#00AED6] hover:underline font-semibold"
-            >
-              {match[1]}
-            </a>
-          );
-        }
-      }
-      if (part.startsWith('**') && part.endsWith('**') && part.length >= 4) {
-        return (
-          <strong key={index} className="font-extrabold text-slate-900">
-            {part.slice(2, -2)}
-          </strong>
-        );
-      }
-      if (part.startsWith('`') && part.endsWith('`') && part.length >= 2) {
-        return (
-          <code key={index} className="px-1.5 py-0.5 rounded bg-slate-100 text-[#E6007A] text-xs font-mono border border-slate-200">
-            {part.slice(1, -1)}
-          </code>
-        );
-      }
-      if (part.startsWith('*') && part.endsWith('*') && part.length >= 2) {
-        return (
-          <em key={index} className="italic text-slate-800">
-            {part.slice(1, -1)}
-          </em>
-        );
-      }
-      return part;
-    });
-  };
-
-  const renderFormattedContent = (content) => {
-    if (!content) return null;
-    const rawLines = content.split('\n');
-    const blocks = [];
-    let currentList = null;
-
-    rawLines.forEach((line) => {
-      const trimmed = line.trim();
-      if (!trimmed) {
-        if (currentList) {
-          blocks.push(currentList);
-          currentList = null;
-        }
-        return;
-      }
-
-      if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-        const itemContent = trimmed.replace(/^[-*]\s+/, '');
-        if (!currentList || currentList.type !== 'ul') {
-          if (currentList) blocks.push(currentList);
-          currentList = { type: 'ul', items: [itemContent] };
-        } else {
-          currentList.items.push(itemContent);
-        }
-        return;
-      }
-
-      if (/^\d+\.\s+/.test(trimmed)) {
-        const itemContent = trimmed.replace(/^\d+\.\s+/, '');
-        if (!currentList || currentList.type !== 'ol') {
-          if (currentList) blocks.push(currentList);
-          currentList = { type: 'ol', items: [itemContent] };
-        } else {
-          currentList.items.push(itemContent);
-        }
-        return;
-      }
-
-      if (currentList) {
-        blocks.push(currentList);
-        currentList = null;
-      }
-
-      if (trimmed.startsWith('### ')) {
-        blocks.push({ type: 'h3', content: trimmed.replace(/^###\s+/, '') });
-      } else if (trimmed.startsWith('## ')) {
-        blocks.push({ type: 'h2', content: trimmed.replace(/^##\s+/, '') });
-      } else if (trimmed.startsWith('# ')) {
-        blocks.push({ type: 'h1', content: trimmed.replace(/^#\s+/, '') });
-      } else if (trimmed.startsWith('> ')) {
-        blocks.push({ type: 'blockquote', content: trimmed.replace(/^>\s+/, '') });
-      } else {
-        blocks.push({ type: 'p', content: trimmed });
-      }
-    });
-
-    if (currentList) {
-      blocks.push(currentList);
-    }
-
-    return blocks.map((block, idx) => {
-      switch (block.type) {
-        case 'h1':
-          return (
-            <h1 key={idx} className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mt-10 mb-4 tracking-tight leading-tight">
-              {formatInline(block.content)}
-            </h1>
-          );
-        case 'h2':
-          return (
-            <h2 key={idx} className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 mt-8 mb-3.5 border-b border-slate-100 pb-2.5 tracking-tight leading-snug">
-              {formatInline(block.content)}
-            </h2>
-          );
-        case 'h3':
-          return (
-            <h3 key={idx} className="text-lg sm:text-xl font-extrabold text-slate-900 mt-6 mb-2.5 leading-snug">
-              {formatInline(block.content)}
-            </h3>
-          );
-        case 'blockquote':
-          return (
-            <blockquote key={idx} className="border-l-4 border-[#00AED6] bg-cyan-50/50 pl-4 pr-3 py-2.5 my-4 rounded-r-xl text-slate-700 italic text-sm sm:text-base">
-              {formatInline(block.content)}
-            </blockquote>
-          );
-        case 'ul':
-          return (
-            <ul key={idx} className="my-4 ml-6 list-disc space-y-2 text-slate-700">
-              {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="leading-relaxed text-sm sm:text-base font-normal">
-                  {formatInline(item)}
-                </li>
-              ))}
-            </ul>
-          );
-        case 'ol':
-          return (
-            <ol key={idx} className="my-4 ml-6 list-decimal space-y-2 text-slate-700">
-              {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="leading-relaxed text-sm sm:text-base font-normal">
-                  {formatInline(item)}
-                </li>
-              ))}
-            </ol>
-          );
-        default:
-          return (
-            <p key={idx} className="text-slate-600 leading-relaxed text-sm sm:text-base font-normal my-4">
-              {formatInline(block.content)}
-            </p>
-          );
-      }
-    });
-  };
 
   return (
     <div className="pt-28 sm:pt-36 pb-12 sm:pb-20 bg-slate-50 min-h-screen font-sans">
@@ -323,7 +162,7 @@ const BlogPost = () => {
             )}
 
             <article className="prose prose-slate max-w-none text-slate-800">
-              {renderFormattedContent(blog.content)}
+              <MarkdownRenderer content={blog.content} />
             </article>
 
             {/* Article Footer CTA for Inbound Leads */}

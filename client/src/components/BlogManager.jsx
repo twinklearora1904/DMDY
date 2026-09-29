@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Trash2, Edit, Plus, X, Search, Eye, FileText, CheckCircle2 } from 'lucide-react';
 import api from '../utils/api';
+import RichBlogEditor from './RichBlogEditor';
 
 const initialFormData = {
   title: '',
@@ -315,14 +316,14 @@ const BlogManager = () => {
       {/* Create / Edit Blog Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-2 sm:p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-3xl max-h-[92vh] overflow-y-auto shadow-2xl border border-slate-100">
-            <div className="flex justify-between items-center p-4 sm:p-6 border-b border-slate-100 sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+          <div className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-5xl xl:max-w-6xl max-h-[94vh] overflow-y-auto shadow-2xl border border-slate-100">
+            <div className="flex justify-between items-center p-4 sm:p-6 border-b border-slate-100 sticky top-0 bg-white/95 backdrop-blur-sm z-30">
               <div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                   {editingBlog ? 'Edit Blog Post' : 'Create New Blog Post'}
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  {editingBlog ? 'Modify existing article details and publish status.' : 'Compose a high-ranking article for your startup blog.'}
+                  {editingBlog ? 'Modify existing article details and publish status.' : 'Compose a high-ranking article with rich formatting, media, and SEO previews.'}
                 </p>
               </div>
               <button
@@ -340,31 +341,33 @@ const BlogManager = () => {
             )}
 
             <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5">
-              <div>
-                <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">Article Title *</label>
-                <input
-                  required
-                  type="text"
-                  name="title"
-                  value={formData.title}
-                  onChange={handleTitleChange}
-                  placeholder="e.g. 10 Proven Strategies to Scale Organic Traffic in 2026"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">URL Slug *</label>
-                <div className="flex items-center bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:border-brandPrimary focus-within:ring-1 focus-within:ring-brandPrimary">
-                  <span className="px-3.5 text-xs text-slate-400 font-mono select-none">/blog/</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">Article Title *</label>
                   <input
                     required
                     type="text"
-                    name="slug"
-                    value={formData.slug}
-                    onChange={handleChange}
-                    className="w-full bg-transparent py-2.5 pr-4 text-slate-900 text-xs sm:text-sm font-mono focus:outline-none"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleTitleChange}
+                    placeholder="e.g. 10 Proven Strategies to Scale Organic Traffic in 2026"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary transition"
                   />
+                </div>
+
+                <div>
+                  <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">URL Slug *</label>
+                  <div className="flex items-center bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:border-brandPrimary focus-within:ring-1 focus-within:ring-brandPrimary">
+                    <span className="px-3.5 text-xs text-slate-400 font-mono select-none">/blog/</span>
+                    <input
+                      required
+                      type="text"
+                      name="slug"
+                      value={formData.slug}
+                      onChange={handleChange}
+                      className="w-full bg-transparent py-2.5 pr-4 text-slate-900 text-xs sm:text-sm font-mono focus:outline-none"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -383,18 +386,17 @@ const BlogManager = () => {
               </div>
 
               <div>
-                <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
-                  Content * <span className="text-xs font-normal text-slate-500">(Supports Markdown: ## Heading, - List, etc.)</span>
+                <label className="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                  <span>Article Content *</span>
+                  <span className="text-xs font-normal text-slate-500">Rich Formatting, Media & Live Preview</span>
                 </label>
-                <textarea
-                  required
-                  name="content"
+                <RichBlogEditor
                   value={formData.content}
-                  onChange={handleChange}
-                  rows="10"
-                  placeholder="Write your article body here..."
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-xs sm:text-sm font-mono leading-relaxed focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary transition"
-                ></textarea>
+                  onChange={(newContent) =>
+                    setFormData((prev) => ({ ...prev, content: newContent }))
+                  }
+                  placeholder="Compose your article here. Use the toolbar for Headings, Bold, Lists, Tables, Callout Boxes, Images, Links, or pick a ready-made template above..."
+                />
               </div>
 
               <div>

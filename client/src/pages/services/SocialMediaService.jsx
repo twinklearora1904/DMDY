@@ -1190,8 +1190,8 @@ const SocialMediaService = () => {
                     key={tab.id}
                     onClick={() => setSelectedGoal(tab.id)}
                     className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${selectedGoal === tab.id
-                        ? 'bg-white text-slate-950 shadow-sm border border-slate-200/80 scale-[1.02]'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
+                      ? 'bg-white text-slate-950 shadow-sm border border-slate-200/80 scale-[1.02]'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
                       }`}
                   >
                     {tab.label}
@@ -1320,8 +1320,8 @@ const SocialMediaService = () => {
 
               {/* FAQ 1 */}
               <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 0
-                  ? 'bg-white border-[#00AED6]/50 shadow-sm'
-                  : 'bg-white border-slate-200/80 hover:border-slate-300'
+                ? 'bg-white border-[#00AED6]/50 shadow-sm'
+                : 'bg-white border-slate-200/80 hover:border-slate-300'
                 }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 0 ? -1 : 0)}
@@ -1344,8 +1344,8 @@ const SocialMediaService = () => {
 
               {/* FAQ 2 */}
               <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 1
-                  ? 'bg-white border-[#00AED6]/50 shadow-sm'
-                  : 'bg-white border-slate-200/80 hover:border-slate-300'
+                ? 'bg-white border-[#00AED6]/50 shadow-sm'
+                : 'bg-white border-slate-200/80 hover:border-slate-300'
                 }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 1 ? -1 : 1)}
@@ -1368,8 +1368,8 @@ const SocialMediaService = () => {
 
               {/* FAQ 3 */}
               <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 2
-                  ? 'bg-white border-[#E6007A]/50 shadow-sm'
-                  : 'bg-white border-slate-200/80 hover:border-slate-300'
+                ? 'bg-white border-[#E6007A]/50 shadow-sm'
+                : 'bg-white border-slate-200/80 hover:border-slate-300'
                 }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 2 ? -1 : 2)}
@@ -1392,8 +1392,8 @@ const SocialMediaService = () => {
 
               {/* FAQ 4 */}
               <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 3
-                  ? 'bg-white border-[#F5A623]/50 shadow-sm'
-                  : 'bg-white border-slate-200/80 hover:border-slate-300'
+                ? 'bg-white border-[#F5A623]/50 shadow-sm'
+                : 'bg-white border-slate-200/80 hover:border-slate-300'
                 }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 3 ? -1 : 3)}
@@ -1416,8 +1416,8 @@ const SocialMediaService = () => {
 
               {/* FAQ 5 */}
               <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 4
-                  ? 'bg-white border-[#00C48C]/50 shadow-sm'
-                  : 'bg-white border-slate-200/80 hover:border-slate-300'
+                ? 'bg-white border-[#00C48C]/50 shadow-sm'
+                : 'bg-white border-slate-200/80 hover:border-slate-300'
                 }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 4 ? -1 : 4)}
@@ -1440,8 +1440,8 @@ const SocialMediaService = () => {
 
               {/* FAQ 6 */}
               <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 5
-                  ? 'bg-white border-[#E6007A]/50 shadow-sm'
-                  : 'bg-white border-slate-200/80 hover:border-slate-300'
+                ? 'bg-white border-[#E6007A]/50 shadow-sm'
+                : 'bg-white border-slate-200/80 hover:border-slate-300'
                 }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 5 ? -1 : 5)}
@@ -1472,10 +1472,10 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       {/* SECTION 9: FINAL CTA - READY TO TURN FOLLOWERS INTO CUSTOMERS */}
       {/* ========================================================= */}
-      <section className="py-10 sm:py-12 bg-white border-t border-slate-200/80 relative">
+      <section className="py-10 sm:py-12 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="relative rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
+          <div className="relative overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
 
               {/* Left Column: Heading & Content */}
@@ -1525,25 +1525,7 @@ const SocialMediaService = () => {
                   <span>WhatsApp DMDY</span>
                 </a>
               </div>
-
             </div>
-
-            {/* Micro Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 mt-5 border-t border-slate-200/80 text-xs font-medium text-slate-500">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00C48C]" />
-                <span>No obligation social audit</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00AED6]" />
-                <span>Organic + Paid growth roadmap</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#E6007A]" />
-                <span>100% confidential strategy</span>
-              </span>
-            </div>
-
           </div>
 
         </div>

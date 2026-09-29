@@ -14,6 +14,7 @@ const Services = lazy(() => import('./pages/Services'))
 const SeoService = lazy(() => import('./pages/services/SeoService'))
 const SocialMediaService = lazy(() => import('./pages/services/SocialMediaService'))
 const GoogleAdsService = lazy(() => import('./pages/services/GoogleAdsService'))
+const PaidMarketingService = lazy(() => import('./pages/services/PaidMarketingService'))
 const WebDevelopmentService = lazy(() => import('./pages/services/WebDevelopmentService'))
 const ContentMarketingService = lazy(() => import('./pages/services/ContentMarketingService'))
 const About = lazy(() => import('./pages/About'))
@@ -53,6 +54,8 @@ function App() {
                 <Route path="/services/website-design-development" element={<WebDevelopmentService />} />
                 <Route path="/services/social-media" element={<SocialMediaService />} />
                 <Route path="/services/google-ads" element={<GoogleAdsService />} />
+                <Route path="/services/paid-marketing" element={<PaidMarketingService />} />
+                <Route path="/services/paid-media" element={<PaidMarketingService />} />
                 <Route path="/services/content-marketing" element={<ContentMarketingService />} />
                 <Route path="/services/content-creation-marketing" element={<ContentMarketingService />} />
                 <Route path="/about" element={<About />} />

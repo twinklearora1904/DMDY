@@ -1849,8 +1849,8 @@ const ContentMarketingService = () => {
                   <div
                     key={idx}
                     className={`rounded-2xl border transition-all duration-200 overflow-hidden ${isOpen
-                        ? `bg-white ${accentBorder} shadow-sm`
-                        : 'bg-white border-slate-200/80 hover:border-slate-300'
+                      ? `bg-white ${accentBorder} shadow-sm`
+                      : 'bg-white border-slate-200/80 hover:border-slate-300'
                       }`}
                   >
                     <button
@@ -1884,10 +1884,10 @@ const ContentMarketingService = () => {
       {/* ========================================================= */}
       {/* SECTION 9: FINAL CTA                                      */}
       {/* ========================================================= */}
-      <section className="py-10 sm:py-12 bg-white border-t border-slate-200/80 relative">
+      <section className="py-10 sm:py-12 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="relative rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
+          <div className="relative overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
 
               {/* Left Column: Heading & Content */}
@@ -1937,23 +1937,6 @@ const ContentMarketingService = () => {
                   <span>WhatsApp DMDY</span>
                 </a>
               </div>
-
-            </div>
-
-            {/* Micro Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 mt-5 border-t border-slate-200/80 text-xs font-medium text-slate-500">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00C48C]" />
-                <span>No obligation content strategy</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00AED6]" />
-                <span>Organic + Social distribution roadmap</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#E6007A]" />
-                <span>100% human-crafted content</span>
-              </span>
             </div>
 
           </div>

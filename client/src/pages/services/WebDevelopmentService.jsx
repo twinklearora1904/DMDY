@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useContactModal } from '../../context/ContactModalContext';
-import { 
-  Sparkles, 
-  Palette, 
-  Layout, 
-  Globe, 
-  TrendingUp, 
-  CheckCircle2, 
-  ShieldCheck, 
+import {
+  Sparkles,
+  Palette,
+  Layout,
+  Globe,
+  TrendingUp,
+  CheckCircle2,
+  ShieldCheck,
   Zap,
   Compass,
   Code2,
@@ -62,10 +62,10 @@ const WebDevelopmentService = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
+
             {/* Left Column (7 cols): User Hero Content */}
             <div className="lg:col-span-7">
-              
+
               {/* Top Badges */}
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200/80 shadow-sm">
@@ -124,7 +124,7 @@ const WebDevelopmentService = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <button 
+                <button
                   type="button"
                   onClick={() => openModal('Website Development')}
                   className="w-full sm:w-auto btn-primary"
@@ -132,14 +132,14 @@ const WebDevelopmentService = () => {
                   <Sparkles className="w-4 h-4 text-[#F5A623] group-hover:rotate-12 transition-transform" />
                   Get Free Website Consultation
                 </button>
-                <a 
+                <a
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Website%20Design%20%26%20Development%20Services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
                 >
                   <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                   </svg>
                   WhatsApp DMDY
                 </a>
@@ -149,7 +149,7 @@ const WebDevelopmentService = () => {
 
             {/* Right Column (5 cols): Compact Single-Window Code Editor */}
             <div className="lg:col-span-5 w-full relative mt-8 lg:mt-0">
-              
+
               {/* Floating Badge: Lighthouse 99+ */}
               <div className="absolute -top-4 -left-3 z-20 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg border border-slate-700/80 flex items-center gap-2 hidden sm:flex">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -158,7 +158,7 @@ const WebDevelopmentService = () => {
 
               {/* Main Compact Code Window */}
               <div className="bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 ring-1 ring-white/10 font-mono text-left">
-                
+
                 {/* Window Header */}
                 <div className="bg-slate-900/90 px-3.5 py-2.5 flex items-center justify-between border-b border-slate-800">
                   <div className="flex items-center gap-2">
@@ -262,13 +262,13 @@ const WebDevelopmentService = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#E6007A]/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Top 2-Column Row: Left Graphic + Right Narrative Content */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
+
             {/* Left Column (5 cols): Digital Headquarters & Credibility Graphic */}
             <div className="lg:col-span-5 w-full relative order-2 lg:order-1">
-              
+
               {/* Outer Logo Gradient Glow */}
               <div className="absolute -inset-1.5 bg-gradient-to-r from-[#00AED6]/20 via-[#E6007A]/20 to-[#F5A623]/20 rounded-3xl blur-lg opacity-70 -z-10"></div>
 
@@ -280,7 +280,7 @@ const WebDevelopmentService = () => {
 
               {/* Main Simulated Digital Headquarters Card */}
               <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-2xl relative overflow-hidden">
-                
+
                 {/* Card Header */}
                 <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-100">
                   <div className="flex items-center gap-2">
@@ -382,7 +382,7 @@ const WebDevelopmentService = () => {
 
             {/* Right Column (7 cols): User Narrative Content */}
             <div className="lg:col-span-7 w-full order-1 lg:order-2">
-              
+
               {/* Category Pill with Brand Colors */}
               <div className="flex items-center gap-2 mb-4">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-cyan-50 via-pink-50 to-amber-50 text-slate-800 border border-[#00AED6]/30 shadow-xs">
@@ -451,7 +451,7 @@ const WebDevelopmentService = () => {
 
               {/* Four Responsibilities 2-Column Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-                
+
                 {/* 1. Create First Impressions */}
                 <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-cyan-200 hover:shadow-md transition-all group">
                   <div className="flex items-center justify-between mb-2">
@@ -541,14 +541,14 @@ const WebDevelopmentService = () => {
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-50/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="mb-12">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
               <Layers className="w-3.5 h-3.5 text-[#00AED6]" />
               <span>Proprietary Methodology</span>
             </div>
-            
+
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
               The DMDY{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
@@ -581,7 +581,7 @@ const WebDevelopmentService = () => {
                 Convert
               </span>
             </div>
-            
+
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
               This becomes the signature methodology.
             </p>
@@ -589,7 +589,7 @@ const WebDevelopmentService = () => {
 
           {/* 4 Framework Layer Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            
+
             {/* Layer 01 — Strategy */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
@@ -699,7 +699,7 @@ const WebDevelopmentService = () => {
       {/* ========================================================= */}
       <section className="py-12 sm:py-16 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          
+
           {/* Section Header - Center Aligned */}
           <div className="mb-10 sm:mb-12 flex flex-col items-center text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700 uppercase tracking-widest mb-3">
@@ -717,7 +717,7 @@ const WebDevelopmentService = () => {
 
           {/* 3-Column Clean, Compact & Centered Layout (3-3 Pair) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-10 w-full">
-            
+
             {/* 1. Custom Website Design */}
             <div className="flex flex-col items-center text-center group">
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
@@ -817,7 +817,7 @@ const WebDevelopmentService = () => {
       {/* ========================================================= */}
       <section className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="mb-10 sm:mb-12">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
@@ -835,14 +835,14 @@ const WebDevelopmentService = () => {
 
           {/* 6 Business Solutions Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            
+
             {/* 1. Corporate Websites */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={corporateImg} 
-                    alt="Corporate Websites" 
+                  <img
+                    src={corporateImg}
+                    alt="Corporate Websites"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
@@ -864,9 +864,9 @@ const WebDevelopmentService = () => {
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={ecommerceImg} 
-                    alt="E-commerce Stores" 
+                  <img
+                    src={ecommerceImg}
+                    alt="E-commerce Stores"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
@@ -888,9 +888,9 @@ const WebDevelopmentService = () => {
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={portfolioImg} 
-                    alt="Portfolio Websites" 
+                  <img
+                    src={portfolioImg}
+                    alt="Portfolio Websites"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
@@ -912,9 +912,9 @@ const WebDevelopmentService = () => {
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={realEstateImg} 
-                    alt="Real Estate Websites" 
+                  <img
+                    src={realEstateImg}
+                    alt="Real Estate Websites"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
@@ -936,9 +936,9 @@ const WebDevelopmentService = () => {
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={healthcareImg} 
-                    alt="Healthcare Websites" 
+                  <img
+                    src={healthcareImg}
+                    alt="Healthcare Websites"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
@@ -960,9 +960,9 @@ const WebDevelopmentService = () => {
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={hospitalityImg} 
-                    alt="Hospitality Websites" 
+                  <img
+                    src={hospitalityImg}
+                    alt="Hospitality Websites"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
@@ -992,7 +992,7 @@ const WebDevelopmentService = () => {
       {/* ========================================================= */}
       <section className="py-16 sm:py-24 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          
+
           {/* Section Header */}
           <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
@@ -1014,7 +1014,7 @@ const WebDevelopmentService = () => {
 
           {/* Single Developer Computer Screen Window */}
           <div className="max-w-6xl mx-auto relative text-left">
-            
+
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#00AED6]/15 via-[#E6007A]/10 to-[#F5A623]/15 blur-3xl rounded-3xl -z-10 transform scale-95 opacity-60 pointer-events-none"></div>
 
@@ -1034,10 +1034,10 @@ const WebDevelopmentService = () => {
 
             {/* Main Window */}
             <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-[#0B1120]">
-              
+
               {/* Window Chrome Title Bar */}
               <div className="bg-slate-900/95 px-4 sm:px-6 py-3.5 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
-                
+
                 {/* Traffic Lights & Title */}
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2">
@@ -1045,7 +1045,7 @@ const WebDevelopmentService = () => {
                     <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-xs"></div>
                     <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-xs"></div>
                   </div>
-                  
+
                   {/* File Tab */}
                   <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-md bg-slate-950 border border-slate-800 text-xs font-mono text-slate-200">
                     <Code2 className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -1086,7 +1086,7 @@ const WebDevelopmentService = () => {
               {/* Screen Body: 4 Pipeline Stage Cards */}
               <div className="p-5 sm:p-7 lg:p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-                  
+
                   {/* Stage 01 */}
                   <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-[#00AED6]/50 transition-all duration-300 flex flex-col justify-between group hover:shadow-lg hover:shadow-[#00AED6]/5">
                     <div>
@@ -1188,10 +1188,10 @@ const WebDevelopmentService = () => {
 
               {/* Bottom Developer Terminal Console */}
               <div className="border-t border-slate-800 bg-[#060A12] text-left">
-                
+
                 {/* Terminal Pane Header */}
                 <div className="px-4 sm:px-6 py-2.5 border-b border-slate-800/80 bg-slate-950/80 flex items-center justify-between flex-wrap gap-2 text-xs font-mono">
-                  
+
                   {/* Left: Terminal Tabs */}
                   <div className="flex items-center gap-2">
                     <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">
@@ -1221,7 +1221,7 @@ const WebDevelopmentService = () => {
 
                 {/* Terminal Console Output Body */}
                 <div className="p-4 sm:p-6 font-mono text-xs sm:text-[13px] text-slate-300 space-y-2 overflow-x-auto leading-relaxed selection:bg-[#00AED6]/30">
-                  
+
                   {/* Command Line Prompt */}
                   <div className="flex items-center gap-2 text-slate-200">
                     <span className="text-[#00AED6] font-bold">dmdy@production-studio:~/web-client$</span>
@@ -1319,12 +1319,12 @@ const WebDevelopmentService = () => {
       {/* ========================================================= */}
       <section className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            
+
             {/* Left Column (5 cols): 3D Visual Showcase */}
             <div className="lg:col-span-5 relative order-2 lg:order-1">
-              
+
               {/* Floating Top Badge */}
               <div className="absolute -top-4 -left-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-slate-200/80 hidden sm:flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#00AED6] animate-pulse"></span>
@@ -1341,13 +1341,13 @@ const WebDevelopmentService = () => {
 
               {/* Main Image Frame */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
-                <img 
-                  src={websiteGoalsImg} 
-                  alt="Choose Your Website Goal" 
+                <img
+                  src={websiteGoalsImg}
+                  alt="Choose Your Website Goal"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
-                
+
                 {/* Subtle Inner Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none"></div>
               </div>
@@ -1356,7 +1356,7 @@ const WebDevelopmentService = () => {
 
             {/* Right Column (7 cols): Content & Interactive Tabs */}
             <div className="lg:col-span-7 order-1 lg:order-2">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
                 <Target className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -1378,7 +1378,7 @@ const WebDevelopmentService = () => {
 
               {/* Dynamic Strategy Card with Integrated Tabs Header */}
               <div className="p-6 sm:p-7 rounded-3xl bg-slate-50/70 border border-slate-200/90 shadow-sm transition-all duration-300 relative overflow-hidden">
-                
+
                 {/* Interactive Tabs Header inside the Card - Full Width Grid, No Scroll */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2 p-1.5 bg-slate-200/70 rounded-2xl w-full mb-6 border border-slate-300/60">
                   {[
@@ -1389,17 +1389,16 @@ const WebDevelopmentService = () => {
                     <button
                       key={tab.id}
                       onClick={() => setSelectedGoal(tab.id)}
-                      className={`w-full px-2.5 sm:px-3 py-2.5 rounded-xl text-xs sm:text-[12px] md:text-[13px] font-bold text-center transition-all duration-200 cursor-pointer flex items-center justify-center ${
-                        selectedGoal === tab.id
+                      className={`w-full px-2.5 sm:px-3 py-2.5 rounded-xl text-xs sm:text-[12px] md:text-[13px] font-bold text-center transition-all duration-200 cursor-pointer flex items-center justify-center ${selectedGoal === tab.id
                           ? 'bg-white text-slate-950 shadow-sm border border-slate-200/80 scale-[1.01]'
                           : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
-                      }`}
+                        }`}
                     >
                       {tab.label}
                     </button>
                   ))}
                 </div>
-                
+
                 {/* 1. Generate Business Enquiries */}
                 {selectedGoal === 'enquiries' && (
                   <div className="space-y-4">
@@ -1414,7 +1413,7 @@ const WebDevelopmentService = () => {
                         <p className="text-xs text-slate-500 font-medium">B2B, Corporate &amp; Professional Service Firms</p>
                       </div>
                     </div>
-                    
+
                     <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal pl-0 sm:pl-13">
                       <span className="font-semibold text-slate-900">Recommended Architecture:</span> Corporate website + WhatsApp integration + lead forms + SEO landing pages.
                     </p>
@@ -1444,7 +1443,7 @@ const WebDevelopmentService = () => {
                         <p className="text-xs text-slate-500 font-medium">E-commerce, D2C &amp; Online Retail Stores</p>
                       </div>
                     </div>
-                    
+
                     <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal pl-0 sm:pl-13">
                       <span className="font-semibold text-slate-900">Recommended Architecture:</span> E-commerce development + payment gateway + shopping experience + conversion optimization.
                     </p>
@@ -1474,7 +1473,7 @@ const WebDevelopmentService = () => {
                         <p className="text-xs text-slate-500 font-medium">Luxury, High-End Brands &amp; Creative Portfolios</p>
                       </div>
                     </div>
-                    
+
                     <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal pl-0 sm:pl-13">
                       <span className="font-semibold text-slate-900">Recommended Architecture:</span> Luxury UI/UX + custom visuals + storytelling + modern responsive design.
                     </p>
@@ -1504,12 +1503,12 @@ const WebDevelopmentService = () => {
       {/* ========================================================= */}
       <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            
+
             {/* Left Column (4 cols): Sticky Section Header & Direct Support Box */}
             <div className="lg:col-span-4 lg:sticky lg:top-28">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
                 <HelpCircle className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -1586,25 +1585,24 @@ const WebDevelopmentService = () => {
                 }
               ].map((faq, idx) => {
                 const isOpen = openFaq === idx;
-                const accentBorder = idx % 3 === 0 
-                  ? 'border-[#00AED6]/50' 
-                  : idx % 3 === 1 
-                    ? 'border-[#E6007A]/50' 
+                const accentBorder = idx % 3 === 0
+                  ? 'border-[#00AED6]/50'
+                  : idx % 3 === 1
+                    ? 'border-[#E6007A]/50'
                     : 'border-[#F5A623]/50';
-                const accentText = idx % 3 === 0 
-                  ? 'text-[#00AED6]' 
-                  : idx % 3 === 1 
-                    ? 'text-[#E6007A]' 
+                const accentText = idx % 3 === 0
+                  ? 'text-[#00AED6]'
+                  : idx % 3 === 1
+                    ? 'text-[#E6007A]'
                     : 'text-[#F5A623]';
 
                 return (
-                  <div 
+                  <div
                     key={idx}
-                    className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                      isOpen 
-                        ? `bg-white ${accentBorder} shadow-sm` 
+                    className={`rounded-2xl border transition-all duration-200 overflow-hidden ${isOpen
+                        ? `bg-white ${accentBorder} shadow-sm`
                         : 'bg-white border-slate-200/80 hover:border-slate-300'
-                    }`}
+                      }`}
                   >
                     <button
                       onClick={() => setOpenFaq(isOpen ? -1 : idx)}
@@ -1613,9 +1611,8 @@ const WebDevelopmentService = () => {
                       <span className="text-sm sm:text-base font-bold text-slate-900">
                         {faq.q}
                       </span>
-                      <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                        isOpen ? `rotate-180 ${accentText}` : 'text-slate-400'
-                      }`} />
+                      <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${isOpen ? `rotate-180 ${accentText}` : 'text-slate-400'
+                        }`} />
                     </button>
                     {isOpen && (
                       <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1637,15 +1634,15 @@ const WebDevelopmentService = () => {
       {/* ========================================================= */}
       {/* SECTION 9: FINAL CTA - YOUR WEBSITE SHOULD BE SALESPERSON */}
       {/* ========================================================= */}
-      <section className="py-10 sm:py-12 bg-white border-t border-slate-200/80 relative">
+      <section className="py-10 sm:py-12 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="relative rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
+
+          <div className="relative overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
-              
+
               {/* Left Column: Heading & Content */}
               <div className="max-w-2xl">
-                
+
                 {/* Badge */}
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-2.5 shadow-xs">
                   <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -1701,30 +1698,13 @@ const WebDevelopmentService = () => {
                   className="btn-whatsapp"
                 >
                   <svg className="w-4 h-4 text-[#00C48C]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                   </svg>
                   <span>WhatsApp DMDY</span>
                 </a>
               </div>
 
             </div>
-
-            {/* Micro Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 mt-5 border-t border-slate-200/80 text-xs font-medium text-slate-500">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00C48C]" />
-                <span>100/100 Core Web Vitals speed</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00AED6]" />
-                <span>Mobile-first &amp; SEO-ready architecture</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#E6007A]" />
-                <span>Zero-risk initial consultation</span>
-              </span>
-            </div>
-
           </div>
 
         </div>

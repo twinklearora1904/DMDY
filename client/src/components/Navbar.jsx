@@ -34,6 +34,13 @@ const servicesList = [
     color: '#00AED6'
   },
   {
+    name: 'Paid Marketing (360° Paid Media)',
+    desc: 'Google, Meta, Email & YouTube multi-channel advertising',
+    path: '/services/paid-marketing',
+    icon: Target,
+    color: '#00AED6'
+  },
+  {
     name: 'Content Creation & Marketing',
     desc: 'SEO blogs, storytelling, video scripts & high-converting copy',
     path: '/services/content-marketing',

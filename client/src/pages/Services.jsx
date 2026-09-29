@@ -362,13 +362,13 @@ const Services = () => {
             <div id="social-marketing" className="scroll-mt-28 md:col-span-2 bg-white rounded-3xl border border-slate-200/80 p-7 sm:p-9 md:p-10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7">
-                  <div className="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Share2 className="w-6 h-6 text-[#7C3AED]" />
+                  <div className="w-12 h-12 bg-[#E6007A]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Share2 className="w-6 h-6 text-[#E6007A]" />
                   </div>
-                  <div className="text-xs font-bold text-[#7C3AED] uppercase tracking-widest mb-1.5">
+                  <div className="text-xs font-bold text-[#E6007A] uppercase tracking-widest mb-1.5">
                     Omnichannel Storytelling
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#7C3AED] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-[#E6007A] transition-colors">
                     Social Media & Content Marketing
                   </h3>
                   <p className="text-slate-600 leading-relaxed mb-4 text-sm sm:text-base font-normal">
@@ -378,14 +378,14 @@ const Services = () => {
                 <div className="lg:col-span-5 space-y-2.5">
                   {['Cross-Platform Organic Strategy (Instagram, LinkedIn, YouTube)', 'High-Converting Short-Form Video & Reels Direction', 'Targeted Influencer Partnerships & Creator Collabs', 'Community Management & Real-Time Sentiment Monitoring'].map((feature, i) => (
                     <div key={i} className="flex items-center text-slate-700 font-medium text-sm sm:text-base">
-                      <CheckCircle2 className="w-4 h-4 text-[#7C3AED] mr-2.5 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-[#E6007A] mr-2.5 flex-shrink-0" />
                       <span>{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <Link to="/services/social-media" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#7C3AED] hover:text-[#00AED6] transition-colors">
+                <Link to="/services/social-media" className="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#E6007A] hover:text-[#00AED6] transition-colors">
                   Explore Social Growth Engine &rarr;
                 </Link>
                 <span className="text-xs font-semibold text-slate-400 hidden sm:inline">

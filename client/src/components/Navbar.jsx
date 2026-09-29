@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, Search, Target, Code2, Share2, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Target, Code2, Share2, ArrowRight, Sparkles, PenTool } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import logo from '../assets/logo.png';
@@ -24,13 +24,20 @@ const servicesList = [
     desc: 'Brand storytelling, influencer outreach & viral growth',
     path: '/services/social-media',
     icon: Share2,
-    color: '#7C3AED'
+    color: '#E6007A'
   },
   {
     name: 'Google Ads & PPC Management',
     desc: 'High-intent search, Performance Max & maximum ROAS',
     path: '/services/google-ads',
     icon: Target,
+    color: '#00AED6'
+  },
+  {
+    name: 'Content Creation & Marketing',
+    desc: 'SEO blogs, storytelling, video scripts & high-converting copy',
+    path: '/services/content-marketing',
+    icon: PenTool,
     color: '#E6007A'
   }
 ];

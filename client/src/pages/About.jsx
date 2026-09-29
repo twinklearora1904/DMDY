@@ -154,10 +154,10 @@ const About = () => {
                   {[
                     { name: 'Branding', color: 'text-[#E6007A] bg-pink-50 border-pink-100' },
                     { name: 'Content', color: 'text-[#F5A623] bg-amber-50 border-amber-100' },
-                    { name: 'Advertising', color: 'text-[#4285F4] bg-blue-50 border-blue-100' },
+                    { name: 'Advertising', color: 'text-[#00AED6] bg-cyan-50 border-cyan-100' },
                     { name: 'SEO', color: 'text-[#00AED6] bg-cyan-50 border-cyan-100' },
-                    { name: 'Social Media', color: 'text-[#7C3AED] bg-purple-50 border-purple-100' },
-                    { name: 'Web Development', color: 'text-emerald-700 bg-emerald-50 border-emerald-100' },
+                    { name: 'Social Media', color: 'text-[#E6007A] bg-pink-50 border-pink-100' },
+                    { name: 'Web Development', color: 'text-[#F5A623] bg-amber-50 border-amber-100' },
                     { name: 'Lead Generation', color: 'text-slate-900 bg-slate-100 border-slate-200' }
                   ].map((item, idx) => (
                     <div 
@@ -596,11 +596,11 @@ const About = () => {
             </div>
 
             {/* 8. Corporate Brands */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#6366F1]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 text-[#6366F1] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-xs hover:shadow-lg transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-12 h-12 rounded-xl bg-cyan-50 border border-cyan-100 text-[#00AED6] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Building className="w-6 h-6" />
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#6366F1] transition-colors">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#00AED6] transition-colors">
                 Corporate Brands
               </h3>
             </div>

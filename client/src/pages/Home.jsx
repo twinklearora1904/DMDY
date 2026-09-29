@@ -33,7 +33,7 @@ const industryTabs = [
   },
   {
     label: 'Hospitality',
-    color: '#00C48C',
+    color: '#E6007A',
     headline: 'Build awareness, demand and direct customer engagement.',
     desc: 'Strategic social content, community management, and engagement campaigns that build loyal audiences and drive real business results across all platforms.',
     points: ['Content Calendar & Strategy', 'Community Management', 'Influencer Partnerships', 'Social Analytics & Reporting'],
@@ -42,7 +42,7 @@ const industryTabs = [
   },
   {
     label: 'Enterprise & Established Brands',
-    color: '#A39BD6',
+    color: '#00AED6',
     headline: 'Build integrated digital ecosystems designed for complex growth objectives.',
     desc: 'Custom websites and web applications engineered for speed, conversion, and scale — from landing pages to full enterprise platforms.',
     points: ['React & Next.js Development', 'E-commerce & WooCommerce', 'Conversion Rate Optimization', 'Mobile-First & PWA'],
@@ -296,47 +296,47 @@ const Home = () => {
               </div>
 
               {/* Category 4 */}
-              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#00C48C]/30 hover:border-[#00C48C] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#00AED6]/30 hover:border-[#00AED6] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-[#00C48C]/10 flex items-center justify-center text-[#00C48C] group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-[#00AED6]/10 flex items-center justify-center text-[#00AED6] group-hover:scale-110 transition-transform">
                     <PenTool className="w-5 h-5" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Creative & Brand</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-4 h-4 text-[#00C48C] shrink-0" /> Branding</li>
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-4 h-4 text-[#00C48C] shrink-0" /> Creative Design</li>
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00C48C] transition-colors"><ArrowRight className="w-4 h-4 text-[#00C48C] shrink-0" /> Content Creation</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-4 h-4 text-[#00AED6] shrink-0" /> Branding</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-4 h-4 text-[#00AED6] shrink-0" /> Creative Design</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#00AED6] transition-colors"><ArrowRight className="w-4 h-4 text-[#00AED6] shrink-0" /> Content Creation</li>
                 </ul>
               </div>
 
               {/* Category 5 */}
-              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#7C3AED]/30 hover:border-[#7C3AED] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#E6007A]/30 hover:border-[#E6007A] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-[#E6007A]/10 flex items-center justify-center text-[#E6007A] group-hover:scale-110 transition-transform">
                     <Monitor className="w-5 h-5" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Digital Experience</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-4 h-4 text-[#7C3AED] shrink-0" /> Website Design</li>
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-4 h-4 text-[#7C3AED] shrink-0" /> Web Development</li>
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#7C3AED] transition-colors"><ArrowRight className="w-4 h-4 text-[#7C3AED] shrink-0" /> E-commerce</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-4 h-4 text-[#E6007A] shrink-0" /> Website Design</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-4 h-4 text-[#E6007A] shrink-0" /> Web Development</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#E6007A] transition-colors"><ArrowRight className="w-4 h-4 text-[#E6007A] shrink-0" /> E-commerce</li>
                 </ul>
               </div>
 
               {/* Category 6 */}
-              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#F43F5E]/30 hover:border-[#F43F5E] hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all group border border-[#F5A623]/30 hover:border-[#F5A623] hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-[#F43F5E]/10 flex items-center justify-center text-[#F43F5E] group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-[#F5A623]/10 flex items-center justify-center text-[#F5A623] group-hover:scale-110 transition-transform">
                     <HeartHandshake className="w-5 h-5" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Retention</h3>
                 </div>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-4 h-4 text-[#F43F5E] shrink-0" /> Email Marketing</li>
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-4 h-4 text-[#F43F5E] shrink-0" /> CRM</li>
-                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F43F5E] transition-colors"><ArrowRight className="w-4 h-4 text-[#F43F5E] shrink-0" /> Marketing Automation</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-4 h-4 text-[#F5A623] shrink-0" /> Email Marketing</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-4 h-4 text-[#F5A623] shrink-0" /> CRM</li>
+                  <li className="flex items-center gap-2.5 text-sm sm:text-base text-slate-700 font-medium hover:text-[#F5A623] transition-colors"><ArrowRight className="w-4 h-4 text-[#F5A623] shrink-0" /> Marketing Automation</li>
                 </ul>
               </div>
             </div>
@@ -462,8 +462,8 @@ const Home = () => {
               { name: 'BrandOne',   color: '#00AED6' },
               { name: 'TechCorp',   color: '#F5A623' },
               { name: 'GrowthX',    color: '#E6007A' },
-              { name: 'StudioAlpha',color: '#00C48C' },
-              { name: 'ElevateHQ',  color: '#A39BD6' },
+              { name: 'StudioAlpha',color: '#00AED6' },
+              { name: 'ElevateHQ',  color: '#E6007A' },
             ].map((brand) => (
               <div
                 key={brand.name}

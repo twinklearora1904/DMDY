@@ -178,7 +178,7 @@ const WebDevelopmentService = () => {
                 <div className="p-4 space-y-1 text-xs leading-relaxed overflow-x-auto no-scrollbar">
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">1</span>
-                    <span className="text-slate-200"><span className="text-[#E6007A] font-bold">import</span> &#123; useEdgeSpeed &#125; <span className="text-[#E6007A] font-bold">from</span> <span className="text-[#34D399]">'@dmdy/core'</span>;</span>
+                    <span className="text-slate-200"><span className="text-[#E6007A] font-bold">import</span> &#123; useEdgeSpeed &#125; <span className="text-[#E6007A] font-bold">from</span> <span className="text-[#00AED6]">'@dmdy/core'</span>;</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">2</span>
@@ -186,19 +186,19 @@ const WebDevelopmentService = () => {
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">3</span>
-                    <span className="text-slate-200"><span className="text-[#E6007A] font-bold">export default function</span> <span className="text-[#38BDF8] font-bold">DigitalHQ</span>() &#123;</span>
+                    <span className="text-slate-200"><span className="text-[#E6007A] font-bold">export default function</span> <span className="text-[#00AED6] font-bold">DigitalHQ</span>() &#123;</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">4</span>
-                    <span className="text-slate-200">&nbsp;&nbsp;<span className="text-[#E6007A] font-bold">const</span> &#123; speed, seo &#125; = <span className="text-[#FBBF24]">useEdgeSpeed</span>(&#123;</span>
+                    <span className="text-slate-200">&nbsp;&nbsp;<span className="text-[#E6007A] font-bold">const</span> &#123; speed, seo &#125; = <span className="text-[#F5A623]">useEdgeSpeed</span>(&#123;</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">5</span>
-                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;loadTime: <span className="text-[#34D399]">'&lt;1.1s'</span>,</span>
+                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;loadTime: <span className="text-[#00AED6]">'&lt;1.1s'</span>,</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">6</span>
-                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;coreWebVitals: <span className="text-[#34D399]">'99/100'</span></span>
+                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;coreWebVitals: <span className="text-[#00AED6]">'99/100'</span></span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">7</span>
@@ -210,19 +210,19 @@ const WebDevelopmentService = () => {
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">9</span>
-                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="text-[#38BDF8] font-bold">Platform</span> <span className="text-[#FBBF24]">speed</span>=&#123;speed&#125; <span className="text-[#FBBF24]">seo</span>=&#123;seo&#125;&gt;</span>
+                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="text-[#00AED6] font-bold">Platform</span> <span className="text-[#F5A623]">speed</span>=&#123;speed&#125; <span className="text-[#F5A623]">seo</span>=&#123;seo&#125;&gt;</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">10</span>
-                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="text-[#818CF8] font-bold">WebsitesThatConvert</span> <span className="text-[#FBBF24]">responsive</span> /&gt;</span>
+                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="text-[#00AED6] font-bold">WebsitesThatConvert</span> <span className="text-[#F5A623]">responsive</span> /&gt;</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">11</span>
-                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="text-[#818CF8] font-bold">InstantLeadCapture</span> <span className="text-[#FBBF24]">toWhatsApp</span> /&gt;</span>
+                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span className="text-[#00AED6] font-bold">InstantLeadCapture</span> <span className="text-[#F5A623]">toWhatsApp</span> /&gt;</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">12</span>
-                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span className="text-[#38BDF8] font-bold">Platform</span>&gt;</span>
+                    <span className="text-slate-200">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span className="text-[#00AED6] font-bold">Platform</span>&gt;</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-slate-600 select-none text-[11px] shrink-0 w-4 text-right">13</span>
@@ -318,9 +318,9 @@ const WebDevelopmentService = () => {
                   </div>
 
                   {/* UX & Speed */}
-                  <div className="p-2 rounded-xl bg-purple-50/60 border border-purple-200/80 text-center">
+                  <div className="p-2 rounded-xl bg-pink-50/60 border border-pink-200/80 text-center">
                     <div className="text-[11px] font-extrabold text-slate-900">Experience</div>
-                    <div className="text-[9px] font-bold text-[#7C3AED] flex items-center justify-center gap-1 mt-0.5">
+                    <div className="text-[9px] font-bold text-[#E6007A] flex items-center justify-center gap-1 mt-0.5">
                       <CheckCircle2 className="w-2.5 h-2.5" /> &lt;1.1s UX
                     </div>
                   </div>
@@ -419,7 +419,7 @@ const WebDevelopmentService = () => {
                   credible
                 </span>
                 ,{' '}
-                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-purple-50 text-[#7C3AED] font-bold border border-purple-200/80 text-xs sm:text-sm">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-pink-50 text-[#E6007A] font-bold border border-pink-200/80 text-xs sm:text-sm">
                   premium
                 </span>
                 ,{' '}
@@ -427,13 +427,13 @@ const WebDevelopmentService = () => {
                   trustworthy
                 </span>
                 , and{' '}
-                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-pink-50 text-[#E6007A] font-bold border border-pink-200/80 text-xs sm:text-sm">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-amber-50 text-[#F5A623] font-bold border border-amber-200/80 text-xs sm:text-sm">
                   worth contacting
                 </span>
                 .
               </p>
 
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-50/70 via-indigo-50/50 to-pink-50/50 border border-cyan-100 mb-6">
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-50/70 via-pink-50/50 to-amber-50/50 border border-cyan-100 mb-6">
                 <p className="text-sm sm:text-base font-semibold text-slate-800 leading-relaxed">
                   Modern websites are no longer digital brochures—they're <strong className="text-[#00AED6]">sales</strong>, <strong className="text-[#E6007A]">branding</strong>, and <strong className="text-[#F5A623]">lead-generation platforms</strong>.
                 </p>
@@ -471,12 +471,12 @@ const WebDevelopmentService = () => {
                 </div>
 
                 {/* 2. Deliver Seamless Experience */}
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-purple-200 hover:shadow-md transition-all group">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-pink-200 hover:shadow-md transition-all group">
                   <div className="flex items-center justify-between mb-2">
-                    <div className="w-8 h-8 rounded-xl bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] group-hover:scale-105 transition-transform">
-                      <Layout className="w-4 h-4 text-[#7C3AED]" />
+                    <div className="w-8 h-8 rounded-xl bg-[#E6007A]/10 flex items-center justify-center text-[#E6007A] group-hover:scale-105 transition-transform">
+                      <Layout className="w-4 h-4 text-[#E6007A]" />
                     </div>
-                    <span className="text-[10px] font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-100">
+                    <span className="text-[10px] font-semibold text-[#E6007A] bg-pink-50 px-2 py-0.5 rounded-full border border-pink-100">
                       Mobile-First UX
                     </span>
                   </div>
@@ -564,8 +564,8 @@ const WebDevelopmentService = () => {
               </span>
               <span className="text-slate-300 font-bold text-sm sm:text-base">&rarr;</span>
 
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-purple-50 text-[#7C3AED] font-bold text-xs sm:text-sm border border-purple-200/80 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-[#7C3AED]"></span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-pink-50 text-[#E6007A] font-bold text-xs sm:text-sm border border-pink-200/80 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#E6007A]"></span>
                 UX
               </span>
               <span className="text-slate-300 font-bold text-sm sm:text-base">&rarr;</span>
@@ -616,21 +616,21 @@ const WebDevelopmentService = () => {
             </div>
 
             {/* Layer 02 — UX Design */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
-                    <Palette className="w-6 h-6 text-[#7C3AED]" />
+                  <div className="w-12 h-12 rounded-2xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
+                    <Palette className="w-6 h-6 text-[#E6007A]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-50 text-[#7C3AED] border border-purple-200/80">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-[#E6007A] border border-pink-200/80">
                     Layer 02
                   </span>
                 </div>
 
-                <div className="text-xs font-bold text-[#7C3AED] uppercase tracking-wider mb-1">
+                <div className="text-xs font-bold text-[#E6007A] uppercase tracking-wider mb-1">
                   Interface &amp; Wireframes
                 </div>
-                <h3 className="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-[#7C3AED] transition-colors tracking-tight">
+                <h3 className="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-[#E6007A] transition-colors tracking-tight">
                   UX Design
                 </h3>
 
@@ -736,11 +736,11 @@ const WebDevelopmentService = () => {
             {/* 2. Website Development */}
             <div className="flex flex-col items-center text-center group">
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-2xl bg-blue-50 text-[#4285F4] border border-blue-100/80 flex items-center justify-center shadow-xs">
-                  <Code2 className="w-5 h-5 text-[#4285F4]" />
+                <div className="w-10 h-10 rounded-2xl bg-cyan-50 text-[#00AED6] border border-cyan-100/80 flex items-center justify-center shadow-xs">
+                  <Code2 className="w-5 h-5 text-[#00AED6]" />
                 </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#4285F4] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#00AED6] transition-colors">
                 Website Development
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
@@ -751,11 +751,11 @@ const WebDevelopmentService = () => {
             {/* 3. Responsive Design */}
             <div className="flex flex-col items-center text-center group">
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-2xl bg-purple-50 text-[#7C3AED] border border-purple-100/80 flex items-center justify-center shadow-xs">
-                  <Smartphone className="w-5 h-5 text-[#7C3AED]" />
+                <div className="w-10 h-10 rounded-2xl bg-pink-50 text-[#E6007A] border border-pink-100/80 flex items-center justify-center shadow-xs">
+                  <Smartphone className="w-5 h-5 text-[#E6007A]" />
                 </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#7C3AED] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#E6007A] transition-colors">
                 Responsive Design
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
@@ -885,7 +885,7 @@ const WebDevelopmentService = () => {
             </div>
 
             {/* 3. Portfolio Websites */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
                   <img 
@@ -895,11 +895,11 @@ const WebDevelopmentService = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#7C3AED]">
-                    <Palette className="w-4 h-4 text-[#7C3AED]" />
+                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#E6007A]">
+                    <Palette className="w-4 h-4 text-[#E6007A]" />
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#7C3AED] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors">
                   Portfolio Websites
                 </h3>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
@@ -1112,17 +1112,17 @@ const WebDevelopmentService = () => {
                   </div>
 
                   {/* Stage 02 */}
-                  <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-[#4285F4]/50 transition-all duration-300 flex flex-col justify-between group hover:shadow-lg hover:shadow-[#4285F4]/5">
+                  <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-[#F5A623]/50 transition-all duration-300 flex flex-col justify-between group hover:shadow-lg hover:shadow-[#F5A623]/5">
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="w-8 h-8 rounded-lg bg-[#4285F4]/15 text-[#4285F4] border border-[#4285F4]/30 flex items-center justify-center font-extrabold text-xs font-mono group-hover:scale-110 transition-transform">
+                        <span className="w-8 h-8 rounded-lg bg-[#F5A623]/15 text-[#F5A623] border border-[#F5A623]/30 flex items-center justify-center font-extrabold text-xs font-mono group-hover:scale-110 transition-transform">
                           02
                         </span>
                         <span className="text-[10px] font-mono text-slate-400 px-2 py-0.5 rounded bg-slate-800/60 border border-slate-700/50">
                           phase_02.fig
                         </span>
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#4285F4] transition-colors mb-2">
+                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#F5A623] transition-colors mb-2">
                         Planning &amp; Wireframes
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal">
@@ -1131,7 +1131,7 @@ const WebDevelopmentService = () => {
                     </div>
                     <div className="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
                       <span className="text-slate-400">Deliverable</span>
-                      <span className="text-[#4285F4] font-medium">Sitemap &amp; UX Flow</span>
+                      <span className="text-[#F5A623] font-medium">Sitemap &amp; UX Flow</span>
                     </div>
                   </div>
 
@@ -1246,7 +1246,7 @@ const WebDevelopmentService = () => {
 
                     <div className="flex items-start sm:items-center justify-between gap-2 text-slate-300">
                       <div className="flex items-center gap-2">
-                        <span className="text-[#4285F4] font-bold">[2/4]</span>
+                        <span className="text-[#F5A623] font-bold">[2/4]</span>
                         <span className="text-slate-200 font-semibold">Planning &amp; Wireframes</span>
                         <span className="text-slate-600 hidden md:inline">...........</span>
                       </div>

@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContactModal } from '../../context/ContactModalContext';
-import { 
-  Share2, 
-  Heart, 
-  MessageCircle, 
-  TrendingUp, 
-  Sparkles, 
-  Users, 
-  Play, 
-  Flame, 
-  Zap, 
-  BarChart3, 
-  Target, 
-  Eye, 
+import {
+  Share2,
+  Heart,
+  MessageCircle,
+  TrendingUp,
+  Sparkles,
+  Users,
+  Play,
+  Flame,
+  Zap,
+  BarChart3,
+  Target,
+  Eye,
   Send,
   Bookmark,
   Layers,
@@ -50,26 +50,26 @@ const SocialMediaService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
-      
+
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION */}
       {/* ========================================================= */}
       <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 bg-white border-b border-slate-200/80 relative overflow-hidden">
         {/* Ambient Glow Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#7C3AED_0%,#E6007A_25%,transparent_70%)] opacity-5 pointer-events-none"></div>
-        <div className="absolute top-1/4 -right-40 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-10 -left-40 w-96 h-96 bg-pink-200/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#E6007A_0%,#00AED6_25%,transparent_70%)] opacity-5 pointer-events-none"></div>
+        <div className="absolute top-1/4 -right-40 w-96 h-96 bg-pink-200/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-10 -left-40 w-96 h-96 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
+
             {/* Left Column (7 cols): User Hero Content */}
             <div className="lg:col-span-7">
-              
+
               {/* Top Badges */}
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-purple-50 text-purple-700 border border-purple-200/80 shadow-sm">
-                  <Sparkles className="w-3.5 h-3.5 text-[#7C3AED]" />
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-pink-50 text-[#E6007A] border border-pink-200/80 shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-[#E6007A]" />
                   360° Digital Growth
                 </span>
                 <span className="text-xs font-semibold text-slate-500 tracking-wider">
@@ -79,11 +79,11 @@ const SocialMediaService = () => {
 
               {/* Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.12]">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#00AED6]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                   Social Media Marketing Services
                 </span>{' '}
                 That Build Brands &amp; <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E6007A] via-[#F5A623] to-[#7C3AED]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E6007A] via-[#F5A623] to-[#00AED6]">
                   Drive Business Growth.
                 </span>
               </h1>
@@ -113,7 +113,7 @@ const SocialMediaService = () => {
 
                 <div className="col-span-2 sm:col-span-1">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#E6007A]">
+                    <span className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] to-[#E6007A]">
                       360°
                     </span>
                   </div>
@@ -123,7 +123,7 @@ const SocialMediaService = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <button 
+                <button
                   type="button"
                   onClick={() => openModal('Social Media Marketing')}
                   className="w-full sm:w-auto btn-primary"
@@ -131,14 +131,14 @@ const SocialMediaService = () => {
                   <Sparkles className="w-4 h-4 text-[#F5A623]" />
                   Get Free Social Audit
                 </button>
-                <a 
+                <a
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Social%20Media%20Marketing%20Services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
                 >
                   <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                   </svg>
                   WhatsApp Expert
                 </a>
@@ -148,26 +148,15 @@ const SocialMediaService = () => {
 
             {/* Right Column (5 cols): Social Growth Command Center Mockup */}
             <div className="lg:col-span-5 w-full relative mt-8 lg:mt-0">
-              
-              {/* Floating Badge 1: Viral Community Growth */}
-              <div className="absolute -top-6 -left-4 z-20 bg-white px-3.5 py-2 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 hidden sm:flex">
-                <div className="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center text-[#7C3AED] shadow-sm">
-                  <Flame className="w-4 h-4 fill-[#7C3AED]" />
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Viral Distribution</div>
-                  <div className="text-xs font-extrabold text-slate-900">+480% Organic Reach</div>
-                </div>
-              </div>
 
-              {/* Floating Badge 2: ROAS Multiplier */}
+              {/* Floating Badge 1: ROAS Multiplier */}
               <div className="absolute top-1/3 -right-4 z-20 bg-white px-3.5 py-2 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 hidden sm:flex">
                 <div className="w-8 h-8 rounded-xl bg-[#E6007A]/10 flex items-center justify-center text-[#E6007A] shadow-sm">
                   <Zap className="w-4 h-4 fill-[#E6007A]" />
                 </div>
                 <div>
                   <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Paid Social ROAS</div>
-                  <div className="text-xs font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#E6007A]">
+                  <div className="text-xs font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#E6007A] to-[#00AED6]">
                     4.8x Meta &amp; LinkedIn
                   </div>
                 </div>
@@ -181,7 +170,7 @@ const SocialMediaService = () => {
 
               {/* Main Social Growth Dashboard Card */}
               <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 flex flex-col">
-                
+
                 {/* Header Window Bar */}
                 <div className="bg-slate-50 px-4 py-3 flex items-center justify-between border-b border-slate-200/80">
                   <div className="flex gap-2">
@@ -190,17 +179,17 @@ const SocialMediaService = () => {
                     <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
                   </div>
                   <div className="text-[10px] uppercase tracking-wider text-slate-600 font-bold px-2.5 py-0.5 bg-white border border-slate-200 rounded-md shadow-sm flex items-center gap-1.5">
-                    <Share2 className="w-3 h-3 text-[#7C3AED]" />
+                    <Share2 className="w-3 h-3 text-[#E6007A]" />
                     dmdy.social/growth-engine
                   </div>
                 </div>
 
                 {/* Dashboard Body */}
                 <div className="p-5 sm:p-6 bg-white flex flex-col space-y-4">
-                  
+
                   {/* Channel Filter Chips */}
                   <div className="flex items-center justify-between gap-1.5 pb-2 border-b border-slate-100 overflow-x-auto text-xs">
-                    <span className="px-2.5 py-1 bg-purple-50 text-[#7C3AED] font-bold rounded-lg shrink-0">
+                    <span className="px-2.5 py-1 bg-pink-50 text-[#E6007A] font-bold rounded-lg shrink-0">
                       All Channels
                     </span>
                     <span className="px-2 py-1 text-slate-500 font-medium hover:text-slate-800 shrink-0">
@@ -215,10 +204,10 @@ const SocialMediaService = () => {
                   </div>
 
                   {/* Simulated High-Performing Content Piece Card */}
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-50/60 via-white to-pink-50/40 border border-purple-100 shadow-sm text-left">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-pink-50/60 via-white to-amber-50/40 border border-pink-100 shadow-sm text-left">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#7C3AED] to-[#E6007A] p-0.5">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#00AED6] to-[#E6007A] p-0.5">
                           <div className="w-full h-full bg-white rounded-full flex items-center justify-center font-bold text-[10px] text-slate-900">
                             D
                           </div>
@@ -238,8 +227,8 @@ const SocialMediaService = () => {
 
                     {/* Creative Video Hook Mockup */}
                     <div className="relative rounded-xl overflow-hidden bg-slate-900 text-white p-4 my-2.5 border border-slate-800 shadow-inner">
-                      <div className="text-[11px] font-mono text-purple-300 uppercase tracking-widest mb-1 flex items-center gap-1">
-                        <Play className="w-3 h-3 fill-purple-400" />
+                      <div className="text-[11px] font-mono text-pink-300 uppercase tracking-widest mb-1 flex items-center gap-1">
+                        <Play className="w-3 h-3 fill-[#E6007A] text-[#E6007A]" />
                         Viral Reel &bull; Hook Analysis
                       </div>
                       <div className="text-xs sm:text-sm font-bold text-slate-100 leading-snug">
@@ -276,7 +265,7 @@ const SocialMediaService = () => {
                   <div className="grid grid-cols-2 gap-3 pt-1">
                     <div className="p-3 bg-slate-50 border border-slate-100 rounded-2xl">
                       <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-0.5 flex items-center gap-1">
-                        <Users className="w-3 h-3 text-[#7C3AED]" /> Qualified Inquiries
+                        <Users className="w-3 h-3 text-[#00AED6]" /> Qualified Inquiries
                       </div>
                       <div className="text-2xl font-extrabold text-slate-900">+3,480</div>
                       <div className="text-[11px] font-bold text-emerald-600 mt-0.5">
@@ -288,10 +277,10 @@ const SocialMediaService = () => {
                       <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-0.5 flex items-center gap-1">
                         <BarChart3 className="w-3 h-3 text-[#E6007A]" /> Community Trust
                       </div>
-                      <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#E6007A]">
+                      <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] to-[#E6007A]">
                         98.4%
                       </div>
-                      <div className="text-[11px] font-bold text-[#7C3AED] mt-0.5">
+                      <div className="text-[11px] font-bold text-[#E6007A] mt-0.5">
                         Audience Retention
                       </div>
                     </div>
@@ -311,19 +300,19 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       <section className="py-10 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         {/* Subtle Brand Ambient Glows */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#7C3AED]/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00AED6]/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#E6007A]/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Top 2-Column Row: Left Graphic + Right Narrative Content */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
+
             {/* Left Column (5 cols): Social Attention & Discovery Engine Graphic */}
             <div className="lg:col-span-5 w-full relative order-2 lg:order-1">
-              
+
               {/* Outer Logo Gradient Glow */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#7C3AED]/25 via-[#E6007A]/20 to-[#00AED6]/25 rounded-3xl blur-lg opacity-70 -z-10"></div>
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#00AED6]/25 via-[#E6007A]/20 to-[#F5A623]/25 rounded-3xl blur-lg opacity-70 -z-10"></div>
 
               {/* Floating Badge: Algorithmic Shift */}
               <div className="absolute -top-4 -right-2 z-20 bg-white px-3.5 py-1.5 rounded-full shadow-lg border border-slate-100 flex items-center gap-2 hidden sm:flex">
@@ -333,17 +322,17 @@ const SocialMediaService = () => {
 
               {/* Main Simulated Social Discovery Card */}
               <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-2xl relative overflow-hidden">
-                
+
                 {/* Card Header */}
                 <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-100">
                   <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#7C3AED] animate-pulse"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#00AED6] animate-pulse"></div>
                     <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-700">
                       Social Attention Matrix
                     </span>
                   </div>
-                  <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-purple-50 border border-purple-100 text-[10px] font-bold text-[#7C3AED]">
-                    <Sparkles className="w-3 h-3 text-[#7C3AED]" />
+                  <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-cyan-50 border border-cyan-100 text-[10px] font-bold text-[#00AED6]">
+                    <Sparkles className="w-3 h-3 text-[#00AED6]" />
                     <span>Real-Time Virality</span>
                   </div>
                 </div>
@@ -352,7 +341,7 @@ const SocialMediaService = () => {
                 <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200/80 mb-4">
                   <div className="text-[10px] uppercase font-bold text-slate-400 mb-1 flex items-center justify-between">
                     <span>Modern Consumer Discovery</span>
-                    <span className="text-[#7C3AED] font-semibold text-[10px]">Omnichannel Sync</span>
+                    <span className="text-[#00AED6] font-semibold text-[10px]">Omnichannel Sync</span>
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-2">
                     <Flame className="w-3.5 h-3.5 text-[#E6007A] shrink-0" />
@@ -371,9 +360,9 @@ const SocialMediaService = () => {
                   </div>
 
                   {/* Creators */}
-                  <div className="p-2 rounded-xl bg-purple-50/60 border border-purple-200/80 text-center">
+                  <div className="p-2 rounded-xl bg-amber-50/60 border border-amber-200/80 text-center">
                     <div className="text-[11px] font-extrabold text-slate-900">Creators</div>
-                    <div className="text-[9px] font-bold text-[#7C3AED] flex items-center justify-center gap-1 mt-0.5">
+                    <div className="text-[9px] font-bold text-[#F5A623] flex items-center justify-center gap-1 mt-0.5">
                       <span>Social Proof</span>
                     </div>
                   </div>
@@ -408,7 +397,7 @@ const SocialMediaService = () => {
                   </div>
 
                   <p className="text-xs text-slate-300 leading-relaxed mb-3">
-                    "Modern social media has moved from passive broadcasts to <strong className="text-white font-bold">interactive ecosystems</strong> that combine <strong className="text-[#00AED6]">Be Seen</strong>, <strong className="text-[#7C3AED]">Be Remembered</strong>, <strong className="text-[#E6007A]">Build Community</strong>, and <strong className="text-emerald-400">Drive Conversion</strong>."
+                    "Modern social media has moved from passive broadcasts to <strong className="text-white font-bold">interactive ecosystems</strong> that combine <strong className="text-[#00AED6]">Be Seen</strong>, <strong className="text-[#F5A623]">Be Remembered</strong>, <strong className="text-[#E6007A]">Build Community</strong>, and <strong className="text-emerald-400">Drive Conversion</strong>."
                   </p>
 
                   {/* Citation Channels Row */}
@@ -418,8 +407,8 @@ const SocialMediaService = () => {
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E6007A]"></span>
                       Instagram Reels
                     </span>
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-800 text-[10px] text-purple-300 border border-slate-700">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED]"></span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-800 text-[10px] text-cyan-300 border border-slate-700">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#00AED6]"></span>
                       LinkedIn Thought Leadership
                     </span>
                   </div>
@@ -432,7 +421,7 @@ const SocialMediaService = () => {
                     <TrendingUp className="w-3.5 h-3.5 text-[#00C48C]" />
                     <span>Audience Engagement Velocity</span>
                   </div>
-                  <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#E6007A]">
+                  <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] to-[#E6007A]">
                     +480% Organic Reach Lift
                   </span>
                 </div>
@@ -443,11 +432,11 @@ const SocialMediaService = () => {
 
             {/* Right Column (7 cols): User Narrative Content with Logo Colors */}
             <div className="lg:col-span-7 w-full order-1 lg:order-2">
-              
+
               {/* Category Pill with Logo Colors */}
               <div className="flex items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-purple-50 via-pink-50 to-cyan-50 text-slate-800 border border-[#7C3AED]/30 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#E6007A] animate-pulse"></span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-pink-50 via-amber-50 to-cyan-50 text-slate-800 border border-[#E6007A]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#00AED6] to-[#E6007A] animate-pulse"></span>
                   The New Era of Discovery
                 </span>
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider hidden sm:inline">
@@ -457,12 +446,12 @@ const SocialMediaService = () => {
 
               {/* Title with Share Icon & Logo Gradient */}
               <div className="flex items-start sm:items-center gap-3.5 mb-5">
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#7C3AED]/15 via-[#E6007A]/10 to-[#F5A623]/10 border border-[#7C3AED]/30 flex items-center justify-center text-[#7C3AED] shrink-0 shadow-sm">
-                  <Share2 className="w-6 h-6 text-[#7C3AED]" />
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#00AED6]/15 via-[#E6007A]/10 to-[#F5A623]/10 border border-[#00AED6]/30 flex items-center justify-center text-[#00AED6] shrink-0 shadow-sm">
+                  <Share2 className="w-6 h-6 text-[#00AED6]" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
                   The Way Social Media{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                     Has Changed
                   </span>
                 </h2>
@@ -480,7 +469,7 @@ const SocialMediaService = () => {
                   Reels
                 </span>
                 ,{' '}
-                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-purple-50 text-[#7C3AED] font-bold border border-purple-200/80 text-xs sm:text-sm">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-amber-50 text-[#F5A623] font-bold border border-amber-200/80 text-xs sm:text-sm">
                   creator content
                 </span>
                 ,{' '}
@@ -506,7 +495,7 @@ const SocialMediaService = () => {
               <div className="pt-5 border-t border-slate-200/80 mb-5">
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
                   Modern social media has{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#E6007A]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] to-[#E6007A]">
                     four responsibilities:
                   </span>
                 </h3>
@@ -514,7 +503,7 @@ const SocialMediaService = () => {
 
               {/* Four Responsibilities List - Consistent with SEO Service styling */}
               <div className="space-y-4">
-                
+
                 {/* 1. Be Seen */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-8 h-8 rounded-lg bg-[#00AED6]/10 flex items-center justify-center text-[#00AED6] shrink-0 mt-0.5">
@@ -532,8 +521,8 @@ const SocialMediaService = () => {
 
                 {/* 2. Be Remembered */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#7C3AED]/10 flex items-center justify-center text-[#7C3AED] shrink-0 mt-0.5">
-                    <Bookmark className="w-4 h-4 text-[#7C3AED]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#F5A623]/10 flex items-center justify-center text-[#F5A623] shrink-0 mt-0.5">
+                    <Bookmark className="w-4 h-4 text-[#F5A623]" />
                   </div>
                   <div>
                     <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
@@ -589,21 +578,21 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
-              <Layers className="w-3.5 h-3.5 text-[#7C3AED]" />
+              <Layers className="w-3.5 h-3.5 text-[#E6007A]" />
               <span>Proprietary Methodology</span>
             </div>
-            
+
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
               The DMDY{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                 Social Growth Framework™
               </span>
             </h2>
-            
+
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
               Our unique methodology for sustainable social media growth.
             </p>
@@ -611,7 +600,7 @@ const SocialMediaService = () => {
 
           {/* 4 Framework Layer Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            
+
             {/* Layer 1 — Strategy */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
@@ -635,18 +624,18 @@ const SocialMediaService = () => {
             </div>
 
             {/* Layer 2 — Content */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
-                    <Play className="w-6 h-6 text-[#7C3AED]" />
+                  <div className="w-12 h-12 rounded-2xl bg-[#F5A623]/10 text-[#F5A623] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs p-2.5">
+                    <Play className="w-6 h-6 text-[#F5A623]" />
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-50 text-[#7C3AED] border border-purple-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-[#F5A623] border border-amber-200/80">
                     Layer 02
                   </span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3 group-hover:text-[#7C3AED] transition-colors tracking-tight">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3 group-hover:text-[#F5A623] transition-colors tracking-tight">
                   Content
                 </h3>
 
@@ -709,17 +698,17 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       <section className="py-12 sm:py-16 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          
+
           {/* Section Header - Center Aligned */}
           <div className="mb-10 sm:mb-12 flex flex-col items-center text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-slate-700 uppercase tracking-widest mb-3">
-              <Share2 className="w-3 h-3 text-[#7C3AED]" />
+              <Share2 className="w-3 h-3 text-[#E6007A]" />
               <span>Full-Spectrum Capabilities</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               What's Included in Our{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                 Social Media Marketing Services
               </span>
             </h2>
@@ -727,17 +716,17 @@ const SocialMediaService = () => {
 
           {/* 3-Column Clean, Compact & Centered Layout (3-3 Pair) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-10 w-full">
-            
+
             {/* 1. Instagram Marketing (Row 1 Left) */}
             <div className="flex flex-col items-center text-center group">
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#E1306C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-6 h-6 text-[#E6007A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#E1306C] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#E6007A] transition-colors">
                 Instagram Marketing
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
@@ -748,11 +737,11 @@ const SocialMediaService = () => {
             {/* 2. Facebook Marketing (Row 1 Right) */}
             <div className="flex flex-col items-center text-center group">
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#1877F2]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                <svg className="w-6 h-6 text-[#00AED6]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#1877F2] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#00AED6] transition-colors">
                 Facebook Marketing
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
@@ -763,11 +752,11 @@ const SocialMediaService = () => {
             {/* 3. LinkedIn Marketing (Row 2 Left) */}
             <div className="flex flex-col items-center text-center group">
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#0A66C2]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 0 0 1.66-1.65 1.66 1.66 0 0 0-3.32 0 1.65 1.65 0 0 0 1.66 1.65m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
+                <svg className="w-6 h-6 text-[#F5A623]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 0 0 1.66-1.65 1.66 1.66 0 0 0-3.32 0 1.65 1.65 0 0 0 1.66 1.65m1.39 9.74v-8.37H5.07v8.37h2.78z" />
                 </svg>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#0A66C2] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#F5A623] transition-colors">
                 LinkedIn Marketing
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
@@ -780,7 +769,7 @@ const SocialMediaService = () => {
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
                 <div className="w-6 h-6 rounded-full bg-slate-900 flex items-center justify-center text-white shadow-xs">
                   <svg className="w-3 h-3 fill-current ml-0.5" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
+                    <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
@@ -795,7 +784,7 @@ const SocialMediaService = () => {
             {/* 5. Creative Content Design (Row 3 Left) */}
             <div className="flex flex-col items-center text-center group">
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#8A3FFC]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-6 h-6 text-[#00AED6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
                   <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
                   <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
@@ -803,7 +792,7 @@ const SocialMediaService = () => {
                   <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2z"></path>
                 </svg>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#8A3FFC] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#00AED6] transition-colors">
                 Creative Content Design
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
@@ -814,12 +803,12 @@ const SocialMediaService = () => {
             {/* 6. Social Media Ads (Row 3 Right) */}
             <div className="flex flex-col items-center text-center group">
               <div className="mb-2.5 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#FF5722]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-6 h-6 text-[#F5A623]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="m3 11 18-5v12L3 14v-3z"></path>
                   <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
                 </svg>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#FF5722] transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight group-hover:text-[#F5A623] transition-colors">
                 Social Media Ads
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-sm">
@@ -836,17 +825,17 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
-              <Briefcase className="w-3.5 h-3.5 text-[#7C3AED]" />
+              <Briefcase className="w-3.5 h-3.5 text-[#00AED6]" />
               <span>Industry-Specific Social</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Social Media Strategies Tailored to{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                 Your Industry
               </span>
             </h2>
@@ -854,14 +843,14 @@ const SocialMediaService = () => {
 
           {/* 6 Industry Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            
+
             {/* 1. Real Estate */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={realEstateImg} 
-                    alt="Real Estate Social Media Strategy" 
+                  <img
+                    src={realEstateImg}
+                    alt="Real Estate Social Media Strategy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
@@ -880,21 +869,21 @@ const SocialMediaService = () => {
             </div>
 
             {/* 2. E-commerce */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={ecommerceImg} 
-                    alt="E-commerce Social Media Strategy" 
+                  <img
+                    src={ecommerceImg}
+                    alt="E-commerce Social Media Strategy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#F5A623]">
-                    <ShoppingBag className="w-4 h-4 text-[#F5A623]" />
+                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#E6007A]">
+                    <ShoppingBag className="w-4 h-4 text-[#E6007A]" />
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors">
                   E-commerce
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
@@ -904,21 +893,21 @@ const SocialMediaService = () => {
             </div>
 
             {/* 3. Healthcare */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00C48C]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={healthcareImg} 
-                    alt="Healthcare Social Media Strategy" 
+                  <img
+                    src={healthcareImg}
+                    alt="Healthcare Social Media Strategy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#00C48C]">
-                    <HeartPulse className="w-4 h-4 text-[#00C48C]" />
+                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#F5A623]">
+                    <HeartPulse className="w-4 h-4 text-[#F5A623]" />
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00C48C] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors">
                   Healthcare
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
@@ -928,21 +917,21 @@ const SocialMediaService = () => {
             </div>
 
             {/* 4. Hospitality */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={hospitalityImg} 
-                    alt="Hospitality Social Media Strategy" 
+                  <img
+                    src={hospitalityImg}
+                    alt="Hospitality Social Media Strategy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#E6007A]">
-                    <Utensils className="w-4 h-4 text-[#E6007A]" />
+                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#00AED6]">
+                    <Utensils className="w-4 h-4 text-[#00AED6]" />
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#00AED6] transition-colors">
                   Hospitality
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
@@ -952,21 +941,21 @@ const SocialMediaService = () => {
             </div>
 
             {/* 5. Startups */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={startupsImg} 
-                    alt="Startups Social Media Strategy" 
+                  <img
+                    src={startupsImg}
+                    alt="Startups Social Media Strategy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#7C3AED]">
-                    <Rocket className="w-4 h-4 text-[#7C3AED]" />
+                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#E6007A]">
+                    <Rocket className="w-4 h-4 text-[#E6007A]" />
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#7C3AED] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#E6007A] transition-colors">
                   Startups
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
@@ -976,21 +965,21 @@ const SocialMediaService = () => {
             </div>
 
             {/* 6. Professional Services */}
-            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#0A66C2]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
-                  <img 
-                    src={professionalServicesImg} 
-                    alt="Professional Services Social Media Strategy" 
+                  <img
+                    src={professionalServicesImg}
+                    alt="Professional Services Social Media Strategy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60"></div>
-                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#0A66C2]">
-                    <Briefcase className="w-4 h-4 text-[#0A66C2]" />
+                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md shadow-sm flex items-center justify-center text-[#F5A623]">
+                    <Briefcase className="w-4 h-4 text-[#F5A623]" />
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#0A66C2] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#F5A623] transition-colors">
                   Professional Services
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
@@ -1009,36 +998,36 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            
+
             {/* Left Column (7 cols): Section Header & 4 Process Steps */}
             <div className="lg:col-span-7">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
-                <TrendingUp className="w-3.5 h-3.5 text-[#7C3AED]" />
+                <TrendingUp className="w-3.5 h-3.5 text-[#00AED6]" />
                 <span>Execution Blueprint</span>
               </div>
 
               {/* Heading */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8">
                 How DMDY Builds{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                   Social Media Growth
                 </span>
               </h2>
 
               {/* 4 Process Steps - Clean Unboxed Flow */}
               <div className="space-y-4">
-                
+
                 {/* 01 Research */}
                 <div className="flex items-start gap-4 group">
-                  <div className="w-9 h-9 rounded-xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:scale-110 transition-transform mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-[#F5A623]/10 text-[#F5A623] flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:scale-110 transition-transform mt-0.5">
                     01
                   </div>
                   <div className="flex-1 pb-3.5 border-b border-slate-200/80">
-                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#7C3AED] transition-colors mb-0.5">
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 group-hover:text-[#F5A623] transition-colors mb-0.5">
                       Research
                     </h3>
                     <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
@@ -1098,7 +1087,7 @@ const SocialMediaService = () => {
 
             {/* Right Column (5 cols): Visual Showcase */}
             <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-              
+
               {/* Floating Top Badge */}
               <div className="absolute -top-4 -left-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-slate-200/80 hidden sm:flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -1107,7 +1096,7 @@ const SocialMediaService = () => {
 
               {/* Floating Bottom Badge */}
               <div className="absolute -bottom-4 -right-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-slate-200/80 hidden sm:flex items-center gap-2">
-                <div className="w-6 h-6 rounded-lg bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center font-bold text-xs">
+                <div className="w-6 h-6 rounded-lg bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center font-bold text-xs">
                   AI
                 </div>
                 <span className="text-xs font-bold text-slate-800">Omni-Platform Ready</span>
@@ -1115,13 +1104,13 @@ const SocialMediaService = () => {
 
               {/* Main Image Frame */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
-                <img 
-                  src={socialGrowthProcessImg} 
-                  alt="How DMDY Builds Social Media Growth" 
+                <img
+                  src={socialGrowthProcessImg}
+                  alt="How DMDY Builds Social Media Growth"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
-                
+
                 {/* Subtle Inner Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60"></div>
               </div>
@@ -1138,15 +1127,15 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            
+
             {/* Left Column (5 cols): 3D Visual Showcase */}
             <div className="lg:col-span-5 relative order-2 lg:order-1">
-              
+
               {/* Floating Top Badge */}
               <div className="absolute -top-4 -left-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-slate-200/80 hidden sm:flex items-center gap-2.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#7C3AED] animate-pulse"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-[#E6007A] animate-pulse"></span>
                 <span className="text-xs font-bold text-slate-800">Precision Targeting</span>
               </div>
 
@@ -1160,13 +1149,13 @@ const SocialMediaService = () => {
 
               {/* Main Image Frame */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
-                <img 
-                  src={socialBusinessGoalsImg} 
-                  alt="Choose Your Business Goal" 
+                <img
+                  src={socialBusinessGoalsImg}
+                  alt="Choose Your Business Goal"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
-                
+
                 {/* Subtle Inner Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none"></div>
               </div>
@@ -1175,17 +1164,17 @@ const SocialMediaService = () => {
 
             {/* Right Column (7 cols): Content & Interactive Tabs */}
             <div className="lg:col-span-7 order-1 lg:order-2">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
-                <Target className="w-3.5 h-3.5 text-[#7C3AED]" />
+                <Target className="w-3.5 h-3.5 text-[#E6007A]" />
                 <span>Strategy Matcher</span>
               </div>
 
               {/* Heading */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
                 Choose Your{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                   Business Goal
                 </span>
               </h2>
@@ -1200,11 +1189,10 @@ const SocialMediaService = () => {
                   <button
                     key={tab.id}
                     onClick={() => setSelectedGoal(tab.id)}
-                    className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-                      selectedGoal === tab.id
+                    className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${selectedGoal === tab.id
                         ? 'bg-white text-slate-950 shadow-sm border border-slate-200/80 scale-[1.02]'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
-                    }`}
+                      }`}
                   >
                     {tab.label}
                   </button>
@@ -1216,8 +1204,8 @@ const SocialMediaService = () => {
                 {selectedGoal === 'visibility' && (
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center shrink-0">
-                        <Eye className="w-4.5 h-4.5 text-[#7C3AED]" />
+                      <div className="w-9 h-9 rounded-xl bg-[#E6007A]/10 text-[#E6007A] flex items-center justify-center shrink-0">
+                        <Eye className="w-4.5 h-4.5 text-[#E6007A]" />
                       </div>
                       <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">
                         Brand Visibility
@@ -1274,22 +1262,22 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            
+
             {/* Left Column (4 cols): Sticky Section Header & Direct Support Box */}
             <div className="lg:col-span-4 lg:sticky lg:top-28">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
-                <HelpCircle className="w-3.5 h-3.5 text-[#7C3AED]" />
+                <HelpCircle className="w-3.5 h-3.5 text-[#00AED6]" />
                 <span>Knowledge Base</span>
               </div>
 
               {/* Heading */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2">
                 Frequently Asked <br className="hidden lg:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                   Questions
                 </span>
               </h2>
@@ -1305,8 +1293,8 @@ const SocialMediaService = () => {
 
               {/* Direct Support Card (Desktop only) */}
               <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-xs hidden lg:block">
-                <div className="w-10 h-10 rounded-2xl bg-[#7C3AED]/10 text-[#7C3AED] flex items-center justify-center mb-4">
-                  <MessageCircle className="w-5 h-5 text-[#7C3AED]" />
+                <div className="w-10 h-10 rounded-2xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center mb-4">
+                  <MessageCircle className="w-5 h-5 text-[#00AED6]" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900 mb-1">
                   Have a specific question?
@@ -1329,13 +1317,12 @@ const SocialMediaService = () => {
 
             {/* Right Column (8 cols): Accordion Items */}
             <div className="lg:col-span-8 space-y-3.5">
-              
+
               {/* FAQ 1 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 0 
-                  ? 'bg-white border-[#7C3AED]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 0
+                  ? 'bg-white border-[#00AED6]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 0 ? -1 : 0)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1343,9 +1330,8 @@ const SocialMediaService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     What are Social Media Marketing Services?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 0 ? 'rotate-180 text-[#7C3AED]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 0 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 0 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1357,11 +1343,10 @@ const SocialMediaService = () => {
               </div>
 
               {/* FAQ 2 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 1 
-                  ? 'bg-white border-[#00AED6]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 1
+                  ? 'bg-white border-[#00AED6]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 1 ? -1 : 1)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1369,9 +1354,8 @@ const SocialMediaService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     Which social media platform is best for my business?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 1 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 1 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 1 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1383,11 +1367,10 @@ const SocialMediaService = () => {
               </div>
 
               {/* FAQ 3 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 2 
-                  ? 'bg-white border-[#E6007A]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 2
+                  ? 'bg-white border-[#E6007A]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 2 ? -1 : 2)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1395,9 +1378,8 @@ const SocialMediaService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     How often should my business post on social media?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 2 ? 'rotate-180 text-[#E6007A]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 2 ? 'rotate-180 text-[#E6007A]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 2 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1409,11 +1391,10 @@ const SocialMediaService = () => {
               </div>
 
               {/* FAQ 4 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 3 
-                  ? 'bg-white border-[#F5A623]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 3
+                  ? 'bg-white border-[#F5A623]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 3 ? -1 : 3)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1421,9 +1402,8 @@ const SocialMediaService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     Can Social Media Marketing generate leads and sales?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 3 ? 'rotate-180 text-[#F5A623]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 3 ? 'rotate-180 text-[#F5A623]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 3 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1435,11 +1415,10 @@ const SocialMediaService = () => {
               </div>
 
               {/* FAQ 5 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 4 
-                  ? 'bg-white border-[#00C48C]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 4
+                  ? 'bg-white border-[#00C48C]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 4 ? -1 : 4)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1447,9 +1426,8 @@ const SocialMediaService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     What's included in DMDY's Social Media Management?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 4 ? 'rotate-180 text-[#00C48C]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 4 ? 'rotate-180 text-[#00C48C]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 4 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1461,11 +1439,10 @@ const SocialMediaService = () => {
               </div>
 
               {/* FAQ 6 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 5 
-                  ? 'bg-white border-[#7C3AED]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 5
+                  ? 'bg-white border-[#E6007A]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 5 ? -1 : 5)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1473,9 +1450,8 @@ const SocialMediaService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     Do I need both organic content and paid ads?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 5 ? 'rotate-180 text-[#7C3AED]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 5 ? 'rotate-180 text-[#E6007A]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 5 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1498,23 +1474,23 @@ const SocialMediaService = () => {
       {/* ========================================================= */}
       <section className="py-10 sm:py-12 bg-white border-t border-slate-200/80 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="relative rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
-              
+
               {/* Left Column: Heading & Content */}
               <div className="max-w-2xl">
-                
+
                 {/* Badge */}
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-2.5 shadow-xs">
-                  <Sparkles className="w-3.5 h-3.5 text-[#7C3AED]" />
+                  <Sparkles className="w-3.5 h-3.5 text-[#E6007A]" />
                   <span>Next-Generation Social Growth</span>
                 </div>
 
                 {/* Headline */}
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2.5">
                   Ready to Turn Followers Into{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#E6007A] to-[#F5A623]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                     Customers?
                   </span>
                 </h2>
@@ -1544,7 +1520,7 @@ const SocialMediaService = () => {
                   className="btn-whatsapp"
                 >
                   <svg className="w-4 h-4 text-[#00C48C]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                   </svg>
                   <span>WhatsApp DMDY</span>
                 </a>
@@ -1559,7 +1535,7 @@ const SocialMediaService = () => {
                 <span>No obligation social audit</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#7C3AED]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#00AED6]" />
                 <span>Organic + Paid growth roadmap</span>
               </span>
               <span className="flex items-center gap-1.5">

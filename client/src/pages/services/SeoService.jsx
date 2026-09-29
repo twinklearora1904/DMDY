@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContactModal } from '../../context/ContactModalContext';
-import { 
-  Search, 
-  ArrowRight, 
-  CheckCircle2, 
-  TrendingUp, 
-  Cpu, 
-  Layers, 
-  Sparkles, 
-  Globe, 
-  Bot, 
+import {
+  Search,
+  ArrowRight,
+  CheckCircle2,
+  TrendingUp,
+  Cpu,
+  Layers,
+  Sparkles,
+  Globe,
+  Bot,
   MessageSquare,
   MapPin,
   ShoppingCart,
@@ -40,7 +40,7 @@ const SeoService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
-      
+
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION */}
       {/* ========================================================= */}
@@ -48,10 +48,10 @@ const SeoService = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00AED6_0%,#E6007A_30%,transparent_70%)] opacity-5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
+
             {/* Left Column (7 cols): User Hero Content */}
             <div className="lg:col-span-7">
-              
+
               {/* Top Badges */}
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold bg-[#E6F8F3] text-[#00A37A] border border-[#00C48C]/30 shadow-sm">
@@ -107,20 +107,20 @@ const SeoService = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <button 
+                <button
                   type="button"
                   onClick={() => openModal('SEO')}
                   className="w-full sm:w-auto btn-primary"
                 >
                   Get Free SEO Audit
                 </button>
-                <a 
+                <a
                   href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20SEO%20Services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
                 >
-                  <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                  <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
                   WhatsApp Expert
                 </a>
               </div>
@@ -129,17 +129,6 @@ const SeoService = () => {
 
             {/* Right Column (5 cols): SEO & AI Search Performance Dashboard Graphic */}
             <div className="lg:col-span-5 w-full relative mt-8 lg:mt-0">
-              
-              {/* Floating Badge 1: #1 Rank Google */}
-              <div className="absolute -top-6 -left-4 z-20 bg-white px-3.5 py-2 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 hidden sm:flex">
-                <div className="w-7 h-7 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 font-black text-xs shadow-sm">
-                  #1
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Google Search</div>
-                  <div className="text-xs font-extrabold text-slate-900">Rank #1 Organic Position</div>
-                </div>
-              </div>
 
               {/* Floating Badge 2: AI Citations (AEO/GEO) */}
               <div className="absolute top-1/4 -right-4 z-20 bg-white px-3.5 py-2 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 hidden sm:flex">
@@ -162,7 +151,7 @@ const SeoService = () => {
 
               {/* Main SEO Dashboard Card */}
               <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 flex flex-col">
-                
+
                 {/* Chrome Window Top Bar */}
                 <div className="bg-slate-50 px-4 py-3 flex items-center justify-between border-b border-slate-200/80">
                   <div className="flex gap-2">
@@ -175,10 +164,10 @@ const SeoService = () => {
                     google.com/search
                   </div>
                 </div>
-                
+
                 {/* Card Body */}
                 <div className="p-6 bg-white flex flex-col space-y-4">
-                  
+
                   {/* Simulated Google Search Bar */}
                   <div className="flex items-center gap-2.5 px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl">
                     <Search className="w-4 h-4 text-slate-400 shrink-0" />
@@ -254,13 +243,13 @@ const SeoService = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#E6007A]/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Top 2-Column Row: Left Graphic + Right Narrative Content */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
+
             {/* Left Column (5 cols): AI Search & Multi-LLM Citation Engine Graphic */}
             <div className="lg:col-span-5 w-full relative order-2 lg:order-1">
-              
+
               {/* Outer Logo Gradient Glow */}
               <div className="absolute -inset-1.5 bg-gradient-to-r from-[#00AED6]/25 via-[#E6007A]/20 to-[#F5A623]/25 rounded-3xl blur-lg opacity-70 -z-10"></div>
 
@@ -272,7 +261,7 @@ const SeoService = () => {
 
               {/* Main Simulated AI Engine Card */}
               <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-2xl relative overflow-hidden">
-                
+
                 {/* Card Header */}
                 <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-100">
                   <div className="flex items-center gap-2">
@@ -336,7 +325,7 @@ const SeoService = () => {
 
                 {/* AI Overview Answer Preview Box */}
                 <div className="p-4 rounded-2xl bg-slate-900 text-white relative shadow-lg overflow-hidden">
-                  
+
                   <div className="flex items-center justify-between mb-2 pt-1">
                     <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-200">
                       <Bot className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -383,7 +372,7 @@ const SeoService = () => {
 
             {/* Right Column (7 cols): User Narrative Content with Logo Colors */}
             <div className="lg:col-span-7 w-full order-1 lg:order-2">
-              
+
               {/* Category Pill with Logo Colors */}
               <div className="flex items-center gap-2 mb-4">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-cyan-50 via-pink-50 to-amber-50 text-slate-800 border border-[#00AED6]/30 shadow-xs">
@@ -432,7 +421,7 @@ const SeoService = () => {
                   Claude
                 </span>
                 , and increasingly receive answers before they ever click a website. Google's AI Overviews have accelerated this shift, making discoverability about more than traditional rankings.
-                
+
                 {/* Google AI Overview Citation Chip */}
                 <span className="inline-flex items-center gap-1.5 ml-2 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white border border-slate-200 text-slate-800 shadow-sm align-middle hover:border-[#00AED6] transition-colors">
                   <span className="w-3.5 h-3.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[8px] font-black flex items-center justify-center shadow-xs">S</span>
@@ -453,7 +442,7 @@ const SeoService = () => {
 
               {/* Three Responsibilities List */}
               <div className="space-y-4">
-                
+
                 {/* 1. Be Found */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-8 h-8 rounded-lg bg-[#00AED6]/10 flex items-center justify-center text-[#00AED6] shrink-0 mt-0.5">
@@ -513,21 +502,21 @@ const SeoService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
               <Layers className="w-3.5 h-3.5 text-[#00AED6]" />
               <span>Proprietary Methodology</span>
             </div>
-            
+
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
               The DMDY{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
                 Search Authority Framework™
               </span>
             </h2>
-            
+
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
               A comprehensive three-tiered engineering system designed to rank your brand on Google, quote it in AI answer engines, and establish enduring cross-web authority.
             </p>
@@ -535,7 +524,7 @@ const SeoService = () => {
 
           {/* 3 Framework Layer Cards Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            
+
             {/* Layer 1 — SEO Foundation */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
@@ -551,7 +540,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-1.5 group-hover:text-[#00AED6] transition-colors tracking-tight">
                   Layer 1 — SEO Foundation
                 </h3>
-                
+
                 <p className="text-sm sm:text-base font-semibold text-slate-700 italic mb-5">
                   "Everything begins with technical excellence."
                 </p>
@@ -594,7 +583,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-1.5 group-hover:text-[#E6007A] transition-colors tracking-tight">
                   Layer 2 — Answer Engine Optimization (AEO)
                 </h3>
-                
+
                 <p className="text-sm sm:text-base font-semibold text-slate-700 italic mb-5">
                   "We structure your knowledge for machines and humans."
                 </p>
@@ -636,7 +625,7 @@ const SeoService = () => {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-1.5 group-hover:text-[#00C48C] transition-colors tracking-tight">
                   Layer 3 — Generative Engine Optimization (GEO)
                 </h3>
-                
+
                 <p className="text-sm sm:text-base font-semibold text-slate-700 italic mb-5">
                   "This is where brands become references—not just websites."
                 </p>
@@ -673,7 +662,7 @@ const SeoService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
@@ -695,7 +684,7 @@ const SeoService = () => {
 
           {/* 6 Capabilities Cards Grid (2x3 on desktop) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            
+
             {/* 1. Technical SEO */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
@@ -796,7 +785,7 @@ const SeoService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
@@ -818,7 +807,7 @@ const SeoService = () => {
 
           {/* 6 Industry Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            
+
             {/* 1. Real Estate */}
             <div className="bg-slate-50/70 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
@@ -919,12 +908,12 @@ const SeoService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            
+
             {/* Left Column (7 cols): Section Header & 4 Process Steps */}
             <div className="lg:col-span-7">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
                 <TrendingUp className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -946,7 +935,7 @@ const SeoService = () => {
 
               {/* 4 Process Steps - Clean Unboxed Flow */}
               <div className="space-y-3.5">
-                
+
                 {/* 01 Audit & Research */}
                 <div className="flex items-start gap-4 group">
                   <div className="w-9 h-9 rounded-xl bg-[#00AED6]/10 text-[#00AED6] flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:scale-110 transition-transform mt-0.5">
@@ -1013,7 +1002,7 @@ const SeoService = () => {
 
             {/* Right Column (5 cols): 3D Visual Showcase */}
             <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-              
+
               {/* Floating Top Badge */}
               <div className="absolute -top-4 -left-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-slate-200/80 hidden sm:flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -1030,12 +1019,12 @@ const SeoService = () => {
 
               {/* Main Image Frame */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
-                <img 
-                  src={seoProcessGrowthImg} 
-                  alt="How DMDY Builds Sustainable Rankings" 
+                <img
+                  src={seoProcessGrowthImg}
+                  alt="How DMDY Builds Sustainable Rankings"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                
+
                 {/* Subtle Inner Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none"></div>
               </div>
@@ -1052,12 +1041,12 @@ const SeoService = () => {
       {/* ========================================================= */}
       <section className="py-14 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            
+
             {/* Left Column (5 cols): 3D Visual Showcase */}
             <div className="lg:col-span-5 relative order-2 lg:order-1">
-              
+
               {/* Floating Top Badge */}
               <div className="absolute -top-4 -left-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl border border-slate-200/80 hidden sm:flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#00AED6] animate-pulse"></span>
@@ -1074,12 +1063,12 @@ const SeoService = () => {
 
               {/* Main Image Frame */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white group">
-                <img 
-                  src={businessGoalsImg} 
-                  alt="Choose Your Business Goal" 
+                <img
+                  src={businessGoalsImg}
+                  alt="Choose Your Business Goal"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                
+
                 {/* Subtle Inner Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none"></div>
               </div>
@@ -1088,7 +1077,7 @@ const SeoService = () => {
 
             {/* Right Column (7 cols): Content & Interactive Tabs */}
             <div className="lg:col-span-7 order-1 lg:order-2">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
                 <Target className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -1118,11 +1107,10 @@ const SeoService = () => {
                   <button
                     key={tab.id}
                     onClick={() => setSelectedGoal(tab.id)}
-                    className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-                      selectedGoal === tab.id
+                    className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${selectedGoal === tab.id
                         ? 'bg-white text-slate-950 shadow-sm border border-slate-200/80 scale-[1.02]'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
-                    }`}
+                      }`}
                   >
                     {tab.label}
                   </button>
@@ -1192,12 +1180,12 @@ const SeoService = () => {
       {/* ========================================================= */}
       <section className="py-14 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            
+
             {/* Left Column (4 cols): Sticky Section Header & Direct Support Box */}
             <div className="lg:col-span-4 lg:sticky lg:top-28">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3">
                 <HelpCircle className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -1247,13 +1235,12 @@ const SeoService = () => {
 
             {/* Right Column (8 cols): Accordion Items */}
             <div className="lg:col-span-8 space-y-3.5">
-              
+
               {/* FAQ 1 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 0 
-                  ? 'bg-white border-[#00AED6]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 0
+                  ? 'bg-white border-[#00AED6]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 0 ? -1 : 0)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1261,9 +1248,8 @@ const SeoService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     What is SEO in 2026?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 0 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 0 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 0 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1275,11 +1261,10 @@ const SeoService = () => {
               </div>
 
               {/* FAQ 2: Comparison Table */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 1 
-                  ? 'bg-white border-[#E6007A]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 1
+                  ? 'bg-white border-[#E6007A]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 1 ? -1 : 1)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1287,9 +1272,8 @@ const SeoService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     What is the difference between SEO, AEO and GEO?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 1 ? 'rotate-180 text-[#E6007A]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 1 ? 'rotate-180 text-[#E6007A]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 1 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1351,11 +1335,10 @@ const SeoService = () => {
               </div>
 
               {/* FAQ 3 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 2 
-                  ? 'bg-white border-[#00AED6]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 2
+                  ? 'bg-white border-[#00AED6]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 2 ? -1 : 2)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1363,9 +1346,8 @@ const SeoService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     Can ChatGPT recommend my business?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 2 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 2 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 2 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1377,11 +1359,10 @@ const SeoService = () => {
               </div>
 
               {/* FAQ 4 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 3 
-                  ? 'bg-white border-[#F5A623]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 3
+                  ? 'bg-white border-[#F5A623]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 3 ? -1 : 3)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1389,9 +1370,8 @@ const SeoService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     How long do SEO services take to show results?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 3 ? 'rotate-180 text-[#F5A623]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 3 ? 'rotate-180 text-[#F5A623]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 3 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1403,11 +1383,10 @@ const SeoService = () => {
               </div>
 
               {/* FAQ 5 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 4 
-                  ? 'bg-white border-[#00C48C]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 4
+                  ? 'bg-white border-[#00C48C]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 4 ? -1 : 4)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1415,9 +1394,8 @@ const SeoService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     Is Local SEO different from normal SEO?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 4 ? 'rotate-180 text-[#00C48C]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 4 ? 'rotate-180 text-[#00C48C]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 4 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1429,11 +1407,10 @@ const SeoService = () => {
               </div>
 
               {/* FAQ 6 */}
-              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                openFaq === 5 
-                  ? 'bg-white border-[#00AED6]/50 shadow-sm' 
+              <div className={`rounded-2xl border transition-all duration-200 overflow-hidden ${openFaq === 5
+                  ? 'bg-white border-[#00AED6]/50 shadow-sm'
                   : 'bg-white border-slate-200/80 hover:border-slate-300'
-              }`}>
+                }`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === 5 ? -1 : 5)}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
@@ -1441,9 +1418,8 @@ const SeoService = () => {
                   <span className="text-sm sm:text-base font-bold text-slate-900">
                     Do I need AEO if I already rank on Google?
                   </span>
-                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                    openFaq === 5 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
-                  }`} />
+                  <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openFaq === 5 ? 'rotate-180 text-[#00AED6]' : 'text-slate-400'
+                    }`} />
                 </button>
                 {openFaq === 5 && (
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-slate-100 mt-1">
@@ -1469,14 +1445,14 @@ const SeoService = () => {
       {/* ========================================================= */}
       <section className="py-10 sm:py-12 bg-white border-t border-slate-200/80 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="relative rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-9 text-left">
-            
+
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
-              
+
               {/* Left Column: Heading & Content */}
               <div className="max-w-2xl">
-                
+
                 {/* Badge */}
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 uppercase tracking-widest mb-2.5 shadow-xs">
                   <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
@@ -1528,7 +1504,7 @@ const SeoService = () => {
                   className="btn-whatsapp"
                 >
                   <svg className="w-4 h-4 text-[#00C48C]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                   </svg>
                   <span>WhatsApp DMDY</span>
                 </a>

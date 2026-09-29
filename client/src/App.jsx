@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import { ContactModalProvider } from './context/ContactModalContext'
 import ContactModal from './components/ContactModal'
 import PageLoader from './components/PageLoader'
@@ -11,6 +12,7 @@ import SeoService from './pages/services/SeoService'
 import SocialMediaService from './pages/services/SocialMediaService'
 import GoogleAdsService from './pages/services/GoogleAdsService'
 import WebDevelopmentService from './pages/services/WebDevelopmentService'
+import ContentMarketingService from './pages/services/ContentMarketingService'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import PricingPage from './pages/PricingPage'
@@ -41,6 +43,8 @@ function App() {
             <Route path="/services/website-design-development" element={<WebDevelopmentService />} />
             <Route path="/services/social-media" element={<SocialMediaService />} />
             <Route path="/services/google-ads" element={<GoogleAdsService />} />
+            <Route path="/services/content-marketing" element={<ContentMarketingService />} />
+            <Route path="/services/content-creation-marketing" element={<ContentMarketingService />} />
             <Route path="/about" element={<About />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/pricing" element={<PricingPage />} />
@@ -56,6 +60,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <Analytics />
       </div>
     </Router>
   </ContactModalProvider>

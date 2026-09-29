@@ -27,6 +27,7 @@ const Footer = () => {
               <li><Link to="/services/web-development" className="hover:text-white transition-colors">Website Design & Development</Link></li>
               <li><Link to="/services/social-media" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
               <li><Link to="/services/google-ads" className="hover:text-white transition-colors">Google Ads & PPC</Link></li>
+              <li><Link to="/services/content-marketing" className="hover:text-white transition-colors">Content Creation & Marketing</Link></li>
             </ul>
           </div>
 

@@ -414,13 +414,13 @@ const Contact = () => {
             </div>
 
             {/* 2. 360° Digital Marketing */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#7C3AED]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-[#7C3AED] mb-2">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-2">
                   Complete Spectrum
                 </div>
 
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 tracking-tight group-hover:text-[#7C3AED] transition-colors">
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 tracking-tight group-hover:text-[#E6007A] transition-colors">
                   360° Digital Marketing
                 </h3>
 
@@ -429,20 +429,20 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#7C3AED] transition-colors">
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#E6007A] transition-colors">
                 <span>Unified Ecosystem</span>
                 <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>
             </div>
 
             {/* 3. Customized Strategies */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-2">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#F5A623] mb-2">
                   Bespoke Planning
                 </div>
 
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 tracking-tight group-hover:text-[#E6007A] transition-colors">
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 tracking-tight group-hover:text-[#F5A623] transition-colors">
                   Customized Strategies
                 </h3>
 
@@ -451,20 +451,20 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#E6007A] transition-colors">
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#F5A623] transition-colors">
                 <span>Tailored Blueprints</span>
                 <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>
             </div>
 
             {/* 4. Scalable Team */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-2">
                   Agile Execution
                 </div>
 
-                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 tracking-tight group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mb-2 tracking-tight group-hover:text-[#00AED6] transition-colors">
                   Scalable Team
                 </h3>
 
@@ -473,7 +473,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-emerald-600 transition-colors">
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-[#00AED6] transition-colors">
                 <span>Flexible Capacity</span>
                 <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>

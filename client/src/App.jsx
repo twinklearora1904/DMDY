@@ -17,6 +17,7 @@ const GoogleAdsService = lazy(() => import('./pages/services/GoogleAdsService'))
 const PaidMarketingService = lazy(() => import('./pages/services/PaidMarketingService'))
 const WebDevelopmentService = lazy(() => import('./pages/services/WebDevelopmentService'))
 const ContentMarketingService = lazy(() => import('./pages/services/ContentMarketingService'))
+const GraphicDesignVideoService = lazy(() => import('./pages/services/GraphicDesignVideoService'))
 const About = lazy(() => import('./pages/About'))
 const Portfolio = lazy(() => import('./pages/Portfolio'))
 const PricingPage = lazy(() => import('./pages/PricingPage'))
@@ -58,6 +59,10 @@ function App() {
                 <Route path="/services/paid-media" element={<PaidMarketingService />} />
                 <Route path="/services/content-marketing" element={<ContentMarketingService />} />
                 <Route path="/services/content-creation-marketing" element={<ContentMarketingService />} />
+                <Route path="/services/graphic-designing-video-editing" element={<GraphicDesignVideoService />} />
+                <Route path="/services/graphic-design-video-editing" element={<GraphicDesignVideoService />} />
+                <Route path="/services/graphic-design" element={<GraphicDesignVideoService />} />
+                <Route path="/services/video-editing" element={<GraphicDesignVideoService />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/pricing" element={<PricingPage />} />

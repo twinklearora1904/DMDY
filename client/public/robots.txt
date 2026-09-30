@@ -1,0 +1,13 @@
+# robots.txt for https://dmdy.in
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /thank-you
+
+# Crawl delay (optional, keeps crawler respectful)
+Crawl-delay: 1
+
+# Sitemap Location
+Sitemap: https://dmdy.in/sitemap.xml

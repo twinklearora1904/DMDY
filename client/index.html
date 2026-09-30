@@ -19,6 +19,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Canonical & Crawl Directives -->
+  <link rel="canonical" href="https://dmdy.in/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dmdy.in/" />
@@ -32,6 +36,53 @@
   <meta property="twitter:title" content="DMDY — Digital Growth, Designed Around You." />
   <meta property="twitter:description" content="A 360° performance digital marketing consultancy driving predictable revenue through SEO, paid ads, and conversion optimization." />
   <meta property="twitter:image" content="/favicon.png" />
+
+  <!-- Structured Data / JSON-LD Schema (Google Rich Snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://dmdy.in/#organization",
+        "name": "DMDY - Digi Me Digi You",
+        "url": "https://dmdy.in",
+        "logo": "https://dmdy.in/favicon.png",
+        "email": "hello@dmdy.in",
+        "telephone": "+91-9876543210",
+        "sameAs": [
+          "https://linkedin.com/company/dmdy",
+          "https://instagram.com/dmdy.in",
+          "https://x.com/dmdydigital"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://dmdy.in/#service",
+        "name": "DMDY Digital Marketing Agency",
+        "url": "https://dmdy.in",
+        "priceRange": "$$",
+        "telephone": "+91-9876543210",
+        "email": "hello@dmdy.in",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Delhi NCR",
+          "addressCountry": "IN"
+        },
+        "description": "360° Digital Growth Partner & Performance Marketing Agency specializing in SEO, Google Ads, Paid Media, Web Development, and Social Media Marketing."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://dmdy.in/#website",
+        "url": "https://dmdy.in",
+        "name": "DMDY Digital",
+        "publisher": {
+          "@id": "https://dmdy.in/#organization"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

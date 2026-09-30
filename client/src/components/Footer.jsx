@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-slate-950 text-slate-400 pt-12 sm:pt-20 pb-8 sm:pb-12 font-sans border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Main Footer Links */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-10 sm:mb-16">
           <div className="lg:col-span-2">
@@ -37,7 +37,7 @@ const Footer = () => {
             <h4 className="text-white font-extrabold text-sm sm:text-base uppercase tracking-wider mb-5">Company</h4>
             <ul className="space-y-3 text-sm sm:text-base font-normal">
               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/portfolio" className="hover:text-white transition-colors">Case Studies</Link></li>
+              <li><Link to="/industries" className="hover:text-white transition-colors">Industries</Link></li>
               <li><Link to="/blog" className="hover:text-white transition-colors">Insights</Link></li>
               <li><button onClick={() => openModal()} className="hover:text-white transition-colors cursor-pointer text-left">Contact Us</button></li>
             </ul>

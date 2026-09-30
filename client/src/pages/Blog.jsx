@@ -59,16 +59,16 @@ const Blog = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans">
-      
+
       {/* ========================================================= */}
       {/* HERO SECTION: 2 COLUMNS (Left: Text, Right: Latest Post) */}
       {/* ========================================================= */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-20 bg-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00AED6_0%,#E6007A_30%,transparent_70%)] opacity-5 pointer-events-none"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
+
             {/* Left Column (7 cols): Hero Text & Positioning */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6">
@@ -122,7 +122,7 @@ const Blog = () => {
                   <div className="absolute -inset-1 bg-gradient-to-r from-[#00AED6]/25 via-[#E6007A]/20 to-[#F5A623]/20 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                   <article className="relative bg-white rounded-3xl border border-slate-200/90 shadow-xl group-hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
-                    
+
                     {/* Top Status Bar */}
                     <div className="px-6 py-3.5 flex items-center justify-between border-b border-slate-100 bg-slate-50/60">
                       <div className="inline-flex items-center gap-2">
@@ -232,7 +232,7 @@ const Blog = () => {
       {/* ========================================================= */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Header Row: Title & Search Bar */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-200/80 mb-10">
             <div>
@@ -240,13 +240,13 @@ const Blog = () => {
                 {isFiltered ? 'Search & Category Results' : 'Growth Archive'}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                {isFiltered 
-                  ? `Showing ${displayedBlogs.length} ${displayedBlogs.length === 1 ? 'Article' : 'Articles'}` 
+                {isFiltered
+                  ? `Showing ${displayedBlogs.length} ${displayedBlogs.length === 1 ? 'Article' : 'Articles'}`
                   : 'More Articles & Playbooks'}
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
-                {isFiltered 
-                  ? 'Showing articles matching your current filter criteria.' 
+                {isFiltered
+                  ? 'Showing articles matching your current filter criteria.'
                   : 'Explore previous strategies, growth frameworks, and case studies.'}
               </p>
             </div>
@@ -283,11 +283,10 @@ const Blog = () => {
                 <button
                   key={tag}
                   onClick={() => setSelectedTag(tag)}
-                  className={`text-xs font-bold px-4 py-2 rounded-xl transition-all whitespace-nowrap ${
-                    selectedTag === tag
+                  className={`text-xs font-bold px-4 py-2 rounded-xl transition-all whitespace-nowrap ${selectedTag === tag
                       ? 'bg-slate-900 text-white shadow-sm'
                       : 'bg-white border border-slate-200/90 text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                  }`}
+                    }`}
                 >
                   {tag}
                 </button>
@@ -340,7 +339,7 @@ const Blog = () => {
                 return (
                   <article
                     key={blog._id}
-                    className="rounded-3xl overflow-hidden border border-slate-200/80 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 bg-white group"
+                    className="rounded-3xl overflow-hidden border border-slate-200/80 flex flex-col justify-between transition-all duration-300 hover:shadow-xl bg-white group"
                   >
                     <div>
                       {/* Card Image */}
@@ -425,7 +424,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-8 sm:p-12 text-white border border-slate-800 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#00AED6]/10 rounded-full blur-3xl pointer-events-none"></div>
-            
+
             <div className="relative z-10 max-w-xl text-left">
               <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#00AED6] bg-white/10 px-3 py-1 rounded-full mb-4">
                 <Sparkles className="w-3.5 h-3.5" /> Performance Acceleration

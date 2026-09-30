@@ -1,19 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import api from '../utils/api';
 import ContactForm from '../components/ContactForm';
-import { 
-  Sparkles, 
-  MessageSquare, 
-  ArrowDown, 
+import {
+  Sparkles,
+  MessageSquare,
+  ArrowDown,
   ArrowRight,
-  Clock, 
-  Target, 
+  Clock,
+  Target,
   ShieldCheck,
   Phone,
   Mail,
-  MapPin
+  MapPin,
+  Lock,
+  AlertCircle,
+  Loader2
 } from 'lucide-react';
 
 const Contact = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = 'Contact Us | Start Your Digital Growth — DMDY';
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -27,14 +34,73 @@ const Contact = () => {
     }
   };
 
+  // Quick Form State for Section 5
+  const [quickForm, setQuickForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: 'Complete 360° Digital Marketing',
+    message: ''
+  });
+  const [quickLoading, setQuickLoading] = useState(false);
+  const [quickError, setQuickError] = useState('');
+
+  const handleQuickChange = (e) => {
+    setQuickForm({ ...quickForm, [e.target.name]: e.target.value });
+  };
+
+  const handleQuickSubmit = async (e) => {
+    e.preventDefault();
+    setQuickLoading(true);
+    setQuickError('');
+
+    try {
+      await api.post('/api/leads', {
+        name: quickForm.name.trim(),
+        phone: quickForm.phone.trim(),
+        email: quickForm.email.trim(),
+        service: quickForm.service,
+        message: quickForm.message.trim(),
+      });
+
+      const submittedName = quickForm.name;
+      const submittedEmail = quickForm.email;
+      const submittedService = quickForm.service;
+
+      setQuickForm({
+        name: '',
+        phone: '',
+        email: '',
+        service: 'Complete 360° Digital Marketing',
+        message: ''
+      });
+
+      navigate('/thank-you', {
+        state: {
+          name: submittedName,
+          email: submittedEmail,
+          service: submittedService,
+        },
+      });
+    } catch (error) {
+      setQuickError(
+        error.response?.data?.errors?.[0]?.msg ||
+        error.response?.data?.message ||
+        'Something went wrong. Please check your details and try again.'
+      );
+    } finally {
+      setQuickLoading(false);
+    }
+  };
+
   return (
     <div className="bg-slate-50 min-h-screen font-sans">
-      
+
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION (2-Column Grid matching About & Services) */}
       {/* ========================================================= */}
       <section className="relative pt-28 sm:pt-36 pb-14 sm:pb-20 bg-white border-b border-slate-200/80 overflow-hidden">
-        
+
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00AED6_0%,#E6007A_30%,transparent_70%)] opacity-5 pointer-events-none"></div>
         <div className="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
@@ -43,10 +109,10 @@ const Contact = () => {
         {/* Navbar Aligned Container: max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
+
             {/* Left Column (7 cols): Main Narrative & CTAs */}
             <div className="lg:col-span-7">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-6 shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#00AED6] animate-pulse"></span>
@@ -120,7 +186,7 @@ const Contact = () => {
 
             {/* Right Column (5 cols): Growth Consultation Showcase Card */}
             <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-              
+
               {/* Floating Top Badge */}
               <div className="absolute -top-3.5 -left-3.5 z-20 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl shadow-md border border-slate-200/80 hidden sm:flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -224,14 +290,14 @@ const Contact = () => {
       {/* SECTION 3: PREFER A DIRECT CONVERSATION?                  */}
       {/* ========================================================= */}
       <section className="py-14 sm:py-20 bg-white border-t border-slate-200/80 relative overflow-hidden">
-        
+
         {/* Subtle Ambient Background Gradients */}
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
         <div className="absolute top-1/2 -right-40 w-96 h-96 bg-pink-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
 
         {/* Navbar Aligned Container */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="max-w-3xl mb-10 sm:mb-12">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3 shadow-xs">
@@ -253,9 +319,9 @@ const Contact = () => {
 
           {/* 3 Direct Conversation Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            
+
             {/* 1. Call Us */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
 
                 <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-2">
@@ -284,8 +350,8 @@ const Contact = () => {
             </div>
 
             {/* 2. WhatsApp Us */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-emerald-500/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-              <div> 
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-emerald-500/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+              <div>
 
                 <div className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">
                   Instant Messaging
@@ -315,7 +381,7 @@ const Contact = () => {
             </div>
 
             {/* 3. Email Us */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
 
                 <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-2">
@@ -352,14 +418,14 @@ const Contact = () => {
       {/* SECTION 4: WHY START WITH DMDY?                          */}
       {/* ========================================================= */}
       <section className="py-14 sm:py-20 bg-slate-50 border-t border-slate-200/80 relative overflow-hidden">
-        
+
         {/* Subtle Ambient Background Gradients */}
         <div className="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-pink-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
 
         {/* Navbar Aligned Container */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          
+
           {/* Section Header */}
           <div className="max-w-3xl mb-10 sm:mb-12">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3 shadow-xs">
@@ -390,9 +456,9 @@ const Contact = () => {
 
           {/* 4 Value Pillar Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            
+
             {/* 1. 10+ Years of Experience */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-2">
                   Proven Expertise
@@ -414,7 +480,7 @@ const Contact = () => {
             </div>
 
             {/* 2. 360° Digital Marketing */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#E6007A]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-[#E6007A] mb-2">
                   Complete Spectrum
@@ -436,7 +502,7 @@ const Contact = () => {
             </div>
 
             {/* 3. Customized Strategies */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#F5A623]/50 shadow-sm hover:shadow-xl  transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-[#F5A623] mb-2">
                   Bespoke Planning
@@ -458,7 +524,7 @@ const Contact = () => {
             </div>
 
             {/* 4. Scalable Team */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 hover:border-[#00AED6]/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-2">
                   Agile Execution
@@ -488,69 +554,200 @@ const Contact = () => {
       {/* SECTION 5: LET'S TALK GROWTH (FINAL CTA BANNER)          */}
       {/* ========================================================= */}
       <section className="py-14 sm:py-20 bg-white border-t border-slate-200/80 relative overflow-hidden">
-        
+
         {/* Subtle Ambient Background Gradients */}
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
         <div className="absolute top-1/2 -right-40 w-96 h-96 bg-pink-100/40 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
 
         {/* Navbar Aligned Container */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          
-          <div className="w-full max-w-4xl mx-auto p-8 sm:p-12 md:p-14 rounded-3xl bg-gradient-to-b from-white to-slate-50/90 border border-slate-200/90 shadow-sm relative overflow-hidden">
-            
-            {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-4 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
-              <span>Start Your Transformation</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center text-left">
+
+            {/* Left Column (7 cols): Narrative & Transformation */}
+            <div className="lg:col-span-7">
+
+              {/* Top Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-700 uppercase tracking-widest mb-5 shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
+                <span>Start Your Transformation</span>
+              </div>
+
+              {/* Main Headline */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+                Let’s Talk{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                  Growth.
+                </span>
+              </h2>
+
+              {/* Narrative Questions & Punchline */}
+              <p className="text-base sm:text-lg font-medium text-slate-700 mb-3 leading-relaxed max-w-xl">
+                Have an idea? A challenge? Or simply wondering what your business could do better online?
+              </p>
+
+              <p className="text-xl sm:text-2xl font-extrabold text-[#00AED6] mb-6">
+                Let’s start there.
+              </p>
+
+              {/* Brand Signature Card / Pill */}
+              <div className="inline-flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 px-5 py-3 rounded-2xl bg-slate-950 text-white mb-6 shadow-md border border-slate-800">
+                <span className="font-extrabold text-sm sm:text-base tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                  DMDY — Digi Me Digi You
+                </span>
+                <span className="hidden sm:inline text-slate-500">•</span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-300">
+                  360° Digital Marketing. Designed Around You.
+                </span>
+              </div>
+
+              {/* Direct WhatsApp Option */}
+              <div className="pt-1">
+                <a
+                  href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20talk%20to%20your%20team%20about%20our%20digital%20marketing%20growth."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-whatsapp inline-flex items-center gap-2.5 text-xs sm:text-sm font-bold shadow-xs hover:shadow-md transition-all"
+                >
+                  <MessageSquare className="w-4 h-4 text-emerald-600" />
+                  <span>WhatsApp Us Directly</span>
+                </a>
+              </div>
+
             </div>
 
-            {/* Main Headline */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-              Let’s Talk{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
-                Growth.
-              </span>
-            </h2>
+            {/* Right Column (5 cols): Polished Contact Form Card */}
+            <div className="lg:col-span-5">
+              <div className="bg-slate-50/90 rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xl shadow-slate-200/50 relative overflow-hidden">
+                {/* Top Subtle Gradient Accent Line */}
+                <div className="absolute"></div>
 
-            {/* Narrative Questions & Punchline */}
-            <p className="text-base sm:text-lg font-medium text-slate-700 max-w-2xl mx-auto mb-3 leading-relaxed">
-              Have an idea? A challenge? Or simply wondering what your business could do better online?
-            </p>
+                <div className="mb-5">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                    Send Us a Quick Message
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1 font-medium">
+                    We typically respond in less than 2 hours.
+                  </p>
+                </div>
 
-            <p className="text-lg sm:text-xl font-extrabold text-[#00AED6] mb-6">
-              Let’s start there.
-            </p>
+                <form onSubmit={handleQuickSubmit} className="space-y-3.5">
+                  {/* Name */}
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Your Name <span className="text-rose-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={quickForm.name}
+                      onChange={handleQuickChange}
+                      placeholder="e.g. Twinkle Arora"
+                      className="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00AED6] transition-all text-slate-800 placeholder:text-slate-400"
+                    />
+                  </div>
 
-            {/* Brand Signature Card / Pill */}
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-6 py-3 rounded-full bg-slate-950 text-white mb-8 shadow-md border border-slate-800">
-              <span className="font-extrabold text-sm sm:text-base tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
-                DMDY — Digi Me Digi You
-              </span>
-              <span className="hidden sm:inline text-slate-500">•</span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-300">
-                360° Digital Marketing. Designed Around You.
-              </span>
-            </div>
+                  {/* Phone & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Phone Number <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        value={quickForm.phone}
+                        onChange={handleQuickChange}
+                        placeholder="+91 98765..."
+                        className="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00AED6] transition-all text-slate-800 placeholder:text-slate-400"
+                      />
+                    </div>
 
-            {/* Action CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
-              <button
-                onClick={scrollToContact}
-                className="w-full sm:w-auto btn-primary"
-              >
-                <span>Talk to Our Team</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Email Address <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={quickForm.email}
+                        onChange={handleQuickChange}
+                        placeholder="you@company.com"
+                        className="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00AED6] transition-all text-slate-800 placeholder:text-slate-400"
+                      />
+                    </div>
+                  </div>
 
-              <a
-                href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20talk%20to%20your%20team%20about%20our%20digital%20marketing%20growth."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto btn-whatsapp"
-              >
-                <MessageSquare className="w-4 h-4 text-emerald-600" />
-                <span>WhatsApp Us Directly</span>
-              </a>
+                  {/* Service Selection */}
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Service Needed <span className="text-rose-500">*</span>
+                    </label>
+                    <select
+                      name="service"
+                      value={quickForm.service}
+                      onChange={handleQuickChange}
+                      className="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00AED6] transition-all text-slate-800 cursor-pointer"
+                    >
+                      <option value="Complete 360° Digital Marketing">Complete 360° Digital Marketing</option>
+                      <option value="Search Engine Optimization (SEO)">Search Engine Optimization (SEO)</option>
+                      <option value="Website Design & Development">Website Design & Development</option>
+                      <option value="Social Media Marketing">Social Media Marketing</option>
+                      <option value="Google Ads & PPC Management">Google Ads & PPC Management</option>
+                      <option value="Paid Marketing (360° Paid Media)">Paid Marketing (360° Paid Media)</option>
+                      <option value="Content Creation & Marketing">Content Creation & Marketing</option>
+                      <option value="Graphic Designing & Video Editing">Graphic Designing & Video Editing</option>
+                      <option value="E-commerce & Lead Generation">E-commerce & Lead Generation</option>
+                      <option value="General Growth Consultation">General Growth Consultation / Other</option>
+                    </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Your Requirement <span className="text-slate-400 font-normal">(Optional)</span>
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={2}
+                      value={quickForm.message}
+                      onChange={handleQuickChange}
+                      placeholder="Brief note on your business or goal..."
+                      className="w-full px-3.5 py-2 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00AED6] transition-all text-slate-800 placeholder:text-slate-400 resize-none"
+                    ></textarea>
+                  </div>
+
+                  {/* Error Alert */}
+                  {quickError && (
+                    <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-600 font-medium flex items-center gap-1.5">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{quickError}</span>
+                    </div>
+                  )}
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={quickLoading}
+                    className="w-full btn-primary justify-center py-3 text-sm font-bold shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+                  >
+                    {quickLoading ? (
+                      <span className="flex items-center gap-2">
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Sending...
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-2">
+                        <span>Get in Touch</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    )}
+                  </button>
+                </form>
+              </div>
             </div>
 
           </div>

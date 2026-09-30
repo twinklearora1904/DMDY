@@ -15,16 +15,16 @@ import {
 } from 'lucide-react';
 
 const serviceOptions = [
-  'Digital Marketing',
-  'SEO',
-  'Social Media Marketing',
-  'Performance Marketing',
-  'Website Development',
-  'Branding',
-  'Lead Generation',
-  'E-commerce Marketing',
   'Complete 360° Digital Marketing',
-  'Other'
+  'Search Engine Optimization (SEO)',
+  'Website Design & Development',
+  'Social Media Marketing',
+  'Google Ads & PPC Management',
+  'Paid Marketing (360° Paid Media)',
+  'Content Creation & Marketing',
+  'Graphic Designing & Video Editing',
+  'E-commerce & Lead Generation',
+  'Other / Custom Consultation'
 ];
 
 const ContactForm = () => {
@@ -34,7 +34,7 @@ const ContactForm = () => {
     company: '',
     phone: '',
     email: '',
-    service: 'Digital Marketing',
+    service: 'Complete 360° Digital Marketing',
     message: '',
     website: ''
   });

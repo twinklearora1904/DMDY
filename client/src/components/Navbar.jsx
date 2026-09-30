@@ -127,8 +127,8 @@ const Navbar = () => {
             <Link
               to="/"
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${location.pathname === '/'
-                  ? 'text-brandSecondary font-semibold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                ? 'text-brandSecondary font-semibold'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                 }`}
             >
               Home
@@ -144,8 +144,8 @@ const Navbar = () => {
                 <Link
                   to="/services"
                   className={`text-[14.5px] pl-3.5 pr-1.5 py-1.5 rounded-l-lg transition-all font-medium inline-flex items-center gap-1 ${isServicesActive
-                      ? 'text-brandSecondary font-semibold'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                    ? 'text-brandSecondary font-semibold'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                     }`}
                 >
                   Services
@@ -155,8 +155,8 @@ const Navbar = () => {
                   onClick={() => setServicesDropdown(!servicesDropdown)}
                   aria-label="Toggle Services menu"
                   className={`py-1.5 pr-2 pl-0.5 rounded-r-lg transition-all ${isServicesActive
-                      ? 'text-brandSecondary'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                    ? 'text-brandSecondary'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                     }`}
                 >
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesDropdown ? 'rotate-180 text-brandSecondary' : ''}`} />
@@ -218,28 +218,28 @@ const Navbar = () => {
             <Link
               to="/about"
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${location.pathname === '/about'
-                  ? 'text-brandSecondary font-semibold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                ? 'text-brandSecondary font-semibold'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                 }`}
             >
               About
             </Link>
 
             <Link
-              to="/portfolio"
-              className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${location.pathname === '/portfolio'
-                  ? 'text-brandSecondary font-semibold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+              to="/industries"
+              className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${location.pathname === '/industries'
+                ? 'text-brandSecondary font-semibold'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                 }`}
             >
-              Portfolio
+              Industries
             </Link>
 
             <Link
               to="/pricing"
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${location.pathname === '/pricing'
-                  ? 'text-brandSecondary font-semibold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                ? 'text-brandSecondary font-semibold'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                 }`}
             >
               Pricing
@@ -248,8 +248,8 @@ const Navbar = () => {
             <Link
               to="/blog"
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${location.pathname === '/blog'
-                  ? 'text-brandSecondary font-semibold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                ? 'text-brandSecondary font-semibold'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                 }`}
             >
               Blog
@@ -258,8 +258,8 @@ const Navbar = () => {
             <Link
               to="/contact"
               className={`text-[14.5px] px-3.5 py-1.5 rounded-lg transition-all font-medium ${location.pathname === '/contact'
-                  ? 'text-brandSecondary font-semibold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                ? 'text-brandSecondary font-semibold'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                 }`}
             >
               Contact Us
@@ -294,8 +294,8 @@ const Navbar = () => {
             <Link
               to="/"
               className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${location.pathname === '/'
-                  ? 'bg-pink-50 text-brandSecondary font-semibold'
-                  : 'text-slate-700 hover:bg-slate-50'
+                ? 'bg-pink-50 text-brandSecondary font-semibold'
+                : 'text-slate-700 hover:bg-slate-50'
                 }`}
             >
               Home
@@ -340,28 +340,28 @@ const Navbar = () => {
             <Link
               to="/about"
               className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${location.pathname === '/about'
-                  ? 'bg-pink-50 text-brandSecondary font-semibold'
-                  : 'text-slate-700 hover:bg-slate-50'
+                ? 'bg-pink-50 text-brandSecondary font-semibold'
+                : 'text-slate-700 hover:bg-slate-50'
                 }`}
             >
               About
             </Link>
 
             <Link
-              to="/portfolio"
-              className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${location.pathname === '/portfolio'
-                  ? 'bg-pink-50 text-brandSecondary font-semibold'
-                  : 'text-slate-700 hover:bg-slate-50'
+              to="/industries"
+              className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${location.pathname === '/industries'
+                ? 'bg-pink-50 text-brandSecondary font-semibold'
+                : 'text-slate-700 hover:bg-slate-50'
                 }`}
             >
-              Portfolio
+              Industries
             </Link>
 
             <Link
               to="/pricing"
               className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${location.pathname === '/pricing'
-                  ? 'bg-pink-50 text-brandSecondary font-semibold'
-                  : 'text-slate-700 hover:bg-slate-50'
+                ? 'bg-pink-50 text-brandSecondary font-semibold'
+                : 'text-slate-700 hover:bg-slate-50'
                 }`}
             >
               Pricing
@@ -370,8 +370,8 @@ const Navbar = () => {
             <Link
               to="/blog"
               className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${location.pathname === '/blog'
-                  ? 'bg-pink-50 text-brandSecondary font-semibold'
-                  : 'text-slate-700 hover:bg-slate-50'
+                ? 'bg-pink-50 text-brandSecondary font-semibold'
+                : 'text-slate-700 hover:bg-slate-50'
                 }`}
             >
               Blog
@@ -381,8 +381,8 @@ const Navbar = () => {
               to="/contact"
               onClick={() => setIsOpen(false)}
               className={`px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${location.pathname === '/contact'
-                  ? 'bg-pink-50 text-brandSecondary font-semibold'
-                  : 'text-slate-700 hover:bg-slate-50'
+                ? 'bg-pink-50 text-brandSecondary font-semibold'
+                : 'text-slate-700 hover:bg-slate-50'
                 }`}
             >
               Contact Us

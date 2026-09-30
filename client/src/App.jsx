@@ -19,7 +19,7 @@ const WebDevelopmentService = lazy(() => import('./pages/services/WebDevelopment
 const ContentMarketingService = lazy(() => import('./pages/services/ContentMarketingService'))
 const GraphicDesignVideoService = lazy(() => import('./pages/services/GraphicDesignVideoService'))
 const About = lazy(() => import('./pages/About'))
-const Portfolio = lazy(() => import('./pages/Portfolio'))
+const Industries = lazy(() => import('./pages/Industries'))
 const PricingPage = lazy(() => import('./pages/PricingPage'))
 const Contact = lazy(() => import('./pages/Contact'))
 const ThankYou = lazy(() => import('./pages/ThankYou'))
@@ -64,7 +64,7 @@ function App() {
                 <Route path="/services/graphic-design" element={<GraphicDesignVideoService />} />
                 <Route path="/services/video-editing" element={<GraphicDesignVideoService />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/industries" element={<Industries />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/thank-you" element={<ThankYou />} />
@@ -78,12 +78,12 @@ function App() {
               </Routes>
             </Suspense>
           </main>
-        <Footer />
-        <Analytics />
-        <SpeedInsights />
-      </div>
-    </Router>
-  </ContactModalProvider>
+          <Footer />
+          <Analytics />
+          <SpeedInsights />
+        </div>
+      </Router>
+    </ContactModalProvider>
   )
 }
 

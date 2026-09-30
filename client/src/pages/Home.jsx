@@ -688,7 +688,60 @@ const Home = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-            {/* Left Column (7 cols): The DMDY Approach */}
+
+            {/* Left Column (5 cols): That's our difference Card */}
+            <div className="lg:col-span-5">
+              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/40 p-6 sm:p-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-100/50 to-pink-100/40 rounded-bl-full pointer-events-none"></div>
+
+                <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+                  Our Philosophy
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-6">
+                  That's our difference.
+                </h3>
+
+                {/* 3 Not Items */}
+                <div className="space-y-3 mb-6">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                      <X className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-700">Not cookie-cutter packages.</span>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                      <X className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-700">Not unnecessary services.</span>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                      <X className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-700">Not marketing for the sake of marketing.</span>
+                  </div>
+                </div>
+
+                {/* Positive Resolution Box */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 text-white shadow-md relative overflow-hidden">
+                  <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-[#00AED6]/20 rounded-full blur-xl pointer-events-none"></div>
+                  <div className="flex items-start gap-3 relative z-10">
+                    <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4" />
+                    </div>
+                    <p className="text-xs sm:text-sm md:text-base font-bold text-white leading-snug">
+                      Just the right digital efforts, built around your business.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Right Column (7 cols): The DMDY Approach */}
             <div className="lg:col-span-7 space-y-6">
 
               {/* Eyebrow Badge */}
@@ -767,57 +820,6 @@ const Home = () => {
 
             </div>
 
-            {/* Right Column (5 cols): That's our difference Card */}
-            <div className="lg:col-span-5">
-              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/40 p-6 sm:p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-100/50 to-pink-100/40 rounded-bl-full pointer-events-none"></div>
-
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                  Our Philosophy
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-6">
-                  That's our difference.
-                </h3>
-
-                {/* 3 Not Items */}
-                <div className="space-y-3 mb-6">
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
-                      <X className="w-3.5 h-3.5" />
-                    </div>
-                    <span className="text-xs sm:text-sm font-semibold text-slate-700">Not cookie-cutter packages.</span>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
-                      <X className="w-3.5 h-3.5" />
-                    </div>
-                    <span className="text-xs sm:text-sm font-semibold text-slate-700">Not unnecessary services.</span>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
-                      <X className="w-3.5 h-3.5" />
-                    </div>
-                    <span className="text-xs sm:text-sm font-semibold text-slate-700">Not marketing for the sake of marketing.</span>
-                  </div>
-                </div>
-
-                {/* Positive Resolution Box */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 text-white shadow-md relative overflow-hidden">
-                  <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-[#00AED6]/20 rounded-full blur-xl pointer-events-none"></div>
-                  <div className="flex items-start gap-3 relative z-10">
-                    <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    <p className="text-xs sm:text-sm md:text-base font-bold text-white leading-snug">
-                      Just the right digital efforts, built around your business.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
 
           </div>
 
@@ -1121,52 +1123,8 @@ const Home = () => {
           {/* Interactive Split Showcase (Left: 6 Capability Tabs | Right: Dynamic Live Preview) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-stretch text-left">
 
-            {/* Left Column: 6 Interactive Capability Tabs (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-1.5 sm:space-y-2">
-              {ecosystemItems.map((item, idx) => {
-                const isActive = activeEcosystemTab === idx;
-                return (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => setActiveEcosystemTab(idx)}
-                    onMouseEnter={() => setActiveEcosystemTab(idx)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-xl transition-all duration-200 flex items-center justify-between group cursor-pointer border ${isActive
-                      ? 'bg-white shadow-md shadow-slate-200/50 border-slate-200/90 border-l-4 ' + item.accentBorder
-                      : 'bg-white/50 border-slate-200/60 hover:bg-white hover:border-slate-300'
-                      }`}
-                  >
-                    <div className="flex items-center gap-2.5 sm:gap-3">
-                      <span className={`text-[11px] font-mono font-extrabold px-2 py-0.5 rounded-md transition-colors ${isActive
-                        ? item.bgLight + ' ' + item.textColor + ' border ' + item.borderLight
-                        : 'bg-slate-100 text-slate-500'
-                        }`}>
-                        {item.step}
-                      </span>
-                      <div>
-                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 leading-tight">
-                          {item.hook}
-                        </div>
-                        <div className={`text-xs sm:text-sm font-extrabold tracking-tight transition-colors ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'
-                          }`}>
-                          {item.title}
-                        </div>
-                      </div>
-                    </div>
 
-                    <div className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all ${isActive
-                      ? item.bgLight + ' ' + item.textColor
-                      : 'text-slate-300 group-hover:text-slate-600'
-                      }`}>
-                      <ArrowRight className={`w-3.5 h-3.5 transition-transform duration-200 ${isActive ? 'translate-x-0.5' : ''
-                        }`} />
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Right Column: Dynamic Live Preview Display Screen (7 cols) */}
+            {/* Left Column: Dynamic Live Preview Display Screen (7 cols) */}
             <div className="lg:col-span-7 flex flex-col">
               {(() => {
                 const active = ecosystemItems[activeEcosystemTab];
@@ -1311,6 +1269,51 @@ const Home = () => {
                 );
               })()}
             </div>
+            {/* Right Column: 6 Interactive Capability Tabs (5 cols) */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-1.5 sm:space-y-2">
+              {ecosystemItems.map((item, idx) => {
+                const isActive = activeEcosystemTab === idx;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setActiveEcosystemTab(idx)}
+                    onMouseEnter={() => setActiveEcosystemTab(idx)}
+                    className={`w-full text-left px-3.5 py-2.5 rounded-xl transition-all duration-200 flex items-center justify-between group cursor-pointer border ${isActive
+                      ? 'bg-white shadow-md shadow-slate-200/50 border-slate-200/90 border-l-4 ' + item.accentBorder
+                      : 'bg-white/50 border-slate-200/60 hover:bg-white hover:border-slate-300'
+                      }`}
+                  >
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                      <span className={`text-[11px] font-mono font-extrabold px-2 py-0.5 rounded-md transition-colors ${isActive
+                        ? item.bgLight + ' ' + item.textColor + ' border ' + item.borderLight
+                        : 'bg-slate-100 text-slate-500'
+                        }`}>
+                        {item.step}
+                      </span>
+                      <div>
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 leading-tight">
+                          {item.hook}
+                        </div>
+                        <div className={`text-xs sm:text-sm font-extrabold tracking-tight transition-colors ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'
+                          }`}>
+                          {item.title}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all ${isActive
+                      ? item.bgLight + ' ' + item.textColor
+                      : 'text-slate-300 group-hover:text-slate-600'
+                      }`}>
+                      <ArrowRight className={`w-3.5 h-3.5 transition-transform duration-200 ${isActive ? 'translate-x-0.5' : ''
+                        }`} />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
 
           </div>
 
@@ -2007,15 +2010,15 @@ const Home = () => {
                     onClick={() => setSelectedGoalIdx(idx)}
                     onMouseEnter={() => setSelectedGoalIdx(idx)}
                     className={`w-full text-left px-3.5 py-2.5 rounded-xl transition-all duration-200 flex items-center justify-between group cursor-pointer border ${isActive
-                        ? 'bg-white shadow-md shadow-slate-200/60 border-slate-300 border-l-4 border-l-[#00AED6] text-slate-900'
-                        : 'bg-white/80 border-slate-200/80 text-slate-700 hover:bg-white hover:text-slate-900 hover:border-slate-300 shadow-2xs'
+                      ? 'bg-white shadow-md shadow-slate-200/60 border-slate-300 border-l-4 border-l-[#00AED6] text-slate-900'
+                      : 'bg-white/80 border-slate-200/80 text-slate-700 hover:bg-white hover:text-slate-900 hover:border-slate-300 shadow-2xs'
                       }`}
                   >
                     <div className="flex items-center gap-2.5 sm:gap-3">
                       <span
                         className={`w-2 h-2 rounded-full shrink-0 transition-transform ${isActive
-                            ? 'scale-125 bg-gradient-to-r from-[#00AED6] to-[#E6007A]'
-                            : 'bg-slate-300 group-hover:bg-slate-400'
+                          ? 'scale-125 bg-gradient-to-r from-[#00AED6] to-[#E6007A]'
+                          : 'bg-slate-300 group-hover:bg-slate-400'
                           }`}
                       ></span>
                       <span className={`text-xs sm:text-sm tracking-tight ${isActive ? 'font-extrabold text-slate-900' : 'font-semibold text-slate-700'
@@ -2026,8 +2029,8 @@ const Home = () => {
 
                     <ArrowRight
                       className={`w-3.5 h-3.5 transition-transform duration-200 ${isActive
-                          ? 'translate-x-0.5 opacity-100 text-[#00AED6]'
-                          : 'opacity-0 -translate-x-1 group-hover:opacity-70 group-hover:translate-x-0 text-slate-400'
+                        ? 'translate-x-0.5 opacity-100 text-[#00AED6]'
+                        : 'opacity-0 -translate-x-1 group-hover:opacity-70 group-hover:translate-x-0 text-slate-400'
                         }`}
                     />
                   </button>

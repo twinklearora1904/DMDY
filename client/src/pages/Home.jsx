@@ -14,8 +14,6 @@ import {
   X,
   Clock,
   Lock,
-  Phone,
-  Mail,
   Search,
   Share2,
   TrendingUp,
@@ -23,9 +21,7 @@ import {
   PenTool,
   Palette,
   Target,
-  Users,
   Building2,
-  Cpu,
   ShoppingBag,
   HeartPulse,
   GraduationCap,
@@ -221,86 +217,6 @@ const processSteps = [
     bg: 'bg-emerald-50/80',
     border: 'border-emerald-200/80',
     badge: 'bg-emerald-50 text-emerald-600 border-emerald-200/80'
-  }
-];
-
-const whyDmdyPillars = [
-  {
-    step: '01',
-    title: 'Requirement-First Marketing',
-    icon: Target,
-    accentBorder: 'border-t-[#00AED6]',
-    iconColor: 'text-[#00AED6]',
-    iconBg: 'bg-cyan-50/80',
-    iconBorder: 'border-cyan-200/80',
-    badgeStyle: 'bg-cyan-50 text-[#00AED6] border-cyan-200/80',
-    cornerGlow: 'bg-cyan-100/40',
-    type: 'requirement'
-  },
-  {
-    step: '02',
-    title: '360° Capability',
-    desc: 'Strategy, SEO, social, paid marketing, websites, content, design and video — connected through one digital vision.',
-    icon: Layers,
-    accentBorder: 'border-t-[#E6007A]',
-    iconColor: 'text-[#E6007A]',
-    iconBg: 'bg-pink-50/80',
-    iconBorder: 'border-pink-200/80',
-    badgeStyle: 'bg-pink-50 text-[#E6007A] border-pink-200/80',
-    cornerGlow: 'bg-pink-100/40',
-    type: 'standard'
-  },
-  {
-    step: '03',
-    title: 'Pocket-Friendly by Philosophy',
-    desc: 'DMDY was created with a simple premise: High-quality digital marketing shouldn\'t automatically mean unnecessarily high costs.',
-    icon: ShieldCheck,
-    accentBorder: 'border-t-[#F5A623]',
-    iconColor: 'text-[#F5A623]',
-    iconBg: 'bg-amber-50/80',
-    iconBorder: 'border-amber-200/80',
-    badgeStyle: 'bg-amber-50 text-[#F5A623] border-amber-200/80',
-    cornerGlow: 'bg-amber-100/40',
-    type: 'standard'
-  },
-  {
-    step: '04',
-    title: 'Flexible Team Strength',
-    desc: 'Our specialist team can scale according to the requirements and complexity of the project.',
-    highlight: '10+ freelancing team strength available according to project demand.',
-    icon: Users,
-    accentBorder: 'border-t-[#00AED6]',
-    iconColor: 'text-[#00AED6]',
-    iconBg: 'bg-cyan-50/80',
-    iconBorder: 'border-cyan-200/80',
-    badgeStyle: 'bg-cyan-50 text-[#00AED6] border-cyan-200/80',
-    cornerGlow: 'bg-cyan-100/40',
-    type: 'team'
-  },
-  {
-    step: '05',
-    title: 'Industry-Led Thinking',
-    icon: Building2,
-    accentBorder: 'border-t-[#E6007A]',
-    iconColor: 'text-[#E6007A]',
-    iconBg: 'bg-pink-50/80',
-    iconBorder: 'border-pink-200/80',
-    badgeStyle: 'bg-pink-50 text-[#E6007A] border-pink-200/80',
-    cornerGlow: 'bg-pink-100/40',
-    type: 'industry'
-  },
-  {
-    step: '06',
-    title: 'Human + Digital',
-    desc: 'Technology can amplify marketing. But understanding the business behind the technology is what makes the strategy meaningful.',
-    icon: Cpu,
-    accentBorder: 'border-t-[#F5A623]',
-    iconColor: 'text-[#F5A623]',
-    iconBg: 'bg-amber-50/80',
-    iconBorder: 'border-amber-200/80',
-    badgeStyle: 'bg-amber-50 text-[#F5A623] border-amber-200/80',
-    cornerGlow: 'bg-amber-100/40',
-    type: 'standard'
   }
 ];
 

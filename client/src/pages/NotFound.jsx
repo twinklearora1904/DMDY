@@ -61,7 +61,7 @@ const NotFound = () => {
           <div className="pt-6 border-t border-slate-100 flex flex-wrap justify-center gap-4 text-xs font-semibold text-slate-500">
             <Link to="/services" className="hover:text-[#00AED6] transition-colors">Services</Link>
             <span>&bull;</span>
-            <Link to="/portfolio" className="hover:text-[#00AED6] transition-colors">Portfolio</Link>
+            <Link to="/industries" className="hover:text-[#00AED6] transition-colors">Industries</Link>
             <span>&bull;</span>
             <Link to="/pricing" className="hover:text-[#00AED6] transition-colors">Pricing</Link>
             <span>&bull;</span>

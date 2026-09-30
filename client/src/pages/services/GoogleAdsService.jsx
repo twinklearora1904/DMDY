@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useContactModal } from '../../context/ContactModalContext';
 import {
   Target,
@@ -9,15 +8,12 @@ import {
   BarChart3,
   ArrowRight,
   CheckCircle2,
-  DollarSign,
   Search,
   MousePointerClick,
   ShieldCheck,
   Layers,
-  Award,
   Eye,
   ChevronRight,
-  Filter,
   RefreshCw,
   Compass,
   ShoppingBag,

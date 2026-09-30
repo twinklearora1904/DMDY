@@ -4,12 +4,10 @@ import {
   CheckCircle2, 
   ArrowRight, 
   Home as HomeIcon, 
-  Sparkles, 
   Clock, 
   TrendingUp, 
   ShieldCheck, 
-  Mail, 
-  Briefcase 
+  Mail 
 } from 'lucide-react';
 
 const ThankYou = () => {

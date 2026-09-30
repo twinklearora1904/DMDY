@@ -46,7 +46,7 @@ const PageLoader = () => {
       clearTimeout(step2);
       clearTimeout(step3);
     };
-  }, [location.pathname, location.search]);
+  }, [location.pathname, location.search, initialLoading]);
 
   return (
     <>

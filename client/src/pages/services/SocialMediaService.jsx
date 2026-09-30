@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useContactModal } from '../../context/ContactModalContext';
 import {
   Share2,
@@ -26,8 +25,7 @@ import {
   Rocket,
   HelpCircle,
   ChevronDown,
-  ArrowRight,
-  CheckCircle2
+  ArrowRight
 } from 'lucide-react';
 import realEstateImg from '../../assets/social-media/industry-real-estate.jpg';
 import ecommerceImg from '../../assets/social-media/industry-ecommerce.jpg';

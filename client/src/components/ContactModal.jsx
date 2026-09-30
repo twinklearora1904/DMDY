@@ -6,7 +6,6 @@ import {
   X, 
   Sparkles, 
   Phone, 
-  Mail, 
   MessageSquare, 
   Lock, 
   ArrowRight,

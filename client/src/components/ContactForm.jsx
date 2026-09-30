@@ -7,11 +7,8 @@ import {
   Phone, 
   Sparkles, 
   Clock, 
-  ShieldCheck, 
   Lock, 
-  ArrowRight, 
-  CheckCircle2, 
-  HelpCircle 
+  ArrowRight 
 } from 'lucide-react';
 
 const serviceOptions = [

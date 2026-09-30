@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useContactModal } from '../../context/ContactModalContext';
 import contentMarketingGoalsImg from '../../assets/content_marketing_goals.jpg';
 import {
   Sparkles,
   PenTool,
-  FileText,
   TrendingUp,
   CheckCircle2,
   Zap,
@@ -13,12 +11,9 @@ import {
   Share2,
   Target,
   Layers,
-  Eye,
   ArrowRight,
-  BarChart3,
   BookOpen,
   Video,
-  MessageSquare,
   Award,
   Send,
   Compass,

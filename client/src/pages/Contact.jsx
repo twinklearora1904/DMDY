@@ -13,7 +13,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Lock,
   AlertCircle,
   Loader2
 } from 'lucide-react';

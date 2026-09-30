@@ -22,7 +22,6 @@ import {
   HeartPulse,
   Utensils,
   Terminal,
-  Lock,
   ArrowRight,
   Target,
   Users,

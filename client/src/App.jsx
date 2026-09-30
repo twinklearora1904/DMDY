@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { ContactModalProvider } from './context/ContactModalContext'
 import ContactModal from './components/ContactModal'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 import PageLoader from './components/PageLoader'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -39,6 +40,7 @@ function App() {
         <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
           <Navbar />
           <ContactModal />
+          <FloatingWhatsApp />
           <main className="flex-grow">
             <Suspense
               fallback={

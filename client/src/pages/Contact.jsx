@@ -426,7 +426,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
 
           {/* Section Header */}
-          <div className="max-w-3xl mb-10 sm:mb-12">
+          <div className="max-w-7xl mb-10 sm:mb-12">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-bold text-slate-700 uppercase tracking-widest mb-3 shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
               <span>The DMDY Advantage</span>
@@ -443,7 +443,7 @@ const Contact = () => {
               Your Business. Your Goals. Your Strategy.
             </p>
 
-            <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
+            <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-7xl">
               <p className="font-semibold text-slate-900 text-sm sm:text-base">
                 We don’t believe in forcing every business into the same marketing package.
               </p>

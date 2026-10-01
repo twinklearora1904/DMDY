@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
-import { Sparkles, ArrowRight, Calendar, Search, Clock, X } from 'lucide-react';
+import { Sparkles, ArrowRight, Calendar, Search, Clock, X, Eye, SlidersHorizontal, Tag as TagIcon } from 'lucide-react';
 import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 import SEO from '../components/SEO';
 import { BlogHeroSkeleton, BlogGridSkeleton } from '../components/skeletons/BlogSkeleton';
@@ -10,10 +10,18 @@ import EmptyState from '../components/EmptyState';
 
 const Blog = () => {
   const { openModal } = useContactModal();
+  const navigate = useNavigate();
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('All');
+  const [sortBy, setSortBy] = useState('newest'); // 'relevance', 'newest', 'popular'
+  
+  // Live autocomplete search suggestions state
+  const [suggestions, setSuggestions] = useState({ suggestions: [], tags: [] });
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const searchContainerRef = useRef(null);
 
   useEffect(() => {
     document.title = 'Insights & Growth Playbooks — DMDY';
@@ -30,9 +38,41 @@ const Blog = () => {
     fetchBlogs();
   }, []);
 
-  // Sort blogs with newest first
-  const sortedBlogs = [...blogs].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-  const latestBlog = sortedBlogs.length > 0 ? sortedBlogs[0] : null;
+  // Handle clicking outside suggestions container to dismiss
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Debounced Live Suggestions Fetcher
+  useEffect(() => {
+    const trimmed = searchTerm.trim();
+    if (trimmed.length < 2) {
+      setSuggestions({ suggestions: [], tags: [] });
+      setShowSuggestions(false);
+      return;
+    }
+
+    const timer = setTimeout(async () => {
+      setIsSearching(true);
+      try {
+        const res = await api.get(`/api/blogs/search/suggest?q=${encodeURIComponent(trimmed)}`);
+        setSuggestions(res.data || { suggestions: [], tags: [] });
+        setShowSuggestions(true);
+      } catch (err) {
+        console.error('Failed to fetch search suggestions:', err);
+      } finally {
+        setIsSearching(false);
+      }
+    }, 220);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
   // Extract all unique tags
   const allTags = ['All', ...new Set(blogs.flatMap((b) => b.tags || []))];
@@ -40,19 +80,46 @@ const Blog = () => {
   // Determine if user has applied search or tag filter
   const isFiltered = searchTerm.trim() !== '' || selectedTag !== 'All';
 
-  // Filter blogs according to search query and selected tag
-  const filteredBlogs = sortedBlogs.filter((blog) => {
+  // Advanced Sorting & Matching Logic
+  const processedBlogs = blogs.filter((blog) => {
+    const query = searchTerm.toLowerCase().trim();
     const matchesSearch =
-      blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (blog.content && blog.content.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      (blog.metaDescription && blog.metaDescription.toLowerCase().includes(searchTerm.toLowerCase()));
+      !query ||
+      blog.title.toLowerCase().includes(query) ||
+      (blog.content && blog.content.toLowerCase().includes(query)) ||
+      (blog.metaDescription && blog.metaDescription.toLowerCase().includes(query)) ||
+      (blog.tags && blog.tags.some((t) => t.toLowerCase().includes(query)));
+
     const matchesTag = selectedTag === 'All' || (blog.tags && blog.tags.includes(selectedTag));
     return matchesSearch && matchesTag;
   });
 
-  // When not filtered, display remaining blogs after the latest post (index 1 onwards).
+  // Apply Sort
+  const sortedBlogs = [...processedBlogs].sort((a, b) => {
+    if (sortBy === 'popular') {
+      return (b.views || 0) - (a.views || 0);
+    }
+    if (sortBy === 'relevance' && searchTerm.trim()) {
+      const q = searchTerm.toLowerCase().trim();
+      const aTitle = a.title.toLowerCase().includes(q) ? 3 : 0;
+      const bTitle = b.title.toLowerCase().includes(q) ? 3 : 0;
+      const aTag = a.tags && a.tags.some(t => t.toLowerCase().includes(q)) ? 2 : 0;
+      const bTag = b.tags && b.tags.some(t => t.toLowerCase().includes(q)) ? 2 : 0;
+      const aScore = aTitle + aTag;
+      const bScore = bTitle + bTag;
+      if (bScore !== aScore) return bScore - aScore;
+    }
+    // Default newest
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  });
+
+  const latestBlog = blogs.length > 0
+    ? [...blogs].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))[0]
+    : null;
+
+  // When not filtered, display remaining blogs after latest post (index 1 onwards).
   // When filtered, display all matching results.
-  const displayedBlogs = isFiltered ? filteredBlogs : sortedBlogs.slice(1);
+  const displayedBlogs = isFiltered ? sortedBlogs : sortedBlogs.slice(1);
 
   // Helper for read time calculation
   const getReadTime = (content) => {
@@ -60,6 +127,7 @@ const Blog = () => {
     const words = content.trim().split(/\s+/).length;
     return `${Math.max(1, Math.ceil(words / 200))} min read`;
   };
+
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans">
@@ -238,11 +306,18 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header Row: Title & Search Bar */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-200/80 mb-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80 mb-10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#00AED6] mb-1.5 block">
-                {isFiltered ? 'Search & Category Results' : 'Growth Archive'}
-              </span>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#00AED6]">
+                  {isFiltered ? 'Search & Filter Results' : 'Growth Archive'}
+                </span>
+                {isFiltered && (
+                  <span className="px-2 py-0.5 rounded-md bg-[#00AED6]/10 text-[#00AED6] text-[11px] font-bold">
+                    {displayedBlogs.length} {displayedBlogs.length === 1 ? 'Match' : 'Matches'}
+                  </span>
+                )}
+              </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 {isFiltered
                   ? `Showing ${displayedBlogs.length} ${displayedBlogs.length === 1 ? 'Article' : 'Articles'}`
@@ -250,31 +325,143 @@ const Blog = () => {
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
                 {isFiltered
-                  ? 'Showing articles matching your current filter criteria.'
+                  ? `Filtering results for query "${searchTerm || 'All'}" in ${selectedTag} topic.`
                   : 'Explore previous strategies, growth frameworks, and case studies.'}
               </p>
             </div>
 
-            {/* Search Input Box */}
-            <div className="w-full md:w-80 relative">
-              <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search growth topics, SEO..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-11 pr-9 py-2.5 rounded-2xl bg-white border border-slate-200/90 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#00AED6]/20 focus:border-[#00AED6] shadow-sm transition-all"
-              />
-              {searchTerm && (
-                <button
-                  onClick={() => setSearchTerm('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"
-                  title="Clear search"
+            {/* Advanced Search & Sort Control Bar */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              
+              {/* Sort By Dropdown */}
+              <div className="relative">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="w-full sm:w-auto px-3.5 py-2.5 rounded-2xl bg-white border border-slate-200/90 text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#00AED6]/20 focus:border-[#00AED6] shadow-sm appearance-none pr-8 cursor-pointer"
                 >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              )}
+                  {searchTerm.trim() && <option value="relevance">Sort: AI Relevance</option>}
+                  <option value="newest">Sort: Newest First</option>
+                  <option value="popular">Sort: Most Popular (Views)</option>
+                </select>
+                <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
+                  <SlidersHorizontal className="w-3.5 h-3.5" />
+                </div>
+              </div>
+
+              {/* Search Input Box with Live Suggestions Dropdown */}
+              <div ref={searchContainerRef} className="w-full sm:w-80 md:w-96 relative">
+                <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search playbooks, SEO, paid media..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onFocus={() => {
+                    if (suggestions.suggestions.length > 0 || suggestions.tags.length > 0) {
+                      setShowSuggestions(true);
+                    }
+                  }}
+                  className="w-full pl-11 pr-10 py-2.5 rounded-2xl bg-white border border-slate-200/90 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#00AED6]/20 focus:border-[#00AED6] shadow-sm transition-all"
+                />
+                
+                {isSearching ? (
+                  <div className="absolute right-3.5 top-1/2 -translate-y-1/2">
+                    <div className="w-3.5 h-3.5 border-2 border-[#00AED6] border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                ) : searchTerm ? (
+                  <button
+                    onClick={() => {
+                      setSearchTerm('');
+                      setShowSuggestions(false);
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"
+                    title="Clear search"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                ) : null}
+
+                {/* Floating Autocomplete / Live Search Suggestions Card */}
+                {showSuggestions && (suggestions.suggestions.length > 0 || suggestions.tags.length > 0) && (
+                  <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-150">
+                    
+                    {/* Matching Tags / Categories Pill Row */}
+                    {suggestions.tags && suggestions.tags.length > 0 && (
+                      <div className="p-3 bg-slate-50 border-b border-slate-100">
+                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                          <TagIcon className="w-3 h-3 text-[#00AED6]" />
+                          <span>Matching Topics</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {suggestions.tags.map((tag) => (
+                            <button
+                              key={tag}
+                              type="button"
+                              onClick={() => {
+                                setSelectedTag(tag);
+                                setShowSuggestions(false);
+                              }}
+                              className="text-xs px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 hover:border-[#00AED6] hover:text-[#00AED6] transition-colors font-medium cursor-pointer"
+                            >
+                              #{tag}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Matching Articles List */}
+                    {suggestions.suggestions.length > 0 && (
+                      <div className="p-2 divide-y divide-slate-50 max-h-72 overflow-y-auto">
+                        <div className="px-2 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                          Top Matching Playbooks
+                        </div>
+                        {suggestions.suggestions.map((item) => (
+                          <div
+                            key={item._id}
+                            onClick={() => {
+                              setShowSuggestions(false);
+                              navigate(`/blog/${item.slug}`);
+                            }}
+                            className="p-2.5 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer flex items-center justify-between gap-3 text-left"
+                          >
+                            <div className="min-w-0 flex-1">
+                              <h4 className="text-xs sm:text-sm font-bold text-slate-800 hover:text-[#00AED6] truncate">
+                                {item.title}
+                              </h4>
+                              <div className="flex items-center gap-2 text-[11px] text-slate-400 mt-0.5">
+                                {item.tags && item.tags[0] && (
+                                  <span className="text-[#00AED6] font-semibold">{item.tags[0]}</span>
+                                )}
+                                <span>&bull;</span>
+                                <span className="flex items-center gap-1">
+                                  <Eye className="w-3 h-3" /> {(item.views || 0).toLocaleString()}
+                                </span>
+                              </div>
+                            </div>
+                            <ArrowRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="p-2.5 bg-slate-50 border-t border-slate-100 text-center">
+                      <button
+                        type="button"
+                        onClick={() => setShowSuggestions(false)}
+                        className="text-xs font-bold text-[#00AED6] hover:underline"
+                      >
+                        View all results &rarr;
+                      </button>
+                    </div>
+
+                  </div>
+                )}
+
+              </div>
             </div>
+
           </div>
 
           {/* Category Filter Chips */}
@@ -287,7 +474,7 @@ const Blog = () => {
                 <button
                   key={tag}
                   onClick={() => setSelectedTag(tag)}
-                  className={`text-xs font-bold px-4 py-2 rounded-xl transition-all whitespace-nowrap ${selectedTag === tag
+                  className={`text-xs font-bold px-4 py-2 rounded-xl transition-all whitespace-nowrap cursor-pointer ${selectedTag === tag
                       ? 'bg-slate-900 text-white shadow-sm'
                       : 'bg-white border border-slate-200/90 text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                     }`}
@@ -295,6 +482,18 @@ const Blog = () => {
                   {tag}
                 </button>
               ))}
+              {isFiltered && (
+                <button
+                  onClick={() => {
+                    setSearchTerm('');
+                    setSelectedTag('All');
+                    setSortBy('newest');
+                  }}
+                  className="text-xs font-bold px-3 py-2 rounded-xl text-rose-600 hover:bg-rose-50 transition-colors ml-auto cursor-pointer shrink-0"
+                >
+                  Reset All Filters
+                </button>
+              )}
             </div>
           )}
 
@@ -365,7 +564,7 @@ const Blog = () => {
 
                       {/* Card Body */}
                       <div className="p-7">
-                        <div className="flex items-center gap-3 text-xs text-slate-400 font-medium mb-3">
+                        <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 font-medium mb-3">
                           <span className="inline-flex items-center gap-1.5">
                             <Calendar className="w-3.5 h-3.5" />
                             {new Date(blog.createdAt).toLocaleDateString(undefined, {
@@ -378,6 +577,11 @@ const Blog = () => {
                           <span className="inline-flex items-center gap-1.5">
                             <Clock className="w-3.5 h-3.5" />
                             {getReadTime(blog.content)}
+                          </span>
+                          <span>&bull;</span>
+                          <span className="inline-flex items-center gap-1.5 text-slate-500 font-semibold">
+                            <Eye className="w-3.5 h-3.5 text-[#00AED6]" />
+                            {(blog.views || 0).toLocaleString()} reads
                           </span>
                         </div>
 

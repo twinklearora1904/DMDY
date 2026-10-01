@@ -8,6 +8,7 @@ const { notFound } = require("./middleware/notFoundMiddleware");
 const authRoutes = require("./routes/authRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 const leadRoutes = require("./routes/leadRoutes");
+const analyticsRoutes = require("./routes/analyticsRoutes");
 
 dotenv.config();
 const connectDB = require("./config/db");
@@ -58,6 +59,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/leads", leadRoutes);
+app.use("/api/analytics", analyticsRoutes);
+
 
 app.get("/", (req, res) => {
     res.json({

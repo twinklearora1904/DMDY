@@ -7,6 +7,9 @@ const {
     updateBlog,
     deleteBlog,
     getBlogOgMeta,
+    searchBlogs,
+    getSearchSuggestions,
+    recordBlogView,
 } = require("../controllers/blogController");
 const { protect, admin } = require("../middleware/authMiddleware");
 const upload = require("../middleware/uploadMiddleware");
@@ -29,7 +32,12 @@ router.route("/")
         createBlog
     );
 
+// Advanced Search & Autocomplete suggestions (must be before /:id)
+router.get("/search", searchBlogs);
+router.get("/search/suggest", getSearchSuggestions);
+
 router.get("/:id/meta", getBlogOgMeta);
+router.post("/:id/view", recordBlogView);
 
 router.route("/:id")
     .get(getBlogById)
@@ -37,3 +45,4 @@ router.route("/:id")
     .delete(protect, admin, deleteBlog);
 
 module.exports = router;
+

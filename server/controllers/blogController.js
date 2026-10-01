@@ -346,4 +346,186 @@ const getBlogOgMeta = async (req, res) => {
     }
 };
 
-module.exports = { createBlog, getBlogs, getBlogById, updateBlog, deleteBlog, getBlogOgMeta };
+/**
+ * Advanced Search Engine with MongoDB Text Search & Intelligent Substring Fallback
+ */
+const searchBlogs = async (req, res) => {
+    try {
+        const { q = "", tag = "All", sort = "relevance", limit = 20, page = 1 } = req.query;
+        const pageNum = Math.max(1, parseInt(page, 10) || 1);
+        const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 20));
+        const skip = (pageNum - 1) * limitNum;
+
+        const baseFilter = { isPublished: true };
+        if (tag && tag !== "All") {
+            baseFilter.tags = tag;
+        }
+
+        const trimmedQuery = q.trim();
+
+        let blogs = [];
+        let total = 0;
+
+        if (trimmedQuery) {
+            // Attempt 1: Full-Text search with textScore relevance
+            try {
+                const textFilter = {
+                    ...baseFilter,
+                    $text: { $search: trimmedQuery }
+                };
+
+                let sortQuery = { score: { $meta: "textScore" } };
+                if (sort === "newest") sortQuery = { createdAt: -1 };
+                if (sort === "popular") sortQuery = { views: -1, createdAt: -1 };
+                if (sort === "oldest") sortQuery = { createdAt: 1 };
+
+                blogs = await Blog.find(textFilter, { score: { $meta: "textScore" } })
+                    .select("-content")
+                    .sort(sortQuery)
+                    .skip(skip)
+                    .limit(limitNum)
+                    .populate("author", "name email");
+
+                total = await Blog.countDocuments(textFilter);
+            } catch (textErr) {
+                // If text index not yet built or text query fails, continue to regex fallback
+                blogs = [];
+                total = 0;
+            }
+
+            // Attempt 2: If text search yielded no results (e.g. partial substring / prefix), fallback to Regex
+            if (blogs.length === 0) {
+                const escaped = trimmedQuery.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                const regex = new RegExp(escaped, "i");
+
+                const regexFilter = {
+                    ...baseFilter,
+                    $or: [
+                        { title: regex },
+                        { tags: regex },
+                        { metaDescription: regex },
+                        { content: regex }
+                    ]
+                };
+
+                let sortQuery = { createdAt: -1 };
+                if (sort === "popular") sortQuery = { views: -1, createdAt: -1 };
+                if (sort === "oldest") sortQuery = { createdAt: 1 };
+
+                blogs = await Blog.find(regexFilter)
+                    .select("-content")
+                    .sort(sortQuery)
+                    .skip(skip)
+                    .limit(limitNum)
+                    .populate("author", "name email");
+
+                total = await Blog.countDocuments(regexFilter);
+            }
+        } else {
+            // No search query: standard filtered listing
+            let sortQuery = { createdAt: -1 };
+            if (sort === "popular") sortQuery = { views: -1, createdAt: -1 };
+            if (sort === "oldest") sortQuery = { createdAt: 1 };
+
+            blogs = await Blog.find(baseFilter)
+                .select("-content")
+                .sort(sortQuery)
+                .skip(skip)
+                .limit(limitNum)
+                .populate("author", "name email");
+
+            total = await Blog.countDocuments(baseFilter);
+        }
+
+        res.json({
+            results: blogs,
+            total,
+            page: pageNum,
+            totalPages: Math.ceil(total / limitNum) || 1,
+            query: trimmedQuery,
+            tag,
+            sort
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Search execution error", error: error.message });
+    }
+};
+
+/**
+ * Autocomplete / Live Search Suggestions
+ */
+const getSearchSuggestions = async (req, res) => {
+    try {
+        const { q = "" } = req.query;
+        const trimmed = q.trim();
+        if (!trimmed || trimmed.length < 2) {
+            return res.json({ suggestions: [], tags: [] });
+        }
+
+        const escaped = trimmed.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        const regex = new RegExp(escaped, "i");
+
+        const blogs = await Blog.find({
+            isPublished: true,
+            $or: [{ title: regex }, { tags: regex }]
+        })
+            .select("title slug tags views image metaDescription")
+            .sort({ views: -1, createdAt: -1 })
+            .limit(6);
+
+        // Extract matching tags
+        const matchedTags = [];
+        blogs.forEach(b => {
+            (b.tags || []).forEach(t => {
+                if (regex.test(t) && !matchedTags.includes(t)) {
+                    matchedTags.push(t);
+                }
+            });
+        });
+
+        res.json({
+            suggestions: blogs,
+            tags: matchedTags.slice(0, 5)
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Suggestion fetch error", error: error.message });
+    }
+};
+
+/**
+ * Atomically Record Article View
+ */
+const recordBlogView = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const isObjectId = mongoose.Types.ObjectId.isValid(id) && id.length === 24;
+
+        let blog = null;
+        if (isObjectId) {
+            blog = await Blog.findByIdAndUpdate(id, { $inc: { views: 1 } }, { new: true }).select("views");
+        } else {
+            blog = await Blog.findOneAndUpdate({ slug: id }, { $inc: { views: 1 } }, { new: true }).select("views");
+        }
+
+        if (!blog) {
+            return res.status(404).json({ message: "Article not found" });
+        }
+
+        res.json({ success: true, views: blog.views });
+    } catch (error) {
+        res.status(500).json({ message: "Failed to record view", error: error.message });
+    }
+};
+
+module.exports = { 
+    createBlog, 
+    getBlogs, 
+    getBlogById, 
+    updateBlog, 
+    deleteBlog, 
+    getBlogOgMeta,
+    searchBlogs,
+    getSearchSuggestions,
+    recordBlogView
+};
+

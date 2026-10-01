@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
-import { ArrowLeft, Calendar, User, Tag, Sparkles, Share2, Check, Clock } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Tag, Sparkles, Share2, Check, Clock, Eye } from 'lucide-react';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import SEO from '../components/SEO';
 import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
@@ -24,6 +24,15 @@ const BlogPost = () => {
       try {
         const res = await api.get(`/api/blogs/${slug}`);
         setBlog(res.data);
+        
+        // Asynchronously record read view
+        api.post(`/api/blogs/${slug}/view`)
+          .then((viewRes) => {
+            if (viewRes.data?.views) {
+              setBlog((prev) => prev ? { ...prev, views: viewRes.data.views } : prev);
+            }
+          })
+          .catch(() => {});
       } catch (err) {
         setError(err.response?.data?.message || 'Blog post not found.');
       } finally {
@@ -32,6 +41,7 @@ const BlogPost = () => {
     };
     fetchBlog();
   }, [slug]);
+
 
   useEffect(() => {
     if (blog?.title) {
@@ -156,6 +166,15 @@ const BlogPost = () => {
                   <Clock className="w-4 h-4 text-slate-400" />
                   {getReadTime(blog.content)}
                 </span>
+                {typeof blog.views === 'number' && (
+                  <>
+                    <span>&bull;</span>
+                    <span className="inline-flex items-center gap-1.5 font-medium text-slate-500">
+                      <Eye className="w-4 h-4 text-slate-400" />
+                      {blog.views.toLocaleString()} {blog.views === 1 ? 'view' : 'views'}
+                    </span>
+                  </>
+                )}
               </div>
             </header>
 

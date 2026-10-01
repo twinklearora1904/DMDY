@@ -25,7 +25,8 @@ import {
   RefreshCw,
   Flame,
   ArrowUpRight,
-  AlertTriangle
+  AlertTriangle,
+  Filter
 } from 'lucide-react';
 import api from '../utils/api';
 import BlogManager from '../components/BlogManager';
@@ -49,7 +50,7 @@ const Admin = () => {
   const fetchLeads = useCallback(async () => {
     try {
       const res = await api.get('/api/leads');
-      setLeads(res.data);
+      setLeads(res.data || []);
     } catch (err) {
       console.error('Failed to fetch leads:', err);
     }
@@ -93,7 +94,6 @@ const Admin = () => {
       fetchAnalytics();
     }
   }, [user, activeTab, fetchAnalytics]);
-
 
   const handleStatusChange = async (id, newStatus) => {
     try {
@@ -181,190 +181,204 @@ const Admin = () => {
   if (!user) return null;
 
   return (
-    <div className="pt-28 sm:pt-36 pb-12 sm:pb-20 min-h-screen bg-slate-50 font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-6 sm:gap-8">
-      {/* Sidebar Navigation */}
-      <div className="w-full md:w-64 shrink-0">
-        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-sm border border-slate-200/80 p-4 sm:p-5 static md:sticky md:top-32">
-          <div className="flex items-center gap-3 px-3 py-2 mb-4 border-b border-slate-100">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-brandPrimary to-brandSecondary flex items-center justify-center text-white font-bold text-sm shadow-sm">
-              {user.name ? user.name.charAt(0).toUpperCase() : 'A'}
-            </div>
-            <div className="min-w-0">
-              <div className="text-sm font-bold text-slate-900 truncate">{user.name || 'Admin'}</div>
-              <div className="text-xs text-slate-400 capitalize">{user.role || 'Super Admin'}</div>
-            </div>
-          </div>
-
-          <h2 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-3">Management</h2>
-          <nav className="space-y-1">
-            <button 
-              onClick={() => setActiveTab('leads')}
-              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition ${
-                activeTab === 'leads' ? 'bg-brandPrimary/10 text-brandPrimary shadow-sm' : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <span className="flex items-center">
-                <LayoutDashboard className="w-4 h-4 mr-3" />
-                Leads & CRM
-              </span>
-              {newLeads > 0 && (
-                <span className="bg-brandSecondary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-                  {newLeads}
-                </span>
-              )}
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('analytics')}
-              className={`w-full flex items-center px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition ${
-                activeTab === 'analytics' ? 'bg-brandPrimary/10 text-brandPrimary shadow-sm' : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <BarChart3 className="w-4 h-4 mr-3 text-[#00AED6]" />
-              Lead & Blog Analytics
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('blogs')}
-              className={`w-full flex items-center px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition ${
-                activeTab === 'blogs' ? 'bg-brandPrimary/10 text-brandPrimary shadow-sm' : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <FileText className="w-4 h-4 mr-3" />
-              Blog Articles
-            </button>
-          </nav>
-
-          <div className="mt-6 sm:mt-8 pt-4 border-t border-slate-100">
-            <button 
-              onClick={logout} 
-              className="w-full flex items-center px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-red-600 hover:bg-red-50 transition"
-            >
-              <LogOut className="w-4 h-4 mr-3" /> Logout
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex-1 min-w-0">
+    <div className="pt-24 sm:pt-28 pb-16 min-h-screen bg-slate-50/70 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* KPI Counter Cards for Leads tab */}
-        {activeTab === 'leads' && (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
-              <div>
-                <p className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">Total Leads</p>
-                <p className="text-xl sm:text-3xl font-extrabold text-slate-900 mt-0.5 sm:mt-1">{totalLeads}</p>
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 shrink-0">
-                <Inbox className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-            </div>
-
-            <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
-              <div>
-                <p className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">New Inquiries</p>
-                <p className="text-xl sm:text-3xl font-extrabold text-blue-600 mt-0.5 sm:mt-1">{newLeads}</p>
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-            </div>
-
-            <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
-              <div>
-                <p className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">In Pipeline</p>
-                <p className="text-xl sm:text-3xl font-extrabold text-amber-600 mt-0.5 sm:mt-1">{inPipelineLeads}</p>
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 shrink-0">
-                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-            </div>
-
-            <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
-              <div>
-                <p className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">Won / Closed</p>
-                <p className="text-xl sm:text-3xl font-extrabold text-emerald-600 mt-0.5 sm:mt-1">{wonLeads}</p>
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Section Heading */}
-        <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        {/* Top Header Strip */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-5 border-b border-slate-200/80">
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              {activeTab === 'leads' && 'Client Inquiries & CRM'}
-              {activeTab === 'analytics' && 'Lead Conversion & Authority Analytics'}
-              {activeTab === 'blogs' && 'Blog Article Management'}
-            </h1>
-            <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">
-              {activeTab === 'leads' && 'Review prospective clients, update lifecycle stages, and read strategy challenge requests.'}
-              {activeTab === 'analytics' && 'Track lead conversion rates, pipeline velocity, service demand, and article popularity.'}
-              {activeTab === 'blogs' && 'Publish, edit, and optimize articles for SEO and audience growth.'}
+            <div className="flex items-center gap-2.5">
+              <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Admin Console</h1>
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Live Portal
+              </span>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+              Manage client inquiries, track pipeline conversion, and edit strategic content.
             </p>
           </div>
+
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5 px-3 py-1.5 bg-white border border-slate-200/80 rounded-xl shadow-2xs">
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-brandPrimary to-brandSecondary flex items-center justify-center text-white font-bold text-xs">
+                {user.name ? user.name.charAt(0).toUpperCase() : 'A'}
+              </div>
+              <div className="text-left text-xs">
+                <div className="font-semibold text-slate-900 leading-tight">{user.name || 'Admin'}</div>
+                <div className="text-[10px] text-slate-400 capitalize">{user.role || 'Super Admin'}</div>
+              </div>
+            </div>
+            <button
+              onClick={logout}
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:text-red-600 hover:bg-red-50 border border-slate-200/80 transition"
+              title="Logout"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Logout</span>
+            </button>
+          </div>
         </div>
 
-        {/* Leads Management View */}
+        {/* Tab Navigation Segmented Bar */}
+        <div className="flex items-center gap-1 sm:gap-2 mb-6 p-1 bg-slate-200/60 rounded-xl w-full sm:w-fit overflow-x-auto">
+          <button
+            onClick={() => setActiveTab('leads')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap ${
+              activeTab === 'leads'
+                ? 'bg-white text-slate-900 shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/50'
+            }`}
+          >
+            <LayoutDashboard className="w-4 h-4 text-brandPrimary" />
+            <span>Leads & CRM</span>
+            {newLeads > 0 && (
+              <span className="px-1.5 py-0.5 text-[10px] font-bold bg-blue-600 text-white rounded-full">
+                {newLeads}
+              </span>
+            )}
+          </button>
+
+          <button
+            onClick={() => setActiveTab('analytics')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap ${
+              activeTab === 'analytics'
+                ? 'bg-white text-slate-900 shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/50'
+            }`}
+          >
+            <BarChart3 className="w-4 h-4 text-[#00AED6]" />
+            <span>Performance Analytics</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('blogs')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap ${
+              activeTab === 'blogs'
+                ? 'bg-white text-slate-900 shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/50'
+            }`}
+          >
+            <FileText className="w-4 h-4 text-slate-500" />
+            <span>Blog Articles</span>
+          </button>
+        </div>
+
+        {/* Tab 1: Leads & CRM */}
         {activeTab === 'leads' && (
-          <div>
-            {/* Filter Bar */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-5">
-              <div className="flex items-center gap-2.5 w-full sm:w-auto flex-1">
-                <div className="relative w-full sm:w-80">
-                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input 
-                    type="text"
-                    placeholder="Search by name, email, company, service..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary shadow-sm"
-                  />
+          <div className="space-y-6">
+            
+            {/* KPI Summary Cards */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+              <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-2xs flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Total Leads</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">{totalLeads}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5">All inquiries recorded</p>
                 </div>
-                <button
-                  onClick={handleExportCSV}
-                  title="Export Leads to Excel/CSV"
-                  className="bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-bold px-3.5 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm hover:bg-slate-50 transition shrink-0"
-                >
-                  <Download className="w-3.5 h-3.5 text-brandPrimary" /> Export CSV
-                </button>
+                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 shrink-0">
+                  <Inbox className="w-5 h-5" />
+                </div>
               </div>
 
-              {/* Status Filter Chips */}
-              <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
-                {['All', 'New', 'Contacted', 'Qualified', 'Proposal', 'Won', 'Lost'].map((st) => (
-                  <button
-                    key={st}
-                    onClick={() => setStatusFilter(st)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                      statusFilter === st
-                        ? 'bg-slate-900 text-white shadow-sm'
-                        : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'
-                    }`}
+              <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-2xs flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">New Inquiries</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-blue-600 mt-1">{newLeads}</p>
+                  <p className="text-[11px] text-blue-500/80 mt-0.5">Awaiting initial reply</p>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                  <Clock className="w-5 h-5" />
+                </div>
+              </div>
+
+              <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-2xs flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">In Pipeline</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-amber-600 mt-1">{inPipelineLeads}</p>
+                  <p className="text-[11px] text-amber-600/80 mt-0.5">Contacted & qualified</p>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+                  <TrendingUp className="w-5 h-5" />
+                </div>
+              </div>
+
+              <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-2xs flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Won / Converted</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-emerald-600 mt-1">{wonLeads}</p>
+                  <p className="text-[11px] text-emerald-600/80 mt-0.5">Successfully closed deals</p>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                  <CheckCircle className="w-5 h-5" />
+                </div>
+              </div>
+            </div>
+
+            {/* Filter & Search Toolbar */}
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+              {/* Search Bar */}
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input 
+                  type="text"
+                  placeholder="Search leads by name, company, email, service..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-slate-50 hover:bg-slate-100/60 focus:bg-white border border-slate-200/90 rounded-lg pl-9.5 pr-8 py-2 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary transition"
+                />
+                {searchQuery && (
+                  <button 
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"
                   >
-                    {st}
+                    <X className="w-3.5 h-3.5" />
                   </button>
-                ))}
+                )}
+              </div>
+
+              {/* Status Filter & CSV Export */}
+              <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200/90 rounded-lg px-2.5 py-1.5">
+                  <Filter className="w-3.5 h-3.5 text-slate-400" />
+                  <span className="text-xs font-semibold text-slate-500">Status:</span>
+                  <select
+                    value={statusFilter}
+                    onChange={(e) => setStatusFilter(e.target.value)}
+                    className="bg-transparent text-xs font-bold text-slate-800 outline-none cursor-pointer pr-1"
+                  >
+                    <option value="All">All Statuses ({totalLeads})</option>
+                    <option value="New">New ({newLeads})</option>
+                    <option value="Contacted">Contacted</option>
+                    <option value="Qualified">Qualified</option>
+                    <option value="Proposal">Proposal</option>
+                    <option value="Won">Won ({wonLeads})</option>
+                    <option value="Lost">Lost</option>
+                  </select>
+                </div>
+
+                <button
+                  onClick={handleExportCSV}
+                  title="Export Leads to CSV"
+                  className="bg-slate-50 hover:bg-slate-100 border border-slate-200/90 text-slate-700 font-semibold px-3 py-2 rounded-lg text-xs flex items-center gap-1.5 transition shrink-0"
+                >
+                  <Download className="w-3.5 h-3.5 text-brandPrimary" />
+                  <span>Export CSV</span>
+                </button>
               </div>
             </div>
 
             {/* Leads Table */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+            <div className="bg-white rounded-xl overflow-hidden shadow-2xs border border-slate-200/80">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 text-xs uppercase tracking-wider font-bold">
-                      <th className="p-4 whitespace-nowrap">Prospect</th>
-                      <th className="p-4 whitespace-nowrap">Service</th>
-                      <th className="p-4 whitespace-nowrap">Contact</th>
-                      <th className="p-4 whitespace-nowrap">Status</th>
-                      <th className="p-4 whitespace-nowrap text-right">Actions</th>
+                    <tr className="bg-slate-50/90 border-b border-slate-200/80 text-slate-500 text-[11px] uppercase tracking-wider font-semibold">
+                      <th className="py-3 px-4 whitespace-nowrap">Prospect</th>
+                      <th className="py-3 px-4 whitespace-nowrap">Service</th>
+                      <th className="py-3 px-4 whitespace-nowrap">Contact</th>
+                      <th className="py-3 px-4 whitespace-nowrap">Status</th>
+                      <th className="py-3 px-4 whitespace-nowrap text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-sm">
@@ -381,7 +395,7 @@ const Admin = () => {
                             variant="minimal"
                             icon={Inbox}
                             badge="CRM Pipeline"
-                            title={searchQuery || statusFilter !== 'All' ? 'No Matching Inquiries' : 'No Inquiries Received Yet'}
+                            title={searchQuery || statusFilter !== 'All' ? 'No Matching Leads' : 'No Inquiries Received Yet'}
                             description={
                               searchQuery || statusFilter !== 'All'
                                 ? 'No leads matched your search query or status filter. Try clearing filters.'
@@ -401,43 +415,51 @@ const Admin = () => {
                       </tr>
                     ) : (
                       filteredLeads.map((lead) => (
-                        <tr key={lead._id} className="hover:bg-slate-50/80 transition-colors">
-                          <td className="p-4">
-                            <div className="text-sm font-bold text-slate-900">{lead.name}</div>
+                        <tr key={lead._id} className="hover:bg-slate-50/70 transition-colors">
+                          <td className="py-3.5 px-4">
+                            <div className="text-sm font-semibold text-slate-900 leading-snug">{lead.name}</div>
                             {lead.company && (
-                              <div className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
-                                <Building2 className="w-3 h-3 text-slate-400" />
-                                {lead.company}
+                              <div className="text-xs text-slate-500 flex items-center gap-1.5 mt-0.5">
+                                <Building2 className="w-3 h-3 text-slate-400 shrink-0" />
+                                <span>{lead.company}</span>
                               </div>
                             )}
                             <div className="text-[11px] text-slate-400 mt-0.5">
-                              {new Date(lead.createdAt).toLocaleDateString()}
+                              {new Date(lead.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                             </div>
                           </td>
-                          <td className="p-4 whitespace-nowrap">
-                            <span className="inline-block px-2.5 py-1 rounded-md text-xs font-bold bg-brandPrimary/10 text-brandPrimary border border-brandPrimary/20">
-                              {lead.service}
+                          <td className="py-3.5 px-4 whitespace-nowrap">
+                            <span className="inline-block px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200/70">
+                              {lead.service || 'General Inquiry'}
                             </span>
                           </td>
-                          <td className="p-4">
-                            <div className="text-xs font-medium">
-                              <a href={`mailto:${lead.email}`} className="text-slate-800 hover:text-brandPrimary hover:underline flex items-center gap-1">
-                                <Mail className="w-3 h-3 text-slate-400" /> {lead.email}
+                          <td className="py-3.5 px-4">
+                            <div className="text-xs">
+                              <a href={`mailto:${lead.email}`} className="text-slate-700 hover:text-brandPrimary hover:underline inline-flex items-center gap-1.5 font-medium">
+                                <Mail className="w-3 h-3 text-slate-400 shrink-0" />
+                                <span>{lead.email}</span>
                               </a>
                             </div>
-                            <div className="text-xs text-slate-500 mt-1 flex items-center gap-1">
-                              <Phone className="w-3 h-3 text-slate-400" /> {lead.phone}
-                            </div>
+                            {lead.phone && (
+                              <div className="text-xs text-slate-500 mt-1">
+                                <a href={`tel:${lead.phone}`} className="hover:text-slate-800 inline-flex items-center gap-1.5">
+                                  <Phone className="w-3 h-3 text-slate-400 shrink-0" />
+                                  <span>{lead.phone}</span>
+                                </a>
+                              </div>
+                            )}
                           </td>
-                          <td className="p-4 whitespace-nowrap">
+                          <td className="py-3.5 px-4 whitespace-nowrap">
                             <select 
                               value={lead.status}
                               onChange={(e) => handleStatusChange(lead._id, e.target.value)}
-                              className={`bg-white border rounded-lg px-2.5 py-1 text-xs font-bold outline-none shadow-sm focus:ring-1 focus:ring-brandPrimary ${
-                                lead.status === 'New' ? 'border-blue-300 text-blue-700 bg-blue-50/50' : 
-                                lead.status === 'Won' ? 'border-emerald-300 text-emerald-700 bg-emerald-50/50' : 
-                                lead.status === 'Lost' ? 'border-rose-300 text-rose-700 bg-rose-50/50' : 
-                                'border-amber-300 text-amber-700 bg-amber-50/50'
+                              className={`text-xs font-semibold rounded-md px-2.5 py-1 border outline-none cursor-pointer transition shadow-2xs ${
+                                lead.status === 'New' ? 'bg-blue-50/80 border-blue-200 text-blue-700 hover:bg-blue-50' : 
+                                lead.status === 'Won' ? 'bg-emerald-50/80 border-emerald-200 text-emerald-700 hover:bg-emerald-50' : 
+                                lead.status === 'Lost' ? 'bg-rose-50/80 border-rose-200 text-rose-700 hover:bg-rose-50' : 
+                                lead.status === 'Proposal' ? 'bg-purple-50/80 border-purple-200 text-purple-700 hover:bg-purple-50' :
+                                lead.status === 'Qualified' ? 'bg-indigo-50/80 border-indigo-200 text-indigo-700 hover:bg-indigo-50' :
+                                'bg-amber-50/80 border-amber-200 text-amber-700 hover:bg-amber-50'
                               }`}
                             >
                               <option value="New">New</option>
@@ -448,19 +470,19 @@ const Admin = () => {
                               <option value="Lost">Lost</option>
                             </select>
                           </td>
-                          <td className="p-4 text-right whitespace-nowrap">
+                          <td className="py-3.5 px-4 text-right whitespace-nowrap">
                             <div className="inline-flex items-center gap-1">
                               <button
                                 onClick={() => setSelectedLead(lead)}
                                 title="View Full Details"
-                                className="text-slate-600 hover:text-brandPrimary p-1.5 rounded-lg hover:bg-slate-100 transition"
+                                className="p-1.5 rounded-lg text-slate-500 hover:text-brandPrimary hover:bg-slate-100 transition"
                               >
                                 <Eye className="w-4 h-4" />
                               </button>
                               <button 
                                 onClick={() => handleDelete(lead._id, lead.name)} 
                                 title="Delete Lead"
-                                className="text-slate-400 hover:text-red-600 p-1.5 rounded-lg hover:bg-red-50 transition"
+                                className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition"
                               >
                                 <Trash2 className="w-4 h-4" />
                               </button>
@@ -472,30 +494,45 @@ const Admin = () => {
                   </tbody>
                 </table>
               </div>
+              
+              {/* Table Footer Count */}
+              {!leadsLoading && filteredLeads.length > 0 && (
+                <div className="px-4 py-3 bg-slate-50/60 border-t border-slate-100 text-xs text-slate-500 flex items-center justify-between">
+                  <span>Showing <strong className="text-slate-700 font-semibold">{filteredLeads.length}</strong> of {leads.length} total leads</span>
+                  {statusFilter !== 'All' && (
+                    <button 
+                      onClick={() => setStatusFilter('All')} 
+                      className="text-brandPrimary hover:underline font-semibold text-xs"
+                    >
+                      Reset Filter
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}
 
-        {/* Lead & Blog Authority Analytics View */}
+        {/* Tab 2: Performance Analytics View */}
         {activeTab === 'analytics' && (
-          <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-200">
+          <div className="space-y-6 animate-in fade-in duration-150">
             
             {/* Header Action Bar */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#00AED6] to-[#E6007A] flex items-center justify-center text-white shrink-0 shadow-sm">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-2xs">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-brandPrimary/10 border border-brandPrimary/20 flex items-center justify-center text-brandPrimary shrink-0">
                   <BarChart3 className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-2">
-                    <span>Performance & Authority Metrics</span>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    <span>Performance & Conversion Metrics</span>
+                    <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                       Real-Time
                     </span>
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Aggregate funnel tracking across all inbound client touches and published playbooks.
+                    Lead conversion pipeline velocity and editorial readership performance.
                   </p>
                 </div>
               </div>
@@ -503,119 +540,111 @@ const Admin = () => {
               <button
                 onClick={fetchAnalytics}
                 disabled={analyticsLoading}
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-bold transition shadow-xs cursor-pointer ml-auto sm:ml-0"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200/90 text-xs font-semibold transition cursor-pointer ml-auto sm:ml-0"
               >
-                <RefreshCw className={`w-3.5 h-3.5 text-[#00AED6] ${analyticsLoading ? 'animate-spin' : ''}`} />
-                <span>{analyticsLoading ? 'Recalculating...' : 'Refresh Data'}</span>
+                <RefreshCw className={`w-3.5 h-3.5 text-brandPrimary ${analyticsLoading ? 'animate-spin' : ''}`} />
+                <span>{analyticsLoading ? 'Calculating...' : 'Refresh Metrics'}</span>
               </button>
             </div>
 
-            {/* 4 Hero KPI Cards */}
+            {/* 4 Metric Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               
               {/* Card 1: Lead Conversion Rate */}
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group hover:border-emerald-300 transition-colors">
+              <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Lead Conversion Rate</span>
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Conversion Rate</span>
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                     <Award className="w-4 h-4" />
                   </div>
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-3xl font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     {analyticsData?.leads?.conversionRate ?? (totalLeads > 0 ? ((wonLeads / totalLeads) * 100).toFixed(1) : 0)}%
                   </span>
-                  <span className="text-xs font-bold text-emerald-600">
-                    Won Deals
-                  </span>
+                  <span className="text-xs font-semibold text-emerald-600">Won Deals</span>
                 </div>
                 <p className="text-xs text-slate-500">
-                  {analyticsData?.leads?.wonCount ?? wonLeads} won out of {analyticsData?.leads?.total ?? totalLeads} total prospects
+                  {analyticsData?.leads?.wonCount ?? wonLeads} won of {analyticsData?.leads?.total ?? totalLeads} total prospects
                 </p>
                 <div className="w-full bg-slate-100 h-1.5 rounded-full mt-3 overflow-hidden">
                   <div 
-                    className="bg-emerald-500 h-full rounded-full transition-all duration-700" 
+                    className="bg-emerald-500 h-full rounded-full transition-all duration-500" 
                     style={{ width: `${Math.min(100, Math.max(5, analyticsData?.leads?.conversionRate || 0))}%` }}
                   ></div>
                 </div>
               </div>
 
               {/* Card 2: Active Pipeline Volume */}
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group hover:border-blue-300 transition-colors">
+              <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Active Pipeline</span>
-                  <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Active Pipeline</span>
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                     <TrendingUp className="w-4 h-4" />
                   </div>
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-3xl font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     {analyticsData?.leads?.pipelineCount ?? inPipelineLeads}
                   </span>
-                  <span className="text-xs font-bold text-blue-600">
-                    In Flight
-                  </span>
+                  <span className="text-xs font-semibold text-blue-600">In Progress</span>
                 </div>
                 <p className="text-xs text-slate-500">
-                  {analyticsData?.leads?.pipelineRate ?? 0}% in Contacted, Qualified, or Proposal stage
+                  {analyticsData?.leads?.pipelineRate ?? 0}% in Contacted, Qualified, or Proposal
                 </p>
                 <div className="w-full bg-slate-100 h-1.5 rounded-full mt-3 overflow-hidden">
                   <div 
-                    className="bg-blue-500 h-full rounded-full transition-all duration-700" 
+                    className="bg-blue-500 h-full rounded-full transition-all duration-500" 
                     style={{ width: `${Math.min(100, Math.max(5, analyticsData?.leads?.pipelineRate || 0))}%` }}
                   ></div>
                 </div>
               </div>
 
               {/* Card 3: Total Content Views */}
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group hover:border-cyan-300 transition-colors">
+              <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Playbook Reads</span>
-                  <div className="w-9 h-9 rounded-xl bg-cyan-50 text-[#00AED6] flex items-center justify-center shrink-0">
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Article Reads</span>
+                  <div className="w-8 h-8 rounded-lg bg-cyan-50 text-brandPrimary flex items-center justify-center shrink-0">
                     <Eye className="w-4 h-4" />
                   </div>
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-3xl font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     {(analyticsData?.blogs?.totalViews ?? 0).toLocaleString()}
                   </span>
-                  <span className="text-xs font-bold text-[#00AED6]">
-                    Views
-                  </span>
+                  <span className="text-xs font-semibold text-brandPrimary">Views</span>
                 </div>
                 <p className="text-xs text-slate-500">
                   Across {analyticsData?.blogs?.totalPublished ?? 0} published strategies & teardowns
                 </p>
                 <div className="w-full bg-slate-100 h-1.5 rounded-full mt-3 overflow-hidden">
                   <div 
-                    className="bg-[#00AED6] h-full rounded-full transition-all duration-700" 
+                    className="bg-brandPrimary h-full rounded-full transition-all duration-500" 
                     style={{ width: `${Math.min(100, (analyticsData?.blogs?.totalViews || 0) > 0 ? 80 : 10)}%` }}
                   ></div>
                 </div>
               </div>
 
               {/* Card 4: Average Readership Depth */}
-              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group hover:border-pink-300 transition-colors">
+              <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Avg Reads / Article</span>
-                  <div className="w-9 h-9 rounded-xl bg-pink-50 text-[#E6007A] flex items-center justify-center shrink-0">
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Avg Reads / Post</span>
+                  <div className="w-8 h-8 rounded-lg bg-pink-50 text-brandSecondary flex items-center justify-center shrink-0">
                     <Sparkles className="w-4 h-4" />
                   </div>
                 </div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-3xl font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     {(analyticsData?.blogs?.avgViews ?? 0).toLocaleString()}
                   </span>
-                  <span className="text-xs font-bold text-[#E6007A]">
-                    Readers
-                  </span>
+                  <span className="text-xs font-semibold text-brandSecondary">Avg Readers</span>
                 </div>
                 <p className="text-xs text-slate-500">
                   Audience engagement per thought leadership piece
                 </p>
                 <div className="w-full bg-slate-100 h-1.5 rounded-full mt-3 overflow-hidden">
                   <div 
-                    className="bg-[#E6007A] h-full rounded-full transition-all duration-700" 
+                    className="bg-brandSecondary h-full rounded-full transition-all duration-500" 
                     style={{ width: `${Math.min(100, (analyticsData?.blogs?.avgViews || 0) > 0 ? 65 : 10)}%` }}
                   ></div>
                 </div>
@@ -624,46 +653,46 @@ const Admin = () => {
             </div>
 
             {/* Funnel Section: Lead Conversion Stages */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-              <div className="flex items-center justify-between mb-6">
+            <div className="bg-white rounded-xl border border-slate-200/80 shadow-2xs p-5 sm:p-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
                 <div>
-                  <h4 className="text-base font-extrabold text-slate-900 tracking-tight">
+                  <h4 className="text-base font-bold text-slate-900 tracking-tight">
                     Client Conversion Funnel
                   </h4>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Prospect progression from initial contact through qualification, proposal, and closed revenue.
+                    Prospect progression from inbound inquiry to proposal and won contract.
                   </p>
                 </div>
                 {analyticsData?.leads?.statusCounts?.Lost > 0 && (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 self-start sm:self-auto">
                     <AlertTriangle className="w-3.5 h-3.5" />
-                    <span>{analyticsData.leads.statusCounts.Lost} Dropped / Lost</span>
+                    <span>{analyticsData.leads.statusCounts.Lost} Lost</span>
                   </span>
                 )}
               </div>
 
               {/* Funnel Horizontal Stepper */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                 {[
-                  { stage: 'New', label: '1. Inbound', count: analyticsData?.leads?.statusCounts?.New ?? newLeads, color: 'border-blue-200 bg-blue-50/40 text-blue-700' },
-                  { stage: 'Contacted', label: '2. Contacted', count: analyticsData?.leads?.statusCounts?.Contacted ?? 0, color: 'border-cyan-200 bg-cyan-50/40 text-[#00AED6]' },
-                  { stage: 'Qualified', label: '3. Qualified', count: analyticsData?.leads?.statusCounts?.Qualified ?? 0, color: 'border-amber-200 bg-amber-50/40 text-amber-700' },
-                  { stage: 'Proposal', label: '4. Proposal', count: analyticsData?.leads?.statusCounts?.Proposal ?? 0, color: 'border-purple-200 bg-purple-50/40 text-purple-700' },
-                  { stage: 'Won', label: '5. Converted', count: analyticsData?.leads?.statusCounts?.Won ?? wonLeads, color: 'border-emerald-200 bg-emerald-50/40 text-emerald-700' }
+                  { stage: 'New', label: '1. Inbound', count: analyticsData?.leads?.statusCounts?.New ?? newLeads, color: 'border-blue-200/80 bg-blue-50/40 text-blue-700' },
+                  { stage: 'Contacted', label: '2. Contacted', count: analyticsData?.leads?.statusCounts?.Contacted ?? 0, color: 'border-cyan-200/80 bg-cyan-50/40 text-cyan-700' },
+                  { stage: 'Qualified', label: '3. Qualified', count: analyticsData?.leads?.statusCounts?.Qualified ?? 0, color: 'border-amber-200/80 bg-amber-50/40 text-amber-700' },
+                  { stage: 'Proposal', label: '4. Proposal', count: analyticsData?.leads?.statusCounts?.Proposal ?? 0, color: 'border-purple-200/80 bg-purple-50/40 text-purple-700' },
+                  { stage: 'Won', label: '5. Converted', count: analyticsData?.leads?.statusCounts?.Won ?? wonLeads, color: 'border-emerald-200/80 bg-emerald-50/40 text-emerald-700' }
                 ].map((step, idx) => {
                   const total = analyticsData?.leads?.total || totalLeads || 1;
                   const pct = Math.round((step.count / total) * 100);
 
                   return (
-                    <div key={idx} className={`p-4 rounded-xl border ${step.color} flex flex-col justify-between`}>
-                      <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider mb-2">
+                    <div key={idx} className={`p-3.5 rounded-lg border ${step.color} flex flex-col justify-between`}>
+                      <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider mb-1.5">
                         <span>{step.label}</span>
                         <span className="font-extrabold text-sm">{step.count}</span>
                       </div>
-                      <div className="text-[11px] text-slate-500 font-semibold mb-2">
+                      <div className="text-[11px] text-slate-500 font-medium mb-2">
                         {pct}% of all leads
                       </div>
-                      <div className="w-full bg-white/80 h-1.5 rounded-full overflow-hidden border border-slate-200/40">
+                      <div className="w-full bg-white/90 h-1.5 rounded-full overflow-hidden border border-slate-200/40">
                         <div 
                           className="h-full rounded-full bg-current transition-all duration-500" 
                           style={{ width: `${Math.max(4, pct)}%` }}
@@ -679,35 +708,35 @@ const Admin = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               
               {/* Left Column: Service Demand Heatmap */}
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between">
+              <div className="bg-white rounded-xl border border-slate-200/80 shadow-2xs p-5 sm:p-6 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <h4 className="text-base font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-base font-bold text-slate-900 tracking-tight flex items-center gap-2">
                       <span>Service Demand Breakdown</span>
                       <Flame className="w-4 h-4 text-amber-500" />
                     </h4>
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Market Interest
+                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                      Client Requests
                     </span>
                   </div>
-                  <p className="text-xs text-slate-500 mb-6">
-                    Distribution of client requests across DMDY's 360° service matrix.
+                  <p className="text-xs text-slate-500 mb-5">
+                    Distribution of client inquiries across DMDY service areas.
                   </p>
 
-                  <div className="space-y-4">
+                  <div className="space-y-3.5">
                     {(analyticsData?.leads?.serviceBreakdown || []).slice(0, 6).map((item, idx) => (
-                      <div key={idx} className="space-y-1.5">
+                      <div key={idx} className="space-y-1">
                         <div className="flex items-center justify-between text-xs">
-                          <span className="font-bold text-slate-800 truncate max-w-[260px] sm:max-w-xs">
+                          <span className="font-semibold text-slate-800 truncate max-w-[240px] sm:max-w-xs">
                             {item.service}
                           </span>
-                          <span className="font-extrabold text-slate-600">
-                            {item.count} leads ({item.percentage}%)
+                          <span className="font-bold text-slate-600">
+                            {item.count} ({item.percentage}%)
                           </span>
                         </div>
                         <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
                           <div 
-                            className="h-full rounded-full bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] transition-all duration-700"
+                            className="h-full rounded-full bg-gradient-to-r from-brandPrimary to-brandSecondary transition-all duration-500"
                             style={{ width: `${Math.min(100, Math.max(6, item.percentage))}%` }}
                           ></div>
                         </div>
@@ -715,7 +744,7 @@ const Admin = () => {
                     ))}
 
                     {(!analyticsData?.leads?.serviceBreakdown || analyticsData.leads.serviceBreakdown.length === 0) && (
-                      <div className="p-8 text-center text-slate-400 text-xs">
+                      <div className="py-8 text-center text-slate-400 text-xs">
                         No service demand data yet. Inbound inquiries will populate this breakdown automatically.
                       </div>
                     )}
@@ -724,75 +753,67 @@ const Admin = () => {
               </div>
 
               {/* Right Column: Blog Popularity Leaderboard */}
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between">
+              <div className="bg-white rounded-xl border border-slate-200/80 shadow-2xs p-5 sm:p-6 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <h4 className="text-base font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-                      <span>Most Read Playbooks</span>
-                      <Award className="w-4 h-4 text-[#00AED6]" />
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-base font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                      <span>Top Read Playbooks</span>
+                      <Award className="w-4 h-4 text-brandPrimary" />
                     </h4>
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Audience Reach
+                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                      Readership
                     </span>
                   </div>
-                  <p className="text-xs text-slate-500 mb-6">
-                    Top performing insights generating organic traffic and positioning agency authority.
+                  <p className="text-xs text-slate-500 mb-5">
+                    Top articles driving audience engagement and authority.
                   </p>
 
-                  <div className="space-y-3">
-                    {(analyticsData?.blogs?.topBlogs || []).map((blog, idx) => {
-                      const medalColors = [
-                        'bg-amber-100 text-amber-800 border-amber-300',
-                        'bg-slate-200 text-slate-700 border-slate-300',
-                        'bg-amber-50 text-amber-900 border-amber-200',
-                      ];
-
-                      return (
-                        <div 
-                          key={blog._id} 
-                          className="p-3 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50/60 transition-colors flex items-center justify-between gap-3"
-                        >
-                          <div className="flex items-center gap-3 min-w-0">
-                            <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black shrink-0 border ${medalColors[idx] || 'bg-slate-100 text-slate-600 border-slate-200'}`}>
-                              {idx + 1}
-                            </span>
-                            <div className="min-w-0">
-                              <h5 className="text-xs sm:text-sm font-bold text-slate-800 hover:text-[#00AED6] truncate">
-                                <a href={`/blog/${blog.slug}`} target="_blank" rel="noopener noreferrer">
-                                  {blog.title}
-                                </a>
-                              </h5>
-                              <div className="flex items-center gap-2 text-[11px] text-slate-400 mt-0.5">
-                                {blog.tags && blog.tags[0] && (
-                                  <span className="text-[#00AED6] font-semibold">#{blog.tags[0]}</span>
-                                )}
-                                <span>&bull;</span>
-                                <span>{new Date(blog.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</span>
-                              </div>
+                  <div className="space-y-2.5">
+                    {(analyticsData?.blogs?.topBlogs || []).map((blog, idx) => (
+                      <div 
+                        key={blog._id} 
+                        className="p-2.5 rounded-lg border border-slate-100 hover:border-slate-200 hover:bg-slate-50/60 transition-colors flex items-center justify-between gap-3"
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <span className="w-5 h-5 rounded-md flex items-center justify-center text-xs font-bold shrink-0 bg-slate-100 text-slate-600 border border-slate-200">
+                            {idx + 1}
+                          </span>
+                          <div className="min-w-0">
+                            <h5 className="text-xs sm:text-sm font-semibold text-slate-800 hover:text-brandPrimary truncate">
+                              <a href={`/blog/${blog.slug}`} target="_blank" rel="noopener noreferrer">
+                                {blog.title}
+                              </a>
+                            </h5>
+                            <div className="flex items-center gap-2 text-[11px] text-slate-400 mt-0.5">
+                              {blog.tags && blog.tags[0] && (
+                                <span className="text-brandPrimary font-medium">#{blog.tags[0]}</span>
+                              )}
+                              <span>&bull;</span>
+                              <span>{new Date(blog.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</span>
                             </div>
                           </div>
-
-                          <div className="flex items-center gap-3 shrink-0">
-                            <span className="inline-flex items-center gap-1 font-bold text-xs sm:text-sm text-slate-700">
-                              <Eye className="w-3.5 h-3.5 text-[#00AED6]" />
-                              {(blog.views || 0).toLocaleString()}
-                            </span>
-                            <a
-                              href={`/blog/${blog.slug}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-slate-400 hover:text-[#00AED6] p-1"
-                              title="View Article"
-                            >
-                              <ArrowUpRight className="w-4 h-4" />
-                            </a>
-                          </div>
                         </div>
-                      );
-                    })}
+
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span className="inline-flex items-center gap-1 font-semibold text-xs text-slate-700">
+                            <Eye className="w-3.5 h-3.5 text-brandPrimary" />
+                            {(blog.views || 0).toLocaleString()}
+                          </span>
+                          <a
+                            href={`/blog/${blog.slug}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-slate-400 hover:text-brandPrimary p-1"
+                            title="View Article"
+                          >
+                            <ArrowUpRight className="w-3.5 h-3.5" />
+                          </a>
+                        </div>
+                      </div>
+                    ))}
 
                     {(!analyticsData?.blogs?.topBlogs || analyticsData.blogs.topBlogs.length === 0) && (
-                      <div className="p-8 text-center text-slate-400 text-xs">
+                      <div className="py-8 text-center text-slate-400 text-xs">
                         No articles published yet. Publish insights in Blog Manager to see readership rankings.
                       </div>
                     )}
@@ -801,7 +822,7 @@ const Admin = () => {
 
                 {/* Popular Topics / Tags Pill Cloud */}
                 {analyticsData?.blogs?.popularTags && analyticsData.blogs.popularTags.length > 0 && (
-                  <div className="mt-6 pt-4 border-t border-slate-100">
+                  <div className="mt-5 pt-3 border-t border-slate-100">
                     <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
                       Popular Focus Topics
                     </div>
@@ -809,10 +830,10 @@ const Admin = () => {
                       {analyticsData.blogs.popularTags.map((tagItem) => (
                         <span 
                           key={tagItem.tag}
-                          className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-semibold flex items-center gap-1.5 border border-slate-200/60"
+                          className="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs font-medium flex items-center gap-1.5 border border-slate-200/60"
                         >
                           <span>#{tagItem.tag}</span>
-                          <span className="text-[#00AED6] font-bold">({tagItem.totalViews} reads)</span>
+                          <span className="text-brandPrimary font-bold">({tagItem.totalViews})</span>
                         </span>
                       ))}
                     </div>
@@ -825,41 +846,43 @@ const Admin = () => {
           </div>
         )}
 
-        {/* Blog Posts View */}
+        {/* Tab 3: Blog Posts View */}
         {activeTab === 'blogs' && <BlogManager />}
-      </div>
       </div>
 
       {/* Lead Details Modal */}
       {selectedLead && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl w-full max-w-xl max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100">
-            <div className="flex justify-between items-center p-6 border-b border-slate-100 sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-xs p-4 animate-in fade-in duration-150">
+          <div className="bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-xl border border-slate-200">
+            
+            {/* Header */}
+            <div className="flex justify-between items-center px-6 py-4 border-b border-slate-100 sticky top-0 bg-white/95 backdrop-blur-sm z-10">
               <div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900">Lead Details</h3>
-                <p className="text-xs text-slate-500 mt-0.5">Submitted on {new Date(selectedLead.createdAt).toLocaleString()}</p>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900">Lead Details</h3>
+                <p className="text-xs text-slate-400 mt-0.5">Submitted on {new Date(selectedLead.createdAt).toLocaleString()}</p>
               </div>
               <button 
                 onClick={() => setSelectedLead(null)}
-                className="text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition"
+                className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="p-6 space-y-6 text-sm">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                  <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Prospect Name</div>
-                  <div className="text-sm sm:text-base font-bold text-slate-900">{selectedLead.name}</div>
+            <div className="p-6 space-y-5 text-sm">
+              {/* Top Info Cards */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+                  <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Prospect</div>
+                  <div className="text-sm font-bold text-slate-900 truncate">{selectedLead.name}</div>
                 </div>
 
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                  <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Lifecycle Status</div>
+                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+                  <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Lifecycle Status</div>
                   <select 
                     value={selectedLead.status}
                     onChange={(e) => handleStatusChange(selectedLead._id, e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-lg px-2 py-1 text-xs font-bold text-slate-800 outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-lg px-2 py-1 text-xs font-semibold text-slate-800 outline-none"
                   >
                     <option value="New">New</option>
                     <option value="Contacted">Contacted</option>
@@ -871,66 +894,68 @@ const Admin = () => {
                 </div>
               </div>
 
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-3">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Contact & Company Info</div>
+              {/* Contact & Company Details */}
+              <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2.5">
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Contact Information</div>
                 
-                <div className="flex items-center justify-between py-1 border-b border-slate-200/60 text-xs sm:text-sm">
-                  <span className="text-slate-500 flex items-center gap-2"><Mail className="w-4 h-4 text-slate-400" /> Email:</span>
+                <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-200/50">
+                  <span className="text-slate-500 flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-slate-400" /> Email:</span>
                   <a href={`mailto:${selectedLead.email}`} className="font-semibold text-brandPrimary hover:underline">{selectedLead.email}</a>
                 </div>
 
-                <div className="flex items-center justify-between py-1 border-b border-slate-200/60 text-xs sm:text-sm">
-                  <span className="text-slate-500 flex items-center gap-2"><Phone className="w-4 h-4 text-slate-400" /> Phone:</span>
+                <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-200/50">
+                  <span className="text-slate-500 flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-slate-400" /> Phone:</span>
                   <a href={`tel:${selectedLead.phone}`} className="font-semibold text-slate-800 hover:text-brandPrimary">{selectedLead.phone}</a>
                 </div>
 
                 {selectedLead.company && (
-                  <div className="flex items-center justify-between py-1 border-b border-slate-200/60 text-xs sm:text-sm">
-                    <span className="text-slate-500 flex items-center gap-2"><Building2 className="w-4 h-4 text-slate-400" /> Company:</span>
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-200/50">
+                    <span className="text-slate-500 flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-slate-400" /> Company:</span>
                     <span className="font-semibold text-slate-800">{selectedLead.company}</span>
                   </div>
                 )}
 
                 {selectedLead.website && (
-                  <div className="flex items-center justify-between py-1 border-b border-slate-200/60 text-xs sm:text-sm">
-                    <span className="text-slate-500 flex items-center gap-2"><Globe className="w-4 h-4 text-slate-400" /> Website:</span>
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-200/50">
+                    <span className="text-slate-500 flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-slate-400" /> Website:</span>
                     <a href={selectedLead.website.startsWith('http') ? selectedLead.website : `https://${selectedLead.website}`} target="_blank" rel="noopener noreferrer" className="font-semibold text-brandPrimary hover:underline flex items-center gap-1">
                       {selectedLead.website} <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
                 )}
 
-                <div className="flex items-center justify-between py-1 text-xs sm:text-sm">
+                <div className="flex items-center justify-between text-xs sm:text-sm pt-0.5">
                   <span className="text-slate-500">Service Goal:</span>
-                  <span className="font-bold text-slate-800 bg-white px-2 py-0.5 rounded border border-slate-200">{selectedLead.service}</span>
+                  <span className="font-semibold text-slate-800 bg-white px-2 py-0.5 rounded border border-slate-200 text-xs">{selectedLead.service || 'Not specified'}</span>
                 </div>
               </div>
 
-              {/* Message / Challenges Box */}
+              {/* Message / Requirements */}
               <div>
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Current Challenges / Message</div>
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Client Note / Challenge</div>
+                <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">
                   {selectedLead.message ? selectedLead.message : <span className="italic text-slate-400">No message provided.</span>}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex justify-between items-center">
+              {/* Modal Actions */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                 <button
                   onClick={() => handleDelete(selectedLead._id, selectedLead.name)}
-                  className="text-xs font-bold text-red-600 hover:text-red-700 transition"
+                  className="text-xs font-semibold text-red-600 hover:text-red-700 transition"
                 >
-                  Delete this Lead
+                  Delete Lead
                 </button>
-                <div className="flex gap-2">
+                <div className="flex items-center gap-2">
                   <a
-                    href={`mailto:${selectedLead.email}?subject=DMDY Strategy Consultation Follow-up`}
-                    className="btn-primary text-xs py-2 px-4 font-bold flex items-center gap-1.5"
+                    href={`mailto:${selectedLead.email}?subject=DMDY Consultation Follow-up`}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-brandPrimary text-white text-xs font-semibold hover:bg-brandPrimary/90 transition shadow-2xs"
                   >
                     <Mail className="w-3.5 h-3.5" /> Email Client
                   </a>
                   <button
                     onClick={() => setSelectedLead(null)}
-                    className="px-4 py-2 rounded-xl text-slate-600 font-bold hover:bg-slate-100 transition text-xs"
+                    className="px-3.5 py-2 rounded-lg text-slate-600 font-semibold hover:bg-slate-100 transition text-xs border border-slate-200"
                   >
                     Close
                   </button>

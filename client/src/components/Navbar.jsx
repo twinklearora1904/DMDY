@@ -6,6 +6,13 @@ import logo from '../assets/logo.png';
 
 const servicesList = [
   {
+    name: '360° Digital Marketing Services',
+    desc: 'Unified multi-channel ecosystem, SEO, paid ads & automation',
+    path: '/services/360-digital-marketing',
+    icon: Sparkles,
+    color: '#00AED6'
+  },
+  {
     name: 'Search Engine Optimization (SEO)',
     desc: 'Technical audits, keyword authority & organic revenue scale',
     path: '/services/seo',

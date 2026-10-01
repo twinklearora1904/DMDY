@@ -18,6 +18,12 @@
 
   <!-- Individual Service Pages -->
   <url>
+    <loc>https://dmdy.in/services/360-digital-marketing</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://dmdy.in/services/seo</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>

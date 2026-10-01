@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 // Lazy loaded page components for optimal performance and chunk splitting
 const Home = lazy(() => import('./pages/Home'))
 const Services = lazy(() => import('./pages/Services'))
+const DigitalMarketing360Service = lazy(() => import('./pages/services/DigitalMarketing360Service'))
 const SeoService = lazy(() => import('./pages/services/SeoService'))
 const SocialMediaService = lazy(() => import('./pages/services/SocialMediaService'))
 const GoogleAdsService = lazy(() => import('./pages/services/GoogleAdsService'))
@@ -52,6 +53,9 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
+                <Route path="/services/360-digital-marketing" element={<DigitalMarketing360Service />} />
+                <Route path="/services/360-digital-marketing-services" element={<DigitalMarketing360Service />} />
+                <Route path="/services/digital-marketing" element={<DigitalMarketing360Service />} />
                 <Route path="/services/seo" element={<SeoService />} />
                 <Route path="/services/web-development" element={<WebDevelopmentService />} />
                 <Route path="/services/website-design-development" element={<WebDevelopmentService />} />

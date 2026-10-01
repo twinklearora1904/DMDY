@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const Blog = require("../models/Blog");
 const User = require("../models/User");
 const { uploadStreamToCloudinary, deleteFromCloudinary } = require("../config/cloudinary");
+const cache = require("../utils/cache");
 
 /**
  * Helper to check whether the incoming request is authenticated as an admin.
@@ -69,21 +70,36 @@ const createBlog = async (req, res) => {
         });
 
         const createdBlog = await blog.save();
+
+        // Invalidate blogs cache so fresh content appears immediately
+        await cache.delByPrefix("blog");
+
         res.status(201).json(createdBlog);
     } catch (error) {
         if (error.code === 11000) {
             return res.status(400).json({ message: "A blog post with this slug already exists." });
         }
-        res.status(500).json({ message: "Server error", error: error.message });
+        res.status(500).json({ message: "Internal server error" });
     }
 };
 
 const getBlogs = async (req, res) => {
     try {
         const isAdmin = await checkIsAdmin(req);
+        const isPublicQuery = !isAdmin || req.query.all !== "true";
+
+        // For public requests, check cache first (1-hour TTL)
+        if (isPublicQuery) {
+            const cachedBlogs = await cache.get("blogs:public");
+            if (cachedBlogs) {
+                res.setHeader("X-Cache", "HIT");
+                res.setHeader("Cache-Control", "public, max-age=3600, stale-while-revalidate=600");
+                return res.json(cachedBlogs);
+            }
+        }
+
         const filter = {};
-        // Only verified admins can view unpublished/draft posts with ?all=true
-        if (!isAdmin || req.query.all !== "true") {
+        if (isPublicQuery) {
             filter.isPublished = true;
         }
 
@@ -92,15 +108,32 @@ const getBlogs = async (req, res) => {
             .sort({ createdAt: -1 })
             .populate("author", "name email");
 
+        // Cache public response for 1 hour
+        if (isPublicQuery) {
+            await cache.set("blogs:public", blogs, 3600);
+            res.setHeader("X-Cache", "MISS");
+            res.setHeader("Cache-Control", "public, max-age=3600, stale-while-revalidate=600");
+        }
+
         res.json(blogs);
     } catch (error) {
-        res.status(500).json({ message: "Server error", error: error.message });
+        res.status(500).json({ message: "Internal server error" });
     }
 };
 
 const getBlogById = async (req, res) => {
     try {
         const { id } = req.params;
+        const normalizedKey = (id || "").toLowerCase().trim();
+
+        // Check cache first for published single blog
+        const cachedBlog = await cache.get(`blog:item:${normalizedKey}`);
+        if (cachedBlog && cachedBlog.isPublished) {
+            res.setHeader("X-Cache", "HIT");
+            res.setHeader("Cache-Control", "public, max-age=3600, stale-while-revalidate=600");
+            return res.json(cachedBlog);
+        }
+
         const isObjectId = mongoose.Types.ObjectId.isValid(id) && id.length === 24;
 
         let blog = null;
@@ -123,11 +156,19 @@ const getBlogById = async (req, res) => {
             if (!isAdmin) {
                 return res.status(404).json({ message: "Blog not found" });
             }
+        } else {
+            // Cache published blog both by ID and by slug for instant subsequent loads
+            await cache.set(`blog:item:${blog._id.toString()}`, blog, 3600);
+            if (blog.slug) {
+                await cache.set(`blog:item:${blog.slug.toLowerCase().trim()}`, blog, 3600);
+            }
+            res.setHeader("X-Cache", "MISS");
+            res.setHeader("Cache-Control", "public, max-age=3600, stale-while-revalidate=600");
         }
 
         res.json(blog);
     } catch (error) {
-        res.status(500).json({ message: "Server error", error: error.message });
+        res.status(500).json({ message: "Internal server error" });
     }
 };
 
@@ -144,6 +185,10 @@ const updateBlog = async (req, res) => {
 
         if (!blog) {
             return res.status(404).json({ message: "Blog not found" });
+        }
+
+        if (blog.author.toString() !== req.user._id && req.user.role !== "admin") {
+            return res.status(403).json({ message: "Not authorized to update this blog" });
         }
 
         if (title !== undefined) blog.title = title;
@@ -197,12 +242,16 @@ const updateBlog = async (req, res) => {
         }
 
         const updatedBlog = await blog.save();
+
+        // Invalidate blogs cache
+        await cache.delByPrefix("blog");
+
         res.json(updatedBlog);
     } catch (error) {
         if (error.code === 11000) {
             return res.status(400).json({ message: "A blog post with this slug already exists." });
         }
-        res.status(500).json({ message: "Server error", error: error.message });
+        res.status(500).json({ message: "Internal server error" });
     }
 };
 
@@ -220,15 +269,81 @@ const deleteBlog = async (req, res) => {
             return res.status(404).json({ message: "Blog not found" });
         }
 
+        if (blog.author.toString() !== req.user._id && req.user.role !== "admin") {
+            return res.status(403).json({ message: "Not authorized to delete this blog" });
+        }
+
         if (blog.image && blog.image.public_id) {
             await deleteFromCloudinary(blog.image.public_id);
         }
 
         await blog.deleteOne();
+
+        // Invalidate blogs cache
+        await cache.delByPrefix("blog");
+
         res.json({ message: "Blog removed successfully" });
     } catch (error) {
-        res.status(500).json({ message: "Server error", error: error.message });
+        res.status(500).json({ message: "Internal server error" });
     }
 };
 
-module.exports = { createBlog, getBlogs, getBlogById, updateBlog, deleteBlog };
+/**
+ * OpenGraph HTML Scraper Handler
+ * Returns rich OG meta tags for social media bots (WhatsApp, LinkedIn, Twitter, Facebook).
+ */
+const getBlogOgMeta = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const isObjectId = mongoose.Types.ObjectId.isValid(id) && id.length === 24;
+
+        let blog = isObjectId ? await Blog.findById(id) : null;
+        if (!blog) {
+            blog = await Blog.findOne({ slug: id });
+        }
+
+        if (!blog || !blog.isPublished) {
+            return res.status(404).send("Article not found");
+        }
+
+        const clientUrl = (process.env.CLIENT_URL || "https://dmdy.in").split(",")[0].trim().replace(/\/$/, "");
+        const blogUrl = `${clientUrl}/blog/${blog.slug || blog._id}`;
+        const title = `${blog.title} — DMDY Intelligence`;
+        const description = (
+            blog.metaDescription ||
+            (blog.content ? blog.content.substring(0, 160).replace(/[#*`_]/g, "").trim() : "")
+        ).replace(/"/g, "&quot;");
+
+        const imageUrl = blog.image?.url || `${clientUrl}/favicon.png`;
+
+        res.set("Content-Type", "text/html");
+        res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>${title}</title>
+  <meta name="description" content="${description}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="DMDY — Digi Me Digi You">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:image" content="${imageUrl}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="${blogUrl}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title}">
+  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:image" content="${imageUrl}">
+  <meta http-equiv="refresh" content="0; url=${blogUrl}">
+</head>
+<body>
+  <p>Redirecting to <a href="${blogUrl}">${title}</a>...</p>
+</body>
+</html>`);
+    } catch (error) {
+        res.status(500).send("Error generating social preview");
+    }
+};
+
+module.exports = { createBlog, getBlogs, getBlogById, updateBlog, deleteBlog, getBlogOgMeta };

@@ -46,6 +46,8 @@ const QUICK_TEMPLATES = [
   },
 ];
 
+const MAX_HISTORY_SIZE = 50;
+
 const RichBlogEditor = ({ value = '', onChange, placeholder = 'Write your blog post article here...' }) => {
   const textareaRef = useRef(null);
   const [viewMode, setViewMode] = useState('split'); // 'write' | 'split' | 'preview'
@@ -56,6 +58,19 @@ const RichBlogEditor = ({ value = '', onChange, placeholder = 'Write your blog p
   const [imageData, setImageData] = useState({ alt: '', url: '', caption: '' });
   const [showTemplates, setShowTemplates] = useState(false);
 
+  // Prevent accidental data loss on tab close/refresh
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (value !== '') {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [value]);
+
   // Undo / Redo history stack
   const [history, setHistory] = useState(() => [value || '']);
   const [historyIndex, setHistoryIndex] = useState(0);
@@ -65,6 +80,9 @@ const RichBlogEditor = ({ value = '', onChange, placeholder = 'Write your blog p
     if (addToHistory) {
       setHistory((prev) => {
         const next = prev.slice(0, historyIndex + 1);
+        if (next.length >= MAX_HISTORY_SIZE) {
+          next.shift();
+        }
         next.push(newText);
         return next;
       });

@@ -6,6 +6,7 @@ const {
     getBlogById,
     updateBlog,
     deleteBlog,
+    getBlogOgMeta,
 } = require("../controllers/blogController");
 const { protect, admin } = require("../middleware/authMiddleware");
 const upload = require("../middleware/uploadMiddleware");
@@ -27,6 +28,8 @@ router.route("/")
         validate,
         createBlog
     );
+
+router.get("/:id/meta", getBlogOgMeta);
 
 router.route("/:id")
     .get(getBlogById)

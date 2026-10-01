@@ -15,7 +15,10 @@ const uploadStreamToCloudinary = (fileBuffer, folder = "dmdy_blogs") => {
             {
                 folder,
                 resource_type: "image",
-                allowed_formats: ["jpg", "jpeg", "png", "webp"],
+                allowed_formats: ["jpg", "jpeg", "png", "webp", "avif"],
+                transformation: [
+                    { quality: "auto:good", fetch_format: "auto" }
+                ],
             },
             (error, result) => {
                 if (error) return reject(error);

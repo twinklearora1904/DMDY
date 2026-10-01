@@ -27,7 +27,7 @@ const loginUser = async (req, res) => {
             res.status(401).json({ message: "Invalid email or password" });
         }
     } catch (error) {
-        res.status(500).json({ message: "Server error", error: error.message });
+        res.status(500).json({ message: "Internal server error" });
     }
 };
 
@@ -40,7 +40,7 @@ const getProfile = async (req, res) => {
             res.status(404).json({ message: "User not found" });
         }
     } catch (error) {
-        res.status(500).json({ message: "Server error", error: error.message });
+        res.status(500).json({ message: "Internal server error" });
     }
 };
 

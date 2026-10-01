@@ -7,27 +7,42 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchUser = async () => {
       const token = localStorage.getItem('token');
       if (token) {
         try {
           const res = await api.get('/api/auth/me');
-          setUser(res.data);
+          if (isMounted) {
+            setUser(res.data);
+          }
         } catch (error) {
           console.error('Failed to fetch user', error);
-          localStorage.removeItem('token');
+          if (isMounted) {
+            localStorage.removeItem('token');
+          }
         }
       }
-      setLoading(false);
+      if (isMounted) {
+        setLoading(false);
+      }
     };
 
     fetchUser();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const login = async (email, password) => {
-    const res = await api.post('/api/auth/login', { email, password });
-    localStorage.setItem('token', res.data.token);
-    setUser(res.data);
+    try {
+      const res = await api.post('/api/auth/login', { email, password });
+      localStorage.setItem('token', res.data.token);
+      setUser(res.data);
+    } catch (error) {
+      console.error('Login failed:', error);
+      throw error;
+    }
   };
 
   const logout = () => {

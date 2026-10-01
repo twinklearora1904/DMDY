@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
 import { Sparkles, ArrowRight, Calendar, Search, Clock, X } from 'lucide-react';
+import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
+import SEO from '../components/SEO';
 
 const Blog = () => {
   const { openModal } = useContactModal();
@@ -59,6 +61,11 @@ const Blog = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans">
+      <SEO
+        title="Insights & Growth Playbooks"
+        description="Explore DMDY's proven frameworks, performance marketing teardowns, and actionable digital growth strategies."
+        url="https://dmdy.in/blog"
+      />
 
       {/* ========================================================= */}
       {/* HERO SECTION: 2 COLUMNS (Left: Text, Right: Latest Post) */}
@@ -145,7 +152,9 @@ const Blog = () => {
                     <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
                       {latestBlog.image?.url || (typeof latestBlog.image === 'string' && latestBlog.image) ? (
                         <img
-                          src={latestBlog.image?.url || latestBlog.image}
+                          src={getOptimizedImage(latestBlog.image?.url || latestBlog.image, { width: 800, quality: 'auto:good' })}
+                          srcSet={getResponsiveSrcSet(latestBlog.image?.url || latestBlog.image, [360, 640, 800, 1024])}
+                          sizes="(max-width: 1024px) 100vw, 500px"
                           alt={latestBlog.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                           loading="eager"
@@ -346,7 +355,9 @@ const Blog = () => {
                       {imageUrl ? (
                         <div className="w-full h-52 overflow-hidden relative bg-slate-100">
                           <img
-                            src={imageUrl}
+                            src={getOptimizedImage(imageUrl, { width: 600, quality: 'auto:good' })}
+                            srcSet={getResponsiveSrcSet(imageUrl, [360, 480, 600, 768])}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             alt={blog.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"

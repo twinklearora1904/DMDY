@@ -4,6 +4,8 @@ import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
 import { ArrowLeft, Calendar, User, Tag, Sparkles, Share2, Check, Clock } from 'lucide-react';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import SEO from '../components/SEO';
+import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 
 const BlogPost = () => {
   const { openModal } = useContactModal();
@@ -82,6 +84,16 @@ const BlogPost = () => {
 
   return (
     <div className="pt-28 sm:pt-36 pb-12 sm:pb-20 bg-slate-50 min-h-screen font-sans">
+      <SEO
+        title={blog.title}
+        description={blog.metaDescription || (blog.content ? blog.content.substring(0, 160).replace(/[#*`_]/g, '').trim() : '')}
+        image={imageUrl}
+        url={`https://dmdy.in/blog/${blog.slug || slug}`}
+        type="article"
+        author={blog.author?.name || 'DMDY Growth Strategists'}
+        publishedTime={blog.createdAt}
+        tags={blog.tags}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Navigation Row */}
@@ -152,11 +164,14 @@ const BlogPost = () => {
             </header>
 
             {imageUrl && (
-              <div className="mb-10 overflow-hidden rounded-2xl border border-slate-100 shadow-sm">
+              <div className="mb-10 overflow-hidden rounded-2xl border border-slate-100 shadow-sm bg-slate-100">
                 <img
-                  src={imageUrl}
+                  src={getOptimizedImage(imageUrl, { width: 1200, quality: 'auto:good' })}
+                  srcSet={getResponsiveSrcSet(imageUrl, [480, 768, 1024, 1280])}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 1200px"
                   alt={blog.title}
                   className="w-full max-h-[500px] object-cover"
+                  loading="eager"
                 />
               </div>
             )}

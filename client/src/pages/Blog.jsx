@@ -5,6 +5,8 @@ import api from '../utils/api';
 import { Sparkles, ArrowRight, Calendar, Search, Clock, X } from 'lucide-react';
 import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
 import SEO from '../components/SEO';
+import { BlogHeroSkeleton, BlogGridSkeleton } from '../components/skeletons/BlogSkeleton';
+import EmptyState from '../components/EmptyState';
 
 const Blog = () => {
   const { openModal } = useContactModal();
@@ -114,14 +116,7 @@ const Blog = () => {
             {/* Right Column (5 cols): Latest Post Spotlight */}
             <div className="lg:col-span-5">
               {loading ? (
-                /* Skeleton Loader for Latest Post */
-                <div className="bg-white rounded-3xl border border-slate-200 p-6 animate-pulse shadow-sm">
-                  <div className="h-4 bg-slate-200 rounded w-1/3 mb-4"></div>
-                  <div className="h-56 bg-slate-200 rounded-2xl mb-4"></div>
-                  <div className="h-6 bg-slate-200 rounded w-3/4 mb-3"></div>
-                  <div className="h-4 bg-slate-200 rounded w-full mb-2"></div>
-                  <div className="h-4 bg-slate-200 rounded w-2/3"></div>
-                </div>
+                <BlogHeroSkeleton />
               ) : latestBlog ? (
                 /* Latest Post Featured Card */
                 <div className="relative group">
@@ -305,38 +300,29 @@ const Blog = () => {
 
           {/* Grid of Remaining Blogs */}
           {loading ? (
-            /* Skeleton Loading Grid */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3].map((n) => (
-                <div key={n} className="bg-white rounded-3xl border border-slate-200 p-6 animate-pulse">
-                  <div className="h-48 bg-slate-200 rounded-2xl mb-4"></div>
-                  <div className="h-5 bg-slate-200 rounded w-3/4 mb-3"></div>
-                  <div className="h-4 bg-slate-200 rounded w-full mb-2"></div>
-                  <div className="h-4 bg-slate-200 rounded w-2/3"></div>
-                </div>
-              ))}
-            </div>
+            <BlogGridSkeleton count={6} />
           ) : displayedBlogs.length === 0 ? (
-            /* Empty State */
-            <div className="text-center py-20 bg-white rounded-3xl border border-slate-200/80 p-8 max-w-md mx-auto shadow-sm">
-              <p className="font-bold text-slate-800 text-base sm:text-lg mb-1.5">No articles found</p>
-              <p className="text-xs sm:text-sm text-slate-500 mb-6 leading-relaxed">
-                {isFiltered
-                  ? 'No articles matched your search query or selected topic filter.'
-                  : 'All caught up! Check back soon for our next published teardown.'}
-              </p>
-              {isFiltered && (
-                <button
-                  onClick={() => {
-                    setSearchTerm('');
-                    setSelectedTag('All');
-                  }}
-                  className="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors shadow-sm"
-                >
-                  Reset Filters
-                </button>
-              )}
-            </div>
+            <EmptyState
+              icon={Search}
+              badge={isFiltered ? "Filtered Results" : "Growth Archive"}
+              title={isFiltered ? "No Strategic Articles Found" : "Publications Loading Soon"}
+              description={
+                isFiltered
+                  ? `No articles matched your search query "${searchTerm}" or the selected topic filter. Try broadening your criteria.`
+                  : "Our performance strategists are preparing upcoming deep dives and growth teardowns. Check back soon!"
+              }
+              actionText={isFiltered ? "Reset Search & Filters" : "Request Custom Case Study"}
+              onAction={
+                isFiltered
+                  ? () => {
+                      setSearchTerm('');
+                      setSelectedTag('All');
+                    }
+                  : () => openModal()
+              }
+              secondaryActionText={isFiltered ? "Talk to a Strategist" : undefined}
+              onSecondaryAction={isFiltered ? () => openModal() : undefined}
+            />
           ) : (
             /* Blogs Grid */
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

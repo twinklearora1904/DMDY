@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Trash2, Edit, Plus, X, Search, Eye, FileText, CheckCircle2 } from 'lucide-react';
 import api from '../utils/api';
 import RichBlogEditor from './RichBlogEditor';
+import EmptyState from './EmptyState';
+import TableSkeleton from './skeletons/TableSkeleton';
 
 const initialFormData = {
   title: '',
@@ -24,12 +26,13 @@ const BlogManager = () => {
   const [removeCurrentImage, setRemoveCurrentImage] = useState(false);
   const [filePreview, setFilePreview] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [feedback, setFeedback] = useState({ type: '', msg: '' });
 
   const fetchBlogs = useCallback(async () => {
     try {
       const res = await api.get('/api/blogs?all=true');
-      setBlogs(res.data);
+      setBlogs(res.data || []);
     } catch (err) {
       console.error('Failed to fetch blogs for admin:', err);
     }
@@ -37,11 +40,15 @@ const BlogManager = () => {
 
   useEffect(() => {
     let isMounted = true;
+    setIsInitialLoading(true);
     api.get('/api/blogs?all=true')
       .then((res) => {
-        if (isMounted) setBlogs(res.data);
+        if (isMounted) setBlogs(res.data || []);
       })
-      .catch((err) => console.error('Failed to fetch blogs for admin:', err));
+      .catch((err) => console.error('Failed to fetch blogs for admin:', err))
+      .finally(() => {
+        if (isMounted) setIsInitialLoading(false);
+      });
 
     return () => {
       isMounted = false;
@@ -224,11 +231,28 @@ const BlogManager = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-sm">
-              {filteredBlogs.length === 0 ? (
+              {isInitialLoading ? (
                 <tr>
-                  <td colSpan="5" className="p-10 text-center text-slate-500">
-                    <FileText className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-                    {searchQuery ? 'No blog posts match your search query.' : 'No blog posts found. Click "New Blog Post" to publish.'}
+                  <td colSpan="5" className="p-4">
+                    <TableSkeleton rows={4} />
+                  </td>
+                </tr>
+              ) : filteredBlogs.length === 0 ? (
+                <tr>
+                  <td colSpan="5" className="p-8">
+                    <EmptyState
+                      variant="minimal"
+                      icon={FileText}
+                      badge="Publication CMS"
+                      title={searchQuery ? 'No Articles Matched Query' : 'No Blog Posts Published Yet'}
+                      description={
+                        searchQuery
+                          ? 'No articles matched your search query. Try typing a different topic or tag.'
+                          : 'Ready to share growth playbooks with your audience? Click "New Blog Post" to draft and publish your first article.'
+                      }
+                      actionText={searchQuery ? 'Clear Search' : 'Create First Article'}
+                      onAction={searchQuery ? () => setSearchQuery('') : handleOpenCreateModal}
+                    />
                   </td>
                 </tr>
               ) : (

@@ -22,10 +22,13 @@ import {
 } from 'lucide-react';
 import api from '../utils/api';
 import BlogManager from '../components/BlogManager';
+import TableSkeleton from '../components/skeletons/TableSkeleton';
+import EmptyState from '../components/EmptyState';
 
 const Admin = () => {
   const { user, loading, logout } = useAuth();
   const [leads, setLeads] = useState([]);
+  const [leadsLoading, setLeadsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('leads'); // 'leads' or 'blogs'
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
@@ -51,11 +54,15 @@ const Admin = () => {
   useEffect(() => {
     if (user && activeTab === 'leads') {
       let isMounted = true;
+      setLeadsLoading(true);
       api.get('/api/leads')
         .then((res) => {
-          if (isMounted) setLeads(res.data);
+          if (isMounted) setLeads(res.data || []);
         })
-        .catch((err) => console.error('Failed to fetch leads:', err));
+        .catch((err) => console.error('Failed to fetch leads:', err))
+        .finally(() => {
+          if (isMounted) setLeadsLoading(false);
+        });
       return () => {
         isMounted = false;
       };
@@ -322,13 +329,35 @@ const Admin = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-sm">
-                    {filteredLeads.length === 0 ? (
+                    {leadsLoading ? (
                       <tr>
-                        <td colSpan="5" className="p-10 text-center text-xs sm:text-sm text-slate-500">
-                          <Inbox className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-                          {searchQuery || statusFilter !== 'All' 
-                            ? 'No leads match the selected filter.' 
-                            : 'No inquiries received yet. Incoming requests from the contact form will appear here.'}
+                        <td colSpan="5" className="p-4">
+                          <TableSkeleton rows={5} />
+                        </td>
+                      </tr>
+                    ) : filteredLeads.length === 0 ? (
+                      <tr>
+                        <td colSpan="5" className="p-8">
+                          <EmptyState
+                            variant="minimal"
+                            icon={Inbox}
+                            badge="CRM Pipeline"
+                            title={searchQuery || statusFilter !== 'All' ? 'No Matching Inquiries' : 'No Inquiries Received Yet'}
+                            description={
+                              searchQuery || statusFilter !== 'All'
+                                ? 'No leads matched your search query or status filter. Try clearing filters.'
+                                : 'Incoming business enquiries submitted via website contact forms and modal triggers will appear here in real time.'
+                            }
+                            actionText={searchQuery || statusFilter !== 'All' ? 'Reset Filters' : undefined}
+                            onAction={
+                              searchQuery || statusFilter !== 'All'
+                                ? () => {
+                                    setSearchQuery('');
+                                    setStatusFilter('All');
+                                  }
+                                : undefined
+                            }
+                          />
                         </td>
                       </tr>
                     ) : (

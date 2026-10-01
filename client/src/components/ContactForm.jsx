@@ -8,8 +8,11 @@ import {
   Sparkles, 
   Clock, 
   Lock, 
-  ArrowRight 
+  ArrowRight,
+  CheckCircle2,
+  AlertCircle 
 } from 'lucide-react';
+import { validateLeadForm } from '../utils/validation';
 
 const serviceOptions = [
   'Complete 360° Digital Marketing',
@@ -35,17 +38,50 @@ const ContactForm = () => {
     message: '',
     website: ''
   });
+  const [touched, setTouched] = useState({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [status, setStatus] = useState({ type: '', msg: '' });
   const [loading, setLoading] = useState(false);
 
+  // Real-time calculated errors
+  const errors = validateLeadForm(formData);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (status.type === 'error') {
+      setStatus({ type: '', msg: '' });
+    }
+  };
+
+  const handleBlur = (field) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setHasSubmitted(true);
     setStatus({ type: '', msg: '' });
+
+    const currentErrors = validateLeadForm(formData);
+    if (Object.keys(currentErrors).length > 0) {
+      setTouched({
+        name: true,
+        company: true,
+        phone: true,
+        email: true,
+        service: true,
+        message: true,
+        website: true,
+      });
+      setStatus({
+        type: 'error',
+        msg: 'Please correct the highlighted fields before submitting.'
+      });
+      return;
+    }
+
+    setLoading(true);
 
     // Normalize website URL if present
     let normalizedWebsite = (formData.website || '').trim();
@@ -69,10 +105,12 @@ const ContactForm = () => {
         company: '',
         phone: '',
         email: '',
-        service: 'Digital Marketing',
+        service: 'Complete 360° Digital Marketing',
         message: '',
         website: ''
       });
+      setTouched({});
+      setHasSubmitted(false);
 
       // Redirect smoothly to Thank You page
       navigate('/thank-you', {
@@ -93,6 +131,48 @@ const ContactForm = () => {
       setLoading(false);
     }
   };
+
+  const getFieldFeedback = (fieldName) => {
+    const isTouched = touched[fieldName] || hasSubmitted;
+    const error = errors[fieldName];
+    const value = formData[fieldName];
+
+    if (!isTouched) {
+      return {
+        className: 'border-slate-200/90 focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 bg-slate-50/80 focus:bg-white',
+        icon: null,
+        error: null,
+      };
+    }
+
+    if (error) {
+      return {
+        className: 'border-rose-400 bg-rose-50/30 text-slate-900 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 pr-10',
+        icon: <AlertCircle className="w-4 h-4 text-rose-500" />,
+        error,
+      };
+    }
+
+    if (value && value.toString().trim()) {
+      return {
+        className: 'border-emerald-400 bg-emerald-50/20 text-slate-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 pr-10',
+        icon: <CheckCircle2 className="w-4 h-4 text-emerald-500" />,
+        error: null,
+      };
+    }
+
+    return {
+      className: 'border-slate-200/90 focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 bg-slate-50/80 focus:bg-white',
+      icon: null,
+      error: null,
+    };
+  };
+
+  const nameFeedback = getFieldFeedback('name');
+  const phoneFeedback = getFieldFeedback('phone');
+  const emailFeedback = getFieldFeedback('email');
+  const serviceFeedback = getFieldFeedback('service');
+  const messageFeedback = getFieldFeedback('message');
 
   return (
     <section id="contact" className="py-14 sm:py-20 bg-slate-50 relative overflow-hidden font-sans border-t border-slate-200/80">
@@ -212,23 +292,36 @@ const ContactForm = () => {
               </div>
             )}
             
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+            <form onSubmit={handleSubmit} noValidate className="space-y-4 sm:space-y-5">
               
               {/* Row 1: Full Name & Business / Company Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Full Name *
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 flex items-center justify-between">
+                    <span>Full Name *</span>
                   </label>
-                  <input
-                    required
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="e.g. Atul Rathaur"
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      onBlur={() => handleBlur('name')}
+                      className={`w-full rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none transition-all border ${nameFeedback.className}`}
+                      placeholder="e.g. Atul Rathaur"
+                    />
+                    {nameFeedback.icon && (
+                      <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
+                        {nameFeedback.icon}
+                      </div>
+                    )}
+                  </div>
+                  {nameFeedback.error && (
+                    <p className="text-[11px] sm:text-xs text-rose-600 font-semibold mt-1.5 flex items-center gap-1.5">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{nameFeedback.error}</span>
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -249,33 +342,59 @@ const ContactForm = () => {
               {/* Row 2: Phone Number & Email Address */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Phone Number *
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 flex items-center justify-between">
+                    <span>Phone Number *</span>
                   </label>
-                  <input
-                    required
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="+91 98765 43210"
-                  />
+                  <div className="relative">
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      onBlur={() => handleBlur('phone')}
+                      className={`w-full rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none transition-all border ${phoneFeedback.className}`}
+                      placeholder="+91 98765 43210"
+                    />
+                    {phoneFeedback.icon && (
+                      <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
+                        {phoneFeedback.icon}
+                      </div>
+                    )}
+                  </div>
+                  {phoneFeedback.error && (
+                    <p className="text-[11px] sm:text-xs text-rose-600 font-semibold mt-1.5 flex items-center gap-1.5">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{phoneFeedback.error}</span>
+                    </p>
+                  )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Email Address *
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 flex items-center justify-between">
+                    <span>Email Address *</span>
                   </label>
-                  <input
-                    required
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
-                    placeholder="atul@company.com"
-                  />
+                  <div className="relative">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      onBlur={() => handleBlur('email')}
+                      className={`w-full rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none transition-all border ${emailFeedback.className}`}
+                      placeholder="atul@company.com"
+                    />
+                    {emailFeedback.icon && (
+                      <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
+                        {emailFeedback.icon}
+                      </div>
+                    )}
+                  </div>
+                  {emailFeedback.error && (
+                    <p className="text-[11px] sm:text-xs text-rose-600 font-semibold mt-1.5 flex items-center gap-1.5">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{emailFeedback.error}</span>
+                    </p>
+                  )}
                 </div>
               </div>
               
@@ -289,7 +408,8 @@ const ContactForm = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all cursor-pointer appearance-none"
+                    onBlur={() => handleBlur('service')}
+                    className={`w-full rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none transition-all cursor-pointer appearance-none border ${serviceFeedback.className}`}
                   >
                     {serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -314,10 +434,17 @@ const ContactForm = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
+                  onBlur={() => handleBlur('message')}
                   rows="4"
-                  className="w-full bg-slate-50/80 border border-slate-200/90 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all resize-y"
+                  className={`w-full rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none transition-all resize-y border ${messageFeedback.className}`}
                   placeholder="Tell us about your brand, current challenges, and goals..."
                 ></textarea>
+                {messageFeedback.error && (
+                  <p className="text-[11px] sm:text-xs text-rose-600 font-semibold mt-1.5 flex items-center gap-1.5">
+                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                    <span>{messageFeedback.error}</span>
+                  </p>
+                )}
               </div>
               
               {/* Submit Button */}

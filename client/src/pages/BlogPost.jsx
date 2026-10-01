@@ -6,6 +6,8 @@ import { ArrowLeft, Calendar, User, Tag, Sparkles, Share2, Check, Clock } from '
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import SEO from '../components/SEO';
 import { getOptimizedImage, getResponsiveSrcSet } from '../utils/cloudinary';
+import BlogPostSkeleton from '../components/skeletons/BlogPostSkeleton';
+import EmptyState from '../components/EmptyState';
 
 const BlogPost = () => {
   const { openModal } = useContactModal();
@@ -54,27 +56,21 @@ const BlogPost = () => {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-screen pt-28 sm:pt-36 pb-12 sm:pb-20 flex flex-col items-center justify-center text-slate-500 gap-3 bg-slate-50 font-sans">
-        <div className="w-8 h-8 border-3 border-[#00AED6] border-t-transparent rounded-full animate-spin"></div>
-        <p className="font-semibold text-xs sm:text-sm text-slate-600">Loading article...</p>
-      </div>
-    );
+    return <BlogPostSkeleton />;
   }
 
   if (error || !blog) {
     return (
-      <div className="min-h-screen pt-28 sm:pt-36 pb-12 sm:pb-20 flex flex-col items-center justify-center text-center px-4 bg-slate-50 font-sans">
-        <div className="bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-xl max-w-md w-full">
-          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">Article Not Found</h2>
-          <p className="text-slate-500 text-xs sm:text-sm mb-6">{error || 'The requested article could not be loaded.'}</p>
-          <Link 
-            to="/blog" 
-            className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl bg-slate-900 text-white font-bold text-xs sm:text-sm hover:bg-slate-800 transition-colors shadow-sm"
-          >
-            <ArrowLeft className="w-4 h-4" /> Back to Articles
-          </Link>
-        </div>
+      <div className="min-h-screen pt-28 sm:pt-36 pb-12 sm:pb-20 flex flex-col items-center justify-center px-4 bg-slate-50 font-sans">
+        <EmptyState
+          badge="Article Unavailable"
+          title={error ? "Unable to Load Article" : "Publication Not Found"}
+          description={error || "The requested strategy teardown may have moved or is still being finalized by our editors."}
+          actionText="Browse All Growth Articles"
+          onAction={() => window.location.assign('/blog')}
+          secondaryActionText="Request Consultation"
+          onSecondaryAction={() => openModal()}
+        />
       </div>
     );
   }

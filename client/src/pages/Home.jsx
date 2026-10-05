@@ -200,6 +200,17 @@ const processSteps = [
   },
   {
     step: '03',
+    name: 'DEVELOP',
+    desc: 'Analyze, optimize and continuously evolve your digital presence.',
+    icon: TrendingUp,
+    color: 'text-emerald-600',
+    borderTop: 'border-t-emerald-500',
+    bg: 'bg-emerald-50/80',
+    border: 'border-emerald-200/80',
+    badge: 'bg-emerald-50 text-emerald-600 border-emerald-200/80'
+  },
+  {
+    step: '04',
     name: 'DELIVER',
     desc: 'Execute through the right combination of strategy, creative, technology and marketing.',
     icon: Zap,
@@ -209,17 +220,6 @@ const processSteps = [
     border: 'border-amber-200/80',
     badge: 'bg-amber-50 text-[#F5A623] border-amber-200/80'
   },
-  {
-    step: '04',
-    name: 'DEVELOP',
-    desc: 'Analyze, optimize and continuously evolve your digital presence.',
-    icon: TrendingUp,
-    color: 'text-emerald-600',
-    borderTop: 'border-t-emerald-500',
-    bg: 'bg-emerald-50/80',
-    border: 'border-emerald-200/80',
-    badge: 'bg-emerald-50 text-emerald-600 border-emerald-200/80'
-  }
 ];
 
 const goalDirections = [

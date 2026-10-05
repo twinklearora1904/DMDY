@@ -13,6 +13,7 @@ const {
 } = require("../controllers/blogController");
 const { protect, admin } = require("../middleware/authMiddleware");
 const upload = require("../middleware/uploadMiddleware");
+const viewLimiter = require("../middleware/viewLimiter");
 
 const { check } = require("express-validator");
 const { validate } = require("../middleware/validateMiddleware");
@@ -37,7 +38,7 @@ router.get("/search", searchBlogs);
 router.get("/search/suggest", getSearchSuggestions);
 
 router.get("/:id/meta", getBlogOgMeta);
-router.post("/:id/view", recordBlogView);
+router.post("/:id/view", viewLimiter, recordBlogView);
 
 router.route("/:id")
     .get(getBlogById)

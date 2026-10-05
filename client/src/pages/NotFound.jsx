@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { Home, Search, Compass, Sparkles } from 'lucide-react';
 
 const NotFound = () => {
@@ -9,6 +10,12 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen pt-28 sm:pt-36 pb-12 sm:pb-20 flex items-center justify-center bg-slate-50 font-sans relative overflow-hidden">
+      <SEO
+        title="404 — Page Not Found | DMDY"
+        description="The page you are looking for might have been moved, renamed, or is temporarily unavailable."
+        url="https://dmdy.in/404"
+        noindex={true}
+      />
       {/* Background Ambient Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-[140px] pointer-events-none"></div>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useContactModal } from '../../context/ContactModalContext';
+import SEO from '../../components/SEO';
+import SITE_CONFIG from '../../config/siteConfig';
 import {
   Sparkles,
   Palette,
@@ -30,13 +32,13 @@ import {
   MessageCircle,
   ArrowRight
 } from 'lucide-react';
-import realEstateImg from '../../assets/social-media/industry-real-estate.jpg';
-import ecommerceImg from '../../assets/social-media/industry-ecommerce.jpg';
-import hospitalityImg from '../../assets/social-media/industry-hospitality.jpg';
-import healthcareImg from '../../assets/social-media/industry-healthcare.jpg';
-import startupsImg from '../../assets/social-media/industry-startups.jpg';
-import professionalServicesImg from '../../assets/social-media/industry-professional-services.jpg';
-import creativeGoalsImg from '../../assets/creative_goals.jpg';
+import realEstateImg from '../../assets/social-media/industry-real-estate.webp';
+import ecommerceImg from '../../assets/social-media/industry-ecommerce.webp';
+import hospitalityImg from '../../assets/social-media/industry-hospitality.webp';
+import healthcareImg from '../../assets/social-media/industry-healthcare.webp';
+import startupsImg from '../../assets/social-media/industry-startups.webp';
+import professionalServicesImg from '../../assets/social-media/industry-professional-services.webp';
+import creativeGoalsImg from '../../assets/creative_goals.webp';
 
 const GraphicDesignVideoService = () => {
   const { openModal } = useContactModal();
@@ -83,6 +85,12 @@ const GraphicDesignVideoService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="Graphic Design & Video Editing Services — High-Impact Creative Assets | DMDY"
+        description="Stop the scroll with performance creative assets: conversion-focused ad creatives, branded social templates, product reels, 4K motion graphics, and corporate videos."
+        url="https://dmdy.in/services/graphic-design-video-editing"
+        type="service"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION                                   */}
@@ -166,7 +174,7 @@ const GraphicDesignVideoService = () => {
                   Get Free Creative Consultation
                 </button>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Graphic%20Designing%20%26%20Video%20Editing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss Graphic Designing & Video Editing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -1484,7 +1492,7 @@ const GraphicDesignVideoService = () => {
                   Our creative directors and designers are available for custom project consultations and creative planning.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20have%20questions%20about%20Graphic%20Designing%20%26%20Video%20Editing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I have questions about Graphic Designing & Video Editing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
@@ -1608,7 +1616,7 @@ const GraphicDesignVideoService = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Graphic%20Designing%20%26%20Video%20Editing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss Graphic Designing & Video Editing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"

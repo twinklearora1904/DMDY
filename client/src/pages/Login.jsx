@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/authContextInstance';
 import { useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { Lock, Mail, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 
 const Login = () => {
@@ -32,6 +33,12 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center pt-28 sm:pt-36 pb-12 sm:pb-20 bg-slate-50 font-sans relative overflow-hidden">
+      <SEO
+        title="Admin Portal Login | DMDY"
+        description="Restricted authentication portal for DMDY intelligence admins."
+        url="https://dmdy.in/admin/login"
+        noindex={true}
+      />
       {/* Background ambient lighting */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-[140px] pointer-events-none"></div>

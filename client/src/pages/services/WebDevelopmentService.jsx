@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useContactModal } from '../../context/ContactModalContext';
+import SEO from '../../components/SEO';
+import SITE_CONFIG from '../../config/siteConfig';
 import {
   Sparkles,
   Palette,
@@ -29,13 +31,13 @@ import {
   HelpCircle,
   ChevronDown
 } from 'lucide-react';
-import corporateImg from '../../assets/web-development/corporate-website.jpg';
-import ecommerceImg from '../../assets/web-development/ecommerce-website.jpg';
-import portfolioImg from '../../assets/web-development/portfolio-website.jpg';
-import realEstateImg from '../../assets/web-development/realestate-website.jpg';
-import healthcareImg from '../../assets/web-development/healthcare-website.jpg';
-import hospitalityImg from '../../assets/web-development/hospitality-website.jpg';
-import websiteGoalsImg from '../../assets/web-development/website-goals.jpg';
+import corporateImg from '../../assets/web-development/corporate-website.webp';
+import ecommerceImg from '../../assets/web-development/ecommerce-website.webp';
+import portfolioImg from '../../assets/web-development/portfolio-website.webp';
+import realEstateImg from '../../assets/web-development/realestate-website.webp';
+import healthcareImg from '../../assets/web-development/healthcare-website.webp';
+import hospitalityImg from '../../assets/web-development/hospitality-website.webp';
+import websiteGoalsImg from '../../assets/web-development/website-goals.webp';
 
 const WebDevelopmentService = () => {
   const { openModal } = useContactModal();
@@ -49,6 +51,12 @@ const WebDevelopmentService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="Custom Web Design & Development Services — Fast, Responsive, High-Converting | DMDY"
+        description="Custom high-performance websites, corporate portals, and e-commerce platforms engineered for lightning speed, mobile responsiveness, and maximum conversion rates."
+        url="https://dmdy.in/services/web-development"
+        type="service"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION                                   */}
@@ -132,7 +140,7 @@ const WebDevelopmentService = () => {
                   Get Free Website Consultation
                 </button>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Website%20Design%20%26%20Development%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss Website Design & Development Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -1543,7 +1551,7 @@ const WebDevelopmentService = () => {
                   Our web development specialists are available for free project audits and technical scope consultations.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20have%20questions%20about%20Website%20Design%20%26%20Development%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I have questions about Website Design & Development Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
@@ -1691,7 +1699,7 @@ const WebDevelopmentService = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20want%20to%20discuss%20Website%20Design%20%26%20Development%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I want to discuss Website Design & Development Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"

@@ -34,10 +34,9 @@ const corsOptions = {
         if (!origin) return callback(null, true);
         const normalizedOrigin = origin.replace(/\/$/, "");
         if (
-            process.env.CLIENT_URL === "*" ||
+            (process.env.CLIENT_URL === "*" && process.env.NODE_ENV !== "production") ||
             allowedOrigins.includes(normalizedOrigin) ||
-            normalizedOrigin.endsWith(".vercel.app") ||
-            process.env.NODE_ENV !== "production"
+            (process.env.NODE_ENV === "production" && normalizedOrigin.endsWith(".vercel.app"))
         ) {
             return callback(null, true);
         }
@@ -47,6 +46,7 @@ const corsOptions = {
 };
 
 const app = express();
+app.set("trust proxy", 1);
 app.use(
     helmet({
         crossOriginResourcePolicy: { policy: "cross-origin" },

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { FileText, ArrowLeft, Mail, Sparkles } from 'lucide-react';
 
 const Terms = () => {
@@ -9,6 +10,11 @@ const Terms = () => {
 
   return (
     <div className="pt-28 sm:pt-36 pb-12 sm:pb-20 bg-slate-50 min-h-screen font-sans">
+      <SEO
+        title="Terms of Service & Conditions — DMDY"
+        description="Read DMDY's Terms of Service governing digital marketing services, payment terms, and intellectual property."
+        url="https://dmdy.in/terms"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Back Link */}

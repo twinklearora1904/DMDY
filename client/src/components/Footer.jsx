@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import logo from '../assets/logo.png';
 import { Mail, Phone, MapPin, Star } from 'lucide-react';
+import SITE_CONFIG from '../config/siteConfig';
 
 const Footer = () => {
   const { openModal } = useContactModal();
@@ -23,30 +24,30 @@ const Footer = () => {
             {/* Direct Contact Info */}
             <div className="space-y-2 mb-6 text-xs sm:text-sm">
               <a
-                href="mailto:hello@dmdy.in"
+                href={SITE_CONFIG.contact.emailMailto}
                 className="flex items-center gap-2.5 text-slate-300 hover:text-white transition-colors"
               >
                 <div className="w-6 h-6 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center text-[#00AED6]">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
-                <span>hello@dmdy.in</span>
+                <span>{SITE_CONFIG.contact.email}</span>
               </a>
 
               <a
-                href="tel:+919876543210"
+                href={SITE_CONFIG.contact.phoneTel}
                 className="flex items-center gap-2.5 text-slate-300 hover:text-white transition-colors"
               >
                 <div className="w-6 h-6 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center text-[#E6007A]">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
-                <span>+91 98765 43210</span>
+                <span>{SITE_CONFIG.contact.phoneDisplay}</span>
               </a>
 
               <div className="flex items-center gap-2.5 text-slate-400">
                 <div className="w-6 h-6 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center text-[#F5A623]">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
-                <span>Delhi NCR, India &bull; Global Remote Operations</span>
+                <span>{SITE_CONFIG.contact.address} &bull; Global Remote Operations</span>
               </div>
             </div>
 
@@ -54,7 +55,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-6">
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/company/dmdy"
+                href={SITE_CONFIG.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -67,7 +68,7 @@ const Footer = () => {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com/dmdy.in"
+                href={SITE_CONFIG.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -80,7 +81,7 @@ const Footer = () => {
 
               {/* X / Twitter */}
               <a
-                href="https://x.com/dmdydigital"
+                href={SITE_CONFIG.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"
@@ -93,7 +94,7 @@ const Footer = () => {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20discuss%20our%20digital%20marketing%20growth."
+                href={SITE_CONFIG.getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

@@ -1,5 +1,7 @@
 import React from 'react';
 import { useContactModal } from '../../context/ContactModalContext';
+import SEO from '../../components/SEO';
+import SITE_CONFIG from '../../config/siteConfig';
 import {
   Share2,
   Heart,
@@ -27,14 +29,14 @@ import {
   ChevronDown,
   ArrowRight
 } from 'lucide-react';
-import realEstateImg from '../../assets/social-media/industry-real-estate.jpg';
-import ecommerceImg from '../../assets/social-media/industry-ecommerce.jpg';
-import healthcareImg from '../../assets/social-media/industry-healthcare.jpg';
-import hospitalityImg from '../../assets/social-media/industry-hospitality.jpg';
-import startupsImg from '../../assets/social-media/industry-startups.jpg';
-import professionalServicesImg from '../../assets/social-media/industry-professional-services.jpg';
-import socialGrowthProcessImg from '../../assets/social-media/social_growth_process.jpg';
-import socialBusinessGoalsImg from '../../assets/social-media/social_business_goals.jpg';
+import realEstateImg from '../../assets/social-media/industry-real-estate.webp';
+import ecommerceImg from '../../assets/social-media/industry-ecommerce.webp';
+import healthcareImg from '../../assets/social-media/industry-healthcare.webp';
+import hospitalityImg from '../../assets/social-media/industry-hospitality.webp';
+import startupsImg from '../../assets/social-media/industry-startups.webp';
+import professionalServicesImg from '../../assets/social-media/industry-professional-services.webp';
+import socialGrowthProcessImg from '../../assets/social-media/social_growth_process.webp';
+import socialBusinessGoalsImg from '../../assets/social-media/social_business_goals.webp';
 
 const SocialMediaService = () => {
   const { openModal } = useContactModal();
@@ -48,6 +50,12 @@ const SocialMediaService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="Social Media Marketing (SMM) Services — Engage & Scale Communities | DMDY"
+        description="Transform your social presence into a revenue generator across Instagram, LinkedIn, YouTube, and Facebook through viral organic strategies and paid social amplification."
+        url="https://dmdy.in/services/social-media"
+        type="service"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION */}
@@ -130,7 +138,7 @@ const SocialMediaService = () => {
                   Get Free Social Audit
                 </button>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Social%20Media%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss Social Media Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -1301,7 +1309,7 @@ const SocialMediaService = () => {
                   Our social media strategists are available for custom audits and campaign roadmap sessions.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20have%20questions%20about%20Social%20Media%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I have questions about Social Media Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
@@ -1512,7 +1520,7 @@ const SocialMediaService = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20a%20social%20media%20audit."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss a social media audit.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"

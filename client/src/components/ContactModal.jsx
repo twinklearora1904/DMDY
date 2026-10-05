@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
+import SITE_CONFIG from '../config/siteConfig';
 import { 
   X, 
   Sparkles, 
@@ -250,15 +251,15 @@ const ContactModal = () => {
           {/* Quick Contact Chips */}
           <div className="flex flex-wrap items-center gap-2 pt-4 mt-3 border-t border-slate-100 text-xs font-semibold text-slate-600">
             <a 
-              href="tel:+919876543210" 
+              href={SITE_CONFIG.contact.phoneTel} 
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-[#00AED6]" />
-              <span>+91 98765 43210</span>
+              <span>{SITE_CONFIG.contact.phoneDisplay}</span>
             </a>
 
             <a 
-              href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20discuss%20our%20digital%20marketing%20growth."
+              href={SITE_CONFIG.getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"

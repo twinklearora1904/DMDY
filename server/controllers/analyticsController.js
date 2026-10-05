@@ -10,17 +10,58 @@ const getDashboardAnalytics = async (req, res) => {
         // ----------------------------------------------------
         // 1. LEADS METRICS & CONVERSION PIPELINE
         // ----------------------------------------------------
-        const totalLeads = await Lead.countDocuments({});
 
-        // Status counts
-        const leadsByStatusRaw = await Lead.aggregate([
+        // Consolidate Lead analytics into a single aggregation call using $facet
+        const leadStats = await Lead.aggregate([
             {
-                $group: {
-                    _id: "$status",
-                    count: { $sum: 1 },
-                },
-            },
+                $facet: {
+                    "totalCount": [
+                        { $count: "count" }
+                    ],
+                    "statusCounts": [
+                        {
+                            $group: {
+                                _id: "$status",
+                                count: { $sum: 1 },
+                            },
+                        },
+                    ],
+                    "serviceBreakdown": [
+                        {
+                            $group: {
+                                _id: { $ifNull: ["$service", "Other / Custom Consultation"] },
+                                count: { $sum: 1 },
+                            },
+                        },
+                        { $sort: { count: -1 } },
+                    ],
+                    "trend": [
+                        {
+                            $match: {
+                                createdAt: {
+                                    $gte: new Date(new Date().setDate(new Date().getDate() - 30))
+                                },
+                            },
+                        },
+                        {
+                            $group: {
+                                _id: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
+                                count: { $sum: 1 },
+                            },
+                        },
+                        { $sort: { _id: 1 } },
+                    ],
+                    "recent": [
+                        { $sort: { createdAt: -1 } },
+                        { $limit: 5 },
+                        { $project: { name: 1, email: 1, company: 1, service: 1, status: 1, createdAt: 1 } },
+                    ]
+                }
+            }
         ]);
+
+        const leadData = leadStats[0];
+        const totalLeads = leadData.totalCount[0]?.count || 0;
 
         const statusCounts = {
             New: 0,
@@ -31,105 +72,75 @@ const getDashboardAnalytics = async (req, res) => {
             Lost: 0,
         };
 
-        leadsByStatusRaw.forEach((item) => {
+        (leadData.statusCounts || []).forEach((item) => {
             if (item._id && statusCounts.hasOwnProperty(item._id)) {
                 statusCounts[item._id] = item.count;
             }
         });
 
-        // Conversion Rate Calculation
         const wonCount = statusCounts.Won || 0;
         const lostCount = statusCounts.Lost || 0;
         const pipelineCount = (statusCounts.Contacted || 0) + (statusCounts.Qualified || 0) + (statusCounts.Proposal || 0);
         const conversionRate = totalLeads > 0 ? Number(((wonCount / totalLeads) * 100).toFixed(1)) : 0;
         const pipelineRate = totalLeads > 0 ? Number(((pipelineCount / totalLeads) * 100).toFixed(1)) : 0;
 
-        // Breakdown by Service
-        const leadsByServiceRaw = await Lead.aggregate([
-            {
-                $group: {
-                    _id: { $ifNull: ["$service", "Other / Custom Consultation"] },
-                    count: { $sum: 1 },
-                },
-            },
-            { $sort: { count: -1 } },
-        ]);
-
-        const serviceBreakdown = leadsByServiceRaw.map((item) => ({
+        const serviceBreakdown = (leadData.serviceBreakdown || []).map((item) => ({
             service: item._id,
             count: item.count,
             percentage: totalLeads > 0 ? Number(((item.count / totalLeads) * 100).toFixed(1)) : 0,
         }));
 
-        // Lead Trend: Last 30 Days Activity
-        const thirtyDaysAgo = new Date();
-        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-
-        const leadTrendRaw = await Lead.aggregate([
-            {
-                $match: {
-                    createdAt: { $gte: thirtyDaysAgo },
-                },
-            },
-            {
-                $group: {
-                    _id: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
-                    count: { $sum: 1 },
-                },
-            },
-            { $sort: { _id: 1 } },
-        ]);
-
-        // Recent 5 leads
-        const recentLeads = await Lead.find({})
-            .sort({ createdAt: -1 })
-            .limit(5)
-            .select("name email company service status createdAt");
-
         // ----------------------------------------------------
         // 2. BLOG POPULARITY & AUTHORITY METRICS
         // ----------------------------------------------------
-        const totalPublishedBlogs = await Blog.countDocuments({ isPublished: true });
-        const totalDraftBlogs = await Blog.countDocuments({ isPublished: false });
 
-        // Total views aggregation
-        const viewStats = await Blog.aggregate([
-            { $match: { isPublished: true } },
+        // Consolidate Blog analytics into a single aggregation call using $facet
+        const blogStats = await Blog.aggregate([
             {
-                $group: {
-                    _id: null,
-                    totalViews: { $sum: { $ifNull: ["$views", 0] } },
-                    avgViews: { $avg: { $ifNull: ["$views", 0] } },
-                },
-            },
+                $facet: {
+                    "totals": [
+                        {
+                            $group: {
+                                _id: null,
+                                published: { $sum: { $cond: [{ $eq: ["$isPublished", true] }, 1, 0] } },
+                                drafts: { $sum: { $cond: [{ $eq: ["$isPublished", false] }, 1, 0] } },
+                                totalViews: { $sum: { $ifNull: ["$views", 0] } },
+                                avgViews: { $avg: { $ifNull: ["$views", 0] } },
+                            }
+                        }
+                    ],
+                    "topBlogs": [
+                        { $match: { isPublished: true } },
+                        { $sort: { views: -1, createdAt: -1 } },
+                        { $limit: 5 },
+                        { $project: { title: 1, slug: 1, views: 1, tags: 1, createdAt: 1, image: 1, author: 1 } }
+                    ],
+                    "popularTags": [
+                        { $match: { isPublished: true } },
+                        { $unwind: "$tags" },
+                        {
+                            $group: {
+                                _id: "$tags",
+                                count: { $sum: 1 },
+                                views: { $sum: { $ifNull: ["$views", 0] } },
+                            },
+                        },
+                        { $sort: { views: -1, count: -1 } },
+                        { $limit: 8 },
+                    ]
+                }
+            }
         ]);
 
-        const totalViews = viewStats.length > 0 ? viewStats[0].totalViews : 0;
-        const avgViews = viewStats.length > 0 ? Math.round(viewStats[0].avgViews) : 0;
+        const blogData = blogStats[0];
+        const totals = blogData.totals[0] || { published: 0, drafts: 0, totalViews: 0, avgViews: 0 };
 
-        // Top 5 most viewed blogs
-        const topBlogs = await Blog.find({ isPublished: true })
-            .sort({ views: -1, createdAt: -1 })
-            .limit(5)
-            .select("title slug views tags createdAt image")
-            .populate("author", "name");
+        // Since topBlogs in aggregate doesn't populate, we'll do one final clean-up for the authors
+        const topBlogs = await Blog.find({
+            _id: { $in: blogData.topBlogs.map(b => b._id) }
+        }).populate("author", "name").sort({ views: -1 });
 
-        // Tag distribution
-        const tagAggregation = await Blog.aggregate([
-            { $match: { isPublished: true } },
-            { $unwind: "$tags" },
-            {
-                $group: {
-                    _id: "$tags",
-                    count: { $sum: 1 },
-                    views: { $sum: { $ifNull: ["$views", 0] } },
-                },
-            },
-            { $sort: { views: -1, count: -1 } },
-            { $limit: 8 },
-        ]);
-
-        const popularTags = tagAggregation.map((t) => ({
+        const popularTags = (blogData.popularTags || []).map((t) => ({
             tag: t._id,
             articleCount: t.count,
             totalViews: t.views,
@@ -145,14 +156,14 @@ const getDashboardAnalytics = async (req, res) => {
                 lostCount,
                 pipelineCount,
                 serviceBreakdown,
-                trend: leadTrendRaw,
-                recent: recentLeads,
+                trend: leadData.trend || [],
+                recent: leadData.recent || [],
             },
             blogs: {
-                totalPublished: totalPublishedBlogs,
-                totalDrafts: totalDraftBlogs,
-                totalViews,
-                avgViews,
+                totalPublished: totals.published,
+                totalDrafts: totals.drafts,
+                totalViews: totals.totalViews,
+                avgViews: Math.round(totals.avgViews),
                 topBlogs,
                 popularTags,
             },

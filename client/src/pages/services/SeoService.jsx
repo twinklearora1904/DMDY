@@ -1,5 +1,7 @@
 import React from 'react';
 import { useContactModal } from '../../context/ContactModalContext';
+import SEO from '../../components/SEO';
+import SITE_CONFIG from '../../config/siteConfig';
 import {
   Search,
   ArrowRight,
@@ -25,8 +27,8 @@ import {
   ChevronDown,
   HelpCircle
 } from 'lucide-react';
-import seoProcessGrowthImg from '../../assets/seo_process_growth.jpg';
-import businessGoalsImg from '../../assets/business_goals_seo.jpg';
+import seoProcessGrowthImg from '../../assets/seo_process_growth.webp';
+import businessGoalsImg from '../../assets/business_goals_seo.webp';
 
 const SeoService = () => {
   const { openModal } = useContactModal();
@@ -39,6 +41,12 @@ const SeoService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="Search Engine Optimization (SEO) Services — Rank #1 on Google | DMDY"
+        description="Drive high-converting organic search traffic with technical SEO audits, semantic keyword targeting, high-authority link acquisition, and content optimization."
+        url="https://dmdy.in/services/seo"
+        type="service"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION */}
@@ -114,7 +122,7 @@ const SeoService = () => {
                   Get Free SEO Audit
                 </button>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20SEO%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss SEO Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -1220,7 +1228,7 @@ const SeoService = () => {
                   Our SEO & AI search engineers are available for custom audits and strategy sessions.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20have%20questions%20about%20SEO%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I have questions about SEO Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
@@ -1497,7 +1505,7 @@ const SeoService = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20an%20SEO%20audit."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss an SEO audit.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"

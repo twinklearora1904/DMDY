@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';
+import SITE_CONFIG from '../config/siteConfig';
 import { 
   Mail, 
   MapPin, 
@@ -139,7 +140,7 @@ const ContactForm = () => {
 
     if (!isTouched) {
       return {
-        className: 'border-slate-200/90 focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 bg-slate-50/80 focus:bg-white',
+        className: 'border-slate-200/90 focus:border-brandPrimary focus:ring-2 focus:ring-brandPrimary/20 bg-slate-50/80 focus:bg-white',
         icon: null,
         error: null,
       };
@@ -162,7 +163,7 @@ const ContactForm = () => {
     }
 
     return {
-      className: 'border-slate-200/90 focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 bg-slate-50/80 focus:bg-white',
+      className: 'border-slate-200/90 focus:border-brandPrimary focus:ring-2 focus:ring-brandPrimary/20 bg-slate-50/80 focus:bg-white',
       icon: null,
       error: null,
     };
@@ -210,8 +211,8 @@ const ContactForm = () => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,174,214,0.2)_0%,transparent_70%)] pointer-events-none"></div>
             
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-[#00AED6] mb-6 border border-white/10">
-                <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-brandPrimary mb-6 border border-white/10">
+                <Sparkles className="w-3.5 h-3.5 text-brandPrimary" />
                 <span>Executive Desk</span>
               </div>
 
@@ -231,8 +232,8 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Phone / WhatsApp</div>
-                    <a href="tel:+919876543210" className="text-sm sm:text-base font-bold text-white hover:text-[#00AED6] transition-colors">
-                      +91 98765 43210
+                    <a href={SITE_CONFIG.contact.phoneTel} className="text-sm sm:text-base font-bold text-white hover:text-[#00AED6] transition-colors">
+                      {SITE_CONFIG.contact.phoneDisplay}
                     </a>
                   </div>
                 </div>
@@ -243,8 +244,8 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Email Support</div>
-                    <a href="mailto:twinklearora1904@gmail.com" className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors break-all">
-                      twinklearora1904@gmail.com
+                    <a href={SITE_CONFIG.contact.emailMailto} className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors break-all">
+                      {SITE_CONFIG.contact.email}
                     </a>
                   </div>
                 </div>
@@ -255,7 +256,7 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Agency Location</div>
-                    <div className="text-sm sm:text-base font-medium text-slate-200">New Delhi / NCR, India</div>
+                    <div className="text-sm sm:text-base font-medium text-slate-200">{SITE_CONFIG.contact.address}</div>
                   </div>
                 </div>
               </div>

@@ -39,8 +39,23 @@ const createLead = async (req, res) => {
 
 const getLeads = async (req, res) => {
     try {
-        const leads = await Lead.find({}).sort({ createdAt: -1 });
-        res.json(leads);
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 20;
+        const skip = (page - 1) * limit;
+
+        const [leads, total] = await Promise.all([
+            Lead.find({}).sort({ createdAt: -1 }).skip(skip).limit(limit),
+            Lead.countDocuments({}),
+        ]);
+
+        res.json({
+            leads,
+            currentPage: page,
+            totalPages: Math.ceil(total / limit),
+            totalLeads: total,
+            hasNextPage: page * limit < total,
+            hasPrevPage: page > 1,
+        });
     } catch (error) {
         res.status(500).json({ message: "Server error", error: error.message });
     }

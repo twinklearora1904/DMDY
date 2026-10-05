@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
 import { ArrowLeft, Calendar, User, Tag, Sparkles, Share2, Check, Clock, Eye } from 'lucide-react';
@@ -12,6 +12,7 @@ import EmptyState from '../components/EmptyState';
 const BlogPost = () => {
   const { openModal } = useContactModal();
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -77,7 +78,7 @@ const BlogPost = () => {
           title={error ? "Unable to Load Article" : "Publication Not Found"}
           description={error || "The requested strategy teardown may have moved or is still being finalized by our editors."}
           actionText="Browse All Growth Articles"
-          onAction={() => window.location.assign('/blog')}
+          onAction={() => navigate('/blog')}
           secondaryActionText="Request Consultation"
           onSecondaryAction={() => openModal()}
         />

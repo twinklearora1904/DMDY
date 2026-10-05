@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-const rawBaseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-const baseURL = rawBaseURL.trim().replace(/\/+$/, '');
+const rawBaseURL = import.meta.env.VITE_API_URL;
+if (!rawBaseURL && import.meta.env.PROD) {
+  console.error('API URL is missing in production environment. Please check your environment variables.');
+}
+
+const baseURL = (rawBaseURL || 'http://localhost:5000').trim().replace(/\/+$/, '');
 
 const api = axios.create({
   baseURL,

@@ -7,20 +7,30 @@ const cache = require("../utils/cache");
 
 /**
  * Helper to check whether the incoming request is authenticated as an admin.
+ * Inspects req.user or req.headers.authorization so public endpoints
+ * (such as GET /api/blogs?all=true and GET /api/blogs/:id) grant access to drafts for admins.
  */
 const checkIsAdmin = async (req) => {
     if (req.user && req.user.role === "admin") return true;
-    if (req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
+
+    if (req.headers && req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
         try {
             const token = req.headers.authorization.split(" ")[1];
             if (!token) return false;
+
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            const user = await User.findById(decoded.id).select("role");
-            return Boolean(user && user.role === "admin");
+            if (!decoded || !decoded.id) return false;
+
+            const user = await User.findById(decoded.id).select("-password");
+            if (user && user.role === "admin") {
+                req.user = user;
+                return true;
+            }
         } catch {
             return false;
         }
     }
+
     return false;
 };
 
@@ -135,15 +145,15 @@ const getBlogById = async (req, res) => {
         }
 
         const isObjectId = mongoose.Types.ObjectId.isValid(id) && id.length === 24;
+        const normalizedId = (id || "").toLowerCase().trim();
 
         let blog = null;
         if (isObjectId) {
             blog = await Blog.findById(id).populate("author", "name email");
         }
 
-        // If not found by ObjectId or if param is a slug, search by slug
         if (!blog) {
-            blog = await Blog.findOne({ slug: id }).populate("author", "name email");
+            blog = await Blog.findOne({ slug: normalizedId }).populate("author", "name email");
         }
 
         if (!blog) {

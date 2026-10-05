@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
+import SEO from '../components/SEO';
 import { LineChart, Target, Code2, ArrowRight, CheckCircle2, TrendingUp, Sparkles, Layers, Zap, Share2 } from 'lucide-react';
 
 const process = [
@@ -34,6 +35,11 @@ const Services = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="Full-Stack Digital Growth Services & Capabilities — DMDY"
+        description="Explore DMDY's full suite of high-impact digital services: SEO, Google & Meta Ads, Custom Web Development, Content Marketing, and Creative Media."
+        url="https://dmdy.in/services"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION (2-Column Grid)                   */}

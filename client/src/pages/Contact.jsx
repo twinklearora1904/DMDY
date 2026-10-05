@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import ContactForm from '../components/ContactForm';
+import SEO from '../components/SEO';
+import SITE_CONFIG from '../config/siteConfig';
 import {
   Sparkles,
   MessageSquare,
@@ -94,6 +96,11 @@ const Contact = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen font-sans">
+      <SEO
+        title="Contact DMDY — Let's Build Your Digital Growth Engine"
+        description="Book a complimentary growth strategy session with DMDY's marketing architects. Get in touch via form, email, or direct WhatsApp call."
+        url="https://dmdy.in/contact"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION (2-Column Grid matching About & Services) */}
@@ -155,7 +162,7 @@ const Contact = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20start%20a%20conversation%20about%20our%20digital%20marketing%20growth."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY Team, I would like to start a conversation about our digital marketing growth.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -224,8 +231,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Direct Call / WhatsApp</div>
-                        <a href="tel:+919876543210" className="text-sm sm:text-base font-bold text-white hover:text-[#00AED6] transition-colors">
-                          +91 98765 43210
+                        <a href={SITE_CONFIG.contact.phoneTel} className="text-sm sm:text-base font-bold text-white hover:text-[#00AED6] transition-colors">
+                          {SITE_CONFIG.contact.phoneDisplay}
                         </a>
                       </div>
                     </div>
@@ -338,13 +345,13 @@ const Contact = () => {
 
               <div className="pt-5 border-t border-slate-100">
                 <a
-                  href="tel:+919876543210"
+                  href={SITE_CONFIG.contact.phoneTel}
                   className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#00AED6] transition-colors"
                 >
-                  <span>+91 98765 43210</span>
+                  <span>{SITE_CONFIG.contact.phoneDisplay}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <div className="text-xs text-slate-500 mt-1.5 font-medium">Mon - Sat • 10:00 AM - 7:00 PM IST</div>
+                <div className="text-xs text-slate-500 mt-1.5 font-medium">{SITE_CONFIG.contact.officeHours}</div>
               </div>
             </div>
 
@@ -367,7 +374,7 @@ const Contact = () => {
 
               <div className="pt-5 border-t border-slate-100">
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20discuss%20our%20digital%20marketing%20growth%20requirements."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY Team, I would like to discuss our digital marketing growth requirements.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-slate-900 group-hover:text-emerald-600 transition-colors"
@@ -603,7 +610,7 @@ const Contact = () => {
               {/* Direct WhatsApp Option */}
               <div className="pt-1">
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20talk%20to%20your%20team%20about%20our%20digital%20marketing%20growth."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY Team, I would like to talk to your team about our digital marketing growth.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp inline-flex items-center gap-2.5 text-xs sm:text-sm font-bold shadow-xs hover:shadow-md transition-all"

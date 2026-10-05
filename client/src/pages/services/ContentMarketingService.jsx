@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useContactModal } from '../../context/ContactModalContext';
-import contentMarketingGoalsImg from '../../assets/content_marketing_goals.jpg';
+import SEO from '../../components/SEO';
+import SITE_CONFIG from '../../config/siteConfig';
+import contentMarketingGoalsImg from '../../assets/content_marketing_goals.webp';
 import {
   Sparkles,
   PenTool,
@@ -261,6 +263,12 @@ const ContentMarketingService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="Content Creation & Marketing Services — Strategy, Copywriting & Media | DMDY"
+        description="High-authority thought leadership, SEO pillar content, conversion copywriting, and lead magnets that educate your audience and turn prospects into lifelong clients."
+        url="https://dmdy.in/services/content-marketing"
+        type="service"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION                                   */}
@@ -342,7 +350,7 @@ const ContentMarketingService = () => {
                   Get a Free Content Audit
                 </button>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Content%20Creation%20%26%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss Content Creation & Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -1813,7 +1821,7 @@ const ContentMarketingService = () => {
                   Our content strategists are available for free editorial audits and content roadmap consultations.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20have%20questions%20about%20Content%20Creation%20%26%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I have questions about Content Creation & Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
@@ -1921,7 +1929,7 @@ const ContentMarketingService = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Content%20Creation%20%26%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss Content Creation & Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"

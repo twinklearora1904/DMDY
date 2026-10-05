@@ -15,11 +15,15 @@ const SEO = ({
   author = 'DMDY Intelligence',
   publishedTime,
   tags = [],
+  noindex = false,
+  schema = null,
 }) => {
   useEffect(() => {
     // 1. Set Page Title
-    const siteName = 'DMDY — 360° Digital Growth Partner';
-    const fullTitle = title ? `${title} — DMDY Intelligence` : siteName;
+    const siteName = 'DMDY — 360° Digital Growth Partner & Performance Marketing Agency';
+    const fullTitle = title
+      ? (title.includes('DMDY') ? title : `${title} — DMDY`)
+      : siteName;
     const prevTitle = document.title;
     document.title = fullTitle;
 
@@ -56,16 +60,24 @@ const SEO = ({
     };
 
     // Standard Search Meta
+    setMetaTag('name', 'title', fullTitle);
     setMetaTag('name', 'description', finalDescription);
 
+    // Robots meta directive
+    if (noindex) {
+      setMetaTag('name', 'robots', 'noindex, nofollow');
+    } else {
+      setMetaTag('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    }
+
     // OpenGraph Meta (WhatsApp, LinkedIn, Facebook, Slack, iMessage)
-    setMetaTag('property', 'og:type', type);
+    setMetaTag('property', 'og:type', type === 'article' ? 'article' : 'website');
     setMetaTag('property', 'og:title', fullTitle);
     setMetaTag('property', 'og:description', finalDescription);
     setMetaTag('property', 'og:image', ogImageUrl);
     setMetaTag('property', 'og:image:width', '1200');
     setMetaTag('property', 'og:image:height', '630');
-    setMetaTag('property', 'og:image:alt', title || 'DMDY Growth Analysis');
+    setMetaTag('property', 'og:image:alt', title || 'DMDY Digital Growth');
     setMetaTag('property', 'og:url', currentUrl);
     setMetaTag('property', 'og:site_name', 'DMDY');
 
@@ -85,7 +97,7 @@ const SEO = ({
       tags.forEach((tag) => setMetaTag('property', 'article:tag', tag));
     }
 
-    // 3. Inject Google Rich Snippet (Schema.org JSON-LD BlogPosting)
+    // 3. Inject Google Rich Snippet (Schema.org JSON-LD)
     let schemaScript = document.getElementById('dynamic-page-schema');
     if (!schemaScript) {
       schemaScript = document.createElement('script');
@@ -94,7 +106,9 @@ const SEO = ({
       document.head.appendChild(schemaScript);
     }
 
-    if (type === 'article') {
+    if (schema) {
+      schemaScript.textContent = JSON.stringify(schema);
+    } else if (type === 'article') {
       const articleSchema = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -121,6 +135,22 @@ const SEO = ({
         },
       };
       schemaScript.textContent = JSON.stringify(articleSchema);
+    } else if (type === 'service') {
+      const serviceSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        'name': title,
+        'description': finalDescription,
+        'provider': {
+          '@type': 'Organization',
+          'name': 'DMDY - Digi Me Digi You',
+          'url': 'https://dmdy.in',
+          'logo': 'https://dmdy.in/favicon.png',
+        },
+        'areaServed': 'Worldwide',
+        'serviceType': title,
+      };
+      schemaScript.textContent = JSON.stringify(serviceSchema);
     }
 
     // Cleanup when unmounting: restore default agency title & reset schema
@@ -131,7 +161,7 @@ const SEO = ({
         scriptToRemove.remove();
       }
     };
-  }, [title, description, image, url, type, author, publishedTime, tags]);
+  }, [title, description, image, url, type, author, publishedTime, tags, noindex, schema]);
 
   return null;
 };

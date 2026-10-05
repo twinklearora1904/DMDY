@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import SITE_CONFIG from '../config/siteConfig';
 
 const FloatingWhatsApp = () => {
   const [showTooltip, setShowTooltip] = useState(true);
 
-  const whatsappUrl =
-    'https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20discuss%20our%20digital%20marketing%20growth.';
+  const whatsappUrl = SITE_CONFIG.getWhatsAppUrl(
+    'Hello DMDY Team, I would like to discuss our digital marketing growth.'
+  );
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-end gap-2.5 pointer-events-auto">

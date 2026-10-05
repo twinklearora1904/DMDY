@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -15,11 +16,11 @@ const ThankYou = () => {
   const leadData = location.state || {};
   const { name, email, service } = leadData;
 
-  // Generate an official looking session reference ID
-  const referenceId = useMemo(() => {
+  // Generate an official looking session reference ID safely
+  const [referenceId] = useState(() => {
     const randomNum = Math.floor(10000 + Math.random() * 90000);
     return `DMDY-${randomNum}`;
-  }, []);
+  });
 
   useEffect(() => {
     document.title = 'Thank You | DMDY - Digi Me Digi You';
@@ -28,6 +29,12 @@ const ThankYou = () => {
 
   return (
     <div className="min-h-[calc(100vh-80px)] flex items-center justify-center bg-slate-50 font-sans relative overflow-hidden pt-20 sm:pt-24 pb-8 sm:pb-10">
+      <SEO
+        title="Thank You — Message Received | DMDY"
+        description="Thank you for contacting DMDY. Our growth strategists will review your inquiry and get back to you within 24 hours."
+        url="https://dmdy.in/thank-you"
+        noindex={true}
+      />
       {/* Ambient background glow accents */}
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[130px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-pink-500/10 rounded-full blur-[130px] pointer-events-none"></div>

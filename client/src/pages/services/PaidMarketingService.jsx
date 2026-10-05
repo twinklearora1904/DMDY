@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useContactModal } from '../../context/ContactModalContext';
+import SEO from '../../components/SEO';
+import SITE_CONFIG from '../../config/siteConfig';
 import {
   Sparkles,
   TrendingUp,
@@ -25,14 +27,14 @@ import {
   ChevronDown,
   MessageCircle
 } from 'lucide-react';
-import realEstateImg from '../../assets/social-media/industry-real-estate.jpg';
-import ecommerceImg from '../../assets/social-media/industry-ecommerce.jpg';
-import healthcareImg from '../../assets/social-media/industry-healthcare.jpg';
-import educationImg from '../../assets/google-ads/industry-education.jpg';
-import hospitalityImg from '../../assets/social-media/industry-hospitality.jpg';
-import professionalServicesImg from '../../assets/social-media/industry-professional-services.jpg';
-import ppcGrowthProcessImg from '../../assets/google-ads/ppc_growth_process.jpg';
-import ppcBusinessGoalsImg from '../../assets/google-ads/ppc_business_goals.jpg';
+import realEstateImg from '../../assets/social-media/industry-real-estate.webp';
+import ecommerceImg from '../../assets/social-media/industry-ecommerce.webp';
+import healthcareImg from '../../assets/social-media/industry-healthcare.webp';
+import educationImg from '../../assets/google-ads/industry-education.webp';
+import hospitalityImg from '../../assets/social-media/industry-hospitality.webp';
+import professionalServicesImg from '../../assets/social-media/industry-professional-services.webp';
+import ppcGrowthProcessImg from '../../assets/google-ads/ppc_growth_process.webp';
+import ppcBusinessGoalsImg from '../../assets/google-ads/ppc_business_goals.webp';
 
 const CHANNELS = {
   google: {
@@ -132,6 +134,12 @@ const PaidMarketingService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="Performance Paid Marketing Services — Multi-Channel Paid Ads | DMDY"
+        description="Acquire high-value customers at scale through profitable multi-channel paid acquisition across Meta Ads, LinkedIn Ads, programmatic networks, and retargeting funnels."
+        url="https://dmdy.in/services/paid-marketing"
+        type="service"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION                                   */}
@@ -216,7 +224,7 @@ const PaidMarketingService = () => {
                   Get Free Paid Marketing Audit
                 </button>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Paid%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss Paid Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -1548,7 +1556,7 @@ const PaidMarketingService = () => {
                   Our paid media strategists are available for custom audits and campaign roadmap sessions.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20have%20questions%20about%20Paid%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I have questions about Paid Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
@@ -1650,7 +1658,7 @@ const PaidMarketingService = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20an%20SEO%20audit."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss an SEO audit.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"

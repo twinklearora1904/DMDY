@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useContactModal } from '../../context/ContactModalContext';
+import SEO from '../../components/SEO';
+import SITE_CONFIG from '../../config/siteConfig';
 import {
   Sparkles,
   ArrowRight,
@@ -33,13 +35,13 @@ import {
   HelpCircle,
   ChevronDown
 } from 'lucide-react';
-import realEstateImg from '../../assets/social-media/industry-real-estate.jpg';
-import ecommerceImg from '../../assets/social-media/industry-ecommerce.jpg';
-import healthcareImg from '../../assets/social-media/industry-healthcare.jpg';
-import educationImg from '../../assets/google-ads/industry-education.jpg';
-import hospitalityImg from '../../assets/social-media/industry-hospitality.jpg';
-import startupsImg from '../../assets/social-media/industry-startups.jpg';
-import aboutHeroGrowthImg from '../../assets/about_hero_growth.jpg';
+import realEstateImg from '../../assets/social-media/industry-real-estate.webp';
+import ecommerceImg from '../../assets/social-media/industry-ecommerce.webp';
+import healthcareImg from '../../assets/social-media/industry-healthcare.webp';
+import educationImg from '../../assets/google-ads/industry-education.webp';
+import hospitalityImg from '../../assets/social-media/industry-hospitality.webp';
+import startupsImg from '../../assets/social-media/industry-startups.webp';
+import aboutHeroGrowthImg from '../../assets/about_hero_growth.webp';
 
 const ECOSYSTEM_PILLARS = {
   seo: {
@@ -378,6 +380,12 @@ const DigitalMarketing360Service = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="360° Digital Marketing Services — Full-Funnel Growth Solutions | DMDY"
+        description="Scale your brand with DMDY's unified 360° digital marketing frameworks combining SEO, high-intent paid advertising, conversion web design, and brand storytelling."
+        url="https://dmdy.in/services/360-digital-marketing"
+        type="service"
+      />
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION                                   */}
       {/* ========================================================= */}
@@ -457,7 +465,7 @@ const DigitalMarketing360Service = () => {
                   Get Free Growth Strategy
                 </button>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20360°%20Digital%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss 360° Digital Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -1465,7 +1473,7 @@ const DigitalMarketing360Service = () => {
                   Our growth strategists are available for custom audits and digital roadmap sessions.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20have%20questions%20about%20360%C2%B0%20Digital%20Marketing%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I have questions about 360° Digital Marketing Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
@@ -1567,7 +1575,7 @@ const DigitalMarketing360Service = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20an%20SEO%20audit."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss an SEO audit.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"

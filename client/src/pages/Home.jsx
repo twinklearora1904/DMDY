@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
+import SEO from '../components/SEO';
 import api from '../utils/api';
+import SITE_CONFIG from '../config/siteConfig';
 import {
   Sparkles,
   ArrowRight,
@@ -399,6 +401,11 @@ const Home = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="DMDY — 360° Digital Growth Partner & Performance Marketing Agency"
+        description="DMDY builds custom digital growth engines for ambitious brands through data-backed SEO, high-ROAS performance ads, web development, and conversion rate optimization."
+        url="https://dmdy.in/"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION                                   */}
@@ -488,7 +495,7 @@ const Home = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20build%20my%20digital%20growth%20plan."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY Team, I would like to build my digital growth plan.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp w-full sm:w-auto"
@@ -2177,7 +2184,7 @@ const Home = () => {
             </button>
 
             <a
-              href="https://wa.me/919876543210?text=Hello%20DMDY%20Team%2C%20I%20would%20like%20to%20start%20a%20conversation%20about%20our%20digital%20marketing%20growth."
+              href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY Team, I would like to start a conversation about our digital marketing growth.')}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 shadow-xs hover:shadow-sm transition-all"

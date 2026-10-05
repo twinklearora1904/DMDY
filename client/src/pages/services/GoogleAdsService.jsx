@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useContactModal } from '../../context/ContactModalContext';
+import SEO from '../../components/SEO';
+import SITE_CONFIG from '../../config/siteConfig';
 import {
   Target,
   TrendingUp,
@@ -29,14 +31,14 @@ import {
   MessageCircle,
   ChevronDown
 } from 'lucide-react';
-import realEstateImg from '../../assets/social-media/industry-real-estate.jpg';
-import ecommerceImg from '../../assets/social-media/industry-ecommerce.jpg';
-import healthcareImg from '../../assets/social-media/industry-healthcare.jpg';
-import educationImg from '../../assets/google-ads/industry-education.jpg';
-import localBusinessImg from '../../assets/google-ads/industry-local-business.jpg';
-import professionalServicesImg from '../../assets/social-media/industry-professional-services.jpg';
-import ppcGrowthProcessImg from '../../assets/google-ads/ppc_growth_process.jpg';
-import ppcBusinessGoalsImg from '../../assets/google-ads/ppc_business_goals.jpg';
+import realEstateImg from '../../assets/social-media/industry-real-estate.webp';
+import ecommerceImg from '../../assets/social-media/industry-ecommerce.webp';
+import healthcareImg from '../../assets/social-media/industry-healthcare.webp';
+import educationImg from '../../assets/google-ads/industry-education.webp';
+import localBusinessImg from '../../assets/google-ads/industry-local-business.webp';
+import professionalServicesImg from '../../assets/social-media/industry-professional-services.webp';
+import ppcGrowthProcessImg from '../../assets/google-ads/ppc_growth_process.webp';
+import ppcBusinessGoalsImg from '../../assets/google-ads/ppc_business_goals.webp';
 
 const CAMPAIGN_MODES = {
   search: {
@@ -123,6 +125,12 @@ const GoogleAdsService = () => {
 
   return (
     <div className="bg-slate-50 font-sans min-h-screen">
+      <SEO
+        title="Google Ads (PPC) Management Services — High ROAS Paid Campaigns | DMDY"
+        description="Capture ready-to-buy search intent and maximize your return on ad spend (ROAS) with data-driven Google Search, Shopping, YouTube, and Performance Max campaigns."
+        url="https://dmdy.in/services/google-ads"
+        type="service"
+      />
 
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION                                   */}
@@ -207,7 +215,7 @@ const GoogleAdsService = () => {
                   Get Free Google Ads Audit
                 </button>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20discuss%20Google%20Ads%20%26%20PPC%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to discuss Google Ads & PPC Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto btn-whatsapp"
@@ -1496,7 +1504,7 @@ const GoogleAdsService = () => {
                   Our PPC strategists are available for custom audits and account optimization teardowns.
                 </p>
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20have%20questions%20about%20Google%20Ads%20%26%20PPC%20Services."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I have questions about Google Ads & PPC Services.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
@@ -1715,7 +1723,7 @@ const GoogleAdsService = () => {
                 </button>
 
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20DMDY%2C%20I%20would%20like%20to%20connect%20with%20a%20Google%20Ads%20PPC%20Expert."
+                  href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY, I would like to connect with a Google Ads PPC Expert.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"

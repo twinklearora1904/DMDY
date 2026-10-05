@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
+import SEO from '../components/SEO';
 import { TrendingUp, Users, Target, Zap, ArrowRight, CheckCircle2, ShieldCheck, Award, Sparkles, Layers, Eye, Compass, Building2, HeartPulse, ShoppingCart, GraduationCap, Store, UtensilsCrossed, Briefcase, Building, Globe, Quote } from 'lucide-react';
-import aboutHeroGrowthImg from '../assets/about_hero_growth.jpg';
+import aboutHeroGrowthImg from '../assets/about_hero_growth.webp';
 
 const About = () => {
   const { openModal } = useContactModal();
@@ -12,6 +13,11 @@ const About = () => {
 
   return (
     <div className="bg-slate-50 font-sans">
+      <SEO
+        title="About DMDY — Digi Me Digi You | Our Story & Vision"
+        description="Learn how DMDY is redefining digital marketing into a bespoke, transparent, and performance-first growth consultancy for ambitious global businesses."
+        url="https://dmdy.in/about"
+      />
       
       {/* Clean Corporate Hero Section */}
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-20 border-b border-slate-200/80 bg-white relative overflow-hidden">

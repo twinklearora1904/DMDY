@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { ShieldCheck, ArrowLeft, Mail, Sparkles } from 'lucide-react';
 
 const PrivacyPolicy = () => {
@@ -9,6 +10,11 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="pt-28 sm:pt-36 pb-12 sm:pb-20 bg-slate-50 min-h-screen font-sans">
+      <SEO
+        title="Privacy Policy — DMDY"
+        description="Read DMDY's privacy policy to understand how we collect, store, and protect your information with enterprise transparency."
+        url="https://dmdy.in/privacy-policy"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Back Link */}

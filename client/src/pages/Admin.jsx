@@ -32,6 +32,7 @@ import api from '../utils/api';
 import BlogManager from '../components/BlogManager';
 import TableSkeleton from '../components/skeletons/TableSkeleton';
 import EmptyState from '../components/EmptyState';
+import SEO from '../components/SEO';
 
 const Admin = () => {
   const { user, loading, logout } = useAuth();
@@ -41,16 +42,30 @@ const Admin = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
   const [selectedLead, setSelectedLead] = useState(null);
-  
+  const [pagination, setPagination] = useState({
+    page: 1,
+    totalPages: 1,
+    totalLeads: 0,
+    hasNextPage: false,
+  });
+
   // Analytics State
   const [analyticsData, setAnalyticsData] = useState(null);
   const [analyticsLoading, setAnalyticsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const fetchLeads = useCallback(async () => {
+  const fetchLeads = useCallback(async (page = 1) => {
     try {
-      const res = await api.get('/api/leads');
-      setLeads(res.data || []);
+      const res = await api.get(`/api/leads?page=${page}&limit=20`);
+      const { leads, currentPage, totalPages, totalLeads, hasNextPage } = res.data;
+
+      setLeads(leads || []);
+      setPagination({
+        page: currentPage,
+        totalPages,
+        totalLeads,
+        hasNextPage,
+      });
     } catch (err) {
       console.error('Failed to fetch leads:', err);
     }
@@ -79,31 +94,30 @@ const Admin = () => {
     if (user && activeTab === 'leads') {
       let isMounted = true;
       setLeadsLoading(true);
-      api.get('/api/leads')
-        .then((res) => {
-          if (isMounted) setLeads(res.data || []);
-        })
-        .catch((err) => console.error('Failed to fetch leads:', err))
-        .finally(() => {
-          if (isMounted) setLeadsLoading(false);
-        });
+      fetchLeads(1).finally(() => {
+        if (isMounted) setLeadsLoading(false);
+      });
       return () => {
         isMounted = false;
       };
     } else if (user && activeTab === 'analytics') {
       fetchAnalytics();
     }
-  }, [user, activeTab, fetchAnalytics]);
+  }, [user, activeTab, fetchAnalytics, fetchLeads]);
 
   const handleStatusChange = async (id, newStatus) => {
+    // Optimistic Update
+    const previousLeads = [...leads];
+    setLeads(prev => prev.map(l => l._id === id ? { ...l, status: newStatus } : l));
+
     try {
       await api.put(`/api/leads/${id}`, { status: newStatus });
-      fetchLeads();
       if (selectedLead && selectedLead._id === id) {
         setSelectedLead((prev) => ({ ...prev, status: newStatus }));
       }
     } catch (err) {
       console.error('Failed to update lead status:', err);
+      setLeads(previousLeads); // Rollback on failure
     }
   };
 
@@ -111,7 +125,7 @@ const Admin = () => {
     if (window.confirm(`Are you sure you want to delete lead from "${name}"?`)) {
       try {
         await api.delete(`/api/leads/${id}`);
-        fetchLeads();
+        setLeads(prev => prev.filter(l => l._id !== id));
         if (selectedLead && selectedLead._id === id) {
           setSelectedLead(null);
         }
@@ -122,7 +136,7 @@ const Admin = () => {
   };
 
   // KPI Calculations
-  const totalLeads = leads.length;
+  const totalLeads = pagination.totalLeads;
   const newLeads = leads.filter((l) => l.status === 'New').length;
   const wonLeads = leads.filter((l) => l.status === 'Won').length;
   const inPipelineLeads = leads.filter((l) => ['Contacted', 'Qualified', 'Proposal'].includes(l.status)).length;
@@ -182,6 +196,12 @@ const Admin = () => {
 
   return (
     <div className="pt-24 sm:pt-28 pb-16 min-h-screen bg-slate-50/70 font-sans">
+      <SEO
+        title="Admin Console | DMDY Intelligence"
+        description="Internal administration console for DMDY."
+        url="https://dmdy.in/admin"
+        noindex={true}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header Strip */}
@@ -498,15 +518,29 @@ const Admin = () => {
               {/* Table Footer Count */}
               {!leadsLoading && filteredLeads.length > 0 && (
                 <div className="px-4 py-3 bg-slate-50/60 border-t border-slate-100 text-xs text-slate-500 flex items-center justify-between">
-                  <span>Showing <strong className="text-slate-700 font-semibold">{filteredLeads.length}</strong> of {leads.length} total leads</span>
-                  {statusFilter !== 'All' && (
-                    <button 
-                      onClick={() => setStatusFilter('All')} 
-                      className="text-brandPrimary hover:underline font-semibold text-xs"
-                    >
-                      Reset Filter
-                    </button>
-                  )}
+                  <span>Showing <strong className="text-slate-700 font-semibold">{filteredLeads.length}</strong> of {pagination.totalLeads} total leads (Page {pagination.page})</span>
+                  <div className="flex items-center gap-3">
+                    {statusFilter !== 'All' && (
+                      <button
+                        onClick={() => setStatusFilter('All')}
+                        className="text-brandPrimary hover:underline font-semibold text-xs"
+                      >
+                        Reset Filter
+                      </button>
+                    )}
+                    {pagination.hasNextPage && (
+                      <button
+                        onClick={() => {
+                          const nextPage = pagination.page + 1;
+                          setPagination(prev => ({ ...prev, page: nextPage }));
+                          fetchLeads(nextPage);
+                        }}
+                        className="bg-white border border-slate-200 px-2 py-1 rounded hover:bg-slate-50 text-xs font-semibold transition shadow-2xs"
+                      >
+                        Load More
+                      </button>
+                    )}
+                  </div>
                 </div>
               )}
             </div>

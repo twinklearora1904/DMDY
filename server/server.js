@@ -23,6 +23,8 @@ const clientUrls = (process.env.CLIENT_URL || "")
 
 const allowedOrigins = [
     ...clientUrls,
+    "https://www.digimedigiyou.com",
+    "https://digimedigiyou.com",
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
@@ -36,13 +38,16 @@ const corsOptions = {
         if (
             (process.env.CLIENT_URL === "*" && process.env.NODE_ENV !== "production") ||
             allowedOrigins.includes(normalizedOrigin) ||
-            (process.env.NODE_ENV === "production" && normalizedOrigin.endsWith(".vercel.app"))
+            normalizedOrigin.endsWith(".vercel.app") ||
+            normalizedOrigin.includes("digimedigiyou.com")
         ) {
             return callback(null, true);
         }
         return callback(new Error(`CORS policy does not allow access from this origin: ${origin}`));
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
 };
 
 const app = express();

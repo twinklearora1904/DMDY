@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Lead = require("../models/Lead");
-const { sendLeadNotification } = require("../utils/emailService");
+const { sendLeadNotification, sendLeadConfirmation } = require("../utils/emailService");
 
 const VALID_STATUSES = ["New", "Contacted", "Qualified", "Proposal", "Won", "Lost"];
 
@@ -26,8 +26,11 @@ const createLead = async (req, res) => {
 
         const createdLead = await lead.save();
 
-        // Send non-blocking lead notification
-        sendLeadNotification(createdLead).catch((err) => {
+        // Send non-blocking lead notification to Admin and instant Thank You auto-reply to Client
+        Promise.allSettled([
+            sendLeadNotification(createdLead),
+            sendLeadConfirmation(createdLead),
+        ]).catch((err) => {
             console.error("Non-blocking lead email notification error:", err.message);
         });
 

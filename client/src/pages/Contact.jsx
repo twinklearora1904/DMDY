@@ -243,8 +243,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Email Inquiries</div>
-                        <a href="mailto:twinklearora1904@gmail.com" className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors break-all">
-                          twinklearora1904@gmail.com
+                        <a href={SITE_CONFIG.contact.emailMailto} className="text-sm sm:text-base font-bold text-white hover:text-[#E6007A] transition-colors break-all">
+                          {SITE_CONFIG.contact.email}
                         </a>
                       </div>
                     </div>

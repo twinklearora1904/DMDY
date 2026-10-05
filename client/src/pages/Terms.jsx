@@ -13,7 +13,7 @@ const Terms = () => {
       <SEO
         title="Terms of Service & Conditions — DMDY"
         description="Read DMDY's Terms of Service governing digital marketing services, payment terms, and intellectual property."
-        url="https://dmdy.in/terms"
+        url="https://www.digimedigiyou.com/terms"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -49,7 +49,7 @@ const Terms = () => {
           {/* Terms Content */}
           <div className="space-y-6 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
             <p>
-              Welcome to <strong className="text-slate-900">DMDY (Digi Me Digi You)</strong>. By accessing our platform (<Link to="/" className="text-[#00AED6] font-semibold hover:underline">dmdy.in</Link>), retaining our strategic performance advisory, or executing commercial campaigns with our agency, you agree to comply with and be bound by the following Terms and Conditions.
+              Welcome to <strong className="text-slate-900">DMDY (Digi Me Digi You)</strong>. By accessing our platform (<Link to="/" className="text-[#00AED6] font-semibold hover:underline">digimedigiyou.com</Link>), retaining our strategic performance advisory, or executing commercial campaigns with our agency, you agree to comply with and be bound by the following Terms and Conditions.
             </p>
 
             <div>
@@ -128,10 +128,10 @@ const Terms = () => {
                 For commercial agreements, legal notices, or terms clarification, contact our compliance counsel:
               </p>
               <a 
-                href="mailto:legal@dmdy.in" 
+                href="mailto:info@digimedigiyou.com" 
                 className="text-sm sm:text-base font-bold text-[#00AED6] hover:text-[#E6007A] transition-colors"
               >
-                legal@dmdy.in &rarr;
+                info@digimedigiyou.com &rarr;
               </a>
             </div>
 

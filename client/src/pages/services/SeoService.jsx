@@ -44,7 +44,7 @@ const SeoService = () => {
       <SEO
         title="Search Engine Optimization (SEO) Services — Rank #1 on Google | DMDY"
         description="Drive high-converting organic search traffic with technical SEO audits, semantic keyword targeting, high-authority link acquisition, and content optimization."
-        url="https://dmdy.in/services/seo"
+        url="https://www.digimedigiyou.com/services/seo"
         type="service"
       />
 
@@ -190,7 +190,7 @@ const SeoService = () => {
                   <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-50/50 via-white to-pink-50/30 border border-cyan-100/90 shadow-sm text-left">
                     <div className="flex items-center gap-1.5 text-[11px] text-slate-500 mb-1">
                       <span className="w-4 h-4 rounded-full bg-slate-900 text-white text-[9px] font-bold flex items-center justify-center">D</span>
-                      <span className="font-semibold text-slate-800">dmdy.in</span>
+                      <span className="font-semibold text-slate-800">digimedigiyou.com</span>
                       <span>&rsaquo; services &rsaquo; seo</span>
                     </div>
                     <div className="text-sm font-bold text-[#1a0dab] leading-snug mb-1">
@@ -352,7 +352,7 @@ const SeoService = () => {
                     <span className="text-[10px] font-semibold text-slate-400">Sources:</span>
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-800 text-[10px] text-cyan-300 border border-slate-700">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00AED6]"></span>
-                      dmdy.in/services/seo
+                      digimedigiyou.com/services/seo
                     </span>
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-800 text-[10px] text-pink-300 border border-slate-700">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E6007A]"></span>

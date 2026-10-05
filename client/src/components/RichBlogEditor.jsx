@@ -586,7 +586,7 @@ const RichBlogEditor = ({ value = '', onChange, placeholder = 'Write your blog p
                 <input
                   required
                   type="url"
-                  placeholder="https://dmdy.in/contact"
+                  placeholder="https://www.digimedigiyou.com/contact"
                   value={linkData.url}
                   onChange={(e) => setLinkData({ ...linkData, url: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-brandPrimary"

@@ -320,7 +320,7 @@ const Industries = () => {
       <SEO
         title="Industries We Serve — Tailored Growth Strategies for Every Sector | DMDY"
         description="Explore industry-specific digital growth solutions for E-Commerce, Healthcare, Real Estate, SaaS & Startups, Hospitality, and Professional Services."
-        url="https://dmdy.in/industries"
+        url="https://www.digimedigiyou.com/industries"
       />
       {/* ========================================================= */}
       {/* SECTION 1: HERO SECTION                                   */}

@@ -53,7 +53,7 @@ const SocialMediaService = () => {
       <SEO
         title="Social Media Marketing (SMM) Services — Engage & Scale Communities | DMDY"
         description="Transform your social presence into a revenue generator across Instagram, LinkedIn, YouTube, and Facebook through viral organic strategies and paid social amplification."
-        url="https://dmdy.in/services/social-media"
+        url="https://www.digimedigiyou.com/services/social-media"
         type="service"
       />
 

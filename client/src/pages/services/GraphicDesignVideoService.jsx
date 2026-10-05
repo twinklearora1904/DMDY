@@ -88,7 +88,7 @@ const GraphicDesignVideoService = () => {
       <SEO
         title="Graphic Design & Video Editing Services — High-Impact Creative Assets | DMDY"
         description="Stop the scroll with performance creative assets: conversion-focused ad creatives, branded social templates, product reels, 4K motion graphics, and corporate videos."
-        url="https://dmdy.in/services/graphic-design-video-editing"
+        url="https://www.digimedigiyou.com/services/graphic-design-video-editing"
         type="service"
       />
 

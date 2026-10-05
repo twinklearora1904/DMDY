@@ -99,7 +99,7 @@ const Contact = () => {
       <SEO
         title="Contact DMDY — Let's Build Your Digital Growth Engine"
         description="Book a complimentary growth strategy session with DMDY's marketing architects. Get in touch via form, email, or direct WhatsApp call."
-        url="https://dmdy.in/contact"
+        url="https://www.digimedigiyou.com/contact"
       />
 
       {/* ========================================================= */}

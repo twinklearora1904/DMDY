@@ -16,7 +16,7 @@ const About = () => {
       <SEO
         title="About DMDY — Digi Me Digi You | Our Story & Vision"
         description="Learn how DMDY is redefining digital marketing into a bespoke, transparent, and performance-first growth consultancy for ambitious global businesses."
-        url="https://dmdy.in/about"
+        url="https://www.digimedigiyou.com/about"
       />
       
       {/* Clean Corporate Hero Section */}

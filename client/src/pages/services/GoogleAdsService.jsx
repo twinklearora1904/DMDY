@@ -128,7 +128,7 @@ const GoogleAdsService = () => {
       <SEO
         title="Google Ads (PPC) Management Services — High ROAS Paid Campaigns | DMDY"
         description="Capture ready-to-buy search intent and maximize your return on ad spend (ROAS) with data-driven Google Search, Shopping, YouTube, and Performance Max campaigns."
-        url="https://dmdy.in/services/google-ads"
+        url="https://www.digimedigiyou.com/services/google-ads"
         type="service"
       />
 

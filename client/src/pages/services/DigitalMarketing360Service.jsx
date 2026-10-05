@@ -383,7 +383,7 @@ const DigitalMarketing360Service = () => {
       <SEO
         title="360° Digital Marketing Services — Full-Funnel Growth Solutions | DMDY"
         description="Scale your brand with DMDY's unified 360° digital marketing frameworks combining SEO, high-intent paid advertising, conversion web design, and brand storytelling."
-        url="https://dmdy.in/services/360-digital-marketing"
+        url="https://www.digimedigiyou.com/services/360-digital-marketing"
         type="service"
       />
       {/* ========================================================= */}
@@ -513,7 +513,7 @@ const DigitalMarketing360Service = () => {
                   </div>
                   <div className="text-[10px] uppercase tracking-wider text-slate-600 font-bold px-2.5 py-0.5 bg-white border border-slate-200 rounded-md shadow-sm flex items-center gap-1.5">
                     <Globe className="w-3 h-3 text-[#00AED6]" />
-                    dmdy.in/360-growth-engine
+                    digimedigiyou.com/360-growth-engine
                   </div>
                 </div>
 

@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   brandName: 'DMDY',
   legalName: 'DMDY - Digi Me Digi You',
   tagline: '360° Digital Growth Partner & Performance Marketing Agency',
-  domain: 'https://dmdy.in',
+  domain: 'https://www.digimedigiyou.com',
 
   // Contact Information
   contact: {
@@ -16,18 +16,19 @@ export const SITE_CONFIG = {
     phoneRaw: '+919876543210',
     phoneTel: 'tel:+919876543210',
     whatsappNumber: '919876543210',
-    email: 'hello@dmdy.in',
-    emailMailto: 'mailto:hello@dmdy.in',
+    email: 'info@digimedigiyou.com',
+    emailMailto: 'mailto:info@digimedigiyou.com',
     address: 'Delhi NCR, India',
-    officeHours: 'Mon - Sat: 9:00 AM - 7:00 PM IST',
+    officeHours: 'Mon - Sat: 9:00 AM - 6:00 PM IST',
   },
 
   // Social Channels
   socials: {
-    linkedin: 'https://linkedin.com/company/dmdy',
-    instagram: 'https://instagram.com/dmdy.in',
-    twitter: 'https://x.com/dmdydigital',
-    facebook: 'https://facebook.com/dmdydigital',
+    linkedin: 'https://www.linkedin.com/company/digimedigiyou/about',
+    instagram: 'https://www.instagram.com/digimedigiyou_dmdy/',
+    youtube: 'https://www.youtube.com/@DmdyDigital',
+    twitter: 'https://www.youtube.com/@DmdyDigital',
+    facebook: 'https://www.facebook.com/profile.php?id=61595069606514',
   },
 
   /**

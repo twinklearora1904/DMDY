@@ -1,4 +1,4 @@
-# robots.txt for https://dmdy.in
+# robots.txt for https://www.digimedigiyou.com
 User-agent: *
 Allow: /
 Disallow: /admin
@@ -10,4 +10,4 @@ Disallow: /thank-you
 Crawl-delay: 1
 
 # Sitemap Location
-Sitemap: https://dmdy.in/sitemap.xml
+Sitemap: https://www.digimedigiyou.com/sitemap.xml

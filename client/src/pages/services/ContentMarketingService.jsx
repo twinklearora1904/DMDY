@@ -266,7 +266,7 @@ const ContentMarketingService = () => {
       <SEO
         title="Content Creation & Marketing Services — Strategy, Copywriting & Media | DMDY"
         description="High-authority thought leadership, SEO pillar content, conversion copywriting, and lead magnets that educate your audience and turn prospects into lifelong clients."
-        url="https://dmdy.in/services/content-marketing"
+        url="https://www.digimedigiyou.com/services/content-marketing"
         type="service"
       />
 

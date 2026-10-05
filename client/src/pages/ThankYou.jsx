@@ -32,7 +32,7 @@ const ThankYou = () => {
       <SEO
         title="Thank You — Message Received | DMDY"
         description="Thank you for contacting DMDY. Our growth strategists will review your inquiry and get back to you within 24 hours."
-        url="https://dmdy.in/thank-you"
+        url="https://www.digimedigiyou.com/thank-you"
         noindex={true}
       />
       {/* Ambient background glow accents */}

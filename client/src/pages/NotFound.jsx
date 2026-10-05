@@ -13,7 +13,7 @@ const NotFound = () => {
       <SEO
         title="404 — Page Not Found | DMDY"
         description="The page you are looking for might have been moved, renamed, or is temporarily unavailable."
-        url="https://dmdy.in/404"
+        url="https://www.digimedigiyou.com/404"
         noindex={true}
       />
       {/* Background Ambient Glow */}

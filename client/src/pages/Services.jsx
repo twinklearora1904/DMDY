@@ -38,7 +38,7 @@ const Services = () => {
       <SEO
         title="Full-Stack Digital Growth Services & Capabilities — DMDY"
         description="Explore DMDY's full suite of high-impact digital services: SEO, Google & Meta Ads, Custom Web Development, Content Marketing, and Creative Media."
-        url="https://dmdy.in/services"
+        url="https://www.digimedigiyou.com/services"
       />
 
       {/* ========================================================= */}

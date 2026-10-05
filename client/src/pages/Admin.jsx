@@ -199,7 +199,7 @@ const Admin = () => {
       <SEO
         title="Admin Console | DMDY Intelligence"
         description="Internal administration console for DMDY."
-        url="https://dmdy.in/admin"
+        url="https://www.digimedigiyou.com/admin"
         noindex={true}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

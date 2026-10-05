@@ -95,7 +95,7 @@ const BlogPost = () => {
         title={blog.title}
         description={blog.metaDescription || (blog.content ? blog.content.substring(0, 160).replace(/[#*`_]/g, '').trim() : '')}
         image={imageUrl}
-        url={`https://dmdy.in/blog/${blog.slug || slug}`}
+        url={`https://www.digimedigiyou.com/blog/${blog.slug || slug}`}
         type="article"
         author={blog.author?.name || 'DMDY Growth Strategists'}
         publishedTime={blog.createdAt}

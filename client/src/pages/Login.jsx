@@ -36,7 +36,7 @@ const Login = () => {
       <SEO
         title="Admin Portal Login | DMDY"
         description="Restricted authentication portal for DMDY intelligence admins."
-        url="https://dmdy.in/admin/login"
+        url="https://www.digimedigiyou.com/admin/login"
         noindex={true}
       />
       {/* Background ambient lighting */}
@@ -81,7 +81,7 @@ const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@dmdy.in"
+                  placeholder="admin@digimedigiyou.com"
                   className="w-full pl-10 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/90 rounded-xl text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all" 
                 />
               </div>

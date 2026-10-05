@@ -93,7 +93,7 @@ export const getResponsiveSrcSet = (url, widths = [360, 640, 768, 1024, 1280], o
  * @returns {string} - 1200x630 social card image
  */
 export const getOpenGraphImage = (url) => {
-  if (!url) return 'https://dmdy.in/favicon.png';
+  if (!url) return 'https://www.digimedigiyou.com/favicon.png';
   return getOptimizedImage(url, {
     width: 1200,
     height: 630,

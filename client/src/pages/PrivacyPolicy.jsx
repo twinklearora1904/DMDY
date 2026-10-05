@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
       <SEO
         title="Privacy Policy — DMDY"
         description="Read DMDY's privacy policy to understand how we collect, store, and protect your information with enterprise transparency."
-        url="https://dmdy.in/privacy-policy"
+        url="https://www.digimedigiyou.com/privacy-policy"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -49,7 +49,7 @@ const PrivacyPolicy = () => {
           {/* Policy Content */}
           <div className="space-y-6 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
             <p>
-              At <strong className="text-slate-900">DMDY (Digi Me Digi You)</strong>, accessible from <Link to="/" className="text-[#00AED6] font-semibold hover:underline">dmdy.in</Link>, your personal and enterprise data privacy is a foundational operating standard. This Privacy Policy details the categories of information gathered, processed, and secured when you engage with our agency consultancy, strategy forms, and digital platforms.
+              At <strong className="text-slate-900">DMDY (Digi Me Digi You)</strong>, accessible from <Link to="/" className="text-[#00AED6] font-semibold hover:underline">digimedigiyou.com</Link>, your personal and enterprise data privacy is a foundational operating standard. This Privacy Policy details the categories of information gathered, processed, and secured when you engage with our agency consultancy, strategy forms, and digital platforms.
             </p>
 
             <div>
@@ -126,10 +126,10 @@ const PrivacyPolicy = () => {
                 For legal inquiries, data deletion requests, or compliance documentation, contact our regulatory team:
               </p>
               <a 
-                href="mailto:privacy@dmdy.in" 
+                href="mailto:info@digimedigiyou.com" 
                 className="text-sm sm:text-base font-bold text-[#00AED6] hover:text-[#E6007A] transition-colors"
               >
-                privacy@dmdy.in &rarr;
+                info@digimedigiyou.com &rarr;
               </a>
             </div>
 

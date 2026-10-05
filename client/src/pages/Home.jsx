@@ -404,7 +404,7 @@ const Home = () => {
       <SEO
         title="DMDY — 360° Digital Growth Partner & Performance Marketing Agency"
         description="DMDY builds custom digital growth engines for ambitious brands through data-backed SEO, high-ROAS performance ads, web development, and conversion rate optimization."
-        url="https://dmdy.in/"
+        url="https://www.digimedigiyou.com/"
       />
 
       {/* ========================================================= */}
@@ -1275,9 +1275,9 @@ const Home = () => {
             <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-[#E6007A]">Design</span>
             <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-[#F5A623]">Deliver</span>
-            <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-emerald-600">Develop</span>
+            <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-[#F5A623]">Deliver</span>
           </div>
 
           {/* 4 Process Step Cards */}

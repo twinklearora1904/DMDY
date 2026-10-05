@@ -134,7 +134,7 @@ const Blog = () => {
       <SEO
         title="Insights & Growth Playbooks"
         description="Explore DMDY's proven frameworks, performance marketing teardowns, and actionable digital growth strategies."
-        url="https://dmdy.in/blog"
+        url="https://www.digimedigiyou.com/blog"
       />
 
       {/* ========================================================= */}

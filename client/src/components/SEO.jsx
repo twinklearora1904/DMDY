@@ -30,7 +30,7 @@ const SEO = ({
     // 2. Resolve image and full canonical URL
     const ogImageUrl = image
       ? getOpenGraphImage(image)
-      : 'https://dmdy.in/favicon.png';
+      : 'https://www.digimedigiyou.com/favicon.png';
 
     const currentUrl = url || window.location.href;
     const finalDescription = description || 'A 360° performance digital marketing consultancy driving predictable revenue through SEO, paid ads, and conversion optimization.';
@@ -126,7 +126,7 @@ const SEO = ({
           'name': 'DMDY - Digi Me Digi You',
           'logo': {
             '@type': 'ImageObject',
-            'url': 'https://dmdy.in/favicon.png',
+            'url': 'https://www.digimedigiyou.com/favicon.png',
           },
         },
         'mainEntityOfPage': {
@@ -144,8 +144,8 @@ const SEO = ({
         'provider': {
           '@type': 'Organization',
           'name': 'DMDY - Digi Me Digi You',
-          'url': 'https://dmdy.in',
-          'logo': 'https://dmdy.in/favicon.png',
+          'url': 'https://www.digimedigiyou.com',
+          'logo': 'https://www.digimedigiyou.com/favicon.png',
         },
         'areaServed': 'Worldwide',
         'serviceType': title,

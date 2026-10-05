@@ -137,7 +137,7 @@ const PaidMarketingService = () => {
       <SEO
         title="Performance Paid Marketing Services — Multi-Channel Paid Ads | DMDY"
         description="Acquire high-value customers at scale through profitable multi-channel paid acquisition across Meta Ads, LinkedIn Ads, programmatic networks, and retargeting funnels."
-        url="https://dmdy.in/services/paid-marketing"
+        url="https://www.digimedigiyou.com/services/paid-marketing"
         type="service"
       />
 
@@ -272,7 +272,7 @@ const PaidMarketingService = () => {
                   </div>
                   <div className="text-[10px] uppercase tracking-wider text-slate-600 font-bold px-2.5 py-0.5 bg-white border border-slate-200 rounded-md shadow-sm flex items-center gap-1.5">
                     <Layers className="w-3 h-3 text-[#00AED6]" />
-                    dmdy.in/360-paid-growth
+                    digimedigiyou.com/360-paid-growth
                   </div>
                 </div>
 

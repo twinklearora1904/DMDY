@@ -54,7 +54,7 @@ const WebDevelopmentService = () => {
       <SEO
         title="Custom Web Design & Development Services — Fast, Responsive, High-Converting | DMDY"
         description="Custom high-performance websites, corporate portals, and e-commerce platforms engineered for lightning speed, mobile responsiveness, and maximum conversion rates."
-        url="https://dmdy.in/services/web-development"
+        url="https://www.digimedigiyou.com/services/web-development"
         type="service"
       />
 

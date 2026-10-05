@@ -12,7 +12,7 @@ const PricingPage = () => {
       <SEO
         title="Transparent Growth Plans & Pricing Models — DMDY"
         description="Transparent, flexible, and value-focused growth packages customized for your stage: Seed, Scale, or Enterprise."
-        url="https://dmdy.in/pricing"
+        url="https://www.digimedigiyou.com/pricing"
       />
       {/* Background gradients for premium feel */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>

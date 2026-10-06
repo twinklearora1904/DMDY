@@ -13,7 +13,7 @@ const leadLimiter = require("../middleware/leadLimiter");
 const { check } = require("express-validator");
 const { validate } = require("../middleware/validateMiddleware");
 
-router.get("/debug-smtp", debugSmtp);
+router.get("/debug-smtp", protect, admin, debugSmtp);
 
 router.route("/")
     .post(

@@ -335,5 +335,7 @@ const sendLeadNotification = async (lead) => {
 module.exports = {
     sendLeadNotification,
     sendLeadConfirmation,
+    dispatchEmail,
+    createTransporter,
 };
 

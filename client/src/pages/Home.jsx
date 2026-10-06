@@ -388,6 +388,72 @@ const Home = () => {
     }
   };
 
+  const [ctaFormData, setCtaFormData] = useState({
+    name: '',
+    company: '',
+    phone: '',
+    email: '',
+    service: 'Complete 360° Digital Marketing',
+    message: '',
+    website: ''
+  });
+  const [ctaFormStatus, setCtaFormStatus] = useState({ type: '', msg: '' });
+  const [ctaFormLoading, setCtaFormLoading] = useState(false);
+
+  const handleCtaFormChange = (e) => {
+    setCtaFormData({ ...ctaFormData, [e.target.name]: e.target.value });
+  };
+
+  const handleCtaFormSubmit = async (e) => {
+    e.preventDefault();
+    setCtaFormLoading(true);
+    setCtaFormStatus({ type: '', msg: '' });
+
+    let normalizedWebsite = (ctaFormData.website || '').trim();
+    if (normalizedWebsite && !/^https?:\/\//i.test(normalizedWebsite)) {
+      normalizedWebsite = `https://${normalizedWebsite}`;
+    }
+
+    const payload = {
+      ...ctaFormData,
+      website: normalizedWebsite,
+    };
+
+    try {
+      await api.post('/api/leads', payload);
+      const submittedName = ctaFormData.name;
+      const submittedEmail = ctaFormData.email;
+      const submittedService = ctaFormData.service;
+
+      setCtaFormData({
+        name: '',
+        company: '',
+        phone: '',
+        email: '',
+        service: 'Complete 360° Digital Marketing',
+        message: '',
+        website: ''
+      });
+
+      navigate('/thank-you', {
+        state: {
+          name: submittedName,
+          email: submittedEmail,
+          service: submittedService,
+        },
+      });
+    } catch (error) {
+      setCtaFormStatus({
+        type: 'error',
+        msg: error.response?.data?.errors?.[0]?.msg ||
+          error.response?.data?.message ||
+          'Something went wrong. Please check your details and try again.'
+      });
+    } finally {
+      setCtaFormLoading(false);
+    }
+  };
+
   const servicePills = [
     { name: 'SEO', color: 'text-[#00AED6] bg-cyan-50/80 border-cyan-200/80' },
     { name: 'AEO', color: 'text-[#00AED6] bg-cyan-50/80 border-cyan-200/80' },
@@ -2134,66 +2200,267 @@ const Home = () => {
       {/* ========================================================= */}
       {/* SECTION 11: FINAL CTA - YOUR BUSINESS HAS A STORY        */}
       {/* ========================================================= */}
-      <section className="py-10 sm:py-14 bg-white relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-white relative overflow-hidden border-t border-slate-100">
 
         {/* User's signature radial gradient backdrop */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00AED6_0%,#E6007A_25%,transparent_70%)] opacity-5 pointer-events-none"></div>
 
         {/* Ambient subtle blurs */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[250px] bg-gradient-to-r from-cyan-100/30 via-pink-100/20 to-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[550px] h-[300px] bg-gradient-to-r from-cyan-100/35 via-pink-100/25 to-amber-100/25 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/90 text-[11px] font-bold text-slate-700 uppercase tracking-widest mb-3 shadow-xs">
-            <Sparkles className="w-3 h-3 text-[#00AED6]" />
-            <span>Your Business Has a Story.</span>
-          </div>
+            {/* Left Column (7 cols): Lead Capture Form */}
+            <div className="lg:col-span-7 order-2 lg:order-1">
+              <div className="bg-gradient-to-b from-white to-slate-50/90 rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/40 p-6 sm:p-8 relative text-left">
 
-          {/* Main Headline */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3">
-            Let's Build Its{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
-              Digital Presence.
-            </span>
-          </h2>
+                {/* Form Header */}
+                <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
+                      <Sparkles className="w-3.5 h-3.5 text-[#00AED6]" />
+                      <span>Start Your Digital Journey</span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                      Tell Us About Your Project
+                    </h3>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-700">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>&lt; 2h Response</span>
+                  </div>
+                </div>
 
-          {/* Body Paragraph */}
-          <p className="text-xs sm:text-sm md:text-base text-slate-600 font-normal leading-relaxed max-w-xl mx-auto mb-4">
-            Whether you're starting from zero, looking for more leads, building an online brand or ready to scale — DMDY can build the digital strategy around you.
-          </p>
+                {/* Status Alert if error */}
+                {ctaFormStatus.msg && (
+                  <div className={`p-3.5 mb-4 rounded-xl text-xs sm:text-sm font-semibold flex items-center ${
+                    ctaFormStatus.type === 'success'
+                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                      : 'bg-rose-50 text-rose-800 border border-rose-200'
+                  }`}>
+                    {ctaFormStatus.msg}
+                  </div>
+                )}
 
-          {/* Callout Strip */}
-          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 py-2 px-4 sm:px-5 rounded-xl bg-slate-50 border border-slate-200/80 mb-6 max-w-lg mx-auto text-center sm:text-left shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E6007A] shrink-0"></span>
-            <p className="text-xs font-semibold text-slate-700">
-              <span className="text-slate-900 font-bold">Tell us what you're trying to achieve.</span>{' '}
-              <span>We'll help you figure out what it takes to get there.</span>
-            </p>
-          </div>
+                {/* Form fields */}
+                <form onSubmit={handleCtaFormSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        Full Name <span className="text-[#E6007A]">*</span>
+                      </label>
+                      <input
+                        required
+                        type="text"
+                        name="name"
+                        value={ctaFormData.name}
+                        onChange={handleCtaFormChange}
+                        className="w-full bg-white border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-slate-900 text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all shadow-2xs"
+                        placeholder="e.g. Rahul Sharma"
+                      />
+                    </div>
 
-          {/* Dual Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
-            <button
-              type="button"
-              onClick={openModal}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer group"
-            >
-              <span>Start a Conversation</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        Phone Number <span className="text-[#E6007A]">*</span>
+                      </label>
+                      <input
+                        required
+                        type="tel"
+                        name="phone"
+                        value={ctaFormData.phone}
+                        onChange={handleCtaFormChange}
+                        className="w-full bg-white border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-slate-900 text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all shadow-2xs"
+                        placeholder="+91 98765 43210"
+                      />
+                    </div>
+                  </div>
 
-            <a
-              href={SITE_CONFIG.getWhatsAppUrl('Hello DMDY Team, I would like to start a conversation about our digital marketing growth.')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 shadow-xs hover:shadow-sm transition-all"
-            >
-              <svg className="w-3.5 h-3.5 text-[#00C48C]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-              </svg>
-              <span>WhatsApp DMDY</span>
-            </a>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        Work Email <span className="text-[#E6007A]">*</span>
+                      </label>
+                      <input
+                        required
+                        type="email"
+                        name="email"
+                        value={ctaFormData.email}
+                        onChange={handleCtaFormChange}
+                        className="w-full bg-white border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-slate-900 text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all shadow-2xs"
+                        placeholder="name@company.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        Business / Company
+                      </label>
+                      <input
+                        type="text"
+                        name="company"
+                        value={ctaFormData.company}
+                        onChange={handleCtaFormChange}
+                        className="w-full bg-white border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-slate-900 text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all shadow-2xs"
+                        placeholder="e.g. Sharma Enterprises"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        Service Needed <span className="text-[#E6007A]">*</span>
+                      </label>
+                      <select
+                        name="service"
+                        value={ctaFormData.service}
+                        onChange={handleCtaFormChange}
+                        className="w-full bg-white border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all cursor-pointer shadow-2xs"
+                      >
+                        {serviceOptions.map((opt) => (
+                          <option key={opt} value={opt}>
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        Website URL <span className="text-slate-400 font-normal lowercase">(optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="website"
+                        value={ctaFormData.website}
+                        onChange={handleCtaFormChange}
+                        className="w-full bg-white border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-slate-900 text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all shadow-2xs"
+                        placeholder="https://example.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      Project Goals / Message
+                    </label>
+                    <textarea
+                      rows="3"
+                      name="message"
+                      value={ctaFormData.message}
+                      onChange={handleCtaFormChange}
+                      className="w-full bg-white border border-slate-200/90 rounded-xl px-3.5 py-2 text-slate-900 text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all resize-none shadow-2xs"
+                      placeholder="Tell us what you're trying to achieve, target milestones, or existing challenges..."
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={ctaFormLoading}
+                    className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623] hover:opacity-95 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 group"
+                  >
+                    {ctaFormLoading ? (
+                      <span>Sending Request...</span>
+                    ) : (
+                      <>
+                        <span>Submit Project Inquiry</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                      </>
+                    )}
+                  </button>
+
+                  {/* Trust indicator footer */}
+                  <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px] text-slate-500 font-medium pt-1">
+                    <span className="flex items-center gap-1">
+                      <Lock className="w-3 h-3 text-emerald-600" /> 100% Confidential
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#00AED6]" /> Zero Spam Guarantee
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3 text-[#E6007A]" /> Response in &lt; 2 Hours
+                    </span>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+
+            {/* Right Column (5 cols): Story Headline & Brand Proposition */}
+            <div className="lg:col-span-5 order-1 lg:order-2 text-left">
+
+              {/* Eyebrow Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/90 text-[11px] font-bold text-slate-700 uppercase tracking-widest mb-3 shadow-xs">
+                <Sparkles className="w-3 h-3 text-[#00AED6]" />
+                <span>Your Business Has a Story.</span>
+              </div>
+
+              {/* Main Headline */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3">
+                Let's Build Its{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00AED6] via-[#E6007A] to-[#F5A623]">
+                  Digital Presence.
+                </span>
+              </h2>
+
+              {/* Body Paragraph */}
+              <p className="text-xs sm:text-sm md:text-base text-slate-600 font-normal leading-relaxed mb-4">
+                Whether you're starting from zero, looking for more leads, building an online brand or ready to scale — DMDY can build the digital strategy around you.
+              </p>
+
+              {/* Callout Strip */}
+              <div className="flex items-start gap-2.5 py-3 px-4 rounded-xl bg-slate-50 border border-slate-200/80 mb-5 shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-[#E6007A] mt-1 shrink-0"></span>
+                <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
+                  <span className="text-slate-900 font-bold">Tell us what you're trying to achieve.</span>{' '}
+                  <span>We'll help you figure out what it takes to get there.</span>
+                </p>
+              </div>
+
+              {/* Strategic Value Points */}
+              <div className="space-y-2.5 mb-6">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span>Dedicated strategist assigned directly to your project</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#00AED6] shrink-0" />
+                  <span>Transparent metrics, real-time tracking &amp; clear ROI focus</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#E6007A] shrink-0" />
+                  <span>Custom roadmap designed around your exact budget &amp; goals</span>
+                </div>
+              </div>
+
+              {/* Direct Reach Out Strip */}
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-950 text-white shadow-md">
+                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                  Direct Inquiries &amp; Support
+                </div>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
+                  <a
+                    href="mailto:business@digimedigiyou.com"
+                    className="text-[#00AED6] hover:underline font-semibold"
+                  >
+                    business@digimedigiyou.com
+                  </a>
+                  <span className="text-slate-600 hidden sm:inline">&bull;</span>
+                  <a
+                    href="tel:+919871142412"
+                    className="text-slate-200 hover:text-white font-bold"
+                  >
+                    +91 98711 42412
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
           </div>
 
         </div>

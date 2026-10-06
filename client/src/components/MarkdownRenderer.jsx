@@ -33,6 +33,20 @@ const CodeBlock = ({ code, language }) => {
   );
 };
 
+const sanitizeHref = (url) => {
+  if (!url) return '#';
+  const clean = String(url).trim();
+  if (/^(https?:|\/|mailto:|tel:)/i.test(clean)) return clean;
+  return '#';
+};
+
+const sanitizeImageSrc = (url) => {
+  if (!url) return '';
+  const clean = String(url).trim();
+  if (/^(https?:|\/|data:image\/)/i.test(clean)) return clean;
+  return '';
+};
+
 const formatInlineText = (text) => {
   if (!text) return null;
 
@@ -53,7 +67,7 @@ const formatInlineText = (text) => {
         return (
           <figure key={index} className="my-6">
             <img
-              src={src}
+              src={sanitizeImageSrc(src)}
               alt={alt || 'Blog illustration'}
               className="w-full rounded-2xl border border-slate-200 shadow-md max-h-[500px] object-cover"
               loading="lazy"
@@ -75,7 +89,7 @@ const formatInlineText = (text) => {
         return (
           <a
             key={index}
-            href={linkMatch[2]}
+            href={sanitizeHref(linkMatch[2])}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#00AED6] hover:text-[#0092b3] underline underline-offset-2 font-semibold transition"
@@ -526,7 +540,7 @@ const MarkdownRenderer = ({ content }) => {
             return (
               <figure key={idx} className="my-6">
                 <img
-                  src={el.src}
+                  src={sanitizeImageSrc(el.src)}
                   alt={el.alt || 'Blog illustration'}
                   className="w-full rounded-2xl border border-slate-200 shadow-md max-h-[500px] object-cover"
                   loading="lazy"

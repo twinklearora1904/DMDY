@@ -43,7 +43,7 @@ const corsOptions = {
         ) {
             return callback(null, true);
         }
-        return callback(new Error(`CORS policy does not allow access from this origin: ${origin}`));
+        return callback(null, false);
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
@@ -66,18 +66,39 @@ app.use("/api/blogs", blogRoutes);
 app.use("/api/leads", leadRoutes);
 app.use("/api/analytics", analyticsRoutes);
 
+// Root & Health Check Endpoints (for Render, Railway, AWS, and Uptime monitors)
+const healthCheckHandler = (req, res) => {
+    res.status(200).json({
+        success: true,
+        status: "healthy",
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || "development",
+    });
+};
 
 app.get("/", (req, res) => {
     res.json({
         success: true,
         message: "DMDY API is running",
+        version: "1.0.0",
     });
 });
+app.get("/health", healthCheckHandler);
+app.get("/api/health", healthCheckHandler);
 
 app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+});
+
+process.on("unhandledRejection", (err) => {
+    console.error("[Fatal Error] Unhandled Rejection:", err?.message || err);
+});
+
+process.on("uncaughtException", (err) => {
+    console.error("[Fatal Error] Uncaught Exception:", err?.message || err);
 });

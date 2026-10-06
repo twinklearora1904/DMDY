@@ -27,12 +27,26 @@ const PageLoader = () => {
   }, []);
 
   // 2. Route Change Progress Bar
+  const lastLocationRef = React.useRef(location.pathname + location.search);
+  const isFirstMountRef = React.useRef(true);
+
   useEffect(() => {
-    // Skip route progress if initial loading is still active
+    // Skip on first mount so the initial splash preloader handles loading
+    if (isFirstMountRef.current) {
+      isFirstMountRef.current = false;
+      return;
+    }
+
+    const currentLoc = location.pathname + location.search;
+    if (currentLoc === lastLocationRef.current) return;
+    lastLocationRef.current = currentLoc;
+
     if (initialLoading) return;
 
-    setRouteLoading(true);
-    setRouteProgress(25);
+    const startTimer = setTimeout(() => {
+      setRouteLoading(true);
+      setRouteProgress(25);
+    }, 0);
 
     const step1 = setTimeout(() => setRouteProgress(65), 100);
     const step2 = setTimeout(() => setRouteProgress(100), 250);
@@ -42,6 +56,7 @@ const PageLoader = () => {
     }, 450);
 
     return () => {
+      clearTimeout(startTimer);
       clearTimeout(step1);
       clearTimeout(step2);
       clearTimeout(step3);

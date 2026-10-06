@@ -48,6 +48,14 @@ const Admin = () => {
     totalLeads: 0,
     hasNextPage: false,
   });
+  const [statusCounts, setStatusCounts] = useState({
+    New: 0,
+    Contacted: 0,
+    Qualified: 0,
+    Proposal: 0,
+    Won: 0,
+    Lost: 0,
+  });
 
   // Analytics State
   const [analyticsData, setAnalyticsData] = useState(null);
@@ -55,11 +63,14 @@ const Admin = () => {
   const navigate = useNavigate();
 
   const fetchLeads = useCallback(async (page = 1) => {
+    await Promise.resolve();
+    setLeadsLoading(true);
     try {
       const res = await api.get(`/api/leads?page=${page}&limit=20`);
-      const { leads, currentPage, totalPages, totalLeads, hasNextPage } = res.data;
+      const { leads, currentPage, totalPages, totalLeads, hasNextPage, statusCounts: counts } = res.data;
 
       setLeads(leads || []);
+      if (counts) setStatusCounts(counts);
       setPagination({
         page: currentPage,
         totalPages,
@@ -68,10 +79,13 @@ const Admin = () => {
       });
     } catch (err) {
       console.error('Failed to fetch leads:', err);
+    } finally {
+      setLeadsLoading(false);
     }
   }, []);
 
   const fetchAnalytics = useCallback(async () => {
+    await Promise.resolve();
     setAnalyticsLoading(true);
     try {
       const res = await api.get('/api/analytics/dashboard');
@@ -92,16 +106,15 @@ const Admin = () => {
 
   useEffect(() => {
     if (user && activeTab === 'leads') {
-      let isMounted = true;
-      setLeadsLoading(true);
-      fetchLeads(1).finally(() => {
-        if (isMounted) setLeadsLoading(false);
-      });
-      return () => {
-        isMounted = false;
-      };
+      const timer = setTimeout(() => {
+        fetchLeads(1);
+      }, 0);
+      return () => clearTimeout(timer);
     } else if (user && activeTab === 'analytics') {
-      fetchAnalytics();
+      const timer = setTimeout(() => {
+        fetchAnalytics();
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [user, activeTab, fetchAnalytics, fetchLeads]);
 
@@ -137,9 +150,9 @@ const Admin = () => {
 
   // KPI Calculations
   const totalLeads = pagination.totalLeads;
-  const newLeads = leads.filter((l) => l.status === 'New').length;
-  const wonLeads = leads.filter((l) => l.status === 'Won').length;
-  const inPipelineLeads = leads.filter((l) => ['Contacted', 'Qualified', 'Proposal'].includes(l.status)).length;
+  const newLeads = statusCounts.New ?? leads.filter((l) => l.status === 'New').length;
+  const wonLeads = statusCounts.Won ?? leads.filter((l) => l.status === 'Won').length;
+  const inPipelineLeads = ((statusCounts.Contacted || 0) + (statusCounts.Qualified || 0) + (statusCounts.Proposal || 0)) || leads.filter((l) => ['Contacted', 'Qualified', 'Proposal'].includes(l.status)).length;
 
   const filteredLeads = leads.filter((lead) => {
     const query = searchQuery.toLowerCase();

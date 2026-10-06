@@ -1,6 +1,30 @@
 const nodemailer = require("nodemailer");
 
 /**
+ * Safe HTML escaping helper to prevent HTML injection / XSS in emails
+ */
+const escapeHtml = (str) => {
+    return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+};
+
+/**
+ * Validates and sanitizes external URLs for email link hrefs
+ */
+const sanitizeUrl = (url) => {
+    if (!url) return "";
+    const clean = String(url).trim();
+    if (/^https?:\/\//i.test(clean)) {
+        return escapeHtml(clean);
+    }
+    return "";
+};
+
+/**
  * Creates a nodemailer transporter if SMTP credentials are configured.
  * Supports GoDaddy (Office 365, Secureserver, Titan) or standard SMTP.
  * Returns null if SMTP is not configured.
@@ -45,9 +69,12 @@ const sendLeadConfirmation = async (lead) => {
             return;
         }
 
-        const clientName = lead.name || "there";
-        const serviceName = lead.service || "Digital Growth Consultation";
+        const clientName = escapeHtml(lead.name || "there");
+        const serviceName = escapeHtml(lead.service || "Digital Growth Consultation");
         const websiteUrl = process.env.CLIENT_URL || "https://www.digimedigiyou.com";
+        const safeCompany = escapeHtml(lead.company);
+        const safePhone = escapeHtml(lead.phone);
+        const safeWebsite = sanitizeUrl(lead.website);
 
         const htmlContent = `
         <!DOCTYPE html>
@@ -103,20 +130,20 @@ const sendLeadConfirmation = async (lead) => {
                             <span class="summary-label">Target Service:</span>
                             <span class="summary-value" style="color: #00AED6;">${serviceName}</span>
                         </div>
-                        ${lead.company ? `
+                        ${safeCompany ? `
                         <div class="summary-row">
                             <span class="summary-label">Company / Brand:</span>
-                            <span class="summary-value">${lead.company}</span>
+                            <span class="summary-value">${safeCompany}</span>
                         </div>` : ''}
-                        ${lead.phone ? `
+                        ${safePhone ? `
                         <div class="summary-row">
                             <span class="summary-label">Phone:</span>
-                            <span class="summary-value">${lead.phone}</span>
+                            <span class="summary-value">${safePhone}</span>
                         </div>` : ''}
-                        ${lead.website ? `
+                        ${safeWebsite ? `
                         <div class="summary-row">
                             <span class="summary-label">Website:</span>
-                            <span class="summary-value">${lead.website}</span>
+                            <span class="summary-value"><a href="${safeWebsite}" target="_blank" style="color: #00AED6;">${safeWebsite}</a></span>
                         </div>` : ''}
                     </div>
 
@@ -132,14 +159,14 @@ const sendLeadConfirmation = async (lead) => {
                     </p>
 
                     <div class="btn-container">
-                        <a href="${websiteUrl}" class="btn" target="_blank">Visit Our Website &rarr;</a>
+                        <a href="${escapeHtml(websiteUrl)}" class="btn" target="_blank">Visit Our Website &rarr;</a>
                     </div>
                 </div>
 
                 <div class="footer">
                     <div><strong>DMDY (Digi Me Digi You)</strong> &bull; Delhi NCR, India &bull; Global Operations</div>
                     <div style="margin-top: 6px;">
-                        <a href="${websiteUrl}">digimedigiyou.com</a> &bull; 
+                        <a href="${escapeHtml(websiteUrl)}">digimedigiyou.com</a> &bull; 
                         <a href="mailto:info@digimedigiyou.com">info@digimedigiyou.com</a>
                     </div>
                 </div>
@@ -153,7 +180,7 @@ const sendLeadConfirmation = async (lead) => {
             to: lead.email,
             subject: `Thank you for contacting DMDY — Inquiry Received! 🚀`,
             html: htmlContent,
-            text: `Hi ${clientName},\n\nThank you for reaching out to DMDY (Digi Me Digi You)!\n\nWe have received your inquiry for ${serviceName}. Our team will review your requirements and reach out to you within 24 business hours.\n\nBest regards,\nDMDY Team\ninfo@digimedigiyou.com\nhttps://www.digimedigiyou.com`,
+            text: `Hi ${lead.name || "there"},\n\nThank you for reaching out to DMDY (Digi Me Digi You)!\n\nWe have received your inquiry for ${lead.service || "Digital Growth Consultation"}. Our team will review your requirements and reach out to you within 24 business hours.\n\nBest regards,\nDMDY Team\ninfo@digimedigiyou.com\nhttps://www.digimedigiyou.com`,
         });
 
         console.log(`[CLIENT AUTO-REPLY] Confirmation email successfully sent to client: ${lead.email}`);
@@ -176,6 +203,15 @@ const sendLeadNotification = async (lead) => {
             console.log(`[EMAIL NOTIFICATION] (SMTP not configured) New lead received from ${lead.name} (${lead.email}) for service "${lead.service || 'General Inquiry'}"`);
             return;
         }
+
+        const safeName = escapeHtml(lead.name || 'N/A');
+        const safeEmail = escapeHtml(lead.email || 'N/A');
+        const safePhone = escapeHtml(lead.phone || 'N/A');
+        const safeCompany = escapeHtml(lead.company || 'N/A');
+        const safeService = escapeHtml(lead.service || 'General Consultation');
+        const safeWebsite = sanitizeUrl(lead.website);
+        const safeMessage = lead.message ? escapeHtml(lead.message).replace(/\n/g, '<br>') : 'No specific message provided.';
+        const clientUrl = escapeHtml(process.env.CLIENT_URL || 'https://www.digimedigiyou.com');
 
         const htmlContent = `
         <!DOCTYPE html>
@@ -208,34 +244,34 @@ const sendLeadNotification = async (lead) => {
                     <span class="badge">🚀 Hot Lead Alert</span>
                     <div class="field">
                         <div class="label">Full Name</div>
-                        <div class="value">${lead.name || 'N/A'}</div>
+                        <div class="value">${safeName}</div>
                     </div>
                     <div class="field">
                         <div class="label">Email Address</div>
-                        <div class="value"><a href="mailto:${lead.email}" style="color: #00AED6;">${lead.email || 'N/A'}</a></div>
+                        <div class="value"><a href="mailto:${safeEmail}" style="color: #00AED6;">${safeEmail}</a></div>
                     </div>
                     <div class="field">
                         <div class="label">Phone / WhatsApp</div>
-                        <div class="value">${lead.phone || 'N/A'}</div>
+                        <div class="value">${safePhone}</div>
                     </div>
                     <div class="field">
                         <div class="label">Company / Brand</div>
-                        <div class="value">${lead.company || 'N/A'}</div>
+                        <div class="value">${safeCompany}</div>
                     </div>
                     <div class="field">
                         <div class="label">Current Website</div>
-                        <div class="value">${lead.website ? `<a href="${lead.website}" target="_blank" style="color: #2563eb;">${lead.website}</a>` : 'N/A'}</div>
+                        <div class="value">${safeWebsite ? `<a href="${safeWebsite}" target="_blank" style="color: #2563eb;">${safeWebsite}</a>` : 'N/A'}</div>
                     </div>
                     <div class="field">
                         <div class="label">Target Service</div>
-                        <div class="value" style="font-weight: 700; color: #E6007A;">${lead.service || 'General Consultation'}</div>
+                        <div class="value" style="font-weight: 700; color: #E6007A;">${safeService}</div>
                     </div>
                     <div class="field">
                         <div class="label">Project Brief / Message</div>
-                        <div class="message-box">${lead.message ? lead.message.replace(/\n/g, '<br>') : 'No specific message provided.'}</div>
+                        <div class="message-box">${safeMessage}</div>
                     </div>
                     <div style="text-align: center;">
-                        <a href="${process.env.CLIENT_URL || 'https://www.digimedigiyou.com'}/admin" class="cta-btn">View in Admin CRM &rarr;</a>
+                        <a href="${clientUrl}/admin" class="cta-btn">View in Admin CRM &rarr;</a>
                     </div>
                 </div>
                 <div class="footer">

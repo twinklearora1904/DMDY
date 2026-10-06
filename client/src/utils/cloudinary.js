@@ -58,11 +58,18 @@ export const getOptimizedImage = (url, options = {}) => {
   const prefix = url.substring(0, uploadIndex + '/upload/'.length);
   const suffix = url.substring(uploadIndex + '/upload/'.length);
 
-  // Check if there are already existing transformations after /upload/ (e.g., /upload/f_auto,q_auto/v1234/...)
-  const versionOrIdMatch = suffix.match(/(v\d+\/.*|[a-zA-Z0-9_\-.]+\.[a-zA-Z0-9]+$)/);
-  if (versionOrIdMatch) {
-    const cleanSuffix = versionOrIdMatch[0];
-    return `${prefix}${transformString}/${cleanSuffix}`;
+  // Check if there are existing version tags (e.g. /upload/v12345/dmdy_blogs/sample.webp)
+  const versionMatch = suffix.match(/(?:^|\/)(v\d+\/.+)$/);
+  if (versionMatch) {
+    return `${prefix}${transformString}/${versionMatch[1]}`;
+  }
+
+  // Check if there are existing transformation segments (e.g. /upload/c_fill,w_300/dmdy_blogs/sample.webp)
+  const pathParts = suffix.split('/');
+  const assetIndex = pathParts.findIndex((part) => !/^[a-z]{1,3}_/i.test(part));
+  if (assetIndex > 0) {
+    const cleanAssetPath = pathParts.slice(assetIndex).join('/');
+    return `${prefix}${transformString}/${cleanAssetPath}`;
   }
 
   return `${prefix}${transformString}/${suffix}`;

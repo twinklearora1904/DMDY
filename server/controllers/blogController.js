@@ -86,6 +86,10 @@ const createBlog = async (req, res) => {
 
         res.status(201).json(createdBlog);
     } catch (error) {
+        // Clean up uploaded Cloudinary image if database save failed to prevent orphaned media
+        if (req.file && image && image.public_id) {
+            await deleteFromCloudinary(image.public_id).catch(() => {});
+        }
         if (error.code === 11000) {
             return res.status(400).json({ message: "A blog post with this slug already exists." });
         }
@@ -197,7 +201,7 @@ const updateBlog = async (req, res) => {
             return res.status(404).json({ message: "Blog not found" });
         }
 
-        if (blog.author.toString() !== req.user._id && req.user.role !== "admin") {
+        if (blog.author.toString() !== req.user._id.toString() && req.user.role !== "admin") {
             return res.status(403).json({ message: "Not authorized to update this blog" });
         }
 
@@ -279,7 +283,7 @@ const deleteBlog = async (req, res) => {
             return res.status(404).json({ message: "Blog not found" });
         }
 
-        if (blog.author.toString() !== req.user._id && req.user.role !== "admin") {
+        if (blog.author.toString() !== req.user._id.toString() && req.user.role !== "admin") {
             return res.status(403).json({ message: "Not authorized to delete this blog" });
         }
 
@@ -317,14 +321,24 @@ const getBlogOgMeta = async (req, res) => {
         }
 
         const clientUrl = (process.env.CLIENT_URL || "https://dmdy.in").split(",")[0].trim().replace(/\/$/, "");
-        const blogUrl = `${clientUrl}/blog/${blog.slug || blog._id}`;
-        const title = `${blog.title} — DMDY Intelligence`;
-        const description = (
+        const blogUrl = `${clientUrl}/blog/${encodeURIComponent(blog.slug || blog._id)}`;
+        
+        // Escape special HTML characters to prevent XSS / markup breakage
+        const escapeHtml = (str) =>
+            String(str || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        const rawTitle = `${blog.title} — DMDY Intelligence`;
+        const title = escapeHtml(rawTitle);
+        const description = escapeHtml(
             blog.metaDescription ||
             (blog.content ? blog.content.substring(0, 160).replace(/[#*`_]/g, "").trim() : "")
-        ).replace(/"/g, "&quot;");
-
-        const imageUrl = blog.image?.url || `${clientUrl}/favicon.png`;
+        );
+        const imageUrl = escapeHtml(blog.image?.url || `${clientUrl}/favicon.png`);
 
         res.set("Content-Type", "text/html");
         res.send(`<!DOCTYPE html>
@@ -340,15 +354,15 @@ const getBlogOgMeta = async (req, res) => {
   <meta property="og:image" content="${imageUrl}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="${blogUrl}">
+  <meta property="og:url" content="${escapeHtml(blogUrl)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="${imageUrl}">
-  <meta http-equiv="refresh" content="0; url=${blogUrl}">
+  <meta http-equiv="refresh" content="0; url=${escapeHtml(blogUrl)}">
 </head>
 <body>
-  <p>Redirecting to <a href="${blogUrl}">${title}</a>...</p>
+  <p>Redirecting to <a href="${escapeHtml(blogUrl)}">${title}</a>...</p>
 </body>
 </html>`);
     } catch (error) {
@@ -403,8 +417,8 @@ const searchBlogs = async (req, res) => {
                 total = 0;
             }
 
-            // Attempt 2: If text search yielded no results (e.g. partial substring / prefix), fallback to Regex
-            if (blogs.length === 0) {
+            // Attempt 2: If text search yielded no results across collection (e.g. partial substring / prefix), fallback to Regex
+            if (total === 0) {
                 const escaped = trimmedQuery.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
                 const regex = new RegExp(escaped, "i");
 
@@ -509,12 +523,23 @@ const recordBlogView = async (req, res) => {
     try {
         const { id } = req.params;
         const isObjectId = mongoose.Types.ObjectId.isValid(id) && id.length === 24;
+        const normalizedId = (id || "").toLowerCase().trim();
 
         let blog = null;
         if (isObjectId) {
-            blog = await Blog.findByIdAndUpdate(id, { $inc: { views: 1 } }, { new: true }).select("views");
-        } else {
-            blog = await Blog.findOneAndUpdate({ slug: id }, { $inc: { views: 1 } }, { new: true }).select("views");
+            blog = await Blog.findOneAndUpdate(
+                { _id: id, isPublished: true },
+                { $inc: { views: 1 } },
+                { new: true }
+            ).select("views");
+        }
+
+        if (!blog && normalizedId) {
+            blog = await Blog.findOneAndUpdate(
+                { slug: normalizedId, isPublished: true },
+                { $inc: { views: 1 } },
+                { new: true }
+            ).select("views");
         }
 
         if (!blog) {

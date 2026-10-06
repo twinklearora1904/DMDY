@@ -53,13 +53,16 @@ const ContactModal = () => {
   // Sync initialService when modal opens
   useEffect(() => {
     if (isOpen) {
-      setFormData(prev => ({
-        ...prev,
-        service: initialService || 'Complete 360° Digital Marketing'
-      }));
-      setTouched({});
-      setHasSubmitted(false);
-      setStatus({ type: '', msg: '' });
+      const timer = setTimeout(() => {
+        setFormData(prev => ({
+          ...prev,
+          service: initialService || 'Complete 360° Digital Marketing'
+        }));
+        setTouched({});
+        setHasSubmitted(false);
+        setStatus({ type: '', msg: '' });
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [isOpen, initialService]);
 

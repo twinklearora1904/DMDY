@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-const ContactModalContext = createContext();
+/* oxlint-disable react/only-export-components */
+import React, { useState, useEffect } from 'react';
+import { ContactModalContext, useContactModal } from './contactModalInstance';
 
 export const ContactModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,10 +34,5 @@ export const ContactModalProvider = ({ children }) => {
   );
 };
 
-export const useContactModal = () => {
-  const context = useContext(ContactModalContext);
-  if (!context) {
-    throw new Error('useContactModal must be used within a ContactModalProvider');
-  }
-  return context;
-};
+export { useContactModal };
+

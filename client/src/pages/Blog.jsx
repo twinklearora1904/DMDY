@@ -53,9 +53,11 @@ const Blog = () => {
   useEffect(() => {
     const trimmed = searchTerm.trim();
     if (trimmed.length < 2) {
-      setSuggestions({ suggestions: [], tags: [] });
-      setShowSuggestions(false);
-      return;
+      const clearTimer = setTimeout(() => {
+        setSuggestions({ suggestions: [], tags: [] });
+        setShowSuggestions(false);
+      }, 0);
+      return () => clearTimeout(clearTimer);
     }
 
     const timer = setTimeout(async () => {

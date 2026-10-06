@@ -84,9 +84,9 @@ const RichBlogEditor = ({ value = '', onChange, placeholder = 'Write your blog p
           next.shift();
         }
         next.push(newText);
-        setHistoryIndex(next.length - 1);
         return next;
       });
+      setHistoryIndex((prevIdx) => Math.min(prevIdx + 1, MAX_HISTORY_SIZE - 1));
     }
   };
 

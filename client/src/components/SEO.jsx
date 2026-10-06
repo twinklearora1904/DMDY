@@ -87,14 +87,23 @@ const SEO = ({
     setMetaTag('name', 'twitter:description', finalDescription);
     setMetaTag('name', 'twitter:image', ogImageUrl);
 
+    // Safe ISO date formatter
+    const safeIsoDate = (val) => {
+      if (!val) return new Date().toISOString();
+      const d = new Date(val);
+      return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+    };
+
     // Canonical link
     setLinkTag('canonical', currentUrl);
 
     // Dynamic Article Meta (if type === 'article')
     if (type === 'article') {
       if (author) setMetaTag('property', 'article:author', author);
-      if (publishedTime) setMetaTag('property', 'article:published_time', new Date(publishedTime).toISOString());
-      tags.forEach((tag) => setMetaTag('property', 'article:tag', tag));
+      if (publishedTime) setMetaTag('property', 'article:published_time', safeIsoDate(publishedTime));
+      if (Array.isArray(tags) && tags.length > 0) {
+        setMetaTag('property', 'article:tag', tags.join(', '));
+      }
     }
 
     // 3. Inject Google Rich Snippet (Schema.org JSON-LD)
@@ -115,8 +124,8 @@ const SEO = ({
         'headline': title,
         'description': finalDescription,
         'image': [ogImageUrl],
-        'datePublished': publishedTime ? new Date(publishedTime).toISOString() : new Date().toISOString(),
-        'dateModified': publishedTime ? new Date(publishedTime).toISOString() : new Date().toISOString(),
+        'datePublished': safeIsoDate(publishedTime),
+        'dateModified': safeIsoDate(publishedTime),
         'author': {
           '@type': 'Person',
           'name': author,

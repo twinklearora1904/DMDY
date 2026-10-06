@@ -42,20 +42,60 @@ const createLead = async (req, res) => {
 
 const getLeads = async (req, res) => {
     try {
-        const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.limit) || 20;
+        const page = Math.max(1, parseInt(req.query.page, 10) || 1);
+        const limit = Math.min(100, Math.max(1, parseInt(req.query.limit, 10) || 20));
         const skip = (page - 1) * limit;
 
-        const [leads, total] = await Promise.all([
-            Lead.find({}).sort({ createdAt: -1 }).skip(skip).limit(limit),
-            Lead.countDocuments({}),
+        const queryFilter = {};
+        if (req.query.status && req.query.status !== "All" && VALID_STATUSES.includes(req.query.status)) {
+            queryFilter.status = req.query.status;
+        }
+
+        if (req.query.search && typeof req.query.search === "string" && req.query.search.trim()) {
+            const escaped = req.query.search.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            const searchRegex = new RegExp(escaped, "i");
+            queryFilter.$or = [
+                { name: searchRegex },
+                { email: searchRegex },
+                { company: searchRegex },
+                { phone: searchRegex },
+                { service: searchRegex },
+            ];
+        }
+
+        const [leads, total, statusAggregation] = await Promise.all([
+            Lead.find(queryFilter).sort({ createdAt: -1 }).skip(skip).limit(limit),
+            Lead.countDocuments(queryFilter),
+            Lead.aggregate([
+                {
+                    $group: {
+                        _id: "$status",
+                        count: { $sum: 1 },
+                    },
+                },
+            ]),
         ]);
+
+        const statusCounts = {
+            New: 0,
+            Contacted: 0,
+            Qualified: 0,
+            Proposal: 0,
+            Won: 0,
+            Lost: 0,
+        };
+        (statusAggregation || []).forEach((item) => {
+            if (item._id && Object.prototype.hasOwnProperty.call(statusCounts, item._id)) {
+                statusCounts[item._id] = item.count;
+            }
+        });
 
         res.json({
             leads,
             currentPage: page,
-            totalPages: Math.ceil(total / limit),
+            totalPages: Math.ceil(total / limit) || 1,
             totalLeads: total,
+            statusCounts,
             hasNextPage: page * limit < total,
             hasPrevPage: page > 1,
         });

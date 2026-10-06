@@ -79,6 +79,18 @@ class CacheService {
     }
 
     /**
+     * Internal helper to clean up expired in-memory items
+     */
+    _cleanExpiredMemory() {
+        const now = Date.now();
+        for (const [k, v] of this.memoryStore.entries()) {
+            if (now > v.expiresAt) {
+                this.memoryStore.delete(k);
+            }
+        }
+    }
+
+    /**
      * Set item in cache with TTL
      * @param {string} key
      * @param {any} value
@@ -91,7 +103,16 @@ class CacheService {
                 return;
             }
 
-            // In-Memory storage
+            // In-Memory storage: prevent unbounded growth
+            if (this.memoryStore.size >= 1000) {
+                this._cleanExpiredMemory();
+                // If still at cap after cleaning expired, evict oldest key (FIFO)
+                if (this.memoryStore.size >= 1000) {
+                    const firstKey = this.memoryStore.keys().next().value;
+                    if (firstKey) this.memoryStore.delete(firstKey);
+                }
+            }
+
             this.memoryStore.set(key, {
                 value,
                 expiresAt: Date.now() + ttlSeconds * 1000,

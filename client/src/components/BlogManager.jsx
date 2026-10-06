@@ -40,7 +40,6 @@ const BlogManager = () => {
 
   useEffect(() => {
     let isMounted = true;
-    setIsInitialLoading(true);
     api.get('/api/blogs?all=true')
       .then((res) => {
         if (isMounted) setBlogs(res.data || []);

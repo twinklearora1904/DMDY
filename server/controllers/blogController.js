@@ -131,6 +131,7 @@ const getBlogs = async (req, res) => {
 
         res.json(blogs);
     } catch (error) {
+        console.error("[Blog Controller] Error fetching blogs:", error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 };
@@ -182,6 +183,7 @@ const getBlogById = async (req, res) => {
 
         res.json(blog);
     } catch (error) {
+        console.error("[Blog Controller] Error fetching blog by ID:", error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 };
@@ -298,6 +300,7 @@ const deleteBlog = async (req, res) => {
 
         res.json({ message: "Blog removed successfully" });
     } catch (error) {
+        console.error("[Blog Controller] Error deleting blog:", error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 };
@@ -366,6 +369,7 @@ const getBlogOgMeta = async (req, res) => {
 </body>
 </html>`);
     } catch (error) {
+        console.error("[Blog Controller] Error generating OG meta:", error.message);
         res.status(500).send("Error generating social preview");
     }
 };
@@ -411,7 +415,7 @@ const searchBlogs = async (req, res) => {
                     .populate("author", "name email");
 
                 total = await Blog.countDocuments(textFilter);
-            } catch (textErr) {
+            } catch {
                 // If text index not yet built or text query fails, continue to regex fallback
                 blogs = [];
                 total = 0;

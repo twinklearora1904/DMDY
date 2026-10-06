@@ -1,4 +1,4 @@
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, req, res, _next) => {
     let statusCode = err.status || err.statusCode || (res.statusCode === 200 ? 500 : res.statusCode);
     let message = err.message || "An unexpected server error occurred.";
 

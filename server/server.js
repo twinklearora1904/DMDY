@@ -21,7 +21,7 @@ const clientUrls = (process.env.CLIENT_URL || "")
     .map((url) => url.trim().replace(/\/$/, ""))
     .filter(Boolean);
 
-const allowedOrigins = [
+const allowedOrigins = new Set([
     ...clientUrls,
     "https://www.digimedigiyou.com",
     "https://digimedigiyou.com",
@@ -29,7 +29,7 @@ const allowedOrigins = [
     "http://localhost:5174",
     "http://127.0.0.1:5173",
     "http://127.0.0.1:5174",
-];
+]);
 
 const corsOptions = {
     origin: (origin, callback) => {
@@ -37,9 +37,9 @@ const corsOptions = {
         const normalizedOrigin = origin.replace(/\/$/, "");
         if (
             (process.env.CLIENT_URL === "*" && process.env.NODE_ENV !== "production") ||
-            allowedOrigins.includes(normalizedOrigin) ||
+            allowedOrigins.has(normalizedOrigin) ||
             normalizedOrigin.endsWith(".vercel.app") ||
-            normalizedOrigin.includes("digimedigiyou.com")
+            normalizedOrigin.endsWith(".digimedigiyou.com")
         ) {
             return callback(null, true);
         }
@@ -94,6 +94,17 @@ const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+const gracefulShutdown = (signal) => {
+    console.log(`[Process] ${signal} received. Closing HTTP server gracefully...`);
+    server.close(() => {
+        console.log("[Process] HTTP server closed cleanly.");
+        process.exit(0);
+    });
+};
+
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
 process.on("unhandledRejection", (err) => {
     console.error("[Fatal Error] Unhandled Rejection:", err?.message || err);

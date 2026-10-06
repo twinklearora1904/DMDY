@@ -50,6 +50,54 @@ const createTransporter = () => {
         tls: {
             rejectUnauthorized: false, // Prevents self-signed cert blocks on custom mail hosts
         },
+        connectionTimeout: 10000,
+        greetingTimeout: 10000,
+        socketTimeout: 10000,
+    });
+};
+
+/**
+ * Universal email dispatcher:
+ * 1. Uses Resend (HTTPS API on Port 443) when RESEND_API_KEY is provided
+ *    (Bypasses Render/cloud SMTP port 25/465/587 blocks completely).
+ * 2. Falls back to Nodemailer SMTP when RESEND_API_KEY is not set.
+ */
+const dispatchEmail = async ({ to, subject, html, text, from }) => {
+    // Mode 1: Resend HTTPS API (Port 443 - zero firewall blocks on Render / Vercel / Heroku)
+    if (process.env.RESEND_API_KEY) {
+        const { Resend } = require("resend");
+        const resend = new Resend(process.env.RESEND_API_KEY);
+        const sender = from || process.env.EMAIL_FROM || "DMDY Digital <info@digimedigiyou.com>";
+        const cleanFrom = sender.replace(/^"|"$/g, '').trim();
+
+        const { data, error } = await resend.emails.send({
+            from: cleanFrom,
+            to: Array.isArray(to) ? to : [to],
+            subject,
+            html,
+            text,
+        });
+
+        if (error) {
+            throw new Error(`Resend API Error: ${error.message || JSON.stringify(error)}`);
+        }
+        return data;
+    }
+
+    // Mode 2: Standard Nodemailer SMTP
+    const transporter = createTransporter();
+    if (!transporter) {
+        console.log(`[EMAIL DISPATCH SKIPPED] Neither RESEND_API_KEY nor SMTP credentials configured.`);
+        return null;
+    }
+
+    const defaultFrom = process.env.EMAIL_FROM || `"DMDY Digital" <${process.env.SMTP_USER || "info@digimedigiyou.com"}>`;
+    return await transporter.sendMail({
+        from: from || defaultFrom,
+        to,
+        subject,
+        html,
+        text,
     });
 };
 
@@ -61,13 +109,7 @@ const sendLeadConfirmation = async (lead) => {
     try {
         if (!lead.email) return;
 
-        const transporter = createTransporter();
         const fromEmail = process.env.EMAIL_FROM || `"DMDY Digital" <${process.env.SMTP_USER || "info@digimedigiyou.com"}>`;
-
-        if (!transporter) {
-            console.log(`[CLIENT AUTO-REPLY] (SMTP not configured) Would have sent confirmation to ${lead.email}`);
-            return;
-        }
 
         const clientName = escapeHtml(lead.name || "there");
         const serviceName = escapeHtml(lead.service || "Digital Growth Consultation");
@@ -175,7 +217,7 @@ const sendLeadConfirmation = async (lead) => {
         </html>
         `;
 
-        await transporter.sendMail({
+        await dispatchEmail({
             from: fromEmail,
             to: lead.email,
             subject: `Thank you for contacting DMDY — Inquiry Received! 🚀`,
@@ -195,14 +237,8 @@ const sendLeadConfirmation = async (lead) => {
  */
 const sendLeadNotification = async (lead) => {
     try {
-        const transporter = createTransporter();
         const adminEmail = process.env.NOTIFICATION_RECEIVER_EMAIL || process.env.ADMIN_EMAIL || "info@digimedigiyou.com";
         const fromEmail = process.env.EMAIL_FROM || `"DMDY Lead Alert" <${process.env.SMTP_USER || "info@digimedigiyou.com"}>`;
-
-        if (!transporter) {
-            console.log(`[EMAIL NOTIFICATION] (SMTP not configured) New lead received from ${lead.name} (${lead.email}) for service "${lead.service || 'General Inquiry'}"`);
-            return;
-        }
 
         const safeName = escapeHtml(lead.name || 'N/A');
         const safeEmail = escapeHtml(lead.email || 'N/A');
@@ -282,7 +318,7 @@ const sendLeadNotification = async (lead) => {
         </html>
         `;
 
-        await transporter.sendMail({
+        await dispatchEmail({
             from: fromEmail,
             to: adminEmail,
             subject: `⚡ New DMDY Lead: ${lead.name} (${lead.service || "Growth Consultation"})`,

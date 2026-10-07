@@ -2444,10 +2444,10 @@ const Home = () => {
                 </div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
                   <a
-                    href="mailto:business@digimedigiyou.com"
+                    href="mailto:info@digimedigiyou.com"
                     className="text-[#00AED6] hover:underline font-semibold"
                   >
-                    business@digimedigiyou.com
+                    info@digimedigiyou.com
                   </a>
                   <span className="text-slate-600 hidden sm:inline">&bull;</span>
                   <a

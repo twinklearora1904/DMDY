@@ -34,6 +34,25 @@ const protect = async (req, res, next) => {
     return res.status(401).json({ message: "Not authorized, no token provided" });
 };
 
+const optionalProtect = async (req, res, next) => {
+    if (
+        req.headers.authorization &&
+        req.headers.authorization.startsWith("Bearer ")
+    ) {
+        try {
+            const token = req.headers.authorization.split(" ")[1];
+            if (token) {
+                const decoded = jwt.verify(token, process.env.JWT_SECRET);
+                req.user = await User.findById(decoded.id).select("-password");
+            }
+        } catch (error) {
+            // Silently fail for optional protection to allow guest access
+            console.debug("Optional auth failed:", error.message);
+        }
+    }
+    next();
+};
+
 const admin = (req, res, next) => {
     if (req.user && req.user.role === "admin") {
         return next();
@@ -41,4 +60,4 @@ const admin = (req, res, next) => {
     return res.status(403).json({ message: "Not authorized as an admin" });
 };
 
-module.exports = { protect, admin };
+module.exports = { protect, admin, optionalProtect };

@@ -11,7 +11,7 @@ const {
     getSearchSuggestions,
     recordBlogView,
 } = require("../controllers/blogController");
-const { protect, admin } = require("../middleware/authMiddleware");
+const { protect, admin, optionalProtect } = require("../middleware/authMiddleware");
 const upload = require("../middleware/uploadMiddleware");
 const viewLimiter = require("../middleware/viewLimiter");
 
@@ -19,7 +19,7 @@ const { check } = require("express-validator");
 const { validate } = require("../middleware/validateMiddleware");
 
 router.route("/")
-    .get(getBlogs)
+    .get(optionalProtect, getBlogs)
     .post(
         protect,
         admin,
@@ -41,7 +41,7 @@ router.get("/:id/meta", getBlogOgMeta);
 router.post("/:id/view", viewLimiter, recordBlogView);
 
 router.route("/:id")
-    .get(getBlogById)
+    .get(optionalProtect, getBlogById)
     .put(protect, admin, upload.single("image"), updateBlog)
     .delete(protect, admin, deleteBlog);
 

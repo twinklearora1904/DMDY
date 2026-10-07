@@ -48,7 +48,7 @@ const createTransporter = () => {
             pass: SMTP_PASS,
         },
         tls: {
-            rejectUnauthorized: false, // Prevents self-signed cert blocks on custom mail hosts
+            rejectUnauthorized: true,
         },
         connectionTimeout: 10000,
         greetingTimeout: 10000,

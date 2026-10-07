@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const { notFound } = require("./middleware/notFoundMiddleware");
+const { sitemap, robotsTxt } = require("./utils/seoUtils");
 
 const authRoutes = require("./routes/authRoutes");
 const blogRoutes = require("./routes/blogRoutes");
@@ -23,8 +24,6 @@ const clientUrls = (process.env.CLIENT_URL || "")
 
 const allowedOrigins = new Set([
     ...clientUrls,
-    "https://www.digimedigiyou.com",
-    "https://digimedigiyou.com",
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
@@ -37,9 +36,7 @@ const corsOptions = {
         const normalizedOrigin = origin.replace(/\/$/, "");
         if (
             (process.env.CLIENT_URL === "*" && process.env.NODE_ENV !== "production") ||
-            allowedOrigins.has(normalizedOrigin) ||
-            normalizedOrigin.endsWith(".vercel.app") ||
-            normalizedOrigin.endsWith(".digimedigiyou.com")
+            allowedOrigins.has(normalizedOrigin)
         ) {
             return callback(null, true);
         }
@@ -59,6 +56,10 @@ app.use(
 );
 app.use(cors(corsOptions));
 app.use(express.json());
+
+// SEO Static Routes (Must be before general routes and notFound)
+app.get("/sitemap.xml", sitemap);
+app.get("/robots.txt", robotsTxt);
 
 // Routes
 app.use("/api/auth", authRoutes);

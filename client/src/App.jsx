@@ -8,6 +8,9 @@ import FloatingWhatsApp from './components/FloatingWhatsApp'
 import PageLoader from './components/PageLoader'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ProtectedRoute from './components/ProtectedRoute'
+import { AuthProvider } from './context/authContextInstance'
+import { SpeedInsights as VercelSpeedInsights } from '@vercel/speed-insights/react'
 
 // Lazy loaded page components for optimal performance and chunk splitting
 const Home = lazy(() => import('./pages/Home'))
@@ -35,61 +38,63 @@ const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
   return (
-    <ContactModalProvider>
-      <Router>
-        <PageLoader />
-        <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
-          <Navbar />
-          <ContactModal />
-          <FloatingWhatsApp />
-          <main className="flex-grow">
-            <Suspense
-              fallback={
-                <div className="min-h-[60vh] flex flex-col items-center justify-center py-16">
-                  <div className="w-9 h-9 border-3 border-slate-200 border-t-[#00AED6] rounded-full animate-spin"></div>
-                </div>
-              }
-            >
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/services/360-digital-marketing" element={<DigitalMarketing360Service />} />
-                <Route path="/services/360-digital-marketing-services" element={<DigitalMarketing360Service />} />
-                <Route path="/services/digital-marketing" element={<DigitalMarketing360Service />} />
-                <Route path="/services/seo" element={<SeoService />} />
-                <Route path="/services/web-development" element={<WebDevelopmentService />} />
-                <Route path="/services/website-design-development" element={<WebDevelopmentService />} />
-                <Route path="/services/social-media" element={<SocialMediaService />} />
-                <Route path="/services/google-ads" element={<GoogleAdsService />} />
-                <Route path="/services/paid-marketing" element={<PaidMarketingService />} />
-                <Route path="/services/paid-media" element={<PaidMarketingService />} />
-                <Route path="/services/content-marketing" element={<ContentMarketingService />} />
-                <Route path="/services/content-creation-marketing" element={<ContentMarketingService />} />
-                <Route path="/services/graphic-designing-video-editing" element={<GraphicDesignVideoService />} />
-                <Route path="/services/graphic-design-video-editing" element={<GraphicDesignVideoService />} />
-                <Route path="/services/graphic-design" element={<GraphicDesignVideoService />} />
-                <Route path="/services/video-editing" element={<GraphicDesignVideoService />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/industries" element={<Industries />} />
-                <Route path="/pricing" element={<PricingPage />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/thank-you" element={<ThankYou />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/admin" element={<Admin />} />
-                <Route path="/admin/login" element={<Login />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </main>
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </div>
-      </Router>
-    </ContactModalProvider>
+    <AuthProvider>
+      <ContactModalProvider>
+        <Router>
+          <PageLoader />
+          <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
+            <Navbar />
+            <ContactModal />
+            <FloatingWhatsApp />
+            <main className="flex-grow">
+              <Suspense
+                fallback={
+                  <div className="min-h-[60vh] flex flex-col items-center justify-center py-16">
+                    <div className="w-9 h-9 border-3 border-slate-200 border-t-[#00AED6] rounded-full animate-spin"></div>
+                  </div>
+                }
+              >
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/services/360-digital-marketing" element={<DigitalMarketing360Service />} />
+                  <Route path="/services/360-digital-marketing-services" element={<DigitalMarketing360Service />} />
+                  <Route path="/services/digital-marketing" element={<DigitalMarketing360Service />} />
+                  <Route path="/services/seo" element={<SeoService />} />
+                  <Route path="/services/web-development" element={<WebDevelopmentService />} />
+                  <Route path="/services/website-design-development" element={<WebDevelopmentService />} />
+                  <Route path="/services/social-media" element={<SocialMediaService />} />
+                  <Route path="/services/google-ads" element={<GoogleAdsService />} />
+                  <Route path="/services/paid-marketing" element={<PaidMarketingService />} />
+                  <Route path="/services/paid-media" element={<PaidMarketingService />} />
+                  <Route path="/services/content-marketing" element={<ContentMarketingService />} />
+                  <Route path="/services/content-creation-marketing" element={<ContentMarketingService />} />
+                  <Route path="/services/graphic-designing-video-editing" element={<GraphicDesignVideoService />} />
+                  <Route path="/services/graphic-design-video-editing" element={<GraphicDesignVideoService />} />
+                  <Route path="/services/graphic-design" element={<GraphicDesignVideoService />} />
+                  <Route path="/services/video-editing" element={<GraphicDesignVideoService />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/industries" element={<Industries />} />
+                  <Route path="/pricing" element={<PricingPage />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/thank-you" element={<ThankYou />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
+                  <Route path="/admin/login" element={<Login />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/terms" element={<Terms />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </main>
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+          </div>
+        </Router>
+      </ContactModalProvider>
+    </AuthProvider>
   )
 }
 

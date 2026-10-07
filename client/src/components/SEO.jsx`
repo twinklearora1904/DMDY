@@ -1,0 +1,125 @@
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { getOpenGraphImage } from '../utils/cloudinary';
+
+/**
+ * Professional SEO Component
+ * Now uses react-helmet-async for declarative meta tag management.
+ * This ensures a more stable and predictable way to manage head tags in SPAs.
+ */
+const SEO = ({
+  title,
+  description,
+  image,
+  url,
+  type = 'website',
+  author = 'DMDY Intelligence',
+  publishedTime,
+  tags = [],
+  noindex = false,
+  schema = null,
+}) => {
+  const siteName = 'DMDY — 360° Digital Growth Partner & Performance Marketing Agency';
+  const fullTitle = title
+    ? (title.includes('DMDY') ? title : `${title} — DMDY`)
+    : siteName;
+
+  const ogImageUrl = image
+    ? getOpenGraphImage(image)
+    : 'https://www.digimedigiyou.com/favicon.png';
+
+  const currentUrl = url || typeof window !== 'undefined' ? window.location.href : 'https://www.digimedigiyou.com';
+  const finalDescription = description || 'A 360° performance digital marketing consultancy driving predictable revenue through SEO, paid ads, and conversion optimization.';
+
+  const safeIsoDate = (val) => {
+    if (!val) return new Date().toISOString();
+    const d = new Date(val);
+    return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+  };
+
+  // Schema.org JSON-LD
+  let structuredData = null;
+  if (schema) {
+    structuredData = schema;
+  } else if (type === 'article') {
+    structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      'headline': title,
+      'description': finalDescription,
+      'image': [ogImageUrl],
+      'datePublished': safeIsoDate(publishedTime),
+      'dateModified': safeIsoDate(publishedTime),
+      'author': { '@type': 'Person', 'name': author },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'DMDY - Digi Me Digi You',
+        'logo': { '@type': 'ImageObject', 'url': 'https://www.digimedigiyou.com/favicon.png' },
+      },
+      'mainEntityOfPage': { '@type': 'WebPage', '@id': currentUrl },
+    };
+  } else if (type === 'service') {
+    structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': title,
+      'description': finalDescription,
+      'provider': {
+        '@type': 'Organization',
+        'name': 'DMDY - Digi Me Digi You',
+        'url': 'https://www.digimedigiyou.com',
+        'logo': 'https://www.digimedigiyou.com/favicon.png',
+      },
+      'areaServed': 'Worldwide',
+      'serviceType': title,
+    };
+  }
+
+  return (
+    <Helmet>
+      <title>{fullTitle}</title>
+      <meta name="description" content={finalDescription} />
+      {noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      )}
+      <link rel="canonical" href={currentUrl} />
+
+      {/* OpenGraph / Facebook / WhatsApp */}
+      <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={finalDescription} />
+      <meta property="og:image" content={ogImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={title || 'DMDY Digital Growth'} />
+      <meta property="og:url" content={currentUrl} />
+      <meta property="og:site_name" content="DMDY" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={finalDescription} />
+      <meta name="twitter:image" content={ogImageUrl} />
+
+      {type === 'article' && (
+        <>
+          <meta property="article:author" content={author} />
+          <meta property="article:published_time" content={safeIsoDate(publishedTime)} />
+          {Array.isArray(tags) && tags.length > 0 && (
+            <meta property="article:tag" content={tags.join(', ')} />
+          )}
+        </>
+      )}
+
+      {structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      )}
+    </Helmet>
+  );
+};
+
+export default SEO;

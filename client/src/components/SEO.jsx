@@ -27,12 +27,16 @@ const SEO = ({
     const prevTitle = document.title;
     document.title = fullTitle;
 
-    // 2. Resolve image and full canonical URL
+    // Resolve image and full canonical URL
     const ogImageUrl = image
       ? getOpenGraphImage(image)
       : 'https://www.digimedigiyou.com/favicon.png';
 
-    const currentUrl = url || window.location.href;
+    // FORCE canonical to always be HTTPS and WWW to prevent "Page with redirect" errors in Google Search Console
+    const baseUrl = 'https://www.digimedigiyou.com';
+    const path = window.location.pathname + window.location.search;
+    const currentUrl = url || `${baseUrl}${path}`;
+
     const finalDescription = description || 'A 360° performance digital marketing consultancy driving predictable revenue through SEO, paid ads, and conversion optimization.';
 
     // Helper to safely set or create a meta tag

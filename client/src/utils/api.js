@@ -9,6 +9,7 @@ const baseURL = (rawBaseURL || 'http://localhost:5000').trim().replace(/\/+$/, '
 
 const api = axios.create({
   baseURL,
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -27,9 +28,6 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
-      if (typeof window !== 'undefined' && window.location.pathname.startsWith('/admin') && window.location.pathname !== '/admin/login') {
-        window.location.href = '/admin/login';
-      }
     }
     return Promise.reject(error);
   }

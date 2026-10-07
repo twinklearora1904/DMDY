@@ -3,18 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { useContactModal } from '../context/ContactModalContext';
 import api from '../utils/api';
 import SITE_CONFIG from '../config/siteConfig';
-import { 
-  X, 
-  Sparkles, 
-  Phone, 
-  MessageSquare, 
-  Lock, 
+import {
+  X,
+  Sparkles,
+  Phone,
+  MessageSquare,
+  Lock,
   ArrowRight,
   Clock,
   CheckCircle2,
   AlertCircle
 } from 'lucide-react';
-import { validateLeadForm } from '../utils/validation';
+import { contactSchema } from '../utils/validation';
 
 const serviceOptions = [
   'Complete 360° Digital Marketing',
@@ -47,22 +47,20 @@ const ContactModal = () => {
   const [status, setStatus] = useState({ type: '', msg: '' });
   const [loading, setLoading] = useState(false);
 
-  // Real-time calculated errors
-  const errors = validateLeadForm(formData);
+  // Zod-based real-time validation
+  const validation = contactSchema.safeParse(formData);
+  const errors = !validation.success ? validation.error.flatten().fieldErrors : {};
 
   // Sync initialService when modal opens
   useEffect(() => {
     if (isOpen) {
-      const timer = setTimeout(() => {
-        setFormData(prev => ({
-          ...prev,
-          service: initialService || 'Complete 360° Digital Marketing'
-        }));
-        setTouched({});
-        setHasSubmitted(false);
-        setStatus({ type: '', msg: '' });
-      }, 0);
-      return () => clearTimeout(timer);
+      setFormData(prev => ({
+        ...prev,
+        service: initialService || 'Complete 360° Digital Marketing'
+      }));
+      setTouched({});
+      setHasSubmitted(false);
+      setStatus({ type: '', msg: '' });
     }
   }, [isOpen, initialService]);
 
@@ -96,8 +94,8 @@ const ContactModal = () => {
     setHasSubmitted(true);
     setStatus({ type: '', msg: '' });
 
-    const currentErrors = validateLeadForm(formData);
-    if (Object.keys(currentErrors).length > 0) {
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
       setTouched({
         name: true,
         company: true,
@@ -126,7 +124,7 @@ const ContactModal = () => {
       ...formData,
       website: normalizedWebsite,
     };
-    
+
     try {
       await api.post('/api/leads', payload);
       const submittedName = formData.name;
@@ -158,8 +156,8 @@ const ContactModal = () => {
     } catch (error) {
       setStatus({
         type: 'error',
-        msg: error.response?.data?.errors?.[0]?.msg || 
-             error.response?.data?.message || 
+        msg: error.response?.data?.errors?.[0]?.msg ||
+             error.response?.data?.message ||
              'Something went wrong. Please check your details and try again.'
       });
     } finally {
@@ -169,7 +167,7 @@ const ContactModal = () => {
 
   const getFieldFeedback = (fieldName) => {
     const isTouched = touched[fieldName] || hasSubmitted;
-    const error = errors[fieldName];
+    const error = errors[fieldName]?.[0];
     const value = formData[fieldName];
 
     if (!isTouched) {
@@ -210,13 +208,13 @@ const ContactModal = () => {
   const messageFeedback = getFieldFeedback('message');
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 bg-slate-950/70 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
       onClick={closeModal}
       role="dialog"
       aria-modal="true"
     >
-      <div 
+      <div
         className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden my-auto animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
@@ -225,7 +223,7 @@ const ContactModal = () => {
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-pink-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
         {/* Close Button */}
-        <button 
+        <button
           onClick={closeModal}
           aria-label="Close modal"
           className="absolute top-4 right-4 sm:top-5 sm:right-5 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-all cursor-pointer z-20 shadow-xs"
@@ -253,15 +251,15 @@ const ContactModal = () => {
 
           {/* Quick Contact Chips */}
           <div className="flex flex-wrap items-center gap-2 pt-4 mt-3 border-t border-slate-100 text-xs font-semibold text-slate-600">
-            <a 
-              href={SITE_CONFIG.contact.phoneTel} 
+            <a
+              href={SITE_CONFIG.contact.phoneTel}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-[#00AED6]" />
               <span>{SITE_CONFIG.contact.phoneDisplay}</span>
             </a>
 
-            <a 
+            <a
               href={SITE_CONFIG.getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
@@ -280,11 +278,11 @@ const ContactModal = () => {
 
         {/* Modal Form Body */}
         <div className="p-6 sm:p-8 pt-5 sm:pt-6 max-h-[72vh] overflow-y-auto relative z-10 text-left">
-          
+
           {status.msg && (
             <div className={`p-4 mb-5 rounded-xl text-sm font-semibold flex items-center ${
-              status.type === 'success' 
-                ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' 
+              status.type === 'success'
+                ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                 : 'bg-rose-50 text-rose-800 border border-rose-200'
             }`}>
               {status.msg}
@@ -292,7 +290,7 @@ const ContactModal = () => {
           )}
 
           <form onSubmit={handleSubmit} noValidate className="space-y-4">
-            
+
             {/* Row 1: Full Name & Business / Company Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -443,6 +441,55 @@ const ContactModal = () => {
                   onBlur={() => handleBlur('message')}
                   rows="3"
                   className={`w-full rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none transition-all resize-y border ${messageFeedback.className}`}
+                  placeholder="Tell us about your brand, current challenges, and goals..."
+                ></textarea>
+                {messageFeedback.icon && (
+                  <div className="absolute right-3.5 top-4 pointer-events-none">
+                    {messageFeedback.icon}
+                  </div>
+                )}
+              </div>
+              {messageFeedback.error && (
+                <p className="text-[11px] text-rose-600 font-semibold mt-1.5 flex items-center gap-1.5 animate-in fade-in slide-in-from-top-1 duration-200">
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                  <span>{messageFeedback.error}</span>
+                </p>
+              )}
+            </div>
+
+            {/* Submit Button */}
+            <button
+              disabled={loading}
+              type="submit"
+              className="w-full btn-primary"
+            >
+              {loading ? (
+                <span className="flex items-center gap-2">
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <span>Sending Enquiry...</span>
+                </span>
+              ) : (
+                <span className="flex items-center gap-2">
+                  <span>Send My Enquiry</span>
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              )}
+            </button>
+
+            {/* Privacy Confidentiality Assurance */}
+            <div className="flex items-center justify-center gap-2 text-center text-xs text-slate-500 pt-1 font-medium">
+              <Lock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span>Your information is kept confidential and will only be used to respond to your enquiry.</span>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ContactModal;w-full rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none transition-all resize-y border ${messageFeedback.className}`}
                   placeholder="Tell us about your brand, current challenges, and goals..."
                 ></textarea>
                 {messageFeedback.icon && (

@@ -3,6 +3,7 @@ import { useAuth } from '../context/authContextInstance';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { Lock, Mail, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { loginSchema } from '../utils/validation';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,6 +22,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
+    const result = loginSchema.safeParse({ email, password });
+    if (!result.success) {
+      setError(result.error.issues[0].message);
+      return;
+    }
+
     try {
       await login(email, password);
       navigate('/admin');
@@ -45,7 +53,7 @@ const Login = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-center relative z-10">
         <div className="bg-white p-6 sm:p-12 rounded-2xl sm:rounded-3xl w-full max-w-md border border-slate-200/90 shadow-xl shadow-slate-200/60 relative overflow-hidden">
-          
+
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#00AED6]/10 text-[#00AED6] border border-[#00AED6]/20 uppercase tracking-widest mb-4">
               <Sparkles className="w-3 h-3 text-[#00AED6]" /> Management Console
@@ -62,13 +70,13 @@ const Login = () => {
               Authorized DMDY Personnel Only
             </p>
           </div>
-          
+
           {error && (
             <div className="bg-rose-50 text-rose-700 border border-rose-200 p-3.5 rounded-xl mb-6 text-xs text-center font-semibold">
               {error}
             </div>
           )}
-          
+
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
@@ -76,13 +84,12 @@ const Login = () => {
               </label>
               <div className="relative">
                 <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                <input 
-                  type="email" 
-                  required
+                <input
+                  type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@digimedigiyou.com"
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/90 rounded-xl text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all" 
+                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/90 rounded-xl text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
                 />
               </div>
             </div>
@@ -93,19 +100,18 @@ const Login = () => {
               </label>
               <div className="relative">
                 <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                <input 
-                  type="password" 
-                  required
+                <input
+                  type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/90 rounded-xl text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all" 
+                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/90 rounded-xl text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#00AED6] focus:ring-2 focus:ring-[#00AED6]/20 transition-all"
                 />
               </div>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="w-full btn-primary mt-6"
             >
               Sign In to Dashboard <ArrowRight className="w-4 h-4" />

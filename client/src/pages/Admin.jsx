@@ -106,22 +106,30 @@ const Admin = () => {
 
   useEffect(() => {
     if (user && activeTab === 'leads') {
-      const timer = setTimeout(() => {
-        fetchLeads(1);
-      }, 0);
-      return () => clearTimeout(timer);
+      fetchLeads(1);
     } else if (user && activeTab === 'analytics') {
-      const timer = setTimeout(() => {
-        fetchAnalytics();
-      }, 0);
-      return () => clearTimeout(timer);
+      fetchAnalytics();
     }
   }, [user, activeTab, fetchAnalytics, fetchLeads]);
 
   const handleStatusChange = async (id, newStatus) => {
     // Optimistic Update
     const previousLeads = [...leads];
+    const previousStatusCounts = { ...statusCounts };
+
+    // 1. Update Leads List
     setLeads(prev => prev.map(l => l._id === id ? { ...l, status: newStatus } : l));
+
+    // 2. Update KPI Cards Optimistically
+    const leadToUpdate = leads.find(l => l._id === id);
+    if (leadToUpdate) {
+      const oldStatus = leadToUpdate.status;
+      setStatusCounts(prev => ({
+        ...prev,
+        [oldStatus]: Math.max(0, (prev[oldStatus] || 0) - 1),
+        [newStatus]: (prev[newStatus] || 0) + 1,
+      }));
+    }
 
     try {
       await api.put(`/api/leads/${id}`, { status: newStatus });
@@ -130,7 +138,8 @@ const Admin = () => {
       }
     } catch (err) {
       console.error('Failed to update lead status:', err);
-      setLeads(previousLeads); // Rollback on failure
+      setLeads(previousLeads); // Rollback list
+      setStatusCounts(previousStatusCounts); // Rollback counts
     }
   };
 

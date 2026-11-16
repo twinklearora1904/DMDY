@@ -12,10 +12,10 @@ export const SITE_CONFIG = {
 
   // Contact Information
   contact: {
-    phoneDisplay: '+91 98765 43210',
-    phoneRaw: '+919876543210',
-    phoneTel: 'tel:+919876543210',
-    whatsappNumber: '919876543210',
+    phoneDisplay: '+91 9643588313',
+    phoneRaw: '+919643588313',
+    phoneTel: 'tel:+919643588313',
+    whatsappNumber: '919643588313',
     email: 'info@digimedigiyou.com',
     emailMailto: 'mailto:info@digimedigiyou.com',
     address: 'Delhi NCR, India',

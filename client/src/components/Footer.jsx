@@ -177,10 +177,10 @@ const Footer = () => {
           <div>
             &copy; {new Date().getFullYear()} DMDY Digital. All rights reserved.
           </div>
-          <div className="flex items-center gap-1.5 text-slate-400">
+          {/* <div className="flex items-center gap-1.5 text-slate-400">
             <span>Powered by</span>
             <span className="font-bold text-white bg-slate-900 px-2.5 py-0.5 rounded-md border border-slate-800">Atul Rathaur</span>
-          </div>
+          </div> */}
           <div>
             Corporate Headquarters &bull; Global Operations
           </div>
